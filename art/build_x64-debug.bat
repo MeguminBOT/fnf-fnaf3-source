@@ -2,7 +2,7 @@
 color 0a
 cd ..
 echo BUILDING GAME
-haxelib run lime build windows -debug -D HXCPP_M64 -D HXCPP_CLANG
+haxelib run lime build windows -debug
 echo.
 echo done.
 pause
