@@ -202,13 +202,13 @@ class FreeplayState extends MusicBeatState
 
 		// Choose what help text to display based on target build.
 		#if PRELOAD_ALL
-		dynamicHelpText = "Press SPACE to listen to the Song / Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy.";
+		dynamicHelpText = "Press SPACE to listen to the Song - Press CTRL to open the Gameplay Changers Menu - Press RESET to Reset your Score and Accuracy.\nPress ALT to open the Achievements Menu.";
 		#else
 		dynamicHelpText = "Press CTRL to open the Gameplay Changers Menu";
 		#end
 
 		// Create text showing the players highest score.
-		helpText = new FlxText(textBG.x + 4, textBG.y + 40, FlxG.width, dynamicHelpText, 16);
+		helpText = new FlxText(textBG.x + 4, textBG.y + 36, FlxG.width, dynamicHelpText, 16);
 		helpText.setFormat(Paths.font("5Computers-In-Love.ttf"), 8, FlxColor.WHITE, CENTER);
 		helpText.scrollFactor.set();
 		add(helpText);
@@ -415,7 +415,6 @@ class FreeplayState extends MusicBeatState
 		destroyFreeplayVocals();
     }
 
-
 	function checkSecretCode(): Void {
 		// Initialize with an invalid value.
 		var keyPressed:Int = -1; 
@@ -587,6 +586,12 @@ class FreeplayState extends MusicBeatState
 		if(FlxG.keys.justPressed.CONTROL) {
 			persistentUpdate = false;
 			openSubState(new GameplayChangersSubstate());
+		}
+
+		if (FlxG.keys.justPressed.ALT) {
+			persistentUpdate = false;
+			openSubState(new AchievementsMenuState());
+			FlxG.sound.play(Paths.sound('done'), 0.7);
 		}
 
 		super.update(elapsed);

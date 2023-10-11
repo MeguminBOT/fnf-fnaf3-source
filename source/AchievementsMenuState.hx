@@ -17,7 +17,7 @@ import Achievements;
 
 using StringTools;
 
-class AchievementsMenuState extends MusicBeatState
+class AchievementsMenuState extends MusicBeatSubstate
 {
 	#if ACHIEVEMENTS_ALLOWED
 	var options:Array<String> = [];
@@ -27,17 +27,13 @@ class AchievementsMenuState extends MusicBeatState
 	private var achievementIndex:Array<Int> = [];
 	private var descText:FlxText;
 
-	override function create() {
-		#if desktop
-		DiscordClient.changePresence("Achievements Menu", null);
-		#end
-
-		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBGBlue'));
-		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
-		menuBG.updateHitbox();
-		menuBG.screenCenter();
-		menuBG.antialiasing = ClientPrefs.globalAntialiasing;
-		add(menuBG);
+	public function new()
+	{
+		super();
+		
+		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		bg.alpha = 0.6;
+		add(bg);
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
@@ -86,7 +82,7 @@ class AchievementsMenuState extends MusicBeatState
 
 		if (controls.BACK) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			MusicBeatState.switchState(new FreeplayState());
+			close();
 		}
 	}
 
