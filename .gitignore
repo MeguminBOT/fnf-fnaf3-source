@@ -23,4 +23,5 @@ export/*
 .haxelib/*
 currentProgress/*
 example_modss/*
-discord.hx
+source/Discord.hx
+source/discord.hx
