@@ -1,0 +1,29 @@
+{
+	"songs": [
+		["brain-damage", "jj", [146, 113, 253]],
+		["party-room", "pp", [146, 113, 253]],
+		["waffles", "wspring", [146, 113, 253]],
+		["totally-real", "fredtrap", [146, 113, 253]],
+		["leantrap", "lean", [146, 113, 253]],
+		["endo-revengo", "endo01", [146, 113, 253]],
+		["misconception", "freddy", [146, 113, 253]],
+		["out-of-bounds", "bb2", [146, 113, 253]],
+		["until-next-time", "psf", [146, 113, 253]],
+		["test", "bf", [146, 113, 253]]
+	],
+
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"weekBackground": "stage",
+
+	"storyName": "Daddy Dearest",
+	"weekBefore": "tutorial",
+	"weekName": "Week 1",
+	"startUnlocked": true,
+
+	"hideStoryMode": false,
+	"hideFreeplay": false
+}
