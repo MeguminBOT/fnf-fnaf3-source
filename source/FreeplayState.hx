@@ -24,6 +24,7 @@ import sys.FileSystem;
 #end
 
 // FNAF 3 Specific Imports
+import flixel.FlxCamera;
 import flixel.math.FlxPoint;
 import flixel.ui.FlxButton;
 import flixel.ui.FlxSpriteButton;
@@ -31,6 +32,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxSpriteGroup;
 import flixel.input.keyboard.FlxKey;
 import flixel.input.keyboard.FlxKeyList;
+import Achievements;
 
 using StringTools;
 
@@ -92,6 +94,10 @@ class FreeplayState extends MusicBeatState
 	var secretCode:Array<Int> = [3, 9, 5, 2, 4, 8];
 	var userInput:Array<Int> = [];
 
+	// Cameras
+	private var camMenu:FlxCamera;
+	private var camAchievement:FlxCamera;
+
 	/*------------------------------------------------*/
 
 	override function create()
@@ -100,7 +106,7 @@ class FreeplayState extends MusicBeatState
 		FlxG.mouse.visible = true; // Make the mouse visible since the UI is made for mouse and touch input.
 
 		Paths.clearStoredMemory(); // Force clear cache.
-		Paths.clearUnusedMemory(); // Force unused but allocated memory.
+		Paths.clearUnusedMemory(); // Force clear unused but allocated memory.
 		
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;
@@ -155,6 +161,8 @@ class FreeplayState extends MusicBeatState
 
 		var swag:Alphabet = new Alphabet(1, 0, "swag");
 
+		/* Call our separated function for creating cameras */
+		cameraSetup(); /* Call our separated function for creating cameras */
 
 		/* Call our separated function for creating song buttons */
 		btnGroups.push(createGroup(songList));
@@ -166,6 +174,17 @@ class FreeplayState extends MusicBeatState
 	}
 
 	/*--------------- Start of FNAF 3 Menu Stuff --------------- */
+	function cameraSetup()
+	{
+		camMenu = new FlxCamera();
+		camAchievement = new FlxCamera();
+		camAchievement.bgColor.alpha = 0;
+
+		FlxG.cameras.reset(camMenu);
+		FlxG.cameras.add(camAchievement, false);
+		FlxG.cameras.setDefaultDrawTarget(camMenu, true);
+	}
+
 	function createTextStuff() 
 	{
 		// Create a transparent background for the text objects.
@@ -194,7 +213,6 @@ class FreeplayState extends MusicBeatState
 		helpText.scrollFactor.set();
 		add(helpText);
 	}
-
 
 	public function createGroup(songList:Array<String>):FlxTypedGroup<FlxButton> 
 	{
@@ -381,6 +399,10 @@ class FreeplayState extends MusicBeatState
 	{
 		persistentUpdate = false;
 
+		#if ACHIEVEMENTS_ALLOWED
+			unlockAchievement();
+		#end
+
 		FlxG.sound.play(Paths.sound('confirmMenu'), 1);
 
 		PlayState.SONG = Song.loadFromJson('out-of-bounds', 'out-of-bounds');
@@ -392,6 +414,7 @@ class FreeplayState extends MusicBeatState
 		FlxG.sound.music.volume = 0;
 		destroyFreeplayVocals();
     }
+
 
 	function checkSecretCode(): Void {
 		// Initialize with an invalid value.
@@ -454,6 +477,19 @@ class FreeplayState extends MusicBeatState
 					trace("Secret code not matched. userInput cleared.");
 				}
 			}
+		}
+	}
+
+	function unlockAchievement()
+	{
+		Achievements.loadAchievements();
+		var achieveID:Int = Achievements.getAchievementIndex('code_cracker');
+		if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID][2])) {
+			Achievements.achievementsMap.set(Achievements.achievementsStuff[achieveID][2], true);
+			add(new AchievementObject('code_cracker', camAchievement));
+			trace('Giving achievement "code_cracker"');
+			FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
+			ClientPrefs.saveSettings();
 		}
 	}
 	/*--------------- End of FNAF 3 Menu Stuff --------------- */

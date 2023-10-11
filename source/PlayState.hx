@@ -2735,9 +2735,7 @@ class PlayState extends MusicBeatState
 		if(achievementObj != null) {
 			return;
 		} else {
-			var achieve:String = checkForAchievement(['week1_nomiss', 'week2_nomiss', 'week3_nomiss', 'week4_nomiss',
-				'week5_nomiss', 'week6_nomiss', 'week7_nomiss', 'ur_bad',
-				'ur_good', 'hype', 'two_keys', 'toastie', 'debugger']);
+			var achieve:String = checkForAchievement(['week1_nomiss', 'week2_nomiss', 'ur_bad', 'ur_good', 'hype', 'two_keys', 'toastie']);
 
 			if(achieve != null) {
 				startAchievement(achieve);
@@ -3798,6 +3796,12 @@ class PlayState extends MusicBeatState
 					if(isStoryMode && campaignMisses + songMisses < 1 && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice)
 						unlock = true;
 				}
+				if (achievementName.contains(WeekData.getWeekFileName()) && achievementName.endsWith('gfc')) // any FC achievements, name should be "weekFileName_nomiss", e.g: "weekd_nomiss";
+				{
+					if(isStoryMode && campaignMisses + songMisses < 1 && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice && ratingFC == "GFC" || ratingFC == "SFC")
+						unlock = true;
+				}
+
 				switch(achievementName)
 				{
 					case 'ur_bad':
@@ -3808,10 +3812,6 @@ class PlayState extends MusicBeatState
 						if(ratingPercent >= 1 && !usedPractice) {
 							unlock = true;
 						}
-					case 'roadkill_enthusiast':
-						if(Achievements.henchmenDeath >= 100) {
-							unlock = true;
-						}
 					case 'oversinging':
 						if(boyfriend.holdTimer >= 10 && !usedPractice) {
 							unlock = true;
@@ -3820,23 +3820,12 @@ class PlayState extends MusicBeatState
 						if(!boyfriendIdled && !usedPractice) {
 							unlock = true;
 						}
-					case 'two_keys':
-						if(!usedPractice) {
-							var howManyPresses:Int = 0;
-							for (j in 0...keysPressed.length) {
-								if(keysPressed[j]) howManyPresses++;
-							}
-
-							if(howManyPresses <= 2) {
-								unlock = true;
-							}
-						}
-					case 'toastie':
-						if(/*ClientPrefs.framerate <= 60 &&*/ !ClientPrefs.shaders && ClientPrefs.lowQuality && !ClientPrefs.globalAntialiasing) {
+					case 'secret_song_one':
+						if(Paths.formatToSongPath(SONG.song) == 'out-of-bounds' && !usedPractice) {
 							unlock = true;
 						}
-					case 'debugger':
-						if(Paths.formatToSongPath(SONG.song) == 'test' && !usedPractice) {
+					case 'secret_song_two':
+						if(Paths.formatToSongPath(SONG.song) == 'until-next-time' && !usedPractice) {
 							unlock = true;
 						}
 				}
