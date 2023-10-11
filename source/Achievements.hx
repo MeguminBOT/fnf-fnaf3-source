@@ -26,7 +26,6 @@ class Achievements {
 	];
 	public static var achievementsMap:Map<String, Bool> = new Map<String, Bool>();
 
-	public static var henchmenDeath:Int = 0;
 	public static function unlockAchievement(name:String):Void {
 		FlxG.log.add('Completed achievement "' + name +'"');
 		achievementsMap.set(name, true);
@@ -53,9 +52,6 @@ class Achievements {
 		if(FlxG.save.data != null) {
 			if(FlxG.save.data.achievementsMap != null) {
 				achievementsMap = FlxG.save.data.achievementsMap;
-			}
-			if(henchmenDeath == 0 && FlxG.save.data.henchmenDeath != null) {
-				henchmenDeath = FlxG.save.data.henchmenDeath;
 			}
 		}
 	}
