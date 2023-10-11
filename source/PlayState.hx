@@ -287,6 +287,11 @@ class PlayState extends MusicBeatState
 	// stores the last combo score objects in an array
 	public static var lastScore:Array<FlxSprite> = [];
 
+	/*-------- VS FNAF 3 Stuff --------*/
+	public static var isCodeInput:Bool = false;
+
+	/*---------------------------------*/
+
 	override public function create()
 	{
 		//trace('Playback Rate: ' + playbackRate);
@@ -383,6 +388,8 @@ class PlayState extends MusicBeatState
 		{
 			detailsText = "Story Mode: " + WeekData.getCurrentWeek().weekName;
 		}
+		if (isCodeInput)
+			detailsText = "Secret Song: ";
 		else
 		{
 			detailsText = "Freeplay";
@@ -2746,8 +2753,7 @@ class PlayState extends MusicBeatState
 
 		var ret:Dynamic = callOnLuas('onEndSong', [], false);
 		if(ret != FunkinLua.Function_Stop && !transitioning) {
-			if (SONG.validScore)
-			{
+			if (SONG.validScore) {
 				#if !switch
 				var percent:Float = ratingPercent;
 				if(Math.isNaN(percent)) percent = 0;
@@ -2756,21 +2762,18 @@ class PlayState extends MusicBeatState
 			}
 			playbackRate = 1;
 
-			if (chartingMode)
-			{
+			if (chartingMode) {
 				openChartEditor();
 				return;
 			}
 
-			if (isStoryMode)
-			{
+			if (isStoryMode) {
 				campaignScore += songScore;
 				campaignMisses += songMisses;
 
 				storyPlaylist.remove(storyPlaylist[0]);
 
-				if (storyPlaylist.length <= 0)
-				{
+				if (storyPlaylist.length <= 0) {
 					WeekData.loadTheFirstEnabledMod();
 					FlxG.sound.playMusic(Paths.music('freakyMenu'));
 
@@ -2780,12 +2783,10 @@ class PlayState extends MusicBeatState
 					}
 					MusicBeatState.switchState(new StoryMenuState());
 
-					// if ()
 					if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {
 						StoryMenuState.weekCompleted.set(WeekData.weeksList[storyWeek], true);
 
-						if (SONG.validScore)
-						{
+						if (SONG.validScore) {
 							Highscore.saveWeekScore(WeekData.getWeekFileName(), campaignScore, storyDifficulty);
 						}
 
@@ -2793,9 +2794,8 @@ class PlayState extends MusicBeatState
 						FlxG.save.flush();
 					}
 					changedDifficulty = false;
-				}
-				else
-				{
+	
+				} else {
 					var difficulty:String = CoolUtil.getDifficultyFilePath();
 
 					trace('LOADING NEXT SONG');
@@ -2806,15 +2806,20 @@ class PlayState extends MusicBeatState
 
 					prevCamFollow = camFollow;
 					prevCamFollowPos = camFollowPos;
-
 					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0] + difficulty, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
 					cancelMusicFadeTween();
 					LoadingState.loadAndSwitchState(new PlayState());
 				}
-			}
-			else
-			{
+
+			} else if (isCodeInput) {
+				PlayState.SONG = Song.loadFromJson('until-next-time', 'until-next-time');
+				PlayState.isCodeInput = false;
+				FlxG.sound.music.stop();
+				cancelMusicFadeTween();
+				LoadingState.loadAndSwitchState(new PlayState());
+
+			} else {
 				trace('WENT BACK TO FREEPLAY??');
 				WeekData.loadTheFirstEnabledMod();
 				cancelMusicFadeTween();

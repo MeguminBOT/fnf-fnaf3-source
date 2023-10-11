@@ -406,7 +406,7 @@ class FreeplayState extends MusicBeatState
 		FlxG.sound.play(Paths.sound('confirmMenu'), 1);
 
 		PlayState.SONG = Song.loadFromJson('out-of-bounds', 'out-of-bounds');
-		PlayState.isStoryMode = false;
+		PlayState.isCodeInput = true;
 
 		LoadingState.loadAndSwitchState(FlxG.keys.pressed.SHIFT ? new ChartingState() : new PlayState());
 
