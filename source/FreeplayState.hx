@@ -33,6 +33,7 @@ import flixel.group.FlxSpriteGroup;
 import flixel.input.keyboard.FlxKey;
 import flixel.input.keyboard.FlxKeyList;
 import Achievements;
+import SongUnlock;
 
 using StringTools;
 
@@ -64,6 +65,7 @@ class FreeplayState extends MusicBeatState
 	var scoreText:FlxText;
 	var helpText:FlxText;
 	var dynamicHelpText:String;
+	var ratingSplit:Array<String>;
 
 	// UI Button stuff
 	var btnGroup:FlxTypedGroup<FlxButton>;
@@ -73,7 +75,8 @@ class FreeplayState extends MusicBeatState
 
 	// Songlist
 	var songList:Array<String> = ['taken-apart', 'retribution', 'fear-forever', 'everlasting', 'brain-damage', 'party-room', 'totally-real', 'last-hour', 'waffles', 'leantrap', 'endo-revengo', 'misconception', 'out-of-bounds', 'until-next-time'];
-
+	var unlockedSongsMap:Map<String, Bool> = new Map<String, Bool>();
+	
 	// Filepath shortcuts
 	var menuPath:String = 'freeplay/';
 	var songSprites:String = 'freeplay/songs/';
@@ -107,7 +110,7 @@ class FreeplayState extends MusicBeatState
 
 		Paths.clearStoredMemory(); // Force clear cache.
 		Paths.clearUnusedMemory(); // Force clear unused but allocated memory.
-		
+
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;
 		WeekData.reloadWeekFiles(false);
@@ -161,8 +164,11 @@ class FreeplayState extends MusicBeatState
 
 		var swag:Alphabet = new Alphabet(1, 0, "swag");
 
+		/* Call our custom unlock progress. */
+		SongUnlock.loadUnlockProgress();
+
 		/* Call our separated function for creating cameras */
-		cameraSetup(); /* Call our separated function for creating cameras */
+		cameraSetup();
 
 		/* Call our separated function for creating song buttons */
 		btnGroups.push(createGroup(songList));
@@ -273,8 +279,20 @@ class FreeplayState extends MusicBeatState
 		// Button creation.
 		var button = new FlxButton(btnX, btnY, "", onButtonClicked.bind(index, songList));
 
-		// Load a sprite sharing the exact name of the song.
-		button.loadGraphic(Paths.image(songSprites + songList[index]));
+		// Check if the song is unlocked.
+		var songName = songList[index].split(' ').join('').split('-').join('');
+		if (SongUnlock.isSongUnlocked(songName)) {
+			// Load a sprite sharing the name of the song.
+			button.loadGraphic(Paths.image(songSprites + songList[index]));
+		} else {
+			if (index >= 12) {
+				// Load secret locked song sprite.
+				button.loadGraphic(Paths.image(menuPath + "lockedSongCode"));
+			} else {
+			// Load standard locked song sprite.
+			button.loadGraphic(Paths.image(menuPath + "lockedSong"));
+			}
+		}
 		
 		// Scale the button to the desired size.
 		button.scale.set(btnWidth / button.width, btnHeight / button.height); 
@@ -285,27 +303,6 @@ class FreeplayState extends MusicBeatState
 		
 		return button;
 	}
-
-	/* 	function createButton(btnX:Float, btnY:Float, index:Int, songList:Array<String>):FlxButton {
-		var button = new FlxButton(btnX, btnY, "", onButtonClicked.bind(index, songList));
-		
-		var song:String = songList[index];
-		var daSong:String = FNAFdata.formatSong(song, 0); // Assuming difficulty level 0 for simplicity
-		
-		if (FNAFdata.getProgress(song, 0) > 0) {
-			// Song is unlocked, load the unlocked sprite
-			button.loadGraphic(Paths.image(songSprites + song));
-		} else {
-			// Song is locked, load the locked sprite
-			button.loadGraphic(Paths.image(lockedSongSprites + song));
-		}
-		
-		button.scale.set(btnWidth / button.width, btnHeight / button.height); // Scale the button to the desired size.
-		button.onOver.callback = onButtonHighlight.bind(index, songList); // Assign the onOver event with the callback function
-		button.onOut.callback = onButtonDeselect.bind(index, songList); // Assign the onOut event with the callback function
-		
-		return button;
-	} */
 
 	function createOutline(outlineX:Float, outlineY:Float):FlxSprite 
 	{
@@ -327,6 +324,13 @@ class FreeplayState extends MusicBeatState
 
 		// Set the current selection to the index of the clicked button
 		curSelected = index; 
+
+		// Prevent player from starting secret songs.
+		var songNoSymbol = songList[curSelected].split(' ').join('').split('-').join('');
+		if (index >= 12 && !SongUnlock.isSongUnlocked(songNoSymbol)) {
+			camMenu.shake(0.05, 0.25);
+			return;
+		}
 
 		var songLowercase:String = Paths.formatToSongPath(songList[curSelected]);
 		var songFormatted:String = Highscore.formatSong(songLowercase, curDifficulty);
@@ -352,6 +356,7 @@ class FreeplayState extends MusicBeatState
 		// Set the current selection to the index of the highlighted button
 		curSelected = index;
 
+		var songNoSymbol = songList[curSelected].split(' ').join('').split('-').join('');
 		var songLowercase:String = Paths.formatToSongPath(songList[curSelected]);
 		var songFormatted:String = Highscore.formatSong(songLowercase, curDifficulty);
 		
@@ -363,11 +368,12 @@ class FreeplayState extends MusicBeatState
 		// Play a sound when the button is highlighted.
 		FlxG.sound.play(Paths.sound('scrollMenu'), 1);
 
-		// Scale up the button size by 10%
-		var button = btnGroup.members[curSelected];
-		var outline = outlineGroup.members[curSelected];
-		button.scale.set(button.scale.x * 1.1, button.scale.y * 1.1);
-		outline.scale.set(outline.scale.x * 1.1, outline.scale.y * 1.1);
+		if (SongUnlock.isSongUnlocked(songNoSymbol)) {
+			var button = btnGroup.members[curSelected];
+			var outline = outlineGroup.members[curSelected];
+			button.scale.set(button.scale.x * 1.1, button.scale.y * 1.1);
+			outline.scale.set(outline.scale.x * 1.1, outline.scale.y * 1.1);
+		}
 
 		#if debug
 		/* Debug build stuff. */
@@ -380,11 +386,13 @@ class FreeplayState extends MusicBeatState
 		persistentUpdate = false;
 		curSelected = index;
 	  
-		// Scale down the button size to original size.
-		var button = btnGroup.members[curSelected];
-		var outline = outlineGroup.members[curSelected];
-		button.scale.set(button.scale.x / 1.1, button.scale.y / 1.1);
-		outline.scale.set(outline.scale.x / 1.1, outline.scale.y / 1.1);
+		var songNoSymbol = songList[curSelected].split(' ').join('').split('-').join('');
+		if (SongUnlock.isSongUnlocked(songNoSymbol)) {
+			var button = btnGroup.members[curSelected];
+			var outline = outlineGroup.members[curSelected];
+			button.scale.set(button.scale.x / 1.1, button.scale.y / 1.1);
+			outline.scale.set(outline.scale.x / 1.1, outline.scale.y / 1.1);
+		}
 
 		index = -1;
 		curSelected = index;
@@ -395,7 +403,7 @@ class FreeplayState extends MusicBeatState
 		#end
 	}
 
-	function onSecretCode() 
+	function onSecretCode()
 	{
 		persistentUpdate = false;
 

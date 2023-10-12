@@ -76,6 +76,9 @@ import sys.io.File;
 import vlc.MP4Handler;
 #end
 
+// Fnaf 3 Specific imports
+import SongUnlock;
+
 using StringTools;
 
 class PlayState extends MusicBeatState
@@ -2751,6 +2754,17 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
+		if(songUnlockObj != null) {
+			return;
+		} else {
+			var songUnlockList:String = checkForSongUnlock(['takenapart_unlockSong', 'retribution_unlockSong', 'fearforever_unlockSong', 'everlasting_unlockSong', 'braindamage_unlockSong', 'partyroom_unlockSong','totallyreal_unlockSong', 'lasthour_unlockSong', 'waffles_unlockSong', 'leantrap_unlockSong', 'misconception_unlockSong', 'outofbounds_unlockSong', 'untilnexttime_unlockSong']);
+
+			if(songUnlockList != null) {
+				startUnlockSong(songUnlockList);
+				return;
+			}
+		}
+
 		var ret:Dynamic = callOnLuas('onEndSong', [], false);
 		if(ret != FunkinLua.Function_Stop && !transitioning) {
 			if (SONG.validScore) {
@@ -2850,6 +2864,22 @@ class PlayState extends MusicBeatState
 		}
 	}
 	#end
+
+	// Song Unlocking
+	var songUnlockObj:SongObject = null;
+	function startUnlockSong(songUnlockList:String) {
+		songUnlockObj = new SongObject(songUnlockList, camOther);
+		songUnlockObj.onFinish = unlockSongEnd;
+		add(songUnlockObj);
+		trace('Giving song ' + songUnlockList);
+	}
+	function unlockSongEnd():Void
+	{
+		songUnlockObj = null;
+		if(endingSong && !inCutscene) {
+			endSong();
+		}
+	}
 
 	public function KillNotes() {
 		while(notes.length > 0) {
@@ -3844,4 +3874,44 @@ class PlayState extends MusicBeatState
 		return null;
 	}
 	#end
+
+	private function checkForSongUnlock(songsToCheck:Array<String> = null):String
+	{
+		if(chartingMode) return null;
+	
+		var usedPractice:Bool = (ClientPrefs.getGameplaySetting('practice', false) || ClientPrefs.getGameplaySetting('botplay', false));
+		
+		for (i in 0...songsToCheck.length) {
+			var songUnlockName:String = songsToCheck[i];
+			var daSong:String = Song.getChartFileName(SONG.song);
+
+			if(!SongUnlock.isSongUnlocked(songUnlockName) && !cpuControlled) {
+				var unlock:Bool = false;
+				
+				if (songUnlockName.contains(Song.getChartFileName(SONG.song)) && songUnlockName.endsWith('unlockSong')) {
+					switch(daSong) {
+						case 'everlasting':
+							if (isStoryMode) {
+								SongUnlock.unlockSong('takenapart');
+								SongUnlock.unlockSong('retribution');
+								SongUnlock.unlockSong('fearforever');
+								SongUnlock.unlockSong('everlasting');
+								SongUnlock.unlockSong('braindamage');
+								SongUnlock.unlockSong('partyroom');
+								SongUnlock.unlockSong('totallyreal');
+								SongUnlock.unlockSong('lasthour');
+								SongUnlock.unlockSong('waffles');
+								SongUnlock.unlockSong('leantrap');
+								SongUnlock.unlockSong('misconception');
+							}
+
+						case 'untilnexttime':
+							SongUnlock.unlockSong('outofbounds');
+							SongUnlock.unlockSong('untilnexttime');
+					}
+				}
+			}
+		}
+		return null;
+	}
 }

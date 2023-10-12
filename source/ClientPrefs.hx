@@ -135,8 +135,8 @@ class ClientPrefs {
 
 		// FNAF 3 Additions.
 		FlxG.save.data.cacheOnGPU = cacheOnGPU;
-		
-	
+		FlxG.save.data.songMap = SongUnlock.songMap;
+
 		FlxG.save.flush();
 
 		var save:FlxSave = new FlxSave();

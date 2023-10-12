@@ -141,4 +141,11 @@ class Song
 		swagShit.validScore = true;
 		return swagShit;
 	}
+
+	public static function getChartFileName(name:String):String {
+		var fileName:String = name.toLowerCase();
+		fileName = fileName.split(" ").join(""); // Remove spaces
+		fileName = fileName.split("-").join(""); // Remove dashes
+		return fileName;
+	}
 }
