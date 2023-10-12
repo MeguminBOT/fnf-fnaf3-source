@@ -292,6 +292,7 @@ class PlayState extends MusicBeatState
 
 	/*-------- VS FNAF 3 Stuff --------*/
 	public static var isCodeInput:Bool = false;
+	public static var mirrorMode:Bool = false;
 	public var laneUnderlay:FlxSprite;
 	public var laneUnderlayOpponent:FlxSprite;
 
@@ -360,6 +361,10 @@ class PlayState extends MusicBeatState
 		instakillOnMiss = ClientPrefs.getGameplaySetting('instakill', false);
 		practiceMode = ClientPrefs.getGameplaySetting('practice', false);
 		cpuControlled = ClientPrefs.getGameplaySetting('botplay', false);
+
+		// VS FNAF 3 Gameplay Modifiers.
+		
+		mirrorMode = ClientPrefs.getGameplaySetting('mirrormode', false);
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
@@ -1652,6 +1657,20 @@ class PlayState extends MusicBeatState
 				if (songNotes[1] > 3)
 				{
 					gottaHitNote = !section.mustHitSection;
+				}
+
+				if (mirrorMode) {
+					switch(daNoteData)
+					{
+						case 0:
+							daNoteData = 3;
+						case 1:
+							daNoteData = 2;
+						case 2:
+							daNoteData = 1;
+						case 3:
+							daNoteData = 0;
+					}
 				}
 
 				var oldNote:Note;
