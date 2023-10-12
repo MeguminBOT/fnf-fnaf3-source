@@ -212,6 +212,10 @@ class FunkinLua {
 		set('scriptName', scriptName);
 		set('currentModDirectory', Paths.currentModDirectory);
 
+		// VS FNAF 3 Stuff
+		set('underlay', ClientPrefs.underlay);
+		set('mirrorMode', PlayState.mirrorMode);
+
 		#if windows
 		set('buildTarget', 'windows');
 		#elseif linux
