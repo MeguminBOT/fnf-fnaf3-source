@@ -63,6 +63,7 @@ class ClientPrefs {
 
 	// FNAF 3 Additions.
 	public static var cacheOnGPU:Bool = false;
+	public static var underlay:Float = 0;
 
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
@@ -135,6 +136,7 @@ class ClientPrefs {
 
 		// FNAF 3 Additions.
 		FlxG.save.data.cacheOnGPU = cacheOnGPU;
+		FlxG.save.data.underlay = underlay;
 		FlxG.save.data.songMap = SongUnlock.songMap;
 
 		FlxG.save.flush();
@@ -277,8 +279,9 @@ class ClientPrefs {
 		if(FlxG.save.data.cacheOnGPU != null) {
 			cacheOnGPU = FlxG.save.data.cacheOnGPU;
 		}
-
-
+		if (FlxG.save.data.underlay != null) {
+				underlay = FlxG.save.data.underlay;
+		}
 
 		var save:FlxSave = new FlxSave();
 		save.bind('controls_v2', 'fnf_fnaf3');

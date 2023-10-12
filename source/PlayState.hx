@@ -292,6 +292,8 @@ class PlayState extends MusicBeatState
 
 	/*-------- VS FNAF 3 Stuff --------*/
 	public static var isCodeInput:Bool = false;
+	public var laneUnderlay:FlxSprite;
+	public var laneUnderlayOpponent:FlxSprite;
 
 	/*---------------------------------*/
 
@@ -616,6 +618,24 @@ class PlayState extends MusicBeatState
 		if(ClientPrefs.downScroll) strumLine.y = FlxG.height - 150;
 		strumLine.scrollFactor.set();
 
+		// Lane Underlay backported from Rhythm Engine.
+		laneUnderlayOpponent = new FlxSprite(0, 0).makeGraphic(110 * 4 + 50, FlxG.height * 2);
+		laneUnderlayOpponent.alpha = ClientPrefs.underlay;
+		laneUnderlayOpponent.color = FlxColor.BLACK;
+		laneUnderlayOpponent.scrollFactor.set();
+		laneUnderlayOpponent.visible = false;
+
+		laneUnderlay = new FlxSprite(0, 0).makeGraphic(110 * 4 + 50, FlxG.height * 2);
+		laneUnderlay.alpha = ClientPrefs.underlay;
+		laneUnderlay.color = FlxColor.BLACK;
+		laneUnderlay.scrollFactor.set();
+
+		if (!ClientPrefs.middleScroll)
+		{
+			add(laneUnderlayOpponent);
+		}
+		add(laneUnderlay);
+
 		var showTime:Bool = (ClientPrefs.timeBarType != 'Disabled');
 		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, 19, 400, "", 32);
 		timeTxt.setFormat(Paths.font("stalker2.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -767,6 +787,8 @@ class PlayState extends MusicBeatState
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
+		laneUnderlay.cameras = [camHUD];
+		laneUnderlayOpponent.cameras = [camHUD];
 
 		startingSong = true;
 		
@@ -1251,6 +1273,13 @@ class PlayState extends MusicBeatState
 
 			generateStaticArrows(0);
 			generateStaticArrows(1);
+
+			//Lane Underlay
+			laneUnderlay.x = playerStrums.members[0].x - 25;
+			laneUnderlayOpponent.x = opponentStrums.members[0].x - 25;
+			laneUnderlay.screenCenter(Y);
+			laneUnderlayOpponent.screenCenter(Y);
+
 			for (i in 0...playerStrums.length) {
 				setOnLuas('defaultPlayerStrumX' + i, playerStrums.members[i].x);
 				setOnLuas('defaultPlayerStrumY' + i, playerStrums.members[i].y);

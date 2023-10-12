@@ -56,6 +56,19 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			false);
 		addOption(option);
 
+		var option:Option = new Option('Lane Transparency:',
+			"Changes the transparency of the area behind the playfield\nIncreasing this will make notes easier to see.",
+			'underlay',
+			'float',
+			0);
+			option.displayFormat = '%v';
+			option.scrollSpeed = 100;
+			option.changeValue = 0.05;
+			option.decimals = 2;
+			option.minValue = 0;
+			option.maxValue = 0.5;
+		addOption(option);
+
 		var option:Option = new Option('Opponent Notes',
 			'If unchecked, opponent notes get hidden.',
 			'opponentStrums',
