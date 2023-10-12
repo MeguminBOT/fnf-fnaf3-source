@@ -13,7 +13,7 @@ class Achievements {
 	public static var achievementsStuff:Array<Dynamic> = [ //Name, Description, Achievement save tag, Hidden achievement
 		["Freaky on a Friday Night",		"Play on a Friday... Night.",							'friday_night_play',		 true],
 		["Completed Main Week No Miss",		"Beat the Main Week in Story Mode with no Misses.",		'week1_nomiss',				false],
-		["Completed Main Week",				"Beat the Main Week in Story Mode.",					'week1_story',				false],
+		["Completed Main Week",				"Beat the Main Week in Story Mode.",					'week1',					false],
 		["What a Funkin' Disaster!",		"Complete a Song with a rating lower than 20%.",		'ur_bad',					false],
 		["Perfectionist",					"Complete a Song with a rating of 100%.",				'ur_good',					false],
 		["Oversinging Much...?",			"Hold down a note for 10 seconds.",						'oversinging',				false],
