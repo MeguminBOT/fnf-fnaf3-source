@@ -325,6 +325,13 @@ class FreeplayState extends MusicBeatState
 		// Set the current selection to the index of the clicked button
 		curSelected = index; 
 
+		// Prevent player from playing a song if they haven't cleared Story Mode.
+		var achieveID:Int = Achievements.getAchievementIndex('week1');
+		if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID][2])) {
+			camMenu.shake(0.05, 0.25);
+			return;
+		}
+
 		// Prevent player from starting secret songs.
 		var songNoSymbol = songList[curSelected].split(' ').join('').split('-').join('');
 		if (index >= 12 && !SongUnlock.isSongUnlocked(songNoSymbol)) {

@@ -2745,7 +2745,7 @@ class PlayState extends MusicBeatState
 		if(achievementObj != null) {
 			return;
 		} else {
-			var achieve:String = checkForAchievement(['week1_nomiss', 'week2_nomiss', 'ur_bad', 'ur_good', 'hype', 'two_keys', 'toastie']);
+			var achieve:String = checkForAchievement(['week1_nomiss', 'week1_gfc', 'week1', 'ur_bad', 'ur_good', 'hype', 'two_keys', 'toastie']);
 
 			if(achieve != null) {
 				startAchievement(achieve);
@@ -3836,6 +3836,11 @@ class PlayState extends MusicBeatState
 					if(isStoryMode && campaignMisses + songMisses < 1 && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice && ratingFC == "GFC" || ratingFC == "SFC")
 						unlock = true;
 				}
+				if (achievementName.contains(WeekData.getWeekFileName()))
+				{
+					if(isStoryMode && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice)
+						unlock = true;
+				}
 
 				switch(achievementName)
 				{
@@ -3853,14 +3858,6 @@ class PlayState extends MusicBeatState
 						}
 					case 'hype':
 						if(!boyfriendIdled && !usedPractice) {
-							unlock = true;
-						}
-					case 'secret_song_one':
-						if(Paths.formatToSongPath(SONG.song) == 'out-of-bounds' && !usedPractice) {
-							unlock = true;
-						}
-					case 'secret_song_two':
-						if(Paths.formatToSongPath(SONG.song) == 'until-next-time' && !usedPractice) {
 							unlock = true;
 						}
 				}
@@ -3896,15 +3893,22 @@ class PlayState extends MusicBeatState
 								SongUnlock.unlockSong('retribution');
 								SongUnlock.unlockSong('fearforever');
 								SongUnlock.unlockSong('everlasting');
-								SongUnlock.unlockSong('braindamage');
-								SongUnlock.unlockSong('partyroom');
-								SongUnlock.unlockSong('totallyreal');
-								SongUnlock.unlockSong('lasthour');
-								SongUnlock.unlockSong('waffles');
-								SongUnlock.unlockSong('leantrap');
-								SongUnlock.unlockSong('misconception');
 							}
 
+						case 'braindamage':
+							SongUnlock.unlockSong('braindamage');
+						case 'partyroom':
+							SongUnlock.unlockSong('partyroom');
+						case 'totallyreal':
+							SongUnlock.unlockSong('totallyreal');
+						case 'lasthour':
+							SongUnlock.unlockSong('lasthour');
+						case 'waffles':
+							SongUnlock.unlockSong('waffles');
+						case 'leantrap':
+							SongUnlock.unlockSong('leantrap');
+						case 'misconception':
+							SongUnlock.unlockSong('misconception');	
 						case 'untilnexttime':
 							SongUnlock.unlockSong('outofbounds');
 							SongUnlock.unlockSong('untilnexttime');

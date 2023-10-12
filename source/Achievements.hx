@@ -11,18 +11,17 @@ using StringTools;
 
 class Achievements {
 	public static var achievementsStuff:Array<Dynamic> = [ //Name, Description, Achievement save tag, Hidden achievement
-		["Freaky on a Friday Night",	"Play on a Friday... Night.",						'friday_night_play',	 true],
-		["She Calls Me Daddy Too",		"Beat Week 1 no Misses.",							'week1_nomiss',			false],
-		["No More Tricks",				"Beat Week 2 with no Misses.",						'week2_nomiss',			false],
-		["What a Funkin' Disaster!",	"Complete a Song with a rating lower than 20%.",	'ur_bad',				false],
-		["Perfectionist",				"Complete a Song with a rating of 100%.",			'ur_good',				false],
-		["Oversinging Much...?",		"Hold down a note for 10 seconds.",					'oversinging',			false],
-		["Hyperactive",					"Finish a Song without going Idle.",				'hype',					false],
-		["Example Name1",				"Beat Week 1 with a rating of GFC or better",		'week1_gfc',			false],
-		["Example Name2",				"Beat Week 2 with a rating of GFC or better",		'week2_gfc',			false],
-		["Example Name3",				"You cracked the code!",							'code_cracker',			true],
-		["Example Name4",				"Finished the first secret song",					'secret_song_one',		true],
-		["Example Name5",				"Finished the second secret song",					'secret_song_two',		true]
+		["Freaky on a Friday Night",		"Play on a Friday... Night.",							'friday_night_play',		 true],
+		["Completed Main Week No Miss",		"Beat the Main Week in Story Mode with no Misses.",		'week1_nomiss',				false],
+		["Completed Main Week",				"Beat the Main Week in Story Mode.",					'week1_story',				false],
+		["What a Funkin' Disaster!",		"Complete a Song with a rating lower than 20%.",		'ur_bad',					false],
+		["Perfectionist",					"Complete a Song with a rating of 100%.",				'ur_good',					false],
+		["Oversinging Much...?",			"Hold down a note for 10 seconds.",						'oversinging',				false],
+		["Hyperactive",						"Finish a Song without going Idle.",					'hype',						false],
+		["Example Name1",					"Beat the main week with a rating of GFC or better",	'week1_gfc',				false],
+		["Example Name3",					"You cracked the code!",								'code_cracker',				true],
+		["Example Name4",					"Finished the first secret song",						'secret_song_one',			true],
+		["Example Name5",					"Finished the second secret song",						'secret_song_two',			true]
 	];
 	public static var achievementsMap:Map<String, Bool> = new Map<String, Bool>();
 
