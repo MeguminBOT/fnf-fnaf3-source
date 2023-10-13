@@ -63,7 +63,7 @@ class ClientPrefs {
 	public static var safeFrames:Float = 10;
 
 	// FNAF 3 Additions.
-	public static var cacheOnGPU:Bool = false;
+	public static var cacheOnGPU:Bool = true;
 	public static var underlay:Float = 0;
 
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx

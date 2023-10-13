@@ -52,19 +52,19 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		option.onChange = onChangeAntiAliasing;
 		addOption(option);
 
-		// Backported from Rhythm Engine. Should increase performance for those with sufficient VRAM.
-		var option:Option = new Option('GPU Caching',
-			'If checked, allows the GPU to be used for caching the images, decreases the RAM usage.\nRecommended if your GPU has 2GB or more VRAM.\nWill drastically increase performance aslong as you got enough VRAM.',
+		// Backported from Rhythm Engine. Fixes insane stuttering.
+		var option:Option = new Option('Prefer GPU Caching',
+			"Uses GPU to cache sprites until VRAM is full, then loads the rest to RAM.\nIt's recommended to leave this checked as 'Vs FNaF 3' benefits from the faster memory speeds of GPUs.",
 			'cacheOnGPU',
 			'bool',
-			false);
+			true);
 		addOption(option);
 
 		var option:Option = new Option('Shaders', //Name
-			'If unchecked, disables shaders.\nIt\'s used for some visual effects, and also CPU intensive for weaker PCs.', //Description
-			'shaders', //Save data variable name
-			'bool', //Variable type
-			true); //Default value
+			"If unchecked, disables shaders.\nIt's used for some visual effects, and also CPU intensive for weaker PCs.",
+			'shaders',
+			'bool',
+			true);
 		addOption(option);
 
 		#if !html5 //Apparently other framerates isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
