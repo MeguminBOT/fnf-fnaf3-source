@@ -115,7 +115,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		super();
 		
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-		bg.alpha = 0.6;
+		bg.alpha = 0.75;
 		add(bg);
 
 		// avoids lagspikes while scrolling through menus!
@@ -132,26 +132,28 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 
 		for (i in 0...optionsArray.length)
 		{
-			var optionText:Alphabet = new Alphabet(200, 360, optionsArray[i].name, true);
+			var optionText:Alphabet = new Alphabet(290, 0, optionsArray[i].name, false);
+			optionText.scaleX = 0.5;
+			optionText.scaleY = 0.5;
+			optionText.y = 260;
 			optionText.isMenuItem = true;
-			optionText.scaleX = 0.8;
-			optionText.scaleY = 0.8;
 			optionText.targetY = i;
+
 			grpOptions.add(optionText);
 
 			if(optionsArray[i].type == 'bool') {
-				optionText.x += 110;
-				optionText.startPosition.x += 110;
-				optionText.snapToPosition();
-				var checkbox:CheckboxThingie = new CheckboxThingie(optionText.x - 105, optionText.y, optionsArray[i].getValue() == true);
+				var checkbox:CheckboxThingie = new CheckboxThingie(0, optionText.y, optionsArray[i].getValue() == true);
+				checkbox.scale.x = 0.5;
+				checkbox.scale.y = 0.5;
 				checkbox.sprTracker = optionText;
-				checkbox.offsetX -= 32;
-				checkbox.offsetY = -120;
+				checkbox.offsetX -= 110;
 				checkbox.ID = i;
 				checkboxGroup.add(checkbox);
 			} else {
-				optionText.snapToPosition();
-				var valueText:AttachedText = new AttachedText(Std.string(optionsArray[i].getValue()), optionText.width, -72, true, 0.8);
+				optionText.startPosition.x -= 50;
+				var valueText:AttachedText = new AttachedText('' + optionsArray[i].getValue(), optionText.width + 20);
+				valueText.scaleX = 0.5;
+				valueText.scaleY = 0.5;
 				valueText.sprTracker = optionText;
 				valueText.copyAlpha = true;
 				valueText.ID = i;
