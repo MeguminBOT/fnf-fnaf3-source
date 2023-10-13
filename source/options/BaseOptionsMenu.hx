@@ -89,35 +89,28 @@ class BaseOptionsMenu extends MusicBeatSubstate
 
 		for (i in 0...optionsArray.length)
 		{
-			var optionText:Alphabet = new Alphabet(290, 260, optionsArray[i].name, false);
-			optionText.scaleX = 0.7;
-			optionText.scaleY = 0.7;
-			optionText.screenCenter(X);
-			optionText.x = 290;
+			var optionText:Alphabet = new Alphabet(290, 0, optionsArray[i].name, false);
+			optionText.scaleX = 0.5;
+			optionText.scaleY = 0.5;
 			optionText.y = 260;
 			optionText.isMenuItem = true;
-			/*optionText.forceX = 300;
-			optionText.yMult = 90;*/
 			optionText.targetY = i;
 
 			grpOptions.add(optionText);
 
 			if(optionsArray[i].type == 'bool') {
-				var checkbox:CheckboxThingie = new CheckboxThingie(0, 0, optionsArray[i].getValue() == true);
-				checkbox.scale.x = 0.7;
-				checkbox.scale.y = 0.7;
+				var checkbox:CheckboxThingie = new CheckboxThingie(0, optionText.y, optionsArray[i].getValue() == true);
+				checkbox.scale.x = 0.5;
+				checkbox.scale.y = 0.5;
 				checkbox.sprTracker = optionText;
-				checkbox.x = optionText.x - 50;
-				checkbox.y = optionText.y;
+				checkbox.offsetX -= 110;
 				checkbox.ID = i;
 				checkboxGroup.add(checkbox);
 			} else {
-				optionText.x -= 80;
-				optionText.startPosition.x -= 80;
-				//optionText.xAdd -= 80;
-				var valueText:AttachedText = new AttachedText('' + optionsArray[i].getValue(), optionText.width + 80);
-				valueText.scaleX = 0.7;
-				valueText.scaleY = 0.7;
+				optionText.startPosition.x -= 50;
+				var valueText:AttachedText = new AttachedText('' + optionsArray[i].getValue(), optionText.width + 20);
+				valueText.scaleX = 0.5;
+				valueText.scaleY = 0.5;
 				valueText.sprTracker = optionText;
 				valueText.copyAlpha = true;
 				valueText.ID = i;
