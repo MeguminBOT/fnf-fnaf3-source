@@ -41,7 +41,6 @@ class FreeplayState extends MusicBeatState
 {
 	var songs:Array<SongMetadata> = [];
 
-	var selector:FlxText;
 	private static var curSelected:Int = 0;
 	var curDifficulty:Int = -1;
 	private static var lastDifficultyName:String = '';
@@ -67,7 +66,6 @@ class FreeplayState extends MusicBeatState
 
 	// Songlist
 	var songList:Array<String> = ['taken-apart', 'retribution', 'fear-forever', 'everlasting', 'brain-damage', 'party-room', 'totally-real', 'last-hour', 'waffles', 'leantrap', 'endo-revengo', 'misconception', 'out-of-bounds', 'until-next-time'];
-	var unlockedSongsMap:Map<String, Bool> = new Map<String, Bool>();
 	
 	// Filepath shortcuts
 	var menuPath:String = 'freeplay/';
@@ -513,10 +511,6 @@ class FreeplayState extends MusicBeatState
 		return (!leWeek.startUnlocked && leWeek.weekBefore.length > 0 && (!StoryMenuState.weekCompleted.exists(leWeek.weekBefore) || !StoryMenuState.weekCompleted.get(leWeek.weekBefore)));
 	}
 
-	var instPlaying:Int = -1;
-	public static var vocals:FlxSound = null;
-	var holdTime:Float = 0;
-
 	override function update(elapsed:Float)
 	{
 		if (FlxG.sound.music.volume < 0.7)
@@ -576,7 +570,6 @@ class FreeplayState extends MusicBeatState
 			curSelected = songs.length - 1;
 		if (curSelected >= songs.length)
 			curSelected = 0;
-		// selector.y = (70 * curSelected) + 30;
 
 		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
