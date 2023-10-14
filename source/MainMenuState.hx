@@ -24,6 +24,10 @@ import flixel.FlxState;
 import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
 
+#if debug
+import SongUnlock;
+#end
+
 using StringTools;
 
 class MainMenuState extends MusicBeatState
@@ -216,6 +220,29 @@ class MainMenuState extends MusicBeatState
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 
 		super.update(elapsed);
+
+		// Here for debugging purposes only
+		#if debug
+		if (FlxG.keys.justPressed.ONE) {
+			var achieveID2:Int = Achievements.getAchievementIndex('week1');
+			if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID2][2])) { //It's a friday night. WEEEEEEEEEEEEEEEEEE
+				Achievements.achievementsMap.set(Achievements.achievementsStuff[achieveID2][2], true);
+				giveAchievement();
+			}
+			SongUnlock.unlockSong('takenapart');
+			SongUnlock.unlockSong('retribution');
+			SongUnlock.unlockSong('fearforever');
+			SongUnlock.unlockSong('everlasting');
+			SongUnlock.unlockSong('braindamage');
+			SongUnlock.unlockSong('partyroom');
+			SongUnlock.unlockSong('totallyreal');
+			SongUnlock.unlockSong('lasthour');
+			SongUnlock.unlockSong('waffles');
+			SongUnlock.unlockSong('leantrap');
+			SongUnlock.unlockSong('misconception');	
+			ClientPrefs.saveSettings();
+		}
+		#end
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
