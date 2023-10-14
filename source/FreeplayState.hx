@@ -51,14 +51,6 @@ class FreeplayState extends MusicBeatState
 	var intendedScore:Int = 0;
 	var intendedRating:Float = 0;
 
-	private var grpSongs:FlxTypedGroup<Alphabet>;
-	private var curPlaying:Bool = false;
-
-	private var iconArray:Array<HealthIcon> = [];
-
-	var intendedColor:Int;
-	var colorTween:FlxTween;
-
 	/*-------- VS FNAF 3 Custom Freeplay Menu --------*/
 	// UI Text Stuff
 	var textBG:FlxSprite;
@@ -161,8 +153,6 @@ class FreeplayState extends MusicBeatState
 		curDifficulty = Math.round(Math.max(0, CoolUtil.defaultDifficulties.indexOf(lastDifficultyName)));
 		
 		changeSelection();
-
-		var swag:Alphabet = new Alphabet(1, 0, "swag");
 
 		/* Call our custom unlock progress. */
 		SongUnlock.loadUnlockProgress();
@@ -342,7 +332,7 @@ class FreeplayState extends MusicBeatState
 		var songLowercase:String = Paths.formatToSongPath(songList[curSelected]);
 		var songFormatted:String = Highscore.formatSong(songLowercase, curDifficulty);
 
-		// Play a sound when the button is highlighted.
+		// Play a sound when the button is clicked.
 		FlxG.sound.play(Paths.sound('confirmMenu'), 1);
 
 		PlayState.SONG = Song.loadFromJson(songFormatted, songLowercase);
@@ -353,7 +343,6 @@ class FreeplayState extends MusicBeatState
 
 		FlxG.mouse.visible = false;
 		FlxG.sound.music.volume = 0;
-		destroyFreeplayVocals();
 	}
 
 	function onButtonHighlight(index:Int, songList:Array<String>) 
@@ -427,7 +416,6 @@ class FreeplayState extends MusicBeatState
 
 		FlxG.mouse.visible = false;
 		FlxG.sound.music.volume = 0;
-		destroyFreeplayVocals();
     }
 
 	function checkSecretCode(): Void {
@@ -554,46 +542,9 @@ class FreeplayState extends MusicBeatState
 		}
 
 		scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
-		positionHighscore();
-
-		var shiftMult:Int = 1;
-		if(FlxG.keys.pressed.SHIFT) shiftMult = 3;
-	
-		if (FlxG.keys.justPressed.SPACE) {
-			try {
-				if (instPlaying != curSelected && curSelected != -1) {
-					var songLowercase:String = Paths.formatToSongPath(songList[curSelected]);
-					var songFormatted:String = Highscore.formatSong(songLowercase, curDifficulty);
-					#if PRELOAD_ALL
-					destroyFreeplayVocals();
-					FlxG.sound.music.volume = 0;
-					Paths.currentModDirectory = songs[curSelected].folder;
-					PlayState.SONG = Song.loadFromJson(songFormatted, songLowercase);
-					if (PlayState.SONG.needsVoices)
-						vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
-					else
-						vocals = new FlxSound();
-		
-					FlxG.sound.list.add(vocals);
-					FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 0.7);
-					vocals.play();
-					vocals.persist = true;
-					vocals.looped = true;
-					vocals.volume = 0.7;
-					instPlaying = curSelected;
-					#end
-				}
-			} catch (error:Dynamic) {
-				// Handle the error here
-				trace("An error occurred: " + error);
-			}
-		}
 
 		if (controls.BACK) {
 			persistentUpdate = false;
-			if(colorTween != null) {
-				colorTween.cancel();
-			}
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			MusicBeatState.switchState(new MainMenuState());
 		}
@@ -605,8 +556,9 @@ class FreeplayState extends MusicBeatState
 
 		if (FlxG.keys.justPressed.ALT) {
 			persistentUpdate = false;
-			openSubState(new AchievementsMenuState());
 			FlxG.sound.play(Paths.sound('done'), 0.7);
+			openSubState(new AchievementsMenuState());
+			
 		}
 
 		super.update(elapsed);
@@ -614,15 +566,6 @@ class FreeplayState extends MusicBeatState
 		// Check for secret code input.
 		checkSecretCode();
 	}
-
-	public static function destroyFreeplayVocals() {
-		if(vocals != null) {
-			vocals.stop();
-			vocals.destroy();
-		}
-		vocals = null;
-	}
-
 	function changeSelection(change:Int = 0, playSound:Bool = true)
 	{
 		if(playSound) FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
@@ -663,9 +606,6 @@ class FreeplayState extends MusicBeatState
 		}
 	}
 
-	private function positionHighscore() {
-
-	}
 }
 
 class SongMetadata
