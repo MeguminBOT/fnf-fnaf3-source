@@ -8,6 +8,9 @@ function onCreatePost()
 end
 
 function onUpdatePost(elapsed)
-	setProperty('Health.x', getProperty('healthBar.x') - 55)
-	setProperty('Health.y', getProperty('healthBar.y') - 11)
+    local healthBarX = getProperty('healthBar.x')
+    local healthBarY = getProperty('healthBar.y')
+    
+    setProperty('Health.x', healthBarX - 55)
+    setProperty('Health.y', healthBarY - 11)
 end
