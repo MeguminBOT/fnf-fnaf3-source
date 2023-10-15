@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Dad idle dance"
+		},
+		{
+			"offsets": [
+				377,
+				-74
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Dad Sing Note LEFT"
+		},
+		{
+			"offsets": [
+				68,
+				-95
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Dad Sing Note DOWN"
+		},
+		{
+			"offsets": [
+				-14,
+				120
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Dad Sing Note UP"
+		},
+		{
+			"offsets": [
+				-35,
+				-51
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Dad Sing Note RIGHT"
+		},
+		{
+			"offsets": [
+				84,
+				-54
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "jumpscare",
+			"indices": [],
+			"name": "jumpscare"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/phbb2",
+	"position": [
+		150,
+		-300
+	],
+	"healthicon": "phatom_bb",
+	"flip_x": false,
+	"healthbar_colors": [
+		35,
+		46,
+		5
+	],
+	"camera_position": [
+		50,
+		100
+	],
+	"sing_duration": 6.1,
+	"scale": 1.2
+}

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="phfreddy.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Dad Sing Note DOWN0000" x="0" y="0" width="334" height="617" pivotX="10" pivotY="27" frameX="-10" frameY="-27" frameWidth="344" frameHeight="644"/>
+	<SubTexture name="Dad Sing Note DOWN0001" x="335" y="0" width="344" height="603" frameX="0" frameY="-41" frameWidth="344" frameHeight="644"/>
+	<SubTexture name="Dad Sing Note DOWN0002" x="680" y="0" width="336" height="610" frameX="-8" frameY="-34" frameWidth="344" frameHeight="644"/>
+	<SubTexture name="Dad Sing Note DOWN0003" x="1017" y="0" width="329" height="617" frameX="-15" frameY="-27" frameWidth="344" frameHeight="644"/>
+	<SubTexture name="Dad Sing Note DOWN0004" x="1347" y="0" width="324" height="624" frameX="-20" frameY="-20" frameWidth="344" frameHeight="644"/>
+	<SubTexture name="Dad Sing Note DOWN0005" x="1672" y="0" width="322" height="630" frameX="-22" frameY="-14" frameWidth="344" frameHeight="644"/>
+	<SubTexture name="Dad Sing Note DOWN0006" x="1995" y="0" width="324" height="635" frameX="-20" frameY="-9" frameWidth="344" frameHeight="644"/>
+	<SubTexture name="Dad Sing Note DOWN0007" x="2320" y="0" width="324" height="640" frameX="-20" frameY="-4" frameWidth="344" frameHeight="644"/>
+	<SubTexture name="Dad Sing Note DOWN0008" x="2645" y="0" width="323" height="644" frameX="-21" frameY="0" frameWidth="344" frameHeight="644"/>
+	<SubTexture name="Dad Sing Note LEFT0000" x="2969" y="0" width="354" height="642" pivotX="4" pivotY="3" frameX="-4" frameY="-3" frameWidth="358" frameHeight="645"/>
+	<SubTexture name="Dad Sing Note LEFT0001" x="3324" y="0" width="348" height="639" frameX="-10" frameY="-6" frameWidth="358" frameHeight="645"/>
+	<SubTexture name="Dad Sing Note LEFT0002" x="0" y="645" width="356" height="641" frameX="-2" frameY="-4" frameWidth="358" frameHeight="645"/>
+	<SubTexture name="Dad Sing Note LEFT0003" x="357" y="645" width="358" height="643" frameX="0" frameY="-2" frameWidth="358" frameHeight="645"/>
+	<SubTexture name="Dad Sing Note LEFT0004" x="716" y="645" width="355" height="644" frameX="-3" frameY="-1" frameWidth="358" frameHeight="645"/>
+	<SubTexture name="Dad Sing Note LEFT0005" x="1072" y="645" width="348" height="645" frameX="-10" frameY="0" frameWidth="358" frameHeight="645"/>
+	<SubTexture name="Dad Sing Note LEFT0006" x="1421" y="645" width="338" height="645" frameX="-20" frameY="0" frameWidth="358" frameHeight="645"/>
+	<SubTexture name="Dad Sing Note LEFT0007" x="1760" y="645" width="329" height="645" frameX="-29" frameY="0" frameWidth="358" frameHeight="645"/>
+	<SubTexture name="Dad Sing Note LEFT0008" x="3568" y="1310" width="323" height="644" frameX="-35" frameY="-1" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad Sing Note RIGHT0000" x="2090" y="645" width="344" height="661" pivotX="47" pivotY="3" frameX="-47" frameY="-3" frameWidth="420" frameHeight="664"/>
+	<SubTexture name="Dad Sing Note RIGHT0001" x="2435" y="645" width="345" height="664" frameX="-75" frameY="0" frameWidth="420" frameHeight="664"/>
+	<SubTexture name="Dad Sing Note RIGHT0002" x="2781" y="645" width="342" height="662" frameX="-56" frameY="-2" frameWidth="420" frameHeight="664"/>
+	<SubTexture name="Dad Sing Note RIGHT0003" x="3124" y="645" width="341" height="660" frameX="-37" frameY="-4" frameWidth="420" frameHeight="664"/>
+	<SubTexture name="Dad Sing Note RIGHT0004" x="3466" y="645" width="336" height="656" frameX="-22" frameY="-8" frameWidth="420" frameHeight="664"/>
+	<SubTexture name="Dad Sing Note RIGHT0005" x="0" y="1310" width="327" height="652" frameX="-10" frameY="-12" frameWidth="420" frameHeight="664"/>
+	<SubTexture name="Dad Sing Note RIGHT0006" x="328" y="1310" width="319" height="647" frameX="-4" frameY="-17" frameWidth="420" frameHeight="664"/>
+	<SubTexture name="Dad Sing Note RIGHT0007" x="648" y="1310" width="322" height="644" frameX="-1" frameY="-20" frameWidth="420" frameHeight="664"/>
+	<SubTexture name="Dad Sing Note RIGHT0008" x="2645" y="0" width="323" height="644" frameX="0" frameY="-20" frameWidth="344" frameHeight="644"/>
+	<SubTexture name="Dad Sing Note UP0000" x="971" y="1310" width="324" height="674" pivotX="18" pivotY="19" frameX="-18" frameY="-19" frameWidth="365" frameHeight="694"/>
+	<SubTexture name="Dad Sing Note UP0001" x="1296" y="1310" width="328" height="694" frameX="-37" frameY="0" frameWidth="365" frameHeight="694"/>
+	<SubTexture name="Dad Sing Note UP0002" x="1625" y="1310" width="327" height="692" frameX="-35" frameY="-2" frameWidth="365" frameHeight="694"/>
+	<SubTexture name="Dad Sing Note UP0003" x="1953" y="1310" width="325" height="687" frameX="-29" frameY="-7" frameWidth="365" frameHeight="694"/>
+	<SubTexture name="Dad Sing Note UP0004" x="2279" y="1310" width="323" height="681" frameX="-23" frameY="-13" frameWidth="365" frameHeight="694"/>
+	<SubTexture name="Dad Sing Note UP0005" x="2603" y="1310" width="321" height="673" frameX="-16" frameY="-21" frameWidth="365" frameHeight="694"/>
+	<SubTexture name="Dad Sing Note UP0006" x="2925" y="1310" width="320" height="664" frameX="-9" frameY="-30" frameWidth="365" frameHeight="694"/>
+	<SubTexture name="Dad Sing Note UP0007" x="3246" y="1310" width="321" height="653" frameX="-3" frameY="-41" frameWidth="365" frameHeight="694"/>
+	<SubTexture name="Dad Sing Note UP0008" x="3568" y="1310" width="323" height="644" frameX="0" frameY="-49" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0000" x="3568" y="1310" width="323" height="644" pivotX="5" pivotY="23" frameX="-5" frameY="-23" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0001" x="0" y="2005" width="333" height="637" frameX="-3" frameY="-29" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0002" x="334" y="2005" width="344" height="628" frameX="-2" frameY="-37" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0003" x="679" y="2005" width="354" height="625" frameX="-1" frameY="-39" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0004" x="1034" y="2005" width="362" height="629" frameX="0" frameY="-33" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0005" x="1397" y="2005" width="362" height="639" frameX="-2" frameY="-21" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0006" x="1760" y="2005" width="353" height="643" frameX="-7" frameY="-10" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0007" x="2114" y="2005" width="338" height="640" frameX="-11" frameY="-4" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0008" x="2453" y="2005" width="329" height="639" frameX="-14" frameY="-1" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0009" x="2783" y="2005" width="321" height="644" frameX="-16" frameY="0" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0010" x="3105" y="2005" width="314" height="647" frameX="-17" frameY="0" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0011" x="3420" y="2005" width="308" height="649" frameX="-18" frameY="-2" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0012" x="0" y="2655" width="310" height="652" frameX="-17" frameY="-5" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0013" x="311" y="2655" width="313" height="657" frameX="-14" frameY="-9" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0014" x="625" y="2655" width="316" height="656" frameX="-11" frameY="-14" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="Dad idle dance0015" x="942" y="2655" width="319" height="652" frameX="-8" frameY="-18" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="fall0000" x="3568" y="1310" width="323" height="644" pivotX="5" pivotY="23" frameX="-133" frameY="0" frameWidth="364" frameHeight="670"/>
+	<SubTexture name="fall0001" x="1262" y="2655" width="340" height="588" frameX="-116" frameY="-56" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0002" x="1603" y="2655" width="377" height="504" frameX="-79" frameY="-140" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0003" x="1981" y="2655" width="416" height="402" frameX="-40" frameY="-242" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0004" x="2398" y="2655" width="443" height="321" frameX="-13" frameY="-326" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0005" x="2842" y="2655" width="456" height="261" frameX="0" frameY="-386" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0006" x="3299" y="2655" width="453" height="217" frameX="-3" frameY="-430" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0007" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0008" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0009" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0010" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0011" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0012" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0013" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0014" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0015" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0016" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0017" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0018" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0019" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0020" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0021" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0022" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0023" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0024" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0025" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0026" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0027" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0028" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0029" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0030" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0031" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0032" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0033" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0034" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0035" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0036" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0037" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0038" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0039" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0040" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0041" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0042" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0043" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0044" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0045" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0046" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0047" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0048" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0049" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0050" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0051" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0052" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0053" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0054" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0055" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0056" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0057" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0058" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+	<SubTexture name="fall0059" x="3753" y="2655" width="31" height="15" frameX="-238" frameY="-630" frameWidth="456" frameHeight="647"/>
+</TextureAtlas>

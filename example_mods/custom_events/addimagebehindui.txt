@@ -1,0 +1,3 @@
+adds a color behind ui (can only be a picture of a solid color)
+
+value1 : name of the picture

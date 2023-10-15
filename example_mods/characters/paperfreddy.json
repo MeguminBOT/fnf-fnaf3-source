@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				88,
+				6
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Dad Sing Note LEFT",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-67,
+				7
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Dad Sing Note DOWN",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-7,
+				11
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Dad Sing Note UP",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-69,
+				1
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Dad Sing Note RIGHT",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-10,
+				1
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Dad idle dance"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				277,
+				13
+			],
+			"anim": "enter",
+			"fps": 24,
+			"name": "enter",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/paperfreddy",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "fredpal",
+	"flip_x": false,
+	"healthbar_colors": [
+		65,
+		38,
+		25
+	],
+	"camera_position": [
+		-300,
+		0
+	],
+	"sing_duration": 6,
+	"scale": 1
+}

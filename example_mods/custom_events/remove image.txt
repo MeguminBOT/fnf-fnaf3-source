@@ -1,0 +1,1 @@
+Value 1 = the image you want to be removed

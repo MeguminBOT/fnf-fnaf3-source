@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				107,
+				1
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Dad Sing Note LEFT"
+		},
+		{
+			"offsets": [
+				3,
+				-4
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Dad Sing Note DOWN"
+		},
+		{
+			"offsets": [
+				21,
+				28
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Dad Sing Note UP"
+		},
+		{
+			"offsets": [
+				-34,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Dad Sing Note RIGHT"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Dad idle dance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-1,
+				2
+			],
+			"anim": "follow me",
+			"fps": 24,
+			"name": "follow me",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/afton",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "purpleguy",
+	"flip_x": false,
+	"healthbar_colors": [
+		114,
+		0,
+		160
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 7.49999999999999,
+	"scale": 1
+}

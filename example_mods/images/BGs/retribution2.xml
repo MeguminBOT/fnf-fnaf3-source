@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="retribution2.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bop0000" x="0" y="4320" width="3840" height="2160"/>
+	<SubTexture name="bop0001" x="0" y="0" width="3840" height="2160"/>
+	<SubTexture name="bop0002" x="3840" y="0" width="3840" height="2160"/>
+	<SubTexture name="bop0003" x="0" y="2160" width="3840" height="2160"/>
+	<SubTexture name="bop0004" x="3840" y="2160" width="3840" height="2160"/>
+	<SubTexture name="bop0005" x="0" y="4320" width="3840" height="2160"/>
+	<SubTexture name="idle0000" x="0" y="4320" width="3840" height="2160"/>
+</TextureAtlas>

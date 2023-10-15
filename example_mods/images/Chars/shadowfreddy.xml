@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="shadowfreddy.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="idle0000" x="0" y="0" width="279" height="699" pivotX="16" pivotY="14" frameX="-16" frameY="-14" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0001" x="279" y="0" width="278" height="687" frameX="-17" frameY="-26" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0002" x="557" y="0" width="278" height="688" frameX="-17" frameY="-25" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0003" x="835" y="0" width="279" height="688" frameX="-16" frameY="-25" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0004" x="1114" y="0" width="277" height="713" frameX="-18" frameY="0" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0005" x="1391" y="0" width="274" height="712" frameX="-21" frameY="-1" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0006" x="1665" y="0" width="276" height="683" frameX="-19" frameY="-30" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0007" x="1941" y="0" width="292" height="682" frameX="-3" frameY="-31" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0008" x="2233" y="0" width="295" height="682" frameX="0" frameY="-31" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0009" x="2528" y="0" width="273" height="670" frameX="-22" frameY="-43" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0010" x="2801" y="0" width="273" height="682" frameX="-22" frameY="-31" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0011" x="3074" y="0" width="273" height="683" frameX="-22" frameY="-30" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0012" x="3347" y="0" width="273" height="685" frameX="-22" frameY="-28" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0013" x="3620" y="0" width="273" height="686" frameX="-22" frameY="-27" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0014" x="3893" y="0" width="273" height="687" frameX="-22" frameY="-26" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0015" x="0" y="713" width="273" height="687" frameX="-22" frameY="-26" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0016" x="273" y="713" width="273" height="688" frameX="-22" frameY="-25" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0017" x="546" y="713" width="275" height="689" frameX="-20" frameY="-24" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0018" x="821" y="713" width="275" height="690" frameX="-20" frameY="-23" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0019" x="1096" y="713" width="274" height="691" frameX="-21" frameY="-22" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0020" x="1370" y="713" width="277" height="692" frameX="-18" frameY="-21" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0021" x="1647" y="713" width="276" height="693" frameX="-19" frameY="-20" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0022" x="1923" y="713" width="279" height="693" frameX="-16" frameY="-20" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0023" x="2202" y="713" width="280" height="693" frameX="-15" frameY="-20" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0024" x="2482" y="713" width="278" height="692" frameX="-17" frameY="-21" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0025" x="2760" y="713" width="275" height="691" frameX="-20" frameY="-22" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0026" x="3035" y="713" width="277" height="690" frameX="-18" frameY="-23" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0027" x="3312" y="713" width="277" height="688" frameX="-18" frameY="-25" frameWidth="295" frameHeight="713"/>
+	<SubTexture name="idle0028" x="3589" y="713" width="279" height="687" frameX="-16" frameY="-26" frameWidth="295" frameHeight="713"/>
+</TextureAtlas>

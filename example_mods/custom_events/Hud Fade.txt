@@ -1,0 +1,2 @@
+value1=new alpha
+value2=time (in Steps)

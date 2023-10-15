@@ -1,0 +1,3 @@
+This script just makes the camera bounce left and right.
+
+To use it, just place it down.

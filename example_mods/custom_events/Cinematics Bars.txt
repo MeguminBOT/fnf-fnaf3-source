@@ -1,0 +1,6 @@
+V1: Enabled or Not
+ 0 = Disabled
+ 1 = Enabled
+
+V2: Speed
+ 

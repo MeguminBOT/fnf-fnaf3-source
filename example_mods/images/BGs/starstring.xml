@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="starstring.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="idle0000" x="0" y="0" width="221" height="670" frameX="-3" frameY="0" frameWidth="224" frameHeight="671"/>
+	<SubTexture name="idle0001" x="222" y="0" width="195" height="671" frameX="-14" frameY="0" frameWidth="224" frameHeight="671"/>
+	<SubTexture name="idle0002" x="418" y="0" width="119" height="671" frameX="-53" frameY="0" frameWidth="224" frameHeight="671"/>
+	<SubTexture name="idle0003" x="538" y="0" width="43" height="671" frameX="-97" frameY="0" frameWidth="224" frameHeight="671"/>
+	<SubTexture name="idle0004" x="582" y="0" width="135" height="671" frameX="-49" frameY="0" frameWidth="224" frameHeight="671"/>
+	<SubTexture name="idle0005" x="718" y="0" width="198" height="671" frameX="-13" frameY="0" frameWidth="224" frameHeight="671"/>
+	<SubTexture name="idle0006" x="0" y="672" width="224" height="670" frameX="0" frameY="0" frameWidth="224" frameHeight="671"/>
+	<SubTexture name="idle0007" x="225" y="672" width="204" height="671" frameX="-8" frameY="0" frameWidth="224" frameHeight="671"/>
+	<SubTexture name="idle0008" x="430" y="672" width="147" height="671" frameX="-34" frameY="0" frameWidth="224" frameHeight="671"/>
+	<SubTexture name="idle0009" x="578" y="672" width="63" height="671" frameX="-77" frameY="0" frameWidth="224" frameHeight="671"/>
+	<SubTexture name="idle0010" x="642" y="672" width="86" height="671" frameX="-70" frameY="0" frameWidth="224" frameHeight="671"/>
+	<SubTexture name="idle0011" x="729" y="672" width="161" height="671" frameX="-37" frameY="0" frameWidth="224" frameHeight="671"/>
+</TextureAtlas>

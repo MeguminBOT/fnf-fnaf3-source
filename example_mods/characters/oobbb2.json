@@ -1,0 +1,100 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Dad idle dance"
+		},
+		{
+			"offsets": [
+				183,
+				-7
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Dad Sing Note LEFT"
+		},
+		{
+			"offsets": [
+				155,
+				-7
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Dad Sing Note DOWN"
+		},
+		{
+			"offsets": [
+				-1,
+				71
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Dad Sing Note UP"
+		},
+		{
+			"offsets": [
+				-1,
+				61
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Dad Sing Note RIGHT"
+		},
+		{
+			"offsets": [
+				40,
+				-84
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "dead",
+			"loop": true,
+			"name": "dead"
+		},
+		{
+			"offsets": [
+				117,
+				-7
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "alive",
+			"loop": false,
+			"name": "alive"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/oobbb2",
+	"position": [
+		260,
+		-200
+	],
+	"healthicon": "bb2",
+	"flip_x": false,
+	"healthbar_colors": [
+		43,
+		83,
+		151
+	],
+	"camera_position": [
+		-130,
+		30
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
