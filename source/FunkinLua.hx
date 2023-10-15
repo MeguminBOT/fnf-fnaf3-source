@@ -1530,15 +1530,16 @@ class FunkinLua {
 			PlayState.instance.addCharacterToList(name, charType);
 		});
 
-		Lua_helper.add_callback(lua, "precacheCharacter", function(name:String, type:String) {
+		Lua_helper.add_callback(lua, "precacheCharacter", function(name:String, type:String, path:String) {
 			var charType:Int = 0;
 			switch(type.toLowerCase()) {
 				case 'bf': charType = 0;
 				case 'dad': charType = 1;
 				case 'gf' | 'girlfriend': charType = 2;
 			}
+
 			PlayState.instance.addCharacterToList(name, charType);
-			Paths.image(name); //Precache with GPU Support
+			Paths.image(path + '/' + name); //Precache with GPU Support
 		});
 
 		Lua_helper.add_callback(lua, "precacheImage", function(name:String) {
