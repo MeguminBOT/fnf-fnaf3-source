@@ -378,12 +378,7 @@
 						"fearforever",
 						"",
 						""
-					]
-				]
-			],
-			[
-				51017.7052450749,
-				[
+					],
 					[
 						"Cinematics (With HUD)",
 						"1",
@@ -435,14 +430,9 @@
 						"0.01"
 					],
 					[
-						"addimage",
-						"white",
-						""
-					],
-					[
-						"fadeout",
-						"white",
-						"1"
+						"Camera Flash",
+						"camHUD, true",
+						"FFFFFF, 1"
 					]
 				]
 			],
@@ -660,14 +650,9 @@
 						""
 					],
 					[
-						"addimage",
-						"white",
-						""
-					],
-					[
-						"fadeout",
-						"white",
-						"1"
+						"Camera Flash",
+						"camHUD, true",
+						"FFFFFF, 1"
 					],
 					[
 						"bop",
@@ -1165,14 +1150,9 @@
 						""
 					],
 					[
-						"addimage",
-						"white",
-						""
-					],
-					[
-						"fadeout",
-						"white",
-						"1"
+						"Camera Flash",
+						"camHUD, true",
+						"FFFFFF, 1"
 					],
 					[
 						"bop",
@@ -1196,7 +1176,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/foxyjumpscare",
+						"foxyjump",
 						""
 					]
 				]
@@ -1206,7 +1186,7 @@
 				[
 					[
 						"remove image",
-						"jumpscares/foxyjumpscare",
+						"foxyjump",
 						""
 					]
 				]
@@ -1216,7 +1196,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/foxyjumpscare",
+						"foxyjump",
 						""
 					]
 				]
@@ -1226,7 +1206,7 @@
 				[
 					[
 						"remove image",
-						"jumpscares/foxyjumpscare",
+						"foxyjump",
 						""
 					]
 				]
@@ -1236,7 +1216,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/foxyjumpscare",
+						"foxyjump",
 						""
 					]
 				]
@@ -1246,7 +1226,7 @@
 				[
 					[
 						"remove image",
-						"jumpscares/foxyjumpscare",
+						"foxyjump",
 						""
 					]
 				]
@@ -1256,7 +1236,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/foxyjumpscare",
+						"foxyjump",
 						""
 					]
 				]
@@ -1266,7 +1246,7 @@
 				[
 					[
 						"remove image",
-						"jumpscares/foxyjumpscare",
+						"foxyjump",
 						""
 					]
 				]
@@ -1276,7 +1256,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/foxyjumpscare",
+						"foxyjump",
 						""
 					]
 				]
@@ -1286,7 +1266,7 @@
 				[
 					[
 						"remove image",
-						"jumpscares/foxyjumpscare",
+						"foxyjump",
 						""
 					]
 				]
@@ -1781,7 +1761,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/foxyjumpscare",
+						"foxyjump",
 						""
 					]
 				]
@@ -1791,7 +1771,7 @@
 				[
 					[
 						"remove image",
-						"jumpscares/foxyjumpscare",
+						"foxyjump",
 						""
 					]
 				]
@@ -1870,14 +1850,9 @@
 						"0.001"
 					],
 					[
-						"addimage",
-						"white",
-						""
-					],
-					[
-						"fadeout",
-						"white",
-						"1"
+						"Camera Flash",
+						"camHUD, true",
+						"FFFFFF, 1"
 					],
 					[
 						"Change Character",
@@ -1906,7 +1881,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/chica",
+						"chicajump",
 						""
 					],
 					[
@@ -1921,7 +1896,7 @@
 				[
 					[
 						"fadeout",
-						"jumpscares/chica",
+						"chicajump",
 						"0.001"
 					]
 				]
@@ -1931,7 +1906,7 @@
 				[
 					[
 						"fadein",
-						"jumpscares/chica",
+						"chicajump",
 						"0.001"
 					]
 				]
@@ -1941,7 +1916,7 @@
 				[
 					[
 						"fadeout",
-						"jumpscares/chica",
+						"chicajump",
 						"0.001"
 					]
 				]
@@ -1951,7 +1926,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/chica",
+						"chicajump",
 						""
 					]
 				]
@@ -1961,7 +1936,7 @@
 				[
 					[
 						"fadeout",
-						"jumpscares/chica",
+						"chicajump",
 						"0.001"
 					]
 				]
@@ -1971,7 +1946,7 @@
 				[
 					[
 						"fadein",
-						"jumpscares/chica",
+						"chicajump",
 						"0.001"
 					]
 				]
@@ -1981,7 +1956,7 @@
 				[
 					[
 						"fadeout",
-						"jumpscares/chica",
+						"chicajump",
 						"0.001"
 					]
 				]
@@ -1991,7 +1966,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/chica",
+						"chicajump",
 						""
 					]
 				]
@@ -2001,7 +1976,7 @@
 				[
 					[
 						"fadeout",
-						"jumpscares/chica",
+						"chicajump",
 						"0.001"
 					]
 				]
@@ -2011,7 +1986,7 @@
 				[
 					[
 						"fadein",
-						"jumpscares/chica",
+						"chicajump",
 						"0.001"
 					]
 				]
@@ -2021,7 +1996,7 @@
 				[
 					[
 						"fadeout",
-						"jumpscares/chica",
+						"chicajump",
 						"0.001"
 					]
 				]
@@ -2031,7 +2006,7 @@
 				[
 					[
 						"fadein",
-						"jumpscares/chica",
+						"chicajump",
 						"0.001"
 					]
 				]
@@ -2041,7 +2016,7 @@
 				[
 					[
 						"fadeout",
-						"jumpscares/chica",
+						"chicajump",
 						"0.001"
 					]
 				]
@@ -2051,7 +2026,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/chica",
+						"chicajump",
 						""
 					]
 				]
@@ -2061,7 +2036,7 @@
 				[
 					[
 						"fadeout",
-						"jumpscares/chica",
+						"chicajump",
 						"0.001"
 					]
 				]
@@ -2071,7 +2046,7 @@
 				[
 					[
 						"fadein",
-						"jumpscares/chica",
+						"chicajump",
 						"0.001"
 					]
 				]
@@ -2081,18 +2056,8 @@
 				[
 					[
 						"fadeout",
-						"jumpscares/chica",
+						"chicajump",
 						"0.001"
-					]
-				]
-			],
-			[
-				214353.380047261,
-				[
-					[
-						"addimage",
-						"black",
-						""
 					]
 				]
 			],
@@ -2101,7 +2066,12 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/chica",
+						"chicajump",
+						""
+					],
+					[
+						"addimage",
+						"black",
 						""
 					]
 				]
@@ -2121,7 +2091,7 @@
 				[
 					[
 						"remove image",
-						"jumpscares/chica",
+						"chicajump",
 						""
 					]
 				]
@@ -2180,9 +2150,9 @@
 				242878.783040928,
 				[
 					[
-						"addimagebehindui",
-						"white",
-						""
+						"Camera Flash",
+						"camGame, true",
+						"FFFFFF, 1"
 					],
 					[
 						"Change Character",
@@ -2198,11 +2168,6 @@
 						"fadeout",
 						"greenstatic",
 						"0.0001"
-					],
-					[
-						"fadeout",
-						"white",
-						"1"
 					]
 				]
 			],
@@ -2350,11 +2315,6 @@
 				299763.042300187,
 				[
 					[
-						"addimage",
-						"black",
-						""
-					],
-					[
 						"error",
 						"",
 						""
@@ -2366,12 +2326,12 @@
 				[
 					[
 						"addimage",
-						"jumpscares/bb",
+						"bbjump",
 						""
 					],
 					[
 						"fadeout",
-						"jumpscares/bb",
+						"bbjump",
 						"2"
 					]
 				]
@@ -2419,11 +2379,6 @@
 			[
 				302878.783040928,
 				[
-					[
-						"fadeout",
-						"black",
-						"6"
-					],
 					[
 						"zoom",
 						"1",
@@ -3131,7 +3086,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3141,7 +3096,7 @@
 				[
 					[
 						"remove image",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3151,7 +3106,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3161,7 +3116,7 @@
 				[
 					[
 						"remove image",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3171,7 +3126,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3181,7 +3136,7 @@
 				[
 					[
 						"remove image",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3191,7 +3146,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3201,7 +3156,7 @@
 				[
 					[
 						"remove image",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3211,7 +3166,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3221,7 +3176,7 @@
 				[
 					[
 						"remove image",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3231,7 +3186,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3241,7 +3196,7 @@
 				[
 					[
 						"remove image",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3251,7 +3206,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3261,7 +3216,7 @@
 				[
 					[
 						"remove image",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3271,7 +3226,7 @@
 				[
 					[
 						"addanimimage",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3281,7 +3236,7 @@
 				[
 					[
 						"remove image",
-						"jumpscares/mangle",
+						"manglejump",
 						""
 					]
 				]
@@ -3555,14 +3510,9 @@
 						"0.05"
 					],
 					[
-						"addimage",
-						"white",
-						""
-					],
-					[
-						"fadeout",
-						"white",
-						"1"
+						"Camera Flash",
+						"camHUD, true",
+						"FFFFFF, 1"
 					],
 					[
 						"bop",
@@ -3585,14 +3535,9 @@
 				355727.267889412,
 				[
 					[
-						"addimagebehindui",
-						"white",
-						""
-					],
-					[
-						"fadeout",
-						"white",
-						"1"
+						"Camera Flash",
+						"camGame, true",
+						"FFFFFF, 1"
 					]
 				]
 			],
@@ -3627,36 +3572,21 @@
 				]
 			],
 			[
-				384208.959808604,
-				[
-					[
-						"addimage",
-						"black",
-						""
-					]
-				]
-			],
-			[
 				384212.116374261,
 				[
 					[
 						"addimage",
-						"jumpscares/mangleinvert",
+						"mangleinvert",
 						""
 					],
 					[
 						"bop",
 						"",
 						""
-					]
-				]
-			],
-			[
-				384217.798192442,
-				[
+					],
 					[
 						"fadeout",
-						"jumpscares/mangleinvert",
+						"mangleinvert",
 						"1"
 					]
 				]
@@ -3697,16 +3627,6 @@
 				]
 			],
 			[
-				400848.480010624,
-				[
-					[
-						"fadeout",
-						"black",
-						"1"
-					]
-				]
-			],
-			[
 				470939.389101533,
 				[
 					[
@@ -3740,14 +3660,9 @@
 						"phantoms"
 					],
 					[
-						"addimage",
-						"white",
-						""
-					],
-					[
-						"fadeout",
-						"white",
-						"5"
+						"Camera Flash",
+						"camHUD, true",
+						"FFFFFF, 5"
 					],
 					[
 						"fadeout",

@@ -1,0 +1,7 @@
+Value 1: 
+Camera, forced? [true/false].
+(Example: camHUD, true).
+
+Value 2: Colour [HEX or RGB], Duration [Seconds].
+(Example: 9DCFED, 4).
+(Example: 157, 207, 237, 4)
