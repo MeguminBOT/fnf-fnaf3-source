@@ -1,3 +1,4 @@
+@@ -1,284 +0,0 @@
 --[[ made by beihu(b站一北狐丶逐梦) 
     bilbil: https://b23.tv/gxqO0GH
     youtube: https://www.youtube.com/@beihu235
@@ -281,4 +282,3 @@ function checkSong()
     end    
     
 end
-
