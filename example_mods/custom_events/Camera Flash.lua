@@ -30,12 +30,16 @@ local validCameras = {
 -- This function is called when an event occurs.
 function onEvent(name, value1, value2)
 	if name == 'Camera Flash' or name == 'Camera_Flash' and flashingLights then
-		-- Parse the input fields for value1 and value2.
-		local camera, isForced = parseCameraValue(value1)
-		local colour, duration = parseFlashValue(value2)
+		if epilepsy and epilepsyLevel == 'Two' or epilepsyLevel == 'Three' then
+			return
+		else
+			-- Parse the input fields for value1 and value2.
+			local camera, isForced = parseCameraValue(value1)
+			local colour, duration = parseFlashValue(value2)
 
-		-- Call the cameraFlash function with the parsed values.
-		cameraFlash(camera, colour, duration or 1, isForced)
+			-- Call the cameraFlash function with the parsed values.
+			cameraFlash(camera, colour, duration or 1, isForced)
+		end
 	end
 end
 

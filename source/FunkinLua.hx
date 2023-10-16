@@ -215,6 +215,8 @@ class FunkinLua {
 		// VS FNAF 3 Stuff
 		set('underlay', ClientPrefs.underlay);
 		set('mirrorMode', PlayState.mirrorMode);
+		set('epilepsy', ClientPrefs.epilepsy);
+		set('epilepsyLevel', ClientPrefs.epilepsyLevel);
 
 		#if windows
 		set('buildTarget', 'windows');

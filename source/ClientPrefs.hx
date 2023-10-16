@@ -65,6 +65,8 @@ class ClientPrefs {
 	// FNAF 3 Additions.
 	public static var cacheOnGPU:Bool = true;
 	public static var underlay:Float = 0;
+	public static var epilepsy:Bool = false;
+	public static var epilepsyLevel:String = 'One';
 
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
@@ -139,6 +141,9 @@ class ClientPrefs {
 		FlxG.save.data.cacheOnGPU = cacheOnGPU;
 		FlxG.save.data.underlay = underlay;
 		FlxG.save.data.songMap = SongUnlock.songMap;
+		FlxG.save.data.epilepsy = epilepsy;
+		FlxG.save.data.epilepsyLevel = epilepsyLevel;
+
 
 		FlxG.save.flush();
 
@@ -282,6 +287,12 @@ class ClientPrefs {
 		}
 		if (FlxG.save.data.underlay != null) {
 				underlay = FlxG.save.data.underlay;
+		}
+		if (FlxG.save.data.epilepsy != null) {
+			epilepsy = FlxG.save.data.epilepsy;
+		}
+		if (FlxG.save.data.epilepsyLevel != null) {
+			epilepsyLevel = FlxG.save.data.epilepsyLevel;
 		}
 
 		var save:FlxSave = new FlxSave();
