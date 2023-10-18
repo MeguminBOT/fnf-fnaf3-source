@@ -295,6 +295,9 @@ class PlayState extends MusicBeatState
 	public static var mirrorMode:Bool = false;
 	public var laneUnderlay:FlxSprite;
 	public var laneUnderlayOpponent:FlxSprite;
+	static var mangle:Bool = false;
+	var mangleMech:FlxSprite;
+	var mangleSound:FlxSound;
 
 	/*---------------------------------*/
 
@@ -929,6 +932,27 @@ class PlayState extends MusicBeatState
 			FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 		}
 		callOnLuas('onCreatePost', []);
+
+		switch (curStage)
+		{
+			case 'stagephantom':
+				
+				mangleMech = new FlxSprite();
+				mangleMech.loadGraphic(Paths.image('Mechanics/mangle'));
+				mangleMech.frames = Paths.getSparrowAtlas('Mechanics/mangle');
+				mangleMech.antialiasing = ClientPrefs.globalAntialiasing;
+				mangleMech.x = 400;
+				mangleMech.y = -200;
+				mangleMech.cameras = [camHUD];
+				mangleMech.animation.addByPrefix('none', 'none', 24, true);
+				mangleMech.animation.addByPrefix('idle', 'idle', 24, true);
+				mangleMech.animation.addByPrefix('in', 'in', 24, false);
+				mangleMech.animation.addByPrefix('out', 'out', 24, false);
+				mangleMech.animation.play('none');
+				add(mangleMech);
+
+				mangleSound = FlxG.sound.load(Paths.sound('garble'), 0.7);
+		}
 
 		super.create();
 
@@ -2027,6 +2051,10 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
+		if (mangle) {
+			handleMangle();
+		}
+
 		setOnLuas('curDecStep', curDecStep);
 		setOnLuas('curDecBeat', curDecBeat);
 
@@ -2658,6 +2686,12 @@ class PlayState extends MusicBeatState
 					FunkinLua.setVarInArray(FunkinLua.getPropertyLoopThingWhatever(killMe, true, true), killMe[killMe.length-1], value2);
 				} else {
 					FunkinLua.setVarInArray(this, value1, value2);
+				}
+
+			case 'mangle':
+				// The actual function for mangleMechanic is called inside the update function.
+				if (!mangle) {
+					mangle = true;
 				}
 		}
 		callOnLuas('onEvent', [eventName, value1, value2]);
@@ -3958,5 +3992,35 @@ class PlayState extends MusicBeatState
 			}
 		}
 		return null;
+	}
+
+	function handleMangle() 
+	{	
+		var mousePos:FlxPoint;
+		mousePos = FlxG.mouse.getScreenPosition(camHUD);
+
+		mangleSound.play();
+	
+		if (mangleMech.animation.curAnim.name == 'none') {
+			mangleMech.animation.play('in');
+		}
+	
+		if (mangleMech.overlapsPoint(mousePos) && FlxG.mouse.justPressed) {
+			if (mangleMech.animation.curAnim.name == 'idle') {
+				mangleMech.animation.finish();
+			}
+		}
+	
+		mangleMech.animation.finishCallback = function(name:String) {
+			if (name == 'in') {
+				mangleMech.animation.play('idle');
+			} else if (name == 'idle') {
+				mangleMech.animation.play('out');
+			} else if (name == 'out') {
+				mangleMech.animation.play('none');
+				mangleSound.stop();
+				mangle = false;
+			}
+		};
 	}
 }
