@@ -295,9 +295,24 @@ class PlayState extends MusicBeatState
 	public static var mirrorMode:Bool = false;
 	public var laneUnderlay:FlxSprite;
 	public var laneUnderlayOpponent:FlxSprite;
+
+	// Mechanics Stuff
+	static var tablet:Bool = false;
+	static var tabletButtonPressed:Bool = false;
+	var tabletMech:FlxSprite;
+	var tabletButton:FlxSprite;
+	var tabletReboot:FlxTimer;
+	var tabletSoundOpen:FlxSound;
+	var tabletSoundClose:FlxSound;
+
 	static var mangle:Bool = false;
 	var mangleMech:FlxSprite;
 	var mangleSound:FlxSound;
+
+	static var isTweenActive:Bool = false;
+	var blackOut:FlxSprite;
+	var tweenSineIn:FlxTween;
+	var tweenSineOut:FlxTween;
 
 	/*---------------------------------*/
 
@@ -952,6 +967,48 @@ class PlayState extends MusicBeatState
 				add(mangleMech);
 
 				mangleSound = FlxG.sound.load(Paths.sound('garble'), 0.7);
+
+				tabletMech = new FlxSprite();
+				tabletMech.loadGraphic(Paths.image('Mechanics/tablet'));
+				tabletMech.frames = Paths.getSparrowAtlas('Mechanics/tablet');
+				tabletMech.antialiasing = ClientPrefs.globalAntialiasing;
+				tabletMech.x = -180;
+				tabletMech.y = 300;
+				tabletMech.scale.x = 0.6;
+				tabletMech.scale.y = 0.6;
+				tabletMech.updateHitbox();
+				tabletMech.cameras = [camOther];
+				tabletMech.animation.addByPrefix('idle', 'idle', 24, true);
+				tabletMech.animation.addByPrefix('notpressed', 'notpressed', 24, true);
+				tabletMech.animation.addByPrefix('pressed', 'pressed', 24, true);
+				tabletMech.animation.addByPrefix('in', 'in', 24, false);
+				tabletMech.animation.addByPrefix('out', 'out', 24, false);
+				tabletMech.animation.play('idle');
+				tabletMech.alpha = 0;
+				add(tabletMech);
+
+				tabletButton = new FlxSprite();
+				tabletButton.loadGraphic(Paths.image('Mechanics/button'));
+				tabletButton.frames = Paths.getSparrowAtlas('Mechanics/button');
+				tabletButton.antialiasing = ClientPrefs.globalAntialiasing;
+				tabletButton.x = -20;
+				tabletButton.y = 650;
+				tabletButton.scale.x = 0.69;
+				tabletButton.scale.y = 0.7;
+				tabletButton.updateHitbox();
+				tabletButton.cameras = [camOther];
+				tabletButton.animation.addByPrefix('idle', 'idle', 24, true);
+				tabletButton.alpha = 0;
+				add(tabletButton);
+
+				tabletSoundOpen = FlxG.sound.load(Paths.sound('tabletin'), 1);
+				tabletSoundClose = FlxG.sound.load(Paths.sound('tabletout'), 1);
+
+				blackOut = new FlxSprite();
+				blackOut.makeGraphic(2560, 1440, FlxColor.BLACK);
+				blackOut.cameras = [camOther];
+				blackOut.alpha = 0;
+				add(blackOut);
 		}
 
 		super.create();
@@ -2055,6 +2112,10 @@ class PlayState extends MusicBeatState
 			handleMangle();
 		}
 
+		if (tablet) {
+			handleTablet();
+		}
+
 		setOnLuas('curDecStep', curDecStep);
 		setOnLuas('curDecBeat', curDecBeat);
 
@@ -2688,10 +2749,16 @@ class PlayState extends MusicBeatState
 					FunkinLua.setVarInArray(this, value1, value2);
 				}
 
-			case 'mangle':
+			case 'Mangle':
 				// The actual function for mangleMechanic is called inside the update function.
 				if (!mangle) {
 					mangle = true;
+				}
+
+			case 'Tablet':
+				// The actual function for tabletMechanic is called inside the update function.
+				if (!tablet) {
+					tablet = true;
 				}
 		}
 		callOnLuas('onEvent', [eventName, value1, value2]);
@@ -3994,33 +4061,111 @@ class PlayState extends MusicBeatState
 		return null;
 	}
 
-	function handleMangle() 
-	{	
-		var mousePos:FlxPoint;
-		mousePos = FlxG.mouse.getScreenPosition(camHUD);
-
+	// Originally written by JustDom in lua. Converted to Haxe to get more reliable mouse functionality and prevent a bug.
+	function handleMangle() {
+		var mousePosMangle:FlxPoint = FlxG.mouse.getScreenPosition(camHUD);
+	
 		mangleSound.play();
 	
 		if (mangleMech.animation.curAnim.name == 'none') {
 			mangleMech.animation.play('in');
 		}
 	
-		if (mangleMech.overlapsPoint(mousePos) && FlxG.mouse.justPressed) {
+		if (mangleMech.overlapsPoint(mousePosMangle) && FlxG.mouse.justPressed) {
 			if (mangleMech.animation.curAnim.name == 'idle') {
 				mangleMech.animation.finish();
 			}
 		}
 	
 		mangleMech.animation.finishCallback = function(name:String) {
-			if (name == 'in') {
-				mangleMech.animation.play('idle');
-			} else if (name == 'idle') {
-				mangleMech.animation.play('out');
-			} else if (name == 'out') {
-				mangleMech.animation.play('none');
-				mangleSound.stop();
-				mangle = false;
+			switch (name) {
+				case 'in':
+					mangleMech.animation.play('idle');
+				case 'idle':
+					mangleMech.animation.play('out');
+				case 'out':
+					mangleMech.animation.play('none');
+					mangleSound.stop();
+					mangle = false;
 			}
 		};
+	}
+	
+	function handleTablet() {
+		var mousePosTablet:FlxPoint = FlxG.mouse.getScreenPosition(camOther);
+	
+		if (!isTweenActive) {
+			blackOutSineIn();
+		}
+	
+		if (!tabletButtonPressed) {
+			tabletButton.alpha = 1;
+			tabletButton.animation.play('idle');
+			if (tabletButton.overlapsPoint(mousePosTablet) && FlxG.mouse.justPressed) {
+				tabletButtonPressed = true;
+				tabletMech.alpha = 1;
+				tabletMech.animation.play('in');
+				tabletSoundOpen.play();
+			}
+		}
+	
+		if (tabletButtonPressed) {
+			tabletButton.alpha = 0;
+			if (tabletMech.overlapsPoint(mousePosTablet) && FlxG.mouse.justPressed) {
+				if (tabletMech.animation.curAnim.name == 'notpressed') {
+					tabletMech.animation.finish();
+				}
+			}
+		}
+	
+		tabletMech.animation.finishCallback = function(name:String) {
+			switch (name) {
+				case 'in':
+					tabletMech.animation.play('notpressed');
+				case 'notpressed':
+					tabletMech.animation.play('pressed');
+					startTimer = new FlxTimer().start(5 / playbackRate, function(tmr:FlxTimer) {
+						tabletMech.animation.finish();
+					}, 1);
+				case 'pressed':
+					tabletMech.animation.play('out');
+					tabletSoundClose.play();
+				case 'out':
+					tabletMech.animation.play('idle');
+					tabletMech.alpha = 0;
+					tablet = false;
+					tabletButtonPressed = false;
+					blackOutSineOut();
+			}
+		};
+	
+		tabletSoundOpen.onComplete = function() {
+			tabletSoundOpen.stop();
+		};
+	
+		tabletSoundClose.onComplete = function() {
+			tabletSoundClose.stop();
+		};
+	}
+	
+	function blackOutSineIn() {
+		if (tablet) {
+			isTweenActive = true;
+			FlxTween.tween(blackOut, {alpha: 0.9}, 2 / playbackRate, {
+				onComplete: function(tween:FlxTween) {
+					blackOut.alpha = 0.9;
+					blackOutSineOut();
+				}
+			});
+		}
+	}
+	
+	function blackOutSineOut() {
+		FlxTween.tween(blackOut, {alpha: 0}, 2 / playbackRate, {
+			onComplete: function(tween:FlxTween) {
+				blackOut.alpha = 0;
+				isTweenActive = false;
+			}
+		});
 	}
 }
