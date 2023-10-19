@@ -991,7 +991,7 @@ class PlayState extends MusicBeatState
 				tabletButton.loadGraphic(Paths.image('Mechanics/button'));
 				tabletButton.frames = Paths.getSparrowAtlas('Mechanics/button');
 				tabletButton.antialiasing = ClientPrefs.globalAntialiasing;
-				tabletButton.x = -20;
+				tabletButton.x = 0;
 				tabletButton.y = 650;
 				tabletButton.scale.x = 0.69;
 				tabletButton.scale.y = 0.7;
