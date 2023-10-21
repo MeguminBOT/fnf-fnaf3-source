@@ -31,10 +31,20 @@ using StringTools;
 
 class GraphicsSettingsSubState extends BaseOptionsMenu
 {
+	var antialiasingOption:Int;
+	var boyfriend:Character = null;
+
 	public function new()
 	{
 		title = 'Graphics';
 		rpcTitle = 'Graphics Settings Menu'; //for Discord Rich Presence
+
+		boyfriend = new Character(940, 170, 'bf2', true);
+		boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
+		boyfriend.updateHitbox();
+		boyfriend.dance();
+		boyfriend.animation.finishCallback = function (name:String) boyfriend.dance();
+		boyfriend.visible = false;
 
 		//I'd suggest using "Low Quality" as an example for making your own option since it is the simplest here
 		var option:Option = new Option('Low Quality', //Name
@@ -51,6 +61,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 			true);
 		option.onChange = onChangeAntiAliasing;
 		addOption(option);
+		antialiasingOption = optionsArray.length-1;
 
 		// Backported from Rhythm Engine. Fixes insane stuttering.
 		var option:Option = new Option('Prefer GPU Caching',
@@ -82,14 +93,14 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		#end
 
 		super();
+		insert(1, boyfriend);
 	}
 
 	function onChangeAntiAliasing()
 	{
 		for (sprite in members)
 		{
-			var sprite:Dynamic = sprite; //Make it check for FlxSprite instead of FlxBasic
-			var sprite:FlxSprite = sprite; //Don't judge me ok
+			var sprite:FlxSprite = cast sprite;
 			if(sprite != null && (sprite is FlxSprite) && !(sprite is FlxText)) {
 				sprite.antialiasing = ClientPrefs.globalAntialiasing;
 			}
@@ -108,5 +119,11 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 			FlxG.drawFramerate = ClientPrefs.framerate;
 			FlxG.updateFramerate = ClientPrefs.framerate;
 		}
+	}
+
+	override function changeSelection(change:Int = 0)
+	{
+		super.changeSelection(change);
+		boyfriend.visible = (antialiasingOption == curSelected);
 	}
 }
