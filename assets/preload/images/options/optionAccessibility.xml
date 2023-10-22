@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="accessibility.png">
+	<!-- Created with Adobe Animate version 22.0.8.217 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Accessibility pressed 0000" x="4" y="4" width="515" height="55"/>
+	<SubTexture name="Accessibility idle 0000" x="4" y="63" width="450" height="53"/>
+	<SubTexture name="Accessibility highlighted 0000" x="4" y="120" width="515" height="55"/>
+</TextureAtlas>

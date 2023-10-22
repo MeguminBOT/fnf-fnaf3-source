@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="gameplay.png">
+	<!-- Created with Adobe Animate version 22.0.8.217 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Gameplay pressed 0000" x="4" y="4" width="341" height="55"/>
+	<SubTexture name="Gameplay idle 0000" x="4" y="63" width="276" height="53"/>
+	<SubTexture name="Gameplay highlighted 0000" x="4" y="120" width="341" height="55"/>
+</TextureAtlas>

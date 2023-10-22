@@ -1,142 +1,179 @@
 package options;
 
-#if desktop
-import Discord.DiscordClient;
-#end
-import flash.text.TextField;
-import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.addons.display.FlxGridOverlay;
-import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.math.FlxMath;
-import flixel.text.FlxText;
-import flixel.util.FlxColor;
 import lime.utils.Assets;
-import flixel.FlxSubState;
-import flash.text.TextField;
+
 import flixel.FlxG;
+import flixel.FlxCamera;
+import flixel.FlxObject;
 import flixel.FlxSprite;
-import flixel.util.FlxSave;
-import haxe.Json;
+import flixel.FlxSubState;
+import flixel.animation.FlxAnimationController;
+import flixel.group.FlxSpriteGroup;
+import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.input.keyboard.FlxKey;
+import flixel.input.keyboard.FlxKeyList;
+import flixel.math.FlxPoint;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import flixel.util.FlxTimer;
-import flixel.input.keyboard.FlxKey;
-import flixel.graphics.FlxGraphic;
+import flixel.ui.FlxSpriteButton;
+import flixel.ui.FlxButton;
+import flixel.util.FlxSave;
+
 import Controls;
+import Discord.DiscordClient;
 
 using StringTools;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay', 'Accessibility'];
-	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
-	public static var menuBG:FlxSprite;
 
-	function openSelectedSubstate(label:String) {
-		switch(label) {
-			case 'Note Colors':
+	// UI Button stuff
+	var button:FlxButton;
+	var btnGroup:FlxTypedGroup<FlxButton>;
+	var btnGroups:Array<FlxTypedGroup<FlxButton>> = [];
+
+	// Button properties 
+	// DO NOT CHANGE THESE VARIABLES THEY'RE HANDLED IN A FUNCTION LATER ON.
+	var btnWidth:Float = 0; // Width of each button.
+	var btnHeight:Float = 0; // Height of each button.
+	var btnX:Float = 0; // X position of the button row.
+	var btnY:Float = 0; // Y position of the button row.
+	var btnSpacing:Int = 0; // Space between each button.
+
+	var menuList:Array<String> = ['Notecolors', 'Controls', 'Notedelay', 'Graphics', 'Visuals', 'Gameplay', 'Accessibility'];
+
+	override function create()
+	{
+		FlxG.mouse.visible = true; // Make the mouse visible since the UI is made for mouse and touch input.
+
+		persistentUpdate = true;
+
+		#if desktop
+		// Updating Discord Rich Presence
+		DiscordClient.changePresence("Options Menu", null);
+		#end
+
+        var bg = new FlxSprite().loadGraphic(Paths.image('menuBG'));
+        bg.antialiasing = ClientPrefs.globalAntialiasing;
+        add(bg);
+        bg.screenCenter();
+
+		/* Call our separated function for creating song buttons */
+		btnGroups.push(createGroup(menuList));
+
+		super.create();
+	}
+
+	public function createGroup(menuList:Array<String>):FlxTypedGroup<FlxButton> 
+	{
+		// Initialize groups.
+		btnGroup = new FlxTypedGroup<FlxButton>();
+	
+		for (i in 0...menuList.length) {
+			// Sets a bigger or smaller size of the buttons depending on the index range. 
+			btnWidth = 829;
+			btnHeight = 55;
+			btnSpacing = 4;
+			btnX = 16;
+			btnY = 16 + (btnHeight + btnSpacing) * i;
+	
+			// Automatically create the appropiate amount of buttons.
+			var button = createButton(btnX, btnY, i, menuList);
+			btnGroup.add(button);
+		}
+		add(btnGroup);
+	
+		return btnGroup;
+	}
+
+	function createButton(btnX:Float, btnY:Float, index:Int, menuList:Array<String>):FlxButton
+	{
+		// Button creation.
+		button = new FlxButton(btnX, btnY, "", onButtonClicked.bind(index, menuList));
+
+		// Load a sprite sharing the name of the menu.
+		button.loadGraphic(Paths.image('options/option' + menuList[index]));
+		button.frames = Paths.getSparrowAtlas('options/option' + menuList[index]);
+		button.animation.addByPrefix('idle', menuList[index] + ' idle', 24, true);
+		button.animation.addByPrefix('highlighted', menuList[index] + ' highlighted', 24, true);
+		button.animation.addByPrefix('pressed', menuList[index] + ' pressed', 24, true);
+
+		// Assign button events to functions.
+		button.onOver.callback = onButtonHighlight.bind(index, menuList);
+		button.onOut.callback = onButtonDeselect.bind(index, menuList); 
+
+		button.animation.play('idle');
+		
+		return button;
+	}
+
+	function onButtonClicked(index:Int, menuList:Array<String>) 
+	{
+		// Set the current selection to the index of the clicked button
+		curSelected = index;
+
+		//Play pressed animation of button
+		button.animation.play('pressed');
+
+		// Play a sound when the button is clicked.
+		FlxG.sound.play(Paths.sound('done'), 1);
+
+		// Handle button actions based on index
+		switch (index) {
+			case 0: // 'Notecolors'
 				openSubState(new options.NotesSubState());
-			case 'Controls':
+			case 1: // 'Controls'
 				openSubState(new options.ControlsSubState());
-			case 'Graphics':
-				openSubState(new options.GraphicsSettingsSubState());
-			case 'Visuals and UI':
-				openSubState(new options.VisualsUISubState());
-			case 'Gameplay':
-				openSubState(new options.GameplaySettingsSubState());
-			case 'Adjust Delay and Combo':
+			case 2: // 'Notedelay'
 				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
-			case 'Accessibility':
+			case 3: // 'Graphics'
+				openSubState(new options.GraphicsSettingsSubState());
+			case 4: // 'Visuals'
+				openSubState(new options.VisualsUISubState());
+			case 5: // 'Gameplay'
+				openSubState(new options.GameplaySettingsSubState());
+			case 6: // 'Accessibility'
 				openSubState(new options.AccessibilitySubState());
 		}
 	}
 
-	var selectorLeft:Alphabet;
-	var selectorRight:Alphabet;
+	function onButtonHighlight(index:Int, menuList:Array<String>) 
+	{
+		// Set the current selection to the index of the highlighted button
+		curSelected = index;
 
-	override function create() {
-		#if desktop
-		DiscordClient.changePresence("Options Menu", null);
-		#end
+		//Play highlight animation of button
+		button.animation.play('highlighted');
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.updateHitbox();
-		bg.screenCenter();
-		bg.antialiasing = ClientPrefs.globalAntialiasing;
-		add(bg);
-
-		grpOptions = new FlxTypedGroup<Alphabet>();
-		add(grpOptions);
-
-		for (i in 0...options.length)
-		{
-			var optionText:Alphabet = new Alphabet(0, 0, options[i], true);
-			optionText.screenCenter();
-			optionText.y += (100 * (i - (options.length / 2))) + 50;
-			grpOptions.add(optionText);
-		}
-
-		selectorLeft = new Alphabet(0, 0, '>', true);
-		add(selectorLeft);
-		selectorRight = new Alphabet(0, 0, '<', true);
-		add(selectorRight);
-
-		changeSelection();
-		ClientPrefs.saveSettings();
-
-		super.create();
-		FlxG.mouse.visible = false;
+		// Play a sound when the button is highlighted.
+		FlxG.sound.play(Paths.sound('done'), 1);
 	}
 
-	override function closeSubState() {
+	function onButtonDeselect(index:Int, menuList:Array<String>) 
+	{
+		curSelected = index;
+
+		//Play idle animation of button
+		button.animation.play('idle');
+
+		index = -1;
+		curSelected = index;
+	}
+
+	override function closeSubState() 
+	{
+		persistentUpdate = true;
 		super.closeSubState();
-		ClientPrefs.saveSettings();
 	}
 
-	override function update(elapsed:Float) {
-		super.update(elapsed);
-
-		if (controls.UI_UP_P) {
-			changeSelection(-1);
-		}
-		if (controls.UI_DOWN_P) {
-			changeSelection(1);
-		}
-
+	override function update(elapsed:Float)
+	{
 		if (controls.BACK) {
+			persistentUpdate = false;
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			MusicBeatState.switchState(new MainMenuState());
 		}
-
-		if (controls.ACCEPT) {
-			openSelectedSubstate(options[curSelected]);
-		}
-	}
-	
-	function changeSelection(change:Int = 0) {
-		curSelected += change;
-		if (curSelected < 0)
-			curSelected = options.length - 1;
-		if (curSelected >= options.length)
-			curSelected = 0;
-
-		var bullShit:Int = 0;
-
-		for (item in grpOptions.members) {
-			item.targetY = bullShit - curSelected;
-			bullShit++;
-
-			item.alpha = 0.6;
-			if (item.targetY == 0) {
-				item.alpha = 1;
-				selectorLeft.x = item.x - 63;
-				selectorLeft.y = item.y;
-				selectorRight.x = item.x + item.width + 15;
-				selectorRight.y = item.y;
-			}
-		}
-		FlxG.sound.play(Paths.sound('scrollMenu'));
+		super.update(elapsed);
 	}
 }
