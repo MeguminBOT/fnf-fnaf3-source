@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="notecolors.png">
+	<!-- Created with Adobe Animate version 22.0.8.217 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Notecolors idle 0000" x="4" y="63" width="380" height="55"/>
+	<SubTexture name="Notecolors highlighted 0000" x="4" y="120" width="445" height="55"/>
+	<SubTexture name="Notecolors pressed 0000" x="4" y="4" width="445" height="55"/>
+</TextureAtlas>

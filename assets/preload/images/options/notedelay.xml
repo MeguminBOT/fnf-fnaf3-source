@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="notedelay.png">
+	<!-- Created with Adobe Animate version 22.0.8.217 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Notedelay idle 0000" x="4" y="63" width="763" height="55"/>
+	<SubTexture name="Notedelay highlighted 0000" x="4" y="120" width="829" height="55"/>
+	<SubTexture name="Notedelay pressed 0000" x="4" y="4" width="829" height="55"/>
+</TextureAtlas>
