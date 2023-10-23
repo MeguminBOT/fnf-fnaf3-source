@@ -1,37 +1,23 @@
-// Early Custom Freeplay Menu version.
-
 package;
+
 #if desktop
 import Discord.DiscordClient;
 #end
+
 import editors.ChartingState;
-import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.display.FlxGridOverlay;
-import flixel.addons.transition.FlxTransitionableState;
-import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import flixel.tweens.FlxTween;
-import lime.utils.Assets;
-import flixel.system.FlxSound;
-import openfl.utils.Assets as OpenFlAssets;
 import WeekData;
-#if MODS_ALLOWED
-import sys.FileSystem;
-#end
 
 // FNAF 3 Specific Imports
 import flixel.FlxCamera;
-import flixel.math.FlxPoint;
 import flixel.ui.FlxButton;
-import flixel.ui.FlxSpriteButton;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxSpriteGroup;
 import flixel.input.keyboard.FlxKey;
-import flixel.input.keyboard.FlxKeyList;
 import Achievements;
 import SongUnlock;
 

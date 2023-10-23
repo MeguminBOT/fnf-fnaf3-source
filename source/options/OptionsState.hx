@@ -1,17 +1,15 @@
 package options;
+
 #if desktop
 import Discord.DiscordClient;
 #end
-import lime.utils.Assets;
+
 import flixel.FlxG;
-import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.animation.FlxAnimationController;
 import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.input.keyboard.FlxKey;
 import flixel.ui.FlxButton;
-import flixel.util.FlxSave;
 import Controls;
 
 using StringTools;

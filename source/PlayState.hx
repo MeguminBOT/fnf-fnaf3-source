@@ -1,14 +1,11 @@
 package;
 
-import flixel.graphics.FlxGraphic;
 #if desktop
 import Discord.DiscordClient;
 import discord_rpc.DiscordRpc;
 #end
-import Section.SwagSection;
-import Song.SwagSong;
-import WiggleEffect.WiggleEffectType;
-import flixel.FlxBasic;
+
+// Flixel
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxGame;
@@ -16,15 +13,12 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.FlxSubState;
-import flixel.addons.display.FlxGridOverlay;
-import flixel.addons.effects.FlxTrail;
-import flixel.addons.effects.FlxTrailArea;
-import flixel.addons.effects.chainable.FlxEffectSprite;
-import flixel.addons.effects.chainable.FlxWaveEffect;
 import flixel.addons.transition.FlxTransitionableState;
-import flixel.graphics.atlas.FlxAtlas;
-import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.animation.FlxAnimationController;
+import flixel.graphics.FlxGraphic;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.group.FlxSpriteGroup;
+import flixel.input.keyboard.FlxKey;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
@@ -33,34 +27,33 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.ui.FlxBar;
-import flixel.util.FlxCollision;
 import flixel.util.FlxColor;
+import flixel.util.FlxSave;
 import flixel.util.FlxSort;
 import flixel.util.FlxStringUtil;
 import flixel.util.FlxTimer;
-import haxe.Json;
-import lime.utils.Assets;
+
+// OpenFL
 import openfl.Lib;
-import openfl.display.BlendMode;
-import openfl.display.StageQuality;
-import openfl.filters.BitmapFilter;
-import openfl.utils.Assets as OpenFlAssets;
-import editors.ChartingState;
-import editors.CharacterEditorState;
-import flixel.group.FlxSpriteGroup;
-import flixel.input.keyboard.FlxKey;
-import Note.EventNote;
 import openfl.events.KeyboardEvent;
-import flixel.effects.particles.FlxEmitter;
-import flixel.effects.particles.FlxParticle;
-import flixel.util.FlxSave;
-import flixel.animation.FlxAnimationController;
+import openfl.utils.Assets as OpenFlAssets;
+
+// Misc
 import animateatlas.AtlasFrameMaker;
+import lime.utils.Assets;
+import haxe.Json;
+
+// Funkin
 import Achievements;
-import StageData;
-import FunkinLua;
-import DialogueBoxPsych;
 import Conductor.Rating;
+import DialogueBoxPsych;
+import FunkinLua;
+import Note.EventNote;
+import Section.SwagSection;
+import Song.SwagSong;
+import StageData;
+import editors.CharacterEditorState;
+import editors.ChartingState;
 
 #if !flash 
 import flixel.addons.display.FlxRuntimeShader;
@@ -76,7 +69,7 @@ import sys.io.File;
 import vlc.MP4Handler;
 #end
 
-// Fnaf 3 Specific imports
+// Vs FNaF 3 Specific imports
 import SongUnlock;
 
 using StringTools;
@@ -226,7 +219,6 @@ class PlayState extends MusicBeatState
 	var dialogueJson:DialogueFile = null;
 
 	var heyTimer:Float;
-	var wiggleShit:WiggleEffect = new WiggleEffect();
 
 	public var songScore:Int = 0;
 	public var songHits:Int = 0;
@@ -2849,8 +2841,8 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-
 	public var transitioning = false;
+
 	public function endSong():Void
 	{
 		//Should kill you if you tried to cheat
@@ -2879,7 +2871,6 @@ class PlayState extends MusicBeatState
 		camZooming = false;
 		inCutscene = false;
 		updateTime = false;
-
 		deathCounter = 0;
 		seenCutscene = false;
 
@@ -2992,12 +2983,14 @@ class PlayState extends MusicBeatState
 
 	#if ACHIEVEMENTS_ALLOWED
 	var achievementObj:AchievementObject = null;
+
 	function startAchievement(achieve:String) {
 		achievementObj = new AchievementObject(achieve, camOther);
 		achievementObj.onFinish = achievementEnd;
 		add(achievementObj);
 		trace('Giving achievement ' + achieve);
 	}
+
 	function achievementEnd():Void
 	{
 		achievementObj = null;
@@ -3009,12 +3002,14 @@ class PlayState extends MusicBeatState
 
 	// Song Unlocking
 	var songUnlockObj:SongObject = null;
+
 	function startUnlockSong(songUnlockList:String) {
 		songUnlockObj = new SongObject(songUnlockList, camOther);
 		songUnlockObj.onFinish = unlockSongEnd;
 		add(songUnlockObj);
 		trace('Giving song ' + songUnlockList);
 	}
+
 	function unlockSongEnd():Void
 	{
 		songUnlockObj = null;

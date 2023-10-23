@@ -1,7 +1,11 @@
 package;
 
+#if desktop
+import Discord.DiscordClient;
+#end
+
 import flixel.graphics.FlxGraphic;
-import flixel.FlxG;
+
 import flixel.FlxGame;
 import flixel.FlxState;
 import openfl.Assets;
@@ -10,18 +14,18 @@ import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.display.StageScaleMode;
+import lime.app.Application;
 
 //crash handler stuff
 #if CRASH_HANDLER
-import lime.app.Application;
 import openfl.events.UncaughtErrorEvent;
 import haxe.CallStack;
 import haxe.io.Path;
-import Discord.DiscordClient;
 import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
 #end
+
 
 using StringTools;
 
@@ -69,6 +73,7 @@ class Main extends Sprite
 
 	private function setupGame():Void
 	{
+		
 		var stageWidth:Int = Lib.current.stage.stageWidth;
 		var stageHeight:Int = Lib.current.stage.stageHeight;
 
@@ -141,7 +146,9 @@ class Main extends Sprite
 		Sys.println("Crash dump saved in " + Path.normalize(path));
 
 		Application.current.window.alert(errMsg, "Error!");
+		#if desktop
 		DiscordClient.shutdown();
+		#end
 		Sys.exit(1);
 	}
 	#end

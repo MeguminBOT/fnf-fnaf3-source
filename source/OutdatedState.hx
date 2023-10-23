@@ -1,15 +1,12 @@
 package;
 
+import lime.app.Application;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.text.FlxText;
-import flixel.util.FlxColor;
-import flixel.effects.FlxFlicker;
-import lime.app.Application;
-import flixel.addons.transition.FlxTransitionableState;
 import flixel.tweens.FlxTween;
-import flixel.util.FlxTimer;
+import flixel.util.FlxColor;
 
 class OutdatedState extends MusicBeatState
 {
@@ -25,13 +22,13 @@ class OutdatedState extends MusicBeatState
 
 		warnText = new FlxText(0, 0, FlxG.width,
 			"Sup bro, looks like you're running an   \n
-			outdated version of Psych Engine (" + MainMenuState.psychEngineVersion + "),\n
+			outdated version of 'Vs. FNaF 3' (" + MainMenuState.psychEngineVersion + "),\n
 			please update to " + TitleState.updateVersion + "!\n
 			Press ESCAPE to proceed anyway.\n
 			\n
 			Thank you for using the Engine!",
-			32);
-		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
+			24);
+		warnText.setFormat("stalker2.ttf", 24, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
 		add(warnText);
 	}

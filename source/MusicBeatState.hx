@@ -2,18 +2,11 @@ package;
 
 import Conductor.BPMChangeEvent;
 import flixel.FlxG;
-import flixel.addons.ui.FlxUIState;
-import flixel.math.FlxRect;
-import flixel.util.FlxTimer;
-import flixel.addons.transition.FlxTransitionableState;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
-import flixel.FlxSprite;
-import flixel.util.FlxColor;
-import flixel.util.FlxGradient;
-import flixel.FlxState;
-import flixel.FlxCamera;
 import flixel.FlxBasic;
+import flixel.FlxCamera;
+import flixel.FlxState;
+import flixel.addons.ui.FlxUIState;
+import flixel.addons.transition.FlxTransitionableState;
 
 class MusicBeatState extends FlxUIState
 {

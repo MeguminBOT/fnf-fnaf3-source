@@ -3,29 +3,25 @@ package;
 #if desktop
 import Discord.DiscordClient;
 #end
+
+import lime.app.Application;
 import flixel.FlxG;
+import flixel.FlxCamera;
 import flixel.FlxObject;
 import flixel.FlxSprite;
-import flixel.FlxCamera;
-import flixel.addons.transition.FlxTransitionableState;
-import flixel.effects.FlxFlicker;
-import flixel.graphics.frames.FlxAtlasFrames;
-import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.text.FlxText;
-import flixel.math.FlxMath;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
-import flixel.util.FlxColor;
-import lime.app.Application;
-import Achievements;
-import editors.MasterEditorMenu;
-import flixel.input.keyboard.FlxKey;
 import flixel.FlxState;
+import flixel.addons.transition.FlxTransitionableState;
+import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.math.FlxMath;
+import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
+import Achievements;
 
 #if debug
 import SongUnlock;
+import flixel.input.keyboard.FlxKey;
+import editors.MasterEditorMenu;
 #end
 
 using StringTools;
@@ -38,12 +34,14 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
-	
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
+
+	#if debug
 	var debugKeys:Array<FlxKey>;
+	#end
 
 	override function create()
 	{
