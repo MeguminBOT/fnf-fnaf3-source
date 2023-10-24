@@ -2890,7 +2890,7 @@ class PlayState extends MusicBeatState
 		if(songUnlockObj != null) {
 			return;
 		} else {
-			var songUnlockList:String = checkForSongUnlock(['takenapart_unlockSong', 'retribution_unlockSong', 'fearforever_unlockSong', 'everlasting_unlockSong', 'braindamage_unlockSong', 'partyroom_unlockSong','totallyreal_unlockSong', 'lasthour_unlockSong', 'waffles_unlockSong', 'leantrap_unlockSong', 'misconception_unlockSong', 'outofbounds_unlockSong', 'untilnexttime_unlockSong']);
+			var songUnlockList:String = checkForSongUnlock(['takenapart_unlockSong', 'retribution_unlockSong', 'fearforever_unlockSong', 'everlasting_unlockSong', 'braindamage_unlockSong', 'partyroom_unlockSong','totallyreal_unlockSong', 'lasthour_unlockSong', 'waffles_unlockSong', 'leantrap_unlockSong', 'endorevengo_unlockSong', 'misconception_unlockSong', 'outofbounds_unlockSong', 'untilnexttime_unlockSong']);
 
 			if(songUnlockList != null) {
 				startUnlockSong(songUnlockList);
@@ -4044,6 +4044,8 @@ class PlayState extends MusicBeatState
 							SongUnlock.unlockSong('waffles');
 						case 'leantrap':
 							SongUnlock.unlockSong('leantrap');
+						case 'endorevengo':
+							SongUnlock.unlockSong('endorevengo');
 						case 'misconception':
 							SongUnlock.unlockSong('misconception');	
 						case 'untilnexttime':

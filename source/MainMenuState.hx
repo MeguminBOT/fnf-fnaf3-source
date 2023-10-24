@@ -237,6 +237,7 @@ class MainMenuState extends MusicBeatState
 			SongUnlock.unlockSong('lasthour');
 			SongUnlock.unlockSong('waffles');
 			SongUnlock.unlockSong('leantrap');
+			SongUnlock.unlockSong('endorevengo');
 			SongUnlock.unlockSong('misconception');	
 			ClientPrefs.saveSettings();
 		}

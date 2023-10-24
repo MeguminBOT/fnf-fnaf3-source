@@ -21,6 +21,7 @@ class SongUnlock {
         ["Last Hour", 				"", 			"lasthour_unlockSong", 				false],
         ["Waffles", 				"", 			"waffles_unlockSong", 				false],
         ["Leantrap", 				"",				"leantrap_unlockSong", 				false],
+		["Endo Revengo"				"",				"endorevengo_unlockSong", 			false],
         ["Misconception", 			"", 			"misconception_unlockSong", 		false],
         ["Out Of Bounds", 			"", 			"outofbounds_unlockSong", 			false],
         ["Until Next Time", 		"", 			"untilnexttime_unlockSong", 		false]
