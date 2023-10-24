@@ -72,7 +72,6 @@ class ControlsSubState extends MusicBeatSubstate {
 		super();
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.color = 0xFFea71fd;
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
@@ -90,7 +89,10 @@ class ControlsSubState extends MusicBeatSubstate {
 				isCentered = true;
 			}
 
-			var optionText:Alphabet = new Alphabet(200, 300, optionShit[i][0], (!isCentered || isDefaultKey));
+			var optionText:Alphabet = new Alphabet(200, 0, optionShit[i][0], (!isCentered || isDefaultKey));
+			optionText.scaleX = 0.5;
+			optionText.scaleY = 0.5;
+			optionText.y = 300;
 			optionText.isMenuItem = true;
 			if(isCentered) {
 				optionText.screenCenter(X);
@@ -126,13 +128,20 @@ class ControlsSubState extends MusicBeatSubstate {
 				changeAlt();
 			}
 
+			// Add mouse scrolling functionality
+			if (FlxG.mouse.wheel != 0)
+			{
+				var scrollAmount:Int = FlxG.mouse.wheel > 0 ? -1 : 1;
+				changeSelection(scrollAmount);
+			}
+
 			if (controls.BACK) {
 				ClientPrefs.reloadControls();
 				close();
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 			}
 
-			if(controls.ACCEPT && nextAccept <= 0) {
+			if(controls.ACCEPT && nextAccept <= 0 || FlxG.mouse.justPressed && nextAccept <= 0) {
 				if(optionShit[curSelected][0] == defaultKey) {
 					ClientPrefs.keyBinds = ClientPrefs.defaultKeys.copy();
 					reloadKeys();
@@ -275,12 +284,16 @@ class ControlsSubState extends MusicBeatSubstate {
 	private function addBindTexts(optionText:Alphabet, num:Int) {
 		var keys:Array<Dynamic> = ClientPrefs.keyBinds.get(optionShit[num][1]);
 		var text1 = new AttachedText(InputFormatter.getKeyName(keys[0]), 400, -55);
+		text1.scaleX = 0.5;
+		text1.scaleY = 0.5;
 		text1.setPosition(optionText.x + 400, optionText.y - 55);
 		text1.sprTracker = optionText;
 		grpInputs.push(text1);
 		add(text1);
 
 		var text2 = new AttachedText(InputFormatter.getKeyName(keys[1]), 650, -55);
+		text2.scaleX = 0.5;
+		text2.scaleY = 0.5;
 		text2.setPosition(optionText.x + 650, optionText.y - 55);
 		text2.sprTracker = optionText;
 		grpInputsAlt.push(text2);
