@@ -39,12 +39,10 @@ class MainMenuState extends MusicBeatState
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
 
-	#if debug
-	var debugKeys:Array<FlxKey>;
-	#end
-
 	override function create()
 	{
+		FlxG.mouse.visible = true;
+
 		#if MODS_ALLOWED
 		Paths.pushGlobalMods();
 		#end
@@ -54,7 +52,6 @@ class MainMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
-		debugKeys = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 
 		camGame = new FlxCamera();
 		camAchievement = new FlxCamera();
@@ -104,8 +101,6 @@ class MainMenuState extends MusicBeatState
 		magenta.antialiasing = ClientPrefs.globalAntialiasing;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
-		
-		// magenta.scrollFactor.set();
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -114,16 +109,11 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
+		var versionShit:FlxText = new FlxText(1100, FlxG.height - 44, 0, '', 16);
+		versionShit.setFormat("stalker2.ttf", 16, FlxColor.WHITE, FlxTextAlign.RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		versionShit.scrollFactor.set();
-		versionShit.setFormat("VCR OSD Mono", 14, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.text = 'Vs FNaF 3 v' + Application.current.meta.get('version') + '\nPsych Engine v' + psychEngineVersion;
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
-		versionShit.scrollFactor.set();
-		versionShit.setFormat("VCR OSD Mono", 14, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		add(versionShit);
-
-		// NG.core.calls.event.logEvent('swag').send();
 
 		changeItem();
 
@@ -142,58 +132,57 @@ class MainMenuState extends MusicBeatState
 
 		super.create();
 	
-		FlxG.mouse.visible = true;
 		var newgame = new FlxButton(0, 0, " ", newgamestart);
 		newgame.screenCenter();
 		add(newgame);
-		newgame.loadGraphic(Paths.image('newgame'), true, 500, 55);
+		newgame.loadGraphic(Paths.image('mainmenu/newgame'), true, 500, 55);
 		newgame.x = -1;
 		newgame.y = 380;
 
 		var loadgame = new FlxButton(0, 0, " ", loadgamestart);
 		loadgame.screenCenter();
 		add(loadgame);
-		loadgame.loadGraphic(Paths.image('loadgame'), true, 500, 55);
+		loadgame.loadGraphic(Paths.image('mainmenu/loadgame'), true, 500, 55);
 		loadgame.x = -1;
 		loadgame.y = 460;
 
 		var credits = new FlxButton(0, 0, " ", creditsstart);
 		credits.screenCenter();
 		add(credits);
-		credits.loadGraphic(Paths.image('credits'), true, 500, 55);
+		credits.loadGraphic(Paths.image('mainmenu/credits'), true, 500, 55);
 		credits.x = -1;
 		credits.y = 540;
 
 		var extra = new FlxButton(0, 0, " ", extrastart);
 		extra.screenCenter();
 		add(extra);
-		extra.loadGraphic(Paths.image('extra'), true, 500, 55);
+		extra.loadGraphic(Paths.image('mainmenu/extras'), true, 500, 55);
 		extra.x = -1;
 		extra.y = 620;
 	}
 
 	function newgamestart()
 	{
-	MusicBeatState.switchState(new StoryMenuState());
-	FlxG.sound.play(Paths.sound('done'), 0.7);
+		MusicBeatState.switchState(new StoryMenuState());
+		FlxG.sound.play(Paths.sound('done'), 0.7);
 	}
 
 	function loadgamestart()
 	{
-	MusicBeatState.switchState(new FreeplayState());
-	FlxG.sound.play(Paths.sound('done'), 0.7);
+		MusicBeatState.switchState(new FreeplayState());
+		FlxG.sound.play(Paths.sound('done'), 0.7);
 	}
 
 	function creditsstart()
 	{
-	MusicBeatState.switchState(new CreditsState());
-	FlxG.sound.play(Paths.sound('done'), 0.7);
+		MusicBeatState.switchState(new CreditsState());
+		FlxG.sound.play(Paths.sound('done'), 0.7);
 	}
 
 	function extrastart()
 	{
-	MusicBeatState.switchState(new options.OptionsState());
-	FlxG.sound.play(Paths.sound('done'), 0.7);
+		MusicBeatState.switchState(new options.OptionsState());
+		FlxG.sound.play(Paths.sound('done'), 0.7);
 	}
 
 	#if ACHIEVEMENTS_ALLOWED
@@ -217,10 +206,15 @@ class MainMenuState extends MusicBeatState
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 
+		if (FlxG.keys.justPressed.SEVEN)
+		{
+			selectedSomethin = true;
+			MusicBeatState.switchState(new editors.MasterEditorMenu());
+		}
+
 		super.update(elapsed);
 
 		// Here for debugging purposes only
-		#if debug
 		if (FlxG.keys.justPressed.ONE) {
 			var achieveID2:Int = Achievements.getAchievementIndex('week1');
 			if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID2][2])) { //It's a friday night. WEEEEEEEEEEEEEEEEEE
@@ -241,7 +235,6 @@ class MainMenuState extends MusicBeatState
 			SongUnlock.unlockSong('misconception');	
 			ClientPrefs.saveSettings();
 		}
-		#end
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
