@@ -149,6 +149,7 @@
 	<!-- Enables a terminal log prompt on debug builds. -->
 	<!-- Makes debugging easier -->
 	<haxelib name="hxcpp-debug-server" if="debug"/>
+	<haxedef name="HXC_LIBVLC_LOGGING" if="debug" />
 
 	<!-- Build game with clang compiler instead of MSVC -->
 	<haxedef name="HXCPP_CLANG"/>

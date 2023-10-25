@@ -33,11 +33,10 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 
-// HxCodec
-#if VIDEOS_ALLOWED
-#if (hxCodec >= "2.6.1") import hxcodec.VideoHandler as MP4Handler;
-#elseif (hxCodec == "2.6.0") import VideoHandler as MP4Handler;
-#else import vlc.MP4Handler; #end
+// Updated to hxCodec 3.0.2 which is used on Psych Engine 0.7.1
+#if VIDEOS_ALLOWED 
+import hxcodec.flixel.FlxVideo;
+import hxcodec.flixel.FlxVideoSprite;
 #end
 
 using StringTools;
@@ -50,54 +49,26 @@ class TitleState extends MusicBeatState {
 	public static var updateVersion:String = '';
 
 	var mustUpdate:Bool = false;
-	var videoIntro:MP4Handler;
+	var videoIntro:FlxVideo;
 	var titleTextColors:Array<FlxColor> = [0xFFDEFDB2, 0xFFC2FF6B];
 	var titleTextAlphas:Array<Float> = [1, .64];
 
-	function cacheVideo(name:String) {
+	function startVideo() {
 		#if VIDEOS_ALLOWED
-		var filepath:String = Paths.video(name);
+		var filepath:String = Paths.video('fnaf3start');
 		#if sys
 		if (!FileSystem.exists(filepath))
 		#else
 		if (!OpenFlAssets.exists(filepath))
 		#end
 		{
-			FlxG.log.warn('Couldnt find video file: ' + name);
+			FlxG.log.warn('Couldnt find video file: ' + filepath);
 			return;
 		}
 
-		videoIntro = new MP4Handler();
-		videoIntro.playVideo(filepath);
-		videoIntro.finishVideo; // Immediately close the video but don't play it
-		videoIntro.finishCallback = function() {
-			return;
-		}
-		#end
-	}
-
-	function startVideo(name:String) {
-		#if VIDEOS_ALLOWED
-		var filepath:String = Paths.video(name);
-		#if sys
-		if (!FileSystem.exists(filepath))
-		#else
-		if (!OpenFlAssets.exists(filepath))
-		#end
-		{
-			FlxG.log.warn('Couldnt find video file: ' + name);
-			return;
-		}
-
-		videoIntro = new MP4Handler();
-		videoIntro.playVideo(filepath);
-
-		videoIntro.finishCallback = function() {
-			return;
-		}
-		#else
-		FlxG.log.warn('Platform not supported!');
-		return;
+		videoIntro = new FlxVideo();
+		video.onEndReached.add(videoIntro.dispose);
+		videoIntro.play(filepath);
 		#end
 	}
 
@@ -117,9 +88,8 @@ class TitleState extends MusicBeatState {
 
 		PlayerSettings.init();
 
-		#if VIDEOS_ALLOWED
-		cacheVideo('fnaf3start');
-		#end
+		startVideo();
+		videoIntro.pause();
 
 		swagShader = new ColorSwap();
 		super.create();
@@ -356,7 +326,7 @@ class TitleState extends MusicBeatState {
 				case 1:
 					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(1, 0, 5);
-					startVideo('fnaf3start');
+					videoIntro.resume();
 
 				case 19:
 					skipIntro();

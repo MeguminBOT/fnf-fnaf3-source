@@ -65,8 +65,9 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 
-#if VIDEOS_ALLOWED
-import vlc.MP4Handler;
+// Updated to hxCodec 3.0.2
+#if VIDEOS_ALLOWED 
+import hxcodec.flixel.FlxVideo;
 #end
 
 // Vs FNaF 3 Specific imports
@@ -1254,9 +1255,9 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
-		var video:MP4Handler = new MP4Handler();
-		video.playVideo(filepath);
-		video.finishCallback = function()
+		var video:FlxVideo = new FlxVideo();
+		video.onEndReached.add(video.dispose);
+		video.play(filepath);
 		{
 			startAndEnd();
 			return;
