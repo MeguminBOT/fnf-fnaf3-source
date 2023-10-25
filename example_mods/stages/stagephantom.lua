@@ -1,5 +1,4 @@
 function onCreate()
-
 	createStage() -- Create stages.
 	createStageProps() -- Create stage props.
 	createStageAnimated() -- Create animated stages.
@@ -105,7 +104,7 @@ function createJumpscares()
 			makeLuaSprite(jumpscare.name, jumpscare.image, jumpscare.posX, jumpscare.posY)
 		end
 
-		setObjectCamera(jumpscare.name, 'camHUD')
+		setObjectCamera(jumpscare.name, 'camJump')
 		addLuaSprite(jumpscare.name, jumpscare.add)
 		setProperty(jumpscare.name .. '.visible', false)
 	end
@@ -284,6 +283,7 @@ function onEvent(name, value1, value2)
 
 		-- Modfy object order.
         setObjectOrder('bb', 1)
+		setObjectOrder('greenstatic', 2)
 
 		-- Toggle visibility of the next stage sprites.
 		setProperty('bb.visible', true)
@@ -295,7 +295,6 @@ function onEvent(name, value1, value2)
 		playAnim('greenstatic', 'anim', true)
 
 	elseif name == 'fearforever7' then
-
 		-- Phase Transition.
 		setProperty('black.alpha', 1)
 		doTweenAlpha('blackTransition', 'black', 0, 1, 'linear', true)
@@ -313,11 +312,6 @@ function onEvent(name, value1, value2)
 		setObjectOrder('mangle', 2)
 		setObjectOrder('dadPhantom', 0)
 
-		-- Hide phantoms.
-		setProperty('bfPhantom.alpha', 0)
-		setProperty('dadPhantom.alpha', 0)
-		setProperty('gfPhantom.alpha', 0)
-
 		-- Toggle visibility of the next stage sprites.
 		setProperty('mangle.visible', true)
 
@@ -328,7 +322,7 @@ function onEvent(name, value1, value2)
 		-- Remove previous stage sprites.
 		removeLuaSprite('mangle', true) 
 
-		-- -- Modify object order.
+		-- Modify object order.
 		setObjectOrder('puppet', 1)
 		setObjectOrder('puppet2', 2)
 		setObjectOrder('starstring', 2)
@@ -337,6 +331,10 @@ function onEvent(name, value1, value2)
 		-- Modify object cameras.
 		setObjectCamera('starstring', 'camOther')
 		setObjectCamera('starstring2', 'camOther')
+
+		-- Modify camera movement strength.
+		dadstrength = 25
+		bfstrength = 25
 
 		-- Miscellaneous.
 		setProperty('puppet.alpha', 0)
@@ -362,6 +360,10 @@ function onEvent(name, value1, value2)
 		setObjectOrder('phantoms', 0)
 		setObjectOrder('phantoms', 1)
 
+		-- Modify camera movement strength.
+		dadstrength = 50
+		bfstrength = 50
+
 		-- Toggle Phantoms.
 		setProperty('phantoms.visible', true)
 
@@ -370,66 +372,71 @@ function onEvent(name, value1, value2)
 	end
 end
 
+function onBeatHit()
+	if curBeat == 228 then
+		doTweenAlpha('strumFadeOut', 'camHUD', 0, 1, 'linear')
+	elseif curBeat == 256 then
+		doTweenAlpha('strumFadeIn', 'camHUD', 1, 1, 'linear')
+	elseif curBeat == 456 then
+		doTweenAlpha('strumFadeOut', 'camHUD', 0, 0.25, 'linear')
+	elseif curBeat == 480 then
+		doTweenAlpha('strumFadeIn', 'camHUD', 1, 0.25, 'linear')
+	elseif curBeat == 648 then
+		doTweenAlpha('strumFadeOut', 'camHUD', 0, 0.25, 'linear')
+	elseif curBeat == 676 then
+		doTweenAlpha('strumFadeIn', 'camHUD', 1, 2, 'linear')
+	elseif curBeat == 839 then
+		doTweenAlpha('strumFadeOut', 'camHUD', 0, 0.25, 'linear')
+	elseif curBeat == 868 then
+		doTweenAlpha('strumFadeIn', 'camHUD', 1, 1, 'linear')
+	elseif curBeat == 1072 then
+		doTweenAlpha('strumFadeOut', 'camHUD', 0, 0.25, 'linear')
+	elseif curBeat == 1100 then
+		doTweenAlpha('strumFadeIn', 'camHUD', 1, 1, 'linear')
+	end
+end
+
 function onStepHit()
-	-- 100 10
 	if curStep == 100 then
 		doTweenX('Walk', 'dad', -400, 10, 'quadIn')
-	end
-	-- 192 5
-	if curStep == 192 then
+
+	elseif curStep == 192 then
 		doTweenX('Walk', 'dad', -550, 5, 'quadIn')
-	end
-	-- 320 5
-	if curStep == 320 then
+
+	elseif curStep == 320 then
 		doTweenX('Walk', 'dad', -700, 5, 'quadIn')
-	end
-	-- 448 5 
-	if curStep == 448 then
+
+	elseif curStep == 448 then
 		doTweenX('Walk', 'dad', -850, 5, 'quadIn')
-	end
-	-- 576 5 
-	if curStep == 576 then
+
+	elseif curStep == 576 then
 		doTweenX('Walk', 'dad', -1000, 5, 'quadIn')
-	end
 
-	if curStep == 630 then
-		setProperty('phfreddyjump.visible', true)
-		playAnim('phfreddyjump', 'idle', true)
-	end
-
-	-- 2336
-	if curStep == 2336 then
+	elseif curStep == 2336 then
 		setObjectOrder('static3', 0)
 		setObjectOrder('chica', 1)
 		setProperty('dad.x', -300)
 		setProperty('dad.y', 250)
-	end
 
-	if curStep == 3360 then
+	elseif curStep == 3360 then
 		setProperty('black.alpha', 1)
-	end
 
-	if curStep == 3388 then
+	elseif curStep == 3388 then
 		doTweenAlpha('blackTransition', 'black', 0, 6, 'linear', true)
-	end
 
-	if curStep == 4288 then
+	elseif curStep == 4288 then
 		setProperty('black.alpha', 1)
-	end
 
-	if curStep == 4544 then
+	elseif curStep == 4544 then
 		doTweenAlpha('bgappear', 'puppet', 1, 10, 'sineInOut')
-	end
 
-	if curStep == 4672 then
+	elseif curStep == 4672 then
 		doTweenY('presents', 'puppet2', 600, 5, 'cubeOut')
-	end
 
-	if curStep == 4800 then
+	elseif curStep == 4800 then
 		doTweenY('stardown2', 'starstring2', -100, 5, 'cubeOut')
-	end
 
-	if curStep == 4832 then
+	elseif curStep == 4832 then
 		doTweenY('stardown1', 'starstring', -100, 5, 'cubeOut')
 	end
 end

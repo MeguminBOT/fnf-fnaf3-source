@@ -33,7 +33,7 @@ function onEvent(name, value1, value2)
                 setProperty(value1 .. '.alpha', 1)
                 setProperty(value1 .. '.visible', true)
                 if value1 ~= 'chicajump' then -- Ignores chicajump as it's a loop intended to continuously play.
-                    playAnim(value1, value1, true)
+                    playAnim(value1, 'idle', true)
                 end
             else
                 makeAnimatedLuaSprite(value1, value1, 0, 0)
