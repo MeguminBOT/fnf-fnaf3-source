@@ -67,7 +67,7 @@ class TitleState extends MusicBeatState {
 		}
 
 		videoIntro = new FlxVideo();
-		video.onEndReached.add(videoIntro.dispose);
+		videoIntro.onEndReached.add(videoIntro.dispose);
 		videoIntro.play(filepath);
 		#end
 	}
