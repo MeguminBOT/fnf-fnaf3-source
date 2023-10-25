@@ -287,6 +287,7 @@ class PlayState extends MusicBeatState
 	public static var mirrorMode:Bool = false;
 	public var laneUnderlay:FlxSprite;
 	public var laneUnderlayOpponent:FlxSprite;
+	public var camJump:FlxCamera;
 
 	// Mechanics Stuff
 	static var tablet:Bool = false;
@@ -380,12 +381,15 @@ class PlayState extends MusicBeatState
 		camGame = new FlxCamera();
 		camHUD = new FlxCamera();
 		camOther = new FlxCamera();
+		camJump = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
 		camOther.bgColor.alpha = 0;
+		camJump.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD, false);
 		FlxG.cameras.add(camOther, false);
+		FlxG.cameras.add(camJump, false);
 		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
 
 		FlxG.cameras.setDefaultDrawTarget(camGame, true);
@@ -943,6 +947,7 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'stagephantom':
+				FlxG.mouse.visible = true;
 				
 				mangleMech = new FlxSprite();
 				mangleMech.loadGraphic(Paths.image('Mechanics/mangle'));
@@ -4058,7 +4063,7 @@ class PlayState extends MusicBeatState
 		return null;
 	}
 
-	// Originally written by JustDom in lua. Converted to Haxe to get more reliable mouse functionality and prevent a bug.
+	// Originally written by JustDom in lua. Rewritten to haxe to prevent a bug causing Mangle to become unclickable and get stuck on the screen.
 	function handleMangle() {
 		var mousePosMangle:FlxPoint = FlxG.mouse.getScreenPosition(camHUD);
 	
