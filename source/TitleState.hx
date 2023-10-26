@@ -186,6 +186,7 @@ class TitleState extends MusicBeatState {
 		bg.screenCenter();
 		add(bg);
 		bg.animation.play('idle');
+		bg.visible = false;
 
 		swagShader = new ColorSwap();
 		titleText = new FlxSprite();
@@ -227,6 +228,7 @@ class TitleState extends MusicBeatState {
 		titleText.x = 128;
 		titleText.updateHitbox();
 		add(titleText);
+		titleText.visible = false;
 
 		if (initialized)
 			skipIntro();
@@ -328,7 +330,7 @@ class TitleState extends MusicBeatState {
 					FlxG.sound.music.fadeIn(1, 0, 5);
 					videoIntro.resume();
 
-				case 19:
+				case 17:
 					skipIntro();
 			}
 		}
@@ -339,6 +341,8 @@ class TitleState extends MusicBeatState {
 	function skipIntro():Void {
 		if (!skippedIntro) {
 			FlxG.camera.flash(FlxColor.WHITE, 1);
+			bg.visible = true;
+			titleText.visible = true;
 			skippedIntro = true;
 		}
 	}
