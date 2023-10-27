@@ -49,6 +49,13 @@ class AccessibilitySubState extends BaseOptionsMenu
 			['One', 'Two', 'Three']);
 		addOption(option);
 
+		var option:Option = new Option('Disable Epilepsy Warning',
+			"Disables the epilepsy warning screen when starting the mod.",
+			'epilepsyDisableWarning',
+			'bool',
+			false);
+		addOption(option);
+
 		super();
 	}
 }

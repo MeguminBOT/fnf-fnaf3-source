@@ -66,6 +66,7 @@ class ClientPrefs {
 	public static var underlay:Float = 0;
 	public static var epilepsy:Bool = false;
 	public static var epilepsyLevel:String = 'One';
+	public static var epilepsyDisableWarning:Bool = false;
 
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
@@ -142,7 +143,7 @@ class ClientPrefs {
 		FlxG.save.data.songMap = SongUnlock.songMap;
 		FlxG.save.data.epilepsy = epilepsy;
 		FlxG.save.data.epilepsyLevel = epilepsyLevel;
-
+		FlxG.save.data.epilepsyDisableWarning = epilepsyDisableWarning;
 
 		FlxG.save.flush();
 
