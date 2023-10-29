@@ -8,7 +8,7 @@
 				[
 					[
 						"Change Scroll Speed",
-						"1.05",
+						"1.04545455",
 						""
 					]
 				]
@@ -18,7 +18,7 @@
 				[
 					[
 						"Change Scroll Speed",
-						"1.1",
+						"1.09090909",
 						""
 					]
 				]
@@ -28,7 +28,7 @@
 				[
 					[
 						"Change Scroll Speed",
-						"1.15",
+						"1.13636364",
 						""
 					]
 				]
@@ -38,7 +38,7 @@
 				[
 					[
 						"Change Scroll Speed",
-						"1.2",
+						"1.18181818",
 						""
 					]
 				]
@@ -48,7 +48,7 @@
 				[
 					[
 						"Change Scroll Speed",
-						"1.2",
+						"1.22727273",
 						""
 					]
 				]
@@ -13240,7 +13240,7 @@
 		"stage": "stagetaken",
 		"arrowSkin": "",
 		"needsVoices": true,
-		"speed": 2.5,
+		"speed": 2.2,
 		"bpm": 150
 	}
 }

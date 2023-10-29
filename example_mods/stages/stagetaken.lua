@@ -1,30 +1,36 @@
 function onCreate()
-	-- Precache images
-    local images = {
-        'BGs/takenstage',
-        'BGs/takenstage2',
-        'BGs/takenstage3',
-        'BGs/takenstage4',
-        'BGs/fnaf1wall',
-        'BGs/blueglow',
-        'white'
-    }
+	createStage() -- Create stages.
+	createJumpscares() -- Create jumpscares.
+	createMiscSprites() -- Create misc sprites.
 
-    for _, image in ipairs(images) do
-        precacheImage(image)
-    end
+	-- Subtitles
+	makeLuaText('Text', "", 1000, 140, 550)
+	setTextSize('Text', 25)
+	setObjectCamera('Text', 'camOther')
+	addLuaText("Text")
 
-	-- Base stages
+	-- Load Video
+	video.Load("takenapart.mp4")
+end
+
+function createStage()
 	local stages = {
 		{ name = 'takenstage', image = 'BGs/takenstage', posX = -2000, posY = -550, scrollX = 1, scrollY = 1, scaleX = 0.85, scaleY = 0.85, add = false },
 		{ name = 'takenstage2', image = 'BGs/takenstage2', posX = -2000, posY = -550, scrollX = 1, scrollY = 1, scaleX = 0.85, scaleY = 0.85, add = false },
 		{ name = 'takenstage3', image = 'BGs/takenstage3', posX = -2000, posY = -550, scrollX = 1, scrollY = 1, scaleX = 0.85, scaleY = 0.85, add = false },
 		{ name = 'takenstage4', image = 'BGs/takenstage4', posX = -2000, posY = -550, scrollX = 1, scrollY = 1, scaleX = 0.85, scaleY = 0.85, add = false },
 		{ name = 'blueglow', image = 'BGs/blueglow', posX = -2000, posY = -900, scrollX = 1.5, scrollY = 1.5, scaleX = 1.7, scaleY = 1, add = true },
+		{ name = 'fnaf1wall', image = 'BGs/fnaf1wall', posX = -1200, posY = -700, scrollX = 1, scrollY = 1, scaleX = 2.6, scaleY = 2.6, add = false },
 	}
 
 	for _, stage in ipairs(stages) do
-		makeLuaSprite(stage.name, stage.image, stage.posX, stage.posY)
+		precacheImage(stage.image)
+		if stage.name == 'fnaf1wall' then
+			makeAnimatedLuaSprite(stage.name, stage.image, stage.posX, stage.posY)
+			addAnimationByPrefix(stage.name, 'anim', 'fnaf1wall idle', 12, true)
+		else
+			makeLuaSprite(stage.name, stage.image, stage.posX, stage.posY)
+		end
 		setScrollFactor(stage.name, stage.scrollX, stage.scrollY)
 		scaleObject(stage.name, stage.scaleX, stage.scaleY)
 		addLuaSprite(stage.name, stage.add)
@@ -33,28 +39,39 @@ function onCreate()
 
 	setProperty('takenstage.visible', true)
 	setProperty('blueglow.visible', true)
+end
 
-	-- Next phase animation
-	makeAnimatedLuaSprite('fnaf1wall', 'BGs/fnaf1wall', -1200, -700)
-	scaleObject('fnaf1wall', 2.6, 2.6)
-	addAnimationByPrefix('fnaf1wall', 'anim', 'fnaf1wall idle', 12, true)
-	addLuaSprite('fnaf1wall', false)
-	setProperty('fnaf1wall.visible', false)
+function createJumpscares()
+	makeAnimatedLuaSprite('foxyjump', 'Jumpscares/foxyjump', 0, 0)
+	addAnimationByPrefix('foxyjump', 'foxyjump', 'idle', 24, true)
+	setObjectCamera('foxyjump', 'camJump')
+	addLuaSprite('foxyjump', true)
+	setProperty('foxyjump.visible', false)
+end
 
-	-- Text
-	makeLuaText('Text', "", 1000, 140, 550)
-	setTextSize('Text', 25)
-	setObjectCamera('Text', 'camHUD')
-	addLuaText("Text")
+function createMiscSprites()
+	local miscSprites = {
+		{ name = 'white', image = 'white'},
+		{ name = 'red', image = 'red'},
+		{ name = 'black', image = 'black'},
+		{ name = 'static', image = 'static'},
+	}
 
-	-- White
-	makeLuaSprite('white', 'white', 0, 0)
-	setObjectCamera('white', 'camHUD')
-	addLuaSprite('white', true)
+	for _, miscSprite in ipairs(miscSprites) do
+		precacheImage(miscSprite.image)
+		if miscSprite.name == 'fnaf1wall' then
+			makeAnimatedLuaSprite(miscSprite.name, miscSprite.image, 0, 0)
+			addAnimationByPrefix(miscSprite.name, miscSprite.name, 'idle', 24, true)
+		else
+			makeLuaSprite(miscSprite.name, miscSprite.image, 0, 0)
+		end
+		setObjectCamera(miscSprite.name, 'camHUD')
+		addLuaSprite(stage.name, true)
+		setProperty(stage.name .. '.visible', false)
+	end
+
+	setProperty('white.visible', true)
 	doTweenAlpha('white', 'white', 0, 0.01, true)
-
-	-- Load Video
-	video.Load("takenapart.mp4")
 end
 
 function onStepHit()
