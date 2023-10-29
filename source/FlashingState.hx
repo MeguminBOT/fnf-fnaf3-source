@@ -17,12 +17,14 @@ class FlashingState extends MusicBeatState
 
 	var warnSprite:FlxSprite;
 
+	var spritePath:String = 'menus/titleMenu/';
+
 	override function create()
 	{
 		super.create();
 
         warnSprite = new FlxSprite();
-        warnSprite.loadGraphic(Paths.image('warning/seizureWarn'));
+        warnSprite.loadGraphic(Paths.image(spritePath + 'seizureWarn'));
         warnSprite.screenCenter();
         warnSprite.alpha = 0;
         add(warnSprite);

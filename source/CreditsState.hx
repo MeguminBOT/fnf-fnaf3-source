@@ -1,5 +1,9 @@
 package;
 
+#if desktop
+import Discord.DiscordClient;
+#end
+
 import flixel.FlxState;
 import flixel.FlxSprite;
 import flixel.util.FlxColor;
@@ -32,10 +36,15 @@ class CreditsState extends FlxState
     var sprites:Array<FlxSprite> = [];
     var buttons:Array<FlxButton> = [];
 
+    var spritePath:String = 'menus/creditsMenu/';
+    var peopleSprites:String = 'menus/creditsMenu/people/';
+
     override function create()
     {
+		DiscordClient.changePresence("Credits Menu", null);
+
         background = new FlxSprite(-400, -300);
-        background.frames = Paths.getSparrowAtlas('creditsBG');
+        background.frames = Paths.getSparrowAtlas(spritePath + 'bg');
         background.animation.addByPrefix('play', 'idle', 18, true);
         background.setGraphicSize(Std.int(background.width * 1.175));
         background.updateHitbox();
@@ -51,7 +60,7 @@ class CreditsState extends FlxState
         for (i in 0...names.length)
         {
             var sprite = new FlxSprite();
-            sprite.loadGraphic(Paths.image(names[i]));
+            sprite.loadGraphic(Paths.image(peopleSprites + names[i]));
             add(sprite);
             sprite.scale.set(0.66, 0.66);
             sprite.screenCenter();
@@ -60,7 +69,7 @@ class CreditsState extends FlxState
 
             var button = new FlxButton(500, 500, "", onButtonClicked.bind(i));
             button.screenCenter();
-            button.loadGraphic(Paths.image('${i+1}'), true, 100, 100);
+            button.loadGraphic(Paths.image(spritePath + 'button' + '${i+1}'), true, 100, 100);
             add(button);
             button.x = 450 + i * 100;
             button.y = 30;

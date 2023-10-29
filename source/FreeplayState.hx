@@ -54,8 +54,8 @@ class FreeplayState extends MusicBeatState
 	var songList:Array<String> = ['taken-apart', 'retribution', 'fear-forever', 'everlasting', 'brain-damage', 'party-room', 'totally-real', 'last-hour', 'waffles', 'leantrap', 'endo-revengo', 'misconception', 'out-of-bounds', 'until-next-time'];
 	
 	// Filepath shortcuts
-	var menuPath:String = 'freeplay/';
-	var songSprites:String = 'freeplay/songs/';
+	var spritePath:String = 'menus/freeplayMenu/';
+	var songSprites:String = 'menus/freeplayMenu/songs/';
 
 	// Button properties 
 	// DO NOT CHANGE THESE VARIABLES THEY'RE HANDLED IN A FUNCTION LATER ON.
@@ -93,7 +93,7 @@ class FreeplayState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Freeplay Menu", null);
 		#end
 
 		for (i in 0...WeekData.weeksList.length) {
@@ -123,7 +123,7 @@ class FreeplayState extends MusicBeatState
 
 		WeekData.loadTheFirstEnabledMod();
 
-        var bg = new FlxSprite().loadGraphic(Paths.image(menuPath + 'menuBG'));
+        var bg = new FlxSprite().loadGraphic(Paths.image('menus/bg'));
         bg.antialiasing = ClientPrefs.globalAntialiasing;
         add(bg);
         bg.screenCenter();
@@ -261,10 +261,10 @@ class FreeplayState extends MusicBeatState
 		} else {
 			if (index >= 12) {
 				// Load secret locked song sprite.
-				button.loadGraphic(Paths.image(menuPath + "lockedSongCode"));
+				button.loadGraphic(Paths.image(spritePath + "lockedSongCode"));
 			} else {
 			// Load standard locked song sprite.
-			button.loadGraphic(Paths.image(menuPath + "lockedSong"));
+			button.loadGraphic(Paths.image(spritePath + "lockedSong"));
 			}
 		}
 		
@@ -284,7 +284,7 @@ class FreeplayState extends MusicBeatState
 		var outline = new FlxSprite(outlineX, outlineY);
 
 		// Load the outline sprite.
-		outline.loadGraphic(Paths.image(menuPath + "buttonOutline")); 
+		outline.loadGraphic(Paths.image(spritePath + "buttonOutline")); 
 
 		// Scale the button to the desired size.
 		outline.scale.set(outlineWidth / outline.width, outlineHeight / outline.height); // Scale the outline to the desired size.

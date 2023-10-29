@@ -53,6 +53,12 @@ class TitleState extends MusicBeatState {
 	var titleTextColors:Array<FlxColor> = [0xFFDEFDB2, 0xFFC2FF6B];
 	var titleTextAlphas:Array<Float> = [1, .64];
 
+	var bg:FlxSprite;
+	var titleText:FlxSprite;
+	var swagShader:ColorSwap = null;
+
+	var spritePath:String = 'menus/titleMenu/';
+
 	function startVideo() {
 		#if VIDEOS_ALLOWED
 		var filepath:String = Paths.video('fnaf3start');
@@ -101,7 +107,7 @@ class TitleState extends MusicBeatState {
 		#if CHECK_FOR_UPDATES
 		if (ClientPrefs.checkForUpdates && !closedState) {
 			trace('checking for update');
-			var http = new haxe.Http("https://raw.githubusercontent.com/ShadowMario/FNF-PsychEngine/main/gitVersion.txt");
+			var http = new haxe.Http("https://github.com/MeguminBOT/fnf-fnaf3-source/blob/main/gitVersion.txt");
 
 			http.onData = function(data:String) {
 				updateVersion = data.split('\n')[0].trim();
@@ -166,10 +172,6 @@ class TitleState extends MusicBeatState {
 		#end
 	}
 
-	var bg:FlxSprite;
-	var titleText:FlxSprite;
-	var swagShader:ColorSwap = null;
-
 	function startIntro() {
 		if (!initialized) {
 			if (FlxG.sound.music == null) {
@@ -181,7 +183,7 @@ class TitleState extends MusicBeatState {
 		persistentUpdate = true;
 
 		bg = new FlxSprite();
-		bg.frames = Paths.getSparrowAtlas('startscreen');
+		bg.frames = Paths.getSparrowAtlas(spritePath + 'bg');
 		bg.animation.addByPrefix('idle', 'idle', 24, true);
 		bg.screenCenter();
 		add(bg);
@@ -189,40 +191,13 @@ class TitleState extends MusicBeatState {
 		bg.visible = false;
 
 		swagShader = new ColorSwap();
+
 		titleText = new FlxSprite();
-		#if (desktop && MODS_ALLOWED)
-		var path = "mods/" + Paths.currentModDirectory + "/images/titleEnter.png";
-		if (!FileSystem.exists(path)) {
-			path = "mods/images/titleEnter.png";
-		}
-		if (!FileSystem.exists(path)) {
-			path = "assets/images/titleEnter.png";
-		}
-		titleText.frames = FlxAtlasFrames.fromSparrow(BitmapData.fromFile(path), File.getContent(StringTools.replace(path, ".png", ".xml")));
-		#else
-
-		titleText.frames = Paths.getSparrowAtlas('titleEnter');
-		#end
-		var animFrames:Array<FlxFrame> = [];
-		@:privateAccess {
-			titleText.animation.findByPrefix(animFrames, "ENTER IDLE");
-			titleText.animation.findByPrefix(animFrames, "ENTER FREEZE");
-		}
-
-		if (animFrames.length > 0) {
-			newTitle = true;
-
-			titleText.animation.addByPrefix('idle', "ENTER IDLE", 24);
-			titleText.animation.addByPrefix('press', ClientPrefs.flashing ? "ENTER PRESSED" : "ENTER FREEZE", 24);
-		} else {
-			newTitle = false;
-
-			titleText.animation.addByPrefix('idle', "Press Enter to Begin", 24);
-			titleText.animation.addByPrefix('press', "ENTER PRESSED", 24);
-		}
-
-		titleText.antialiasing = ClientPrefs.globalAntialiasing;
+		titleText.frames = Paths.getSparrowAtlas(spritePath + 'start');
+		titleText.animation.addByPrefix('idle', 'idle', 24, true);
+		titleText.animation.addByPrefix('pressed', 'pressed', 24, true);
 		titleText.animation.play('idle');
+		titleText.antialiasing = ClientPrefs.globalAntialiasing;
 		titleText.screenCenter(X);
 		titleText.y = 640;
 		titleText.x = 128;
@@ -287,7 +262,7 @@ class TitleState extends MusicBeatState {
 				titleText.color = FlxColor.WHITE;
 				titleText.alpha = 1;
 
-				if (titleText != null) titleText.animation.play('press');
+				if (titleText != null) titleText.animation.play('pressed');
 
 				FlxG.camera.flash(ClientPrefs.flashing ? FlxColor.WHITE : 0x4CFFFFFF, 1);
 				FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);

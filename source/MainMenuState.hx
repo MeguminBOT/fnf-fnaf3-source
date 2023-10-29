@@ -28,16 +28,13 @@ using StringTools;
 
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = '0.6.2'; //This is also used for Discord RPC
+	public static var psychEngineVersion:String = '0.6.2 (Modified)'; //This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 
-	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 
-	var magenta:FlxSprite;
-	var camFollow:FlxObject;
-	var camFollowPos:FlxObject;
+	var spritePath:String = 'menus/mainMenu/';
 
 	override function create()
 	{
@@ -50,7 +47,7 @@ class MainMenuState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Main Menu", null);
 		#end
 
 		camGame = new FlxCamera();
@@ -61,61 +58,30 @@ class MainMenuState extends MusicBeatState
 		FlxG.cameras.add(camAchievement, false);
 		FlxG.cameras.setDefaultDrawTarget(camGame, true);
 
-		transIn = FlxTransitionableState.defaultTransIn;
-		transOut = FlxTransitionableState.defaultTransOut;
-
 		persistentUpdate = persistentDraw = true;
 
-		var bg:FlxSprite = new FlxSprite(-200, -200).loadGraphic(Paths.image('mainmenuBG'));
-		bg = new FlxSprite(-400, -300);
-		bg.frames = Paths.getSparrowAtlas('mainmenuBG');
+		var bg:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image(spritePath + 'bg'));
+		bg.frames = Paths.getSparrowAtlas(spritePath + 'bg');
 		bg.animation.addByPrefix('play', 'idle', 18, true);
-		bg.setGraphicSize(Std.int(bg.width * 1.175));
-		bg.updateHitbox();
-		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
-		add(bg);
-		bg.animation.play('play');
+
 		bg.scale.set(0.666666, 0.666666);
 		bg.updateHitbox();
-		bg.x = -640;
-		bg.y = -360;
+		bg.animation.play('play');
+		add(bg);
 
-		var logothing:FlxSprite = new FlxSprite().loadGraphic(Paths.image('fnaf3logo'));
+		var logothing:FlxSprite = new FlxSprite().loadGraphic(Paths.image(spritePath + 'fnaf3logo'));
 		logothing.scrollFactor.set(0, 0);
 		logothing.screenCenter();
 		logothing.updateHitbox();
 		logothing.scale.set(0.666666, 0.666666);
 		add(logothing);
 
-		camFollow = new FlxObject(0, 0, 1, 1);
-		camFollowPos = new FlxObject(0, 0, 1, 1);
-		add(camFollow);
-		add(camFollowPos);
-
-		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
-		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
-		magenta.updateHitbox();
-		magenta.screenCenter();
-		magenta.visible = false;
-		magenta.antialiasing = ClientPrefs.globalAntialiasing;
-		magenta.color = 0xFFfd719b;
-		add(magenta);
-
-		menuItems = new FlxTypedGroup<FlxSprite>();
-		add(menuItems);
-
-		var scale:Float = 1;
-
-		FlxG.camera.follow(camFollowPos, null, 1);
-
-		var versionShit:FlxText = new FlxText(1100, FlxG.height - 44, 0, '', 16);
+		var versionShit:FlxText = new FlxText(1000, FlxG.height - 44, 0, '', 16);
 		versionShit.setFormat("stalker2.ttf", 16, FlxColor.WHITE, FlxTextAlign.RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		versionShit.scrollFactor.set();
 		versionShit.text = 'Vs FNaF 3 v' + Application.current.meta.get('version') + '\nPsych Engine v' + psychEngineVersion;
 		add(versionShit);
-
-		changeItem();
 
 		#if ACHIEVEMENTS_ALLOWED
 		Achievements.loadAchievements();
@@ -133,32 +99,32 @@ class MainMenuState extends MusicBeatState
 		super.create();
 	
 		var newgame = new FlxButton(0, 0, " ", newgamestart);
+		newgame.loadGraphic(Paths.image(spritePath + 'buttonStory'), true, 500, 55);
 		newgame.screenCenter();
-		add(newgame);
-		newgame.loadGraphic(Paths.image('mainmenu/newgame'), true, 500, 55);
 		newgame.x = -1;
 		newgame.y = 380;
+		add(newgame);
 
 		var loadgame = new FlxButton(0, 0, " ", loadgamestart);
+		loadgame.loadGraphic(Paths.image(spritePath + 'buttonFreeplay'), true, 500, 55);
 		loadgame.screenCenter();
-		add(loadgame);
-		loadgame.loadGraphic(Paths.image('mainmenu/loadgame'), true, 500, 55);
 		loadgame.x = -1;
 		loadgame.y = 460;
-
+		add(loadgame);
+	
 		var credits = new FlxButton(0, 0, " ", creditsstart);
+		credits.loadGraphic(Paths.image(spritePath + 'buttonCredits'), true, 500, 55);
 		credits.screenCenter();
-		add(credits);
-		credits.loadGraphic(Paths.image('mainmenu/credits'), true, 500, 55);
 		credits.x = -1;
 		credits.y = 540;
+		add(credits);
 
 		var extra = new FlxButton(0, 0, " ", extrastart);
+		extra.loadGraphic(Paths.image(spritePath + 'buttonOptions'), true, 500, 55);
 		extra.screenCenter();
-		add(extra);
-		extra.loadGraphic(Paths.image('mainmenu/extras'), true, 500, 55);
 		extra.x = -1;
 		extra.y = 620;
+		add(extra);
 	}
 
 	function newgamestart()
@@ -187,7 +153,8 @@ class MainMenuState extends MusicBeatState
 
 	#if ACHIEVEMENTS_ALLOWED
 	// Unlocks "Freaky on a Friday Night" achievement
-	function giveAchievement() {
+	function giveAchievement() 
+	{
 		add(new AchievementObject('friday_night_play', camAchievement));
 		FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
 		trace('Giving achievement "friday_night_play"');
@@ -198,16 +165,11 @@ class MainMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-		if (FlxG.sound.music.volume < 0.8)
-		{
+		if (FlxG.sound.music.volume < 0.8) {
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
-		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
-		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
-
-		if (FlxG.keys.justPressed.SEVEN)
-		{
+		if (FlxG.keys.justPressed.SEVEN) {
 			selectedSomethin = true;
 			MusicBeatState.switchState(new editors.MasterEditorMenu());
 		}
@@ -235,37 +197,5 @@ class MainMenuState extends MusicBeatState
 			SongUnlock.unlockSong('misconception');	
 			ClientPrefs.saveSettings();
 		}
-
-		menuItems.forEach(function(spr:FlxSprite)
-		{
-			spr.screenCenter(X);
-		});
-	}
-
-	function changeItem(huh:Int = 0)
-	{
-		curSelected += huh;
-
-		if (curSelected >= menuItems.length)
-			curSelected = 0;
-		if (curSelected < 0)
-			curSelected = menuItems.length - 1;
-
-		menuItems.forEach(function(spr:FlxSprite)
-		{
-			spr.animation.play('idle');
-			spr.updateHitbox();
-
-			if (spr.ID == curSelected)
-			{
-				spr.animation.play('selected');
-				var add:Float = 0;
-				if(menuItems.length > 4) {
-					add = menuItems.length * 8;
-				}
-				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
-				spr.centerOffsets();
-			}
-		});
 	}
 }

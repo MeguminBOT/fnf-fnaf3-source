@@ -10,6 +10,7 @@ import flixel.FlxSubState;
 import flixel.animation.FlxAnimationController;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.ui.FlxButton;
+import flixel.util.FlxColor;
 import Controls;
 
 using StringTools;
@@ -18,11 +19,15 @@ class OptionsState extends MusicBeatState
 {
 	private static var curSelected:Int = 0;
 
+	// Bgs
+	var bg:FlxSprite;
+	var darkenBG:FlxSprite;
+
 	// Options list
 	var menuList:Array<String> = ['Notecolors', 'Controls', 'Notedelay', 'Graphics', 'Visuals', 'Gameplay', 'Accessibility'];
 
 	// Filepath shortcut
-	var spritePath:String = 'options/';
+	var spritePath:String = 'menus/optionsMenu/';
 
 	// UI Button stuff
 	var btnGroup:FlxTypedGroup<FlxButton>;
@@ -49,7 +54,7 @@ class OptionsState extends MusicBeatState
 		DiscordClient.changePresence("Options Menu", null);
 		#end
 
-        var bg = new FlxSprite().loadGraphic(Paths.image('menuBG'));
+        bg = new FlxSprite().loadGraphic(Paths.image('menus/bg'));
         bg.antialiasing = ClientPrefs.globalAntialiasing;
         add(bg);
         bg.screenCenter();

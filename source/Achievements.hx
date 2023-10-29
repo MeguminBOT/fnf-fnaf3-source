@@ -15,13 +15,16 @@ class Achievements {
 		["Completed Main Week No Miss",		"Beat the Main Week in Story Mode with no Misses.",		'week1_nomiss',				false],
 		["Completed Main Week",				"Beat the Main Week in Story Mode.",					'week1',					false],
 		["What a Funkin' Disaster!",		"Complete a Song with a rating lower than 20%.",		'ur_bad',					false],
-		["Perfectionist",					"Complete a Song with a rating of 100%.",				'ur_good',					false],
+		["Fazbear's Virtuoso",				"Complete a Song with a rating of 100%.",				'ur_good',					false],
 		["Oversinging Much...?",			"Hold down a note for 10 seconds.",						'oversinging',				false],
 		["Hyperactive",						"Finish a Song without going Idle.",					'hype',						false],
 		["Example Name1",					"Beat the main week with a rating of GFC or better",	'week1_gfc',				false],
 		["Example Name3",					"You cracked the code!",								'code_cracker',				true],
 		["Example Name4",					"Finished the first secret song",						'secret_song_one',			true],
-		["Example Name5",					"Finished the second secret song",						'secret_song_two',			true]
+		["Example Name5",					"Finished the second secret song",						'secret_song_two',			true],
+		["Boomer",							"Complete 'Fear Forever' without using the system restart menu",			'boomer',				false],
+		["What a pretty face!",				"Complete 'Fear Forever' without clicking on Mangle",						'pretty_face',			false],
+		["Traumatized",						"Complete 'Fear Forever' without doing any mechanics",						'traumatized',			false]
 	];
 	public static var achievementsMap:Map<String, Bool> = new Map<String, Bool>();
 
@@ -108,11 +111,11 @@ class AchievementObject extends FlxSpriteGroup {
 		achievementIcon.antialiasing = ClientPrefs.globalAntialiasing;
 
 		var achievementName:FlxText = new FlxText(achievementIcon.x + achievementIcon.width + 20, achievementIcon.y + 16, 280, Achievements.achievementsStuff[id][0], 16);
-		achievementName.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT);
+		achievementName.setFormat(Paths.font("stalker2.ttf"), 16, FlxColor.WHITE, LEFT);
 		achievementName.scrollFactor.set();
 
 		var achievementText:FlxText = new FlxText(achievementName.x, achievementName.y + 32, 280, Achievements.achievementsStuff[id][1], 16);
-		achievementText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT);
+		achievementText.setFormat(Paths.font("stalker2s.ttf"), 16, FlxColor.WHITE, LEFT);
 		achievementText.scrollFactor.set();
 
 		add(achievementBG);
