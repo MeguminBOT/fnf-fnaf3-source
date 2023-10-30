@@ -934,7 +934,7 @@ class PlayState extends MusicBeatState
 			details: detailsText + " - " + SONG.song,
 			state: null,
 			largeImageKey: discordImage,
-			largeImageText: "Psych Engine",
+			largeImageText: "Vs FNaF 3",
 		});
 		#end
 
@@ -951,8 +951,8 @@ class PlayState extends MusicBeatState
 				FlxG.mouse.visible = true;
 				
 				mangleMech = new FlxSprite();
-				mangleMech.loadGraphic(Paths.image('Mechanics/mangle'));
-				mangleMech.frames = Paths.getSparrowAtlas('Mechanics/mangle');
+				mangleMech.loadGraphic(Paths.image('mechanics/mangle'));
+				mangleMech.frames = Paths.getSparrowAtlas('mechanics/mangle');
 				mangleMech.antialiasing = ClientPrefs.globalAntialiasing;
 				mangleMech.x = 400;
 				mangleMech.y = -200;
@@ -967,8 +967,8 @@ class PlayState extends MusicBeatState
 				mangleSound = FlxG.sound.load(Paths.sound('garble'), 0.7);
 
 				tabletMech = new FlxSprite();
-				tabletMech.loadGraphic(Paths.image('Mechanics/tablet'));
-				tabletMech.frames = Paths.getSparrowAtlas('Mechanics/tablet');
+				tabletMech.loadGraphic(Paths.image('mechanics/tablet'));
+				tabletMech.frames = Paths.getSparrowAtlas('mechanics/tablet');
 				tabletMech.antialiasing = ClientPrefs.globalAntialiasing;
 				tabletMech.x = -180;
 				tabletMech.y = 300;
@@ -986,8 +986,8 @@ class PlayState extends MusicBeatState
 				add(tabletMech);
 
 				tabletButton = new FlxSprite();
-				tabletButton.loadGraphic(Paths.image('Mechanics/button'));
-				tabletButton.frames = Paths.getSparrowAtlas('Mechanics/button');
+				tabletButton.loadGraphic(Paths.image('mechanics/button'));
+				tabletButton.frames = Paths.getSparrowAtlas('mechanics/button');
 				tabletButton.antialiasing = ClientPrefs.globalAntialiasing;
 				tabletButton.x = 0;
 				tabletButton.y = 650;
@@ -1513,7 +1513,7 @@ class PlayState extends MusicBeatState
 	{
 		insert(members.indexOf(boyfriendGroup), obj);
 	}
-	public function addBehindDad (obj:FlxObject)
+	public function addBehindDad(obj:FlxObject)
 	{
 		insert(members.indexOf(dadGroup), obj);
 	}
@@ -1646,7 +1646,7 @@ class PlayState extends MusicBeatState
 			details: detailsText + " - " + SONG.song,
 			state: null,
 			largeImageKey: discordImage,
-			largeImageText: "Psych Engine",
+			largeImageText: "Vs FNaF 3",
 		});
 		#end
 		setOnLuas('songLength', songLength);
@@ -2011,7 +2011,7 @@ class PlayState extends MusicBeatState
 					details: detailsText + " - " + SONG.song,
 					state: null,
 					largeImageKey: discordImage,
-					largeImageText: "Psych Engine",
+					largeImageText: "Vs FNaF 3",
 				});
 			}
 			else
@@ -2021,7 +2021,7 @@ class PlayState extends MusicBeatState
 					details: detailsText + " - " + SONG.song,
 					state: null,
 					largeImageKey: discordImage,
-					largeImageText: "Psych Engine",
+					largeImageText: "Vs FNaF 3",
 				});
 			}
 			#end
@@ -2429,7 +2429,7 @@ class PlayState extends MusicBeatState
 			details: detailsPausedText + " - " + SONG.song,
 			state: null,
 			largeImageKey: discordImage,
-			largeImageText: "Psych Engine",
+			largeImageText: "Vs FNaF 3",
 		});
 		#end
 	}
@@ -2480,7 +2480,7 @@ class PlayState extends MusicBeatState
 					details: "Game Over - " + detailsText + " - " + SONG.song,
 					state: null,
 					largeImageKey: discordImage,
-					largeImageText: "Psych Engine",
+					largeImageText: "Vs FNaF 3",
 				});
 				#end
 				isDead = true;
