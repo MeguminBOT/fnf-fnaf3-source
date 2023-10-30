@@ -181,6 +181,7 @@ class PlayState extends MusicBeatState
 
 	private var healthBarBG:AttachedSprite;
 	public var healthBar:FlxBar;
+	var healthBarOverlay:FlxSprite;
 	var songPercent:Float = 0;
 
 	private var timeBarBG:AttachedSprite;
@@ -290,7 +291,7 @@ class PlayState extends MusicBeatState
 	public var laneUnderlayOpponent:FlxSprite;
 	public var camJump:FlxCamera;
 
-	// Mechanics Stuff
+	// mechanics Stuff
 	static var tablet:Bool = false;
 	static var tabletButtonPressed:Bool = false;
 	var tabletMech:FlxSprite;
@@ -756,11 +757,19 @@ class PlayState extends MusicBeatState
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
-		// healthBar
 		healthBar.visible = !ClientPrefs.hideHud;
 		healthBar.alpha = ClientPrefs.healthBarAlpha;
 		add(healthBar);
 		healthBarBG.sprTracker = healthBar;
+
+		healthBarOverlay = new FlxSprite();
+		healthBarOverlay.loadGraphic(Paths.image('healthBarOverlay'));
+		healthBarOverlay.x = healthBar.x - 55;
+		healthBarOverlay.y = healthBar.y - 11;
+		healthBarOverlay.antialiasing = ClientPrefs.globalAntialiasing;
+		healthBarOverlay.visible = !ClientPrefs.hideHud;
+		healthBarOverlay.alpha = ClientPrefs.healthBarAlpha;
+		add(healthBarOverlay);
 
 		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
 		iconP1.y = healthBar.y - 75;
@@ -799,6 +808,7 @@ class PlayState extends MusicBeatState
 		notes.cameras = [camHUD];
 		healthBar.cameras = [camHUD];
 		healthBarBG.cameras = [camHUD];
+		healthBarOverlay.cameras = [camHUD];
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
