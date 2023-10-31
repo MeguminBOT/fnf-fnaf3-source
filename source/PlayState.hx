@@ -290,8 +290,9 @@ class PlayState extends MusicBeatState
 	public var laneUnderlay:FlxSprite;
 	public var laneUnderlayOpponent:FlxSprite;
 	public var camJump:FlxCamera;
+	var creditsTablet:FlxSprite;
 
-	// mechanics Stuff
+	// Mechanics Stuff
 	static var tablet:Bool = false;
 	static var tabletButtonPressed:Bool = false;
 	var tabletMech:FlxSprite;
@@ -1019,6 +1020,18 @@ class PlayState extends MusicBeatState
 				add(blackOut);
 		}
 
+		creditsTablet = new FlxSprite(-150, 290);
+		creditsTablet.loadGraphic(Paths.image('songCredits/' + daSong));
+		creditsTablet.frames = Paths.getSparrowAtlas('songCredits/' + daSong);
+		creditsTablet.antialiasing = ClientPrefs.globalAntialiasing;
+		creditsTablet.scale.x = 0.6;
+		creditsTablet.scale.y = 0.6;
+		creditsTablet.updateHitbox();
+		creditsTablet.cameras = [camOther];
+		creditsTablet.animation.addByPrefix('idle', 'idle', 24, false);
+		creditsTablet.alpha = 0;
+		add(creditsTablet);
+
 		super.create();
 
 		cacheCountdown();
@@ -1643,6 +1656,13 @@ class PlayState extends MusicBeatState
 			FlxG.sound.music.pause();
 			vocals.pause();
 		}
+
+		creditsTablet.animation.finishCallback = function(name:String):Void {
+			remove(creditsTablet);
+			creditsTablet.destroy();
+		}
+		creditsTablet.animation.play('idle');
+		creditsTablet.alpha = 1;
 
 		// Song duration in a float, useful for the time left feature
 		songLength = FlxG.sound.music.length;
