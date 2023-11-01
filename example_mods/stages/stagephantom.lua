@@ -36,6 +36,10 @@ function createStage()
 end
 
 function createStageProps()
+	if lowQuality then
+		return
+	end
+
 	local stagesExtras = {
 		{ name = 'arcade', image = 'Props/arcade', posX = 800, posY = 0, scrollX = 1.3, scrollY = 1.2, scaleX = 2.5, scaleY = 2.5, add = true },
 		{ name = 'wire', image = 'Props/wire', posX = -1700, posY = 0, scrollX = 1.3, scrollY = 1.2, scaleX = 2.5, scaleY = 2.5, add = true },
@@ -126,7 +130,7 @@ function createMiscSprites()
 
 	makeAnimatedLuaSprite('static2', 'static2', 0, 0)
 	setObjectCamera('static2', 'camHUD')
-	addLuaSprite('static2', true);
+	addLuaSprite('static2', true)
 	addAnimationByPrefix('static2', 'static2', 'idle', 24, true)
 	setProperty('static2.visible', false)
 end
