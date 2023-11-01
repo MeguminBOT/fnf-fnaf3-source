@@ -1,110 +1,125 @@
 function onCreate()
-	precacheImage('characters/afton3');
-	precacheImage('characters/springbonnie');
-	precacheImage('characters/cassidy2');
-	precacheImage('Chars/children');
-	precacheImage('characters/afton2');
-	precacheImage('characters/cassidy');
-	precacheImage('BGs/retribution');
-	precacheImage('BGs/retribution2');
-	precacheImage('BGs/retribution3');
-
-    makeLuaSprite('arcadeffect','arcadeffect', 0, 0);
-    setObjectCamera('arcadeffect', 'hud')
-    addLuaSprite('arcadeffect', true);
-    makeLuaSprite('blackui','blackui', 0, 0);
-    setObjectCamera('blackui', 'hud')
-    addLuaSprite('blackui', true);
-    setProperty('blackui.alpha', 0.5);
-    makeLuaSprite('black2','black', -500, -500);
-    setLuaSpriteScrollFactor('black2', 0, 0);
-    scaleObject('black2', 10, 10);
-    addLuaSprite('black2', true);
-    setProperty('black2.alpha', 0);
-    makeLuaSprite('white2','white', -500, -500);
-    setLuaSpriteScrollFactor('white2', 0, 0);
-    scaleObject('white2', 10, 10);
-    addLuaSprite('white2', true);
-    setProperty('white2.alpha', 0);
-    makeLuaSprite('white','white', 0, 0);
-    setObjectCamera('white', 'other')
-    makeLuaSprite('black','black', 0, 0);
-    setObjectCamera('black', 'other')
-    addLuaSprite('black', true);
-    addLuaSprite('white', true);
-    setProperty('white.alpha', 0);
-    makeLuaSprite('minigameafton', 'BGs/minigameafton', -1600, 0);
-    setLuaSpriteScrollFactor('minigameafton', 1, 1);
-    scaleObject('minigameafton', 1, 1);
-    addLuaSprite('minigameafton', false);
-    setLuaSpriteScrollFactor('minigameafton', 1, 1);
-    makeAnimatedLuaSprite('retribution2','BGs/retribution2', -2400, -530);
-    addAnimationByPrefix('retribution2','idle','idle',24,true);
-    addAnimationByPrefix('retribution2','bop','bop',24,false);
-    scaleObject('retribution2', 1.1, 1.1);
-    addLuaSprite('retribution2', false);
-    setProperty('retribution2.alpha', 0);
-
-    makeAnimatedLuaSprite('aftonwear','aftonwear', 0, 0);
-    addAnimationByPrefix('aftonwear','idle','idle',24,false);
-    setLuaSpriteScrollFactor('aftonwear', 0, 0);
-    scaleObject('aftonwear', 1, 1);
-    
+	createStage() -- Create stages.
+	createSpringtrap() -- Create Springtrap.
+    createMiscSprites() -- Create misc sprites.
 end
 
+function createStage()
+	local stages = {
+		{ name = 'minigameafton', image = 'BGs/minigameafton', posX = -1600, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, add = false },
+        { name = 'retribution', image = 'BGs/retribution', posX = -2400, posY = -530, scrollX = 1, scrollY = 1, scaleX = 1.1, scaleY = 1.1, add = false },
+		{ name = 'retribution2', image = 'BGs/retribution2', posX = -2400, posY = -530, scrollX = 1, scrollY = 1, scaleX = 1.1, scaleY = 1.1, add = false },
+        { name = 'retribution3', image = 'BGs/retribution3', posX = -1300, posY = 0, scrollX = 0.9, scrollY = 0.9, scaleX = 0.6, scaleY = 0.6, add = false },
+        { name = 'children', image = 'Chars/cryingchildren', posX = -1600, posY = 500, scrollX = 1, scrollY = 1, scaleX = 2, scaleY = 2, add = false },
+	}
+
+	for _, stage in ipairs(stages) do
+		precacheImage(stage.image)
+		if stage.name == 'retribution2' then
+			makeAnimatedLuaSprite(stage.name, stage.image, stage.posX, stage.posY)
+            addAnimationByPrefix('retribution2', 'idle', 'idle', 24, true)
+            addAnimationByPrefix('retribution2', 'bop', 'bop', 24, false)
+		elseif stage.name == 'children' then
+			makeAnimatedLuaSprite(stage.name, stage.image, stage.posX, stage.posY)
+            addAnimationByPrefix('children', 'anim', 'idle', 24, true)
+        else
+            makeLuaSprite(stage.name, stage.image, stage.posX, stage.posY)
+        end
+		setScrollFactor(stage.name, stage.scrollX, stage.scrollY)
+		scaleObject(stage.name, stage.scaleX, stage.scaleY)
+		addLuaSprite(stage.name, stage.add)
+		setProperty(stage.name .. '.visible', false)
+	end
+
+	setProperty('minigameafton.visible', true)
+end
+
+function createSpringtrap()
+    makeAnimatedLuaSprite('aftonwear', 'aftonwear', 0, 0)
+    addAnimationByPrefix('aftonwear', 'anim', 'idle', 24, false)
+    setScrollFactor('aftonwear', 0, 0)
+    scaleObject('aftonwear', 1, 1)
+    addLuaSprite('aftonwear', true)
+    setProperty('aftonwear.visible', false)
+end
+
+function createMiscSprites()
+	local miscSprites = {
+        { name = 'arcadeffect', image = 'arcadeffect', camera = 'camHUD', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 1 },
+		{ name = 'blackui', image = 'blackui', camera = 'camHUD', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0.5 },
+		{ name = 'black2', image = 'black', camera = 'camGame', posX = -500, posY = -500, scrollX = 0, scrollY = 0, scaleX = 10, scaleY = 10, alpha = 0 },
+		{ name = 'white2', image = 'white', camera = 'camGame', posX = -500, posY = -500, scrollX = 0, scrollY = 0, scaleX = 10, scaleY = 10, alpha = 0 },
+		{ name = 'black', image = 'black', camera = 'camOther', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 1 },
+    	{ name = 'white', image = 'white', camera = 'camOther', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
+    }
+
+	for _, miscSprite in ipairs(miscSprites) do
+		precacheImage(miscSprite.image)
+		makeLuaSprite(miscSprite.name, miscSprite.image, miscSprite.posX, miscSprite.posY)
+		setObjectCamera(miscSprite.name, miscSprite.camera)
+		addLuaSprite(miscSprite.name, true)
+        setProperty(miscSprite.name .. '.alpha', miscSprite.alpha)
+	end
+end
 
 function onStepHit()
     if curStep == 400 then
-		removeLuaSprite('minigameafton', true);
-        makeLuaSprite('retribution', 'BGs/retribution', -2400, -530);
-        setLuaSpriteScrollFactor('retribution', 1, 1);
-        scaleObject('retribution', 1.1, 1.1);
-        addLuaSprite('retribution', false);
-        setLuaSpriteScrollFactor('retribution', 1, 1);
-        setProperty('blackui.alpha', 0);
-        setScrollFactor('boyfriendGroup', 1, 1.5);
-        end
+        -- Remove previous stage sprites.
+        removeLuaSprite('minigameafton', true)
 
-        if curStep == 1696 then
+        -- Toggle visibility of the next stage sprites.
+		setProperty('retribution.visible', true)
+        setProperty('blackui.alpha', 0)
 
-    removeLuaSprite('retribution', true);
-    makeLuaSprite('retribution3', 'BGs/retribution3', -1300, 0);
-    setLuaSpriteScrollFactor('retribution3', 0.9, 0.9);
-    scaleObject('retribution3', 0.6, 0.6);
-    addLuaSprite('retribution3', false);
-    setScrollFactor('boyfriendGroup', 1, 1);
-            end
-            if curStep == 1952 then
+        -- Miscellaneous.
+        setScrollFactor('boyfriendGroup', 1, 1.5)
 
-        removeLuaSprite('retribution3', true);
-        makeLuaSprite('retribution', 'BGs/retribution', -2400, -530);
-        setLuaSpriteScrollFactor('retribution', 1, 1);
-        scaleObject('retribution', 1.1, 1.1);
-        addLuaSprite('retribution', false);
-        setScrollFactor('boyfriendGroup', 1, 1.5);
-        makeAnimatedLuaSprite('children','Chars/cryingchildren', -1600, 500);
-        addAnimationByPrefix('children','children','idle',24,true);
-        scaleObject('children', 2, 2);
-        addLuaSprite('children', false);
-                end
+    elseif curStep == 1696 then
+        -- Toggle visibility of previous stage sprites.
+        setProperty('retribution.visible', false)
 
+        -- Toggle visibility of the next stage sprites.
+        setProperty('retribution3.visible', true)
 
-            if curStep == 2208 then
-                addLuaSprite('aftonwear', true);
-                removeLuaSprite('retribution', true);
-                setProperty('aftonwear.alpha', 1);
-                setProperty('retribution2.alpha', 1);
-                        end
+        -- Miscellaneous.
+        setScrollFactor('boyfriendGroup', 1, 1)
 
-                        if curStep == 2240 then
-                            setProperty('aftonwear.alpha', 0);
-                                    end
-        end
+    elseif curStep == 1952 then
+        -- Remove previous stage sprites.
+        removeLuaSprite('retribution3', true)
+        
+        -- Toggle visibility of the next stage sprites.
+        setProperty('retribution.visible', true)
+        setProperty('children.visible', true)
+
+        -- Force play animations so they start from the beginning.
+        playAnim('children', 'anim', true)
+
+        -- Miscellaneous.
+        setScrollFactor('boyfriendGroup', 1, 1.5)
+
+    elseif curStep == 2208 then
+        -- Remove previous stage sprites.
+        removeLuaSprite('retribution', true)
+
+        -- Toggle visibility of the next stage sprites.
+        setProperty('retribution2.visible', true)
+
+        -- Anim of Afton putting on Springtrap suit.
+        setProperty('aftonwear.visible', true)
+
+        -- Force play animations so they start from the beginning.
+        playAnim('aftonwear', 'anim', true)
+        playAnim('retribution2', 'idle', true)
+
+    elseif curStep == 2240 then
+        -- Remove anim of Afton putting on Springtrap suit.
+        removeLuaSprite('aftonwear.visible', true)
+    end
+end
 
 function onBeatHit()
-                        if curBeat >= 552 and curBeat % 3 == 0 then
-
-                            objectPlayAnimation('retribution2', 'bop',true)
-
-                    end
-                end
+    if curBeat >= 552 and curBeat % 3 == 0 then
+        playAnim('retribution2', 'bop', true)
+    end
+end
