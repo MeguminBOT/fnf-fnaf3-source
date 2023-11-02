@@ -2,6 +2,7 @@ function onCreate()
 	createStage() -- Create stages.
 	createSpringtrap() -- Create Springtrap.
     createMiscSprites() -- Create misc sprites.
+    createJumpscares() -- Create jumpscare like sprites.
 end
 
 function createStage()
@@ -51,6 +52,8 @@ function createMiscSprites()
 		{ name = 'white2', image = 'white', camera = 'camGame', posX = -500, posY = -500, scrollX = 0, scrollY = 0, scaleX = 10, scaleY = 10, alpha = 0 },
 		{ name = 'black', image = 'black', camera = 'camOther', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 1 },
     	{ name = 'white', image = 'white', camera = 'camOther', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
+        { name = 'whiteui', image = 'whiteui', camera = 'camHUD', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
+        
     }
 
 	for _, miscSprite in ipairs(miscSprites) do
@@ -59,6 +62,28 @@ function createMiscSprites()
 		setObjectCamera(miscSprite.name, miscSprite.camera)
 		addLuaSprite(miscSprite.name, true)
         setProperty(miscSprite.name .. '.alpha', miscSprite.alpha)
+	end
+end
+
+function createJumpscares()
+	local jumpscares = {
+		{ name = 'gfed', image = 'gfed', posX = 0, posY = 0, add = true },
+		{ name = 'itsme', image = 'itsme', posX = 0, posY = 0, add = true },
+		{ name = 'fred', image = 'fred', posX = 0, posY = 0, add = true },
+		{ name = 'bon', image = 'bon', posX = 0, posY = 0, add = true },
+		{ name = 'chic', image = 'chic', posX = 0, posY = 0, add = true },
+		{ name = 'fox', image = 'fox', posX = 0, posY = 0, add = true },
+		{ name = 'gfed2', image = 'gfed2', posX = 0, posY = 0, add = true },
+        { name = 'spring', image = 'spring', posX = 0, posY = 0, add = true },
+        { name = 'cassid', image = 'cassid', posX = 0, posY = 0, add = true },
+	}
+	
+	for _, jumpscare in ipairs(jumpscares) do
+		precacheImage(jumpscare.image)
+		makeLuaSprite(jumpscare.name, jumpscare.image, jumpscare.posX, jumpscare.posY)
+		setObjectCamera(jumpscare.name, 'camJump')
+		addLuaSprite(jumpscare.name, jumpscare.add)
+		setProperty(jumpscare.name .. '.visible', false)
 	end
 end
 
@@ -114,7 +139,7 @@ function onStepHit()
 
     elseif curStep == 2240 then
         -- Remove anim of Afton putting on Springtrap suit.
-        removeLuaSprite('aftonwear.visible', true)
+        removeLuaSprite('aftonwear', true)
     end
 end
 

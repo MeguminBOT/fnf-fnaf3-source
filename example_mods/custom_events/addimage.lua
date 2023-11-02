@@ -26,6 +26,8 @@ local epilepsySafetyThree = {
 local songNames = {
 	'taken-apart',
 	'Taken Apart',
+	'Retribution',
+	'retribution',
 	'fear-forever',
 	'Fear Forever'
 }
