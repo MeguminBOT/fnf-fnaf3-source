@@ -1,6 +1,7 @@
 local allowCountdown = false
 function onStartCountdown()
-    if not allowCountdown and isStoryMode and not seenCutscene then
+    if not allowCountdown and isStoryMode then
+        playSound('cutscenes/cutscene1')
         startVideo('cutscene1')
         allowCountdown = true
         for i = 1, 4 do
