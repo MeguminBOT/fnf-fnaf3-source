@@ -47,12 +47,19 @@ class VisualsUISubState extends BaseOptionsMenu
 			'bool',
 			false);
 		addOption(option);
+
+		var option:Option = new Option('Time Bar',
+			"Toggles Time Bar",
+			'timeBarEnabled',
+			'bool',
+			true);
+		addOption(option);
 		
-		var option:Option = new Option('Time Bar:',
-			"What should the Time Bar display?",
-			'timeBarType',
+		var option:Option = new Option('Time Bar Text:',
+			"What should the Time Bar Text display?",
+			'timeBarTxtMode',
 			'string',
-			'Time Left',
+			'Disabled',
 			['Time Left', 'Time Elapsed', 'Song Name', 'Disabled']);
 		addOption(option);
 

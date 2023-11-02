@@ -23,7 +23,6 @@ class ClientPrefs {
 	public static var noteOffset:Int = 0;
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	public static var ghostTapping:Bool = true;
-	public static var timeBarType:String = 'Time Left';
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
@@ -67,6 +66,8 @@ class ClientPrefs {
 	public static var epilepsy:Bool = false;
 	public static var epilepsyLevel:String = 'One';
 	public static var epilepsyDisableWarning:Bool = false;
+	public static var timeBarTxtMode:String = 'Disabled';
+	public static var timeBarEnabled:Bool = true;
 
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
@@ -118,7 +119,6 @@ class ClientPrefs {
 		FlxG.save.data.hideHud = hideHud;
 		FlxG.save.data.arrowHSV = arrowHSV;
 		FlxG.save.data.ghostTapping = ghostTapping;
-		FlxG.save.data.timeBarType = timeBarType;
 		FlxG.save.data.scoreZoom = scoreZoom;
 		FlxG.save.data.noReset = noReset;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
@@ -144,6 +144,8 @@ class ClientPrefs {
 		FlxG.save.data.epilepsy = epilepsy;
 		FlxG.save.data.epilepsyLevel = epilepsyLevel;
 		FlxG.save.data.epilepsyDisableWarning = epilepsyDisableWarning;
+		FlxG.save.data.timeBarTxtMode = timeBarTxtMode;
+		FlxG.save.data.timeBarEnabled = timeBarEnabled;
 
 		FlxG.save.flush();
 
@@ -215,9 +217,6 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.ghostTapping != null) {
 			ghostTapping = FlxG.save.data.ghostTapping;
-		}
-		if(FlxG.save.data.timeBarType != null) {
-			timeBarType = FlxG.save.data.timeBarType;
 		}
 		if(FlxG.save.data.scoreZoom != null) {
 			scoreZoom = FlxG.save.data.scoreZoom;
@@ -293,6 +292,12 @@ class ClientPrefs {
 		}
 		if (FlxG.save.data.epilepsyLevel != null) {
 			epilepsyLevel = FlxG.save.data.epilepsyLevel;
+		}
+		if(FlxG.save.data.timeBarTxtMode != null) {
+			timeBarTxtMode = FlxG.save.data.timeBarTxtMode;
+		}
+		if(FlxG.save.data.timeBarEnabled != null) {
+			timeBarEnabled = FlxG.save.data.timeBarEnabled;
 		}
 
 		var save:FlxSave = new FlxSave();

@@ -200,7 +200,6 @@ class FunkinLua {
 		set('framerate', ClientPrefs.framerate);
 		set('ghostTapping', ClientPrefs.ghostTapping);
 		set('hideHud', ClientPrefs.hideHud);
-		set('timeBarType', ClientPrefs.timeBarType);
 		set('scoreZoom', ClientPrefs.scoreZoom);
 		set('cameraZoomOnBeat', ClientPrefs.camZooms);
 		set('flashingLights', ClientPrefs.flashing);
@@ -217,6 +216,8 @@ class FunkinLua {
 		set('mirrorMode', PlayState.mirrorMode);
 		set('epilepsy', ClientPrefs.epilepsy);
 		set('epilepsyLevel', ClientPrefs.epilepsyLevel);
+		set('timeBarTxtMode', ClientPrefs.timeBarTxtMode);
+		set('timeBarEnabled', ClientPrefs.timeBarEnabled);
 
 		#if windows
 		set('buildTarget', 'windows');

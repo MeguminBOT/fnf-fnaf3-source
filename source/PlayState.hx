@@ -312,6 +312,9 @@ class PlayState extends MusicBeatState
 	var tweenSineIn:FlxTween;
 	var tweenSineOut:FlxTween;
 
+	var showTimeTxt:Bool;
+	var showTimeBar:Bool;
+
 	/*---------------------------------*/
 
 	override public function create()
@@ -659,49 +662,55 @@ class PlayState extends MusicBeatState
 			add(laneUnderlayOpponent);
 		}
 		add(laneUnderlay);
-
-		var showTime:Bool = (ClientPrefs.timeBarType != 'Disabled');
 		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, 19, 400, "", 32);
 		timeTxt.setFormat(Paths.font("stalker2.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		timeTxt.scrollFactor.set();
 		timeTxt.alpha = 0;
 		timeTxt.borderSize = 2;
-		timeTxt.visible = showTime;
+
 		if(ClientPrefs.downScroll) timeTxt.y = FlxG.height - 44;
 
-		if(ClientPrefs.timeBarType == 'Song Name')
+		if(ClientPrefs.timeBarTxtMode == 'Song Name')
 		{
 			timeTxt.text = SONG.song;
 		}
-		updateTime = showTime;
 
 		timeBarBG = new AttachedSprite('timeBar');
 		timeBarBG.x = timeTxt.x;
 		timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
 		timeBarBG.scrollFactor.set();
 		timeBarBG.alpha = 0;
-		timeBarBG.visible = showTime;
 		timeBarBG.color = FlxColor.BLACK;
 		timeBarBG.xAdd = -4;
 		timeBarBG.yAdd = -4;
-		add(timeBarBG);
 
 		timeBar = new FlxBar(timeBarBG.x + 4, timeBarBG.y + 4, LEFT_TO_RIGHT, Std.int(timeBarBG.width - 8), Std.int(timeBarBG.height - 8), this,
 			'songPercent', 0, 1);
 		timeBar.scrollFactor.set();
-		timeBar.createFilledBar(0xFF000000, 0xFFFFFFFF);
+		timeBar.createFilledBar(FlxColor.fromRGB(0, 0, 0), FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]));
 		timeBar.numDivisions = 400; //How much lag this causes?? Should i tone it down to idk, 400 or 200?
 		timeBar.alpha = 0;
-		timeBar.visible = showTime;
+
+		timeBarBG.sprTracker = timeBar;
+
+		showTimeTxt = (ClientPrefs.timeBarTxtMode != 'Disabled');
+		showTimeBar = ClientPrefs.timeBarEnabled;
+		updateTime = showTimeBar;
+
+		timeTxt.visible = showTimeTxt;
+		timeBarBG.visible = showTimeBar;
+		timeBar.visible = showTimeBar;
+
+		add(timeBarBG);
 		add(timeBar);
 		add(timeTxt);
-		timeBarBG.sprTracker = timeBar;
+		reloadTimeBarColors();
 
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
 		add(grpNoteSplashes);
 
-		if(ClientPrefs.timeBarType == 'Song Name')
+		if(ClientPrefs.timeBarTxtMode == 'Song Name')
 		{
 			timeTxt.size = 24;
 			timeTxt.y += 3;
@@ -1176,6 +1185,11 @@ class PlayState extends MusicBeatState
 			FlxColor.fromRGB(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]));
 
 		healthBar.updateBar();
+	}
+
+	public function reloadTimeBarColors() {
+		timeBar.createFilledBar(FlxColor.fromRGB(0, 0, 0), FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]));
+		timeBar.updateBar();
 	}
 
 	public function addCharacterToList(newCharacter:String, type:Int) {
@@ -2233,14 +2247,16 @@ class PlayState extends MusicBeatState
 					if(curTime < 0) curTime = 0;
 					songPercent = (curTime / songLength);
 
-					var songCalc:Float = (songLength - curTime);
-					if(ClientPrefs.timeBarType == 'Time Elapsed') songCalc = curTime;
+					if (showTimeTxt) {
+						var songCalc:Float = (songLength - curTime);
+						if(ClientPrefs.timeBarTxtMode == 'Time Elapsed') songCalc = curTime;
 
-					var secondsTotal:Int = Math.floor(songCalc / 1000);
-					if(secondsTotal < 0) secondsTotal = 0;
+						var secondsTotal:Int = Math.floor(songCalc / 1000);
+						if(secondsTotal < 0) secondsTotal = 0;
 
-					if(ClientPrefs.timeBarType != 'Song Name')
-						timeTxt.text = FlxStringUtil.formatTime(secondsTotal, false);
+						if(ClientPrefs.timeBarTxtMode != 'Song Name')
+							timeTxt.text = FlxStringUtil.formatTime(secondsTotal, false);
+					}
 				}
 			}
 
@@ -2743,6 +2759,7 @@ class PlayState extends MusicBeatState
 						}
 				}
 				reloadHealthBarColors();
+				reloadTimeBarColors();
 
 			case 'Change Scroll Speed':
 				if (songSpeedType == "constant")
