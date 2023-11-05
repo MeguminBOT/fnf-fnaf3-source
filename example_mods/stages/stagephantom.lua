@@ -4,6 +4,7 @@ function onCreate()
 	createStageAnimated() -- Create animated stages.
 	createJumpscares() -- Create jumpscares.
 	createMiscSprites() -- Create misc sprites.
+	createSubtitles() -- Create subtitles.
 
 	doTweenY('dadTweenY', 'dad', 1000, 1, 'cubeIn')
 end
@@ -103,7 +104,7 @@ function createJumpscares()
 
 		if jumpscare.name == 'phfreddyjump' or jumpscare.name == 'foxyjump' or jumpscare.name == 'chicajump' or jumpscare.name == 'manglejump' then
 			makeAnimatedLuaSprite(jumpscare.name, jumpscare.image, jumpscare.posX, jumpscare.posY)
-			addAnimationByPrefix(jumpscare.name, jumpscare.name, 'idle', 24, true)
+			addAnimationByPrefix(jumpscare.name, 'anim', 'idle', 24, true)
 		else
 			makeLuaSprite(jumpscare.name, jumpscare.image, jumpscare.posX, jumpscare.posY)
 		end
@@ -133,6 +134,20 @@ function createMiscSprites()
 	addLuaSprite('static2', true)
 	addAnimationByPrefix('static2', 'static2', 'idle', 24, true)
 	setProperty('static2.visible', false)
+end
+
+function createSubtitles()
+	makeLuaSprite('textBG', 'black', 0, 540)
+	setObjectCamera('textBG', 'camOther')
+	scaleObject('textBG', 1, 0.1)
+	addLuaSprite('textBG', true)
+	setProperty('textBG.alpha', 0)
+
+	makeLuaText('text', '', 1000, 135, 545)
+	setObjectCamera('text', 'camOther')
+	addLuaText('text')
+	setTextSize('text', 45)
+	setTextFont('text', 'stalker2.ttf')
 end
 
 function onEvent(name, value1, value2)

@@ -355,9 +355,9 @@
 				50215.5662076418,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"phfreddyjump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -1185,9 +1185,9 @@
 				133856.313604104,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"foxyjump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -1205,9 +1205,9 @@
 				133972.893914984,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"foxyjump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -1225,9 +1225,9 @@
 				134050.614122238,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"foxyjump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -1245,9 +1245,9 @@
 				134128.334329492,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"foxyjump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -1265,9 +1265,9 @@
 				134283.774744,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"foxyjump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -1770,9 +1770,9 @@
 				149361.494951254,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"foxyjump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -1890,9 +1890,9 @@
 				205729.675384049,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"chicajump",
-						""
+						"anim"
 					],
 					[
 						"Tablet",
@@ -1935,9 +1935,9 @@
 				206351.43704208,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"chicajump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -1975,9 +1975,9 @@
 				208216.722016173,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"chicajump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -2035,9 +2035,9 @@
 				208993.924088712,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"chicajump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -2075,9 +2075,9 @@
 				214356.61838923,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"chicajump",
-						""
+						"anim"
 					],
 					[
 						"addimage",
@@ -3095,9 +3095,9 @@
 				334378.783040927,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"manglejump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -3115,9 +3115,9 @@
 				334545.449707594,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"manglejump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -3135,9 +3135,9 @@
 				334656.560818705,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"manglejump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -3155,9 +3155,9 @@
 				334767.671929816,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"manglejump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -3175,9 +3175,9 @@
 				334878.783040927,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"manglejump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -3195,9 +3195,9 @@
 				334989.894152038,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"manglejump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -3215,9 +3215,9 @@
 				335101.005263149,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"manglejump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -3235,9 +3235,9 @@
 				335212.116374261,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"manglejump",
-						""
+						"anim"
 					]
 				]
 			],
@@ -4150,9 +4150,9 @@
 				506393.934556078,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"static2",
-						""
+						"static2"
 					],
 					[
 						"addimagebehindui",
@@ -4395,9 +4395,9 @@
 						"phantoms"
 					],
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"static2",
-						""
+						"static2"
 					],
 					[
 						"addimagebehindui",

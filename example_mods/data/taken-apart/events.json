@@ -3670,7 +3670,7 @@
 				78395.8333333333,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"static",
 						""
 					]
@@ -4970,7 +4970,7 @@
 				159991.666666667,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"static",
 						""
 					]
@@ -5255,9 +5255,9 @@
 				238100,
 				[
 					[
-						"addanimimage",
+						"Toggle Anim Sprite",
 						"static",
-						""
+						"static"
 					]
 				]
 			],
@@ -5695,9 +5695,9 @@
 				256144.117647059,
 				[
 					[
-						"addanimimage",
-						"Jumpscares/foxyjump",
-						""
+						"Toggle Anim Sprite",
+						"foxyjump",
+						"foxyjump"
 					],
 					[
 						"Screen Shake",
@@ -5751,7 +5751,7 @@
 					],
 					[
 						"fadeout",
-						"Jumpscares/foxyjump",
+						"foxyjump",
 						"0.01"
 					],
 					[

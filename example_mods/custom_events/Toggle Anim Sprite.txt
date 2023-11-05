@@ -1,0 +1,8 @@
+Sets alpha to 1 and visible to true, 
+then plays the objects animation.
+
+Value 1: Object tag
+Value 2: Animation tag 
+
+If you leave Value 2 empty, 
+it will use Value 1 as Animation tag.
