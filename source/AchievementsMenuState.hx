@@ -68,11 +68,9 @@ class AchievementsMenuState extends MusicBeatSubstate
 		Achievements.loadAchievements();
 		for (i in 0...Achievements.achievementsStuff.length) {
 			if(!Achievements.achievementsStuff[i][3] || Achievements.achievementsMap.exists(Achievements.achievementsStuff[i][2])) {
-				achieveList.push(Achievements.achievementsStuff[i]);
 				achievementIndex.push(i);
 			}
 		}
-		trace(achieveList);
 
 		dynamicText = new FlxText(150, 600, 980, "", 32);
 		dynamicText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -142,7 +140,7 @@ class AchievementsMenuState extends MusicBeatSubstate
 			// Load locked sprite.
 			button.loadGraphic(Paths.image(spritePath + "lockedachievement"));
 		}
-		
+		trace(achieveList);
 		// Scale the button to the desired size.
 		button.scale.set(btnWidth / button.width, btnHeight / button.height); 
 	
