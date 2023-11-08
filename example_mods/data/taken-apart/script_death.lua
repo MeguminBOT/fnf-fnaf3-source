@@ -8,8 +8,8 @@ function onCreate()
 	video.Load("takenapartbonnie.mp4")
 	video.Load("takenapartchica.mp4")
 	video.Load("takenapartfoxy.mp4")
-	setPropertyFromClass('GameOverSubstate', 'deathSoundName', 'Game_Over_Retry')
-	setPropertyFromClass('GameOverSubstate', 'loopSoundName', 'Game_Over')
+	setPropertyFromClass('GameOverSubstate', 'deathSoundName', 'fnf_loss_sfx')
+	setPropertyFromClass('GameOverSubstate', 'loopSoundName', 'fnf_loss_sfx')
 	makeLuaSprite('gameover', 'gameover', 0, 0);
 	setObjectCamera('gameover', 'hud')
 end
