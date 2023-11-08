@@ -34,6 +34,14 @@ class VisualsUISubState extends BaseOptionsMenu
 		title = 'Visuals and UI';
 		rpcTitle = 'Visuals & UI Settings Menu'; //for Discord Rich Presence
 
+		var option:Option = new Option('Immersion Level',
+			"How ''immersive'' do you want your mod experience to be? Affects wheter some objects go above or under the notes.\nFull = Throw everything at me!\nPartial = Some objects will be under the notes for clarity.",
+			'immersionLevel',
+			'string',
+			'Full',
+			['Partial', 'Full']);
+		addOption(option);
+
 		var option:Option = new Option('Note Splashes',
 			"If unchecked, hitting \"Sick!\" notes won't show particles.",
 			'noteSplashes',
@@ -71,7 +79,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 
 		var option:Option = new Option('Camera Zooms',
-			"If unchecked, the camera won't zoom in on a beat hit.",
+			"Disables camera zooms that are synced to the song.",
 			'camZooms',
 			'bool',
 			true);
@@ -110,7 +118,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			"What song do you prefer for the Pause Screen?",
 			'pauseMusic',
 			'string',
-			'Tea Time',
+			'None',
 			['None', 'Breakfast', 'Tea Time']);
 		addOption(option);
 		option.onChange = onChangePauseMusic;

@@ -28,7 +28,7 @@ class ClientPrefs {
 	public static var healthBarAlpha:Float = 1;
 	public static var controllerMode:Bool = false;
 	public static var hitsoundVolume:Float = 0;
-	public static var pauseMusic:String = 'Tea Time';
+	public static var pauseMusic:String = 'NONE';
 	public static var checkForUpdates:Bool = true;
 	public static var comboStacking = true;
 	public static var gameplaySettings:Map<String, Dynamic> = [
@@ -68,14 +68,16 @@ class ClientPrefs {
 	public static var epilepsyDisableWarning:Bool = false;
 	public static var timeBarTxtMode:String = 'Disabled';
 	public static var timeBarEnabled:Bool = true;
+	public static var graphicsQuality:String = 'Normal';
+	public static var immersionLevel:String = 'Full';
 
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
 		//Key Bind, Name for ControlsSubState
-		'note_left'		=> [A, LEFT],
-		'note_down'		=> [S, DOWN],
-		'note_up'		=> [W, UP],
-		'note_right'	=> [D, RIGHT],
+		'note_left'		=> [D, LEFT],
+		'note_down'		=> [F, DOWN],
+		'note_up'		=> [J, UP],
+		'note_right'	=> [K, RIGHT],
 		
 		'ui_left'		=> [A, LEFT],
 		'ui_down'		=> [S, DOWN],
@@ -146,6 +148,8 @@ class ClientPrefs {
 		FlxG.save.data.epilepsyDisableWarning = epilepsyDisableWarning;
 		FlxG.save.data.timeBarTxtMode = timeBarTxtMode;
 		FlxG.save.data.timeBarEnabled = timeBarEnabled;
+		FlxG.save.data.graphicsQuality = graphicsQuality;
+		FlxG.save.data.immersionLevel = immersionLevel;
 
 		FlxG.save.flush();
 
@@ -299,7 +303,13 @@ class ClientPrefs {
 		if(FlxG.save.data.timeBarEnabled != null) {
 			timeBarEnabled = FlxG.save.data.timeBarEnabled;
 		}
-
+		if(FlxG.save.data.graphicsQuality != null) {
+			graphicsQuality = FlxG.save.data.graphicsQuality;
+		}
+		if(FlxG.save.data.immersionLevel != null) {
+			immersionLevel = FlxG.save.data.immersionLevel;
+		}
+		
 		var save:FlxSave = new FlxSave();
 		save.bind('controls_v2', 'vsfnaf3');
 		if(save != null && save.data.customControls != null) {

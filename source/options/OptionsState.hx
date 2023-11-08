@@ -54,10 +54,10 @@ class OptionsState extends MusicBeatState
 		DiscordClient.changePresence("Options Menu", null);
 		#end
 
-        bg = new FlxSprite().loadGraphic(Paths.image('menus/bg'));
-        bg.antialiasing = ClientPrefs.globalAntialiasing;
-        add(bg);
-        bg.screenCenter();
+		bg = new FlxSprite().loadGraphic(Paths.image('menus/bg'));
+		bg.antialiasing = ClientPrefs.globalAntialiasing;
+		add(bg);
+		bg.screenCenter();
 
 		/* Call our separated function for creating menu buttons */
 		btnGroups.push(createGroup(menuList));

@@ -54,6 +54,14 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 			false); //Default value
 		addOption(option);
 
+		var option:Option = new Option('Graphics Quality',
+			"Changes the amount of sprites to be displayed.\nLow = Removes any sprites that won't reduce mod experience.\nVery Low = Removes a lot of sprites, reduces mod experience a lot.",
+			'graphicsQuality',
+			'string',
+			'Normal',
+			['Very Low', 'Low', 'Normal']);
+		addOption(option);
+
 		var option:Option = new Option('Anti-Aliasing',
 			'If unchecked, disables anti-aliasing, increases performance\nat the cost of sharper visuals.',
 			'globalAntialiasing',

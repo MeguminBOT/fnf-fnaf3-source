@@ -218,6 +218,8 @@ class FunkinLua {
 		set('epilepsyLevel', ClientPrefs.epilepsyLevel);
 		set('timeBarTxtMode', ClientPrefs.timeBarTxtMode);
 		set('timeBarEnabled', ClientPrefs.timeBarEnabled);
+		set('graphicsQuality', ClientPrefs.graphicsQuality);
+		set('immersionLevel', ClientPrefs.immersionLevel);
 
 		#if windows
 		set('buildTarget', 'windows');
