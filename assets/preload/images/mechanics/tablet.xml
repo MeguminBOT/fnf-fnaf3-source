@@ -13,61 +13,7 @@
 	<SubTexture name="in0007" x="3843" y="721" width="1280" height="720"/>
 	<SubTexture name="in0008" x="0" y="1442" width="1280" height="720"/>
 	<SubTexture name="in0009" x="1281" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0010" x="2562" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0011" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0012" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0013" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0014" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0015" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0016" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0017" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0018" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0019" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0020" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0021" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0022" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0023" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0024" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0025" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0026" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0027" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0028" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0029" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0030" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0031" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0032" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0033" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0034" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0035" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="in0036" x="3843" y="1442" width="1280" height="720"/>
 	<SubTexture name="notpressed0000" x="3843" y="1442" width="1280" height="720" pivotX="1" pivotY="0"/>
-	<SubTexture name="notpressed0001" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0002" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0003" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0004" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0005" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0006" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0007" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0008" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0009" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0010" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0011" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0012" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0013" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0014" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0015" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0016" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0017" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0018" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0019" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0020" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0021" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0022" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0023" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0024" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0025" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0026" x="3843" y="1442" width="1280" height="720"/>
-	<SubTexture name="notpressed0027" x="3843" y="1442" width="1280" height="720"/>
 	<SubTexture name="out0000" x="0" y="2163" width="1280" height="720" pivotX="1" pivotY="0" frameX="0" frameY="0" frameWidth="1281" frameHeight="720"/>
 	<SubTexture name="out0001" x="1281" y="2163" width="1280" height="720" frameX="0" frameY="0" frameWidth="1281" frameHeight="720"/>
 	<SubTexture name="out0002" x="1281" y="1442" width="1280" height="720"/>
