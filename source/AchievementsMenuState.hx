@@ -23,7 +23,6 @@ class AchievementsMenuState extends MusicBeatState
 {
 	#if ACHIEVEMENTS_ALLOWED
 	private static var curSelected:Int = 0;
-	private var achievementArray:Array<AttachedAchievement> = [];
 	private var achievementIndex:Array<Int> = [];
 
 	/*-------- VS FNAF 3 Custom Achievements Menu --------*/
