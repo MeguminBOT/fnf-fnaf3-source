@@ -197,23 +197,5 @@ class MainMenuState extends MusicBeatState
 			SongUnlock.unlockSong('misconception');	
 			ClientPrefs.saveSettings();
 		}
-
-		if (FlxG.keys.justPressed.TWO) {
-			Achievements.unlockAchievement('Freaky on a Friday Night');
-			Achievements.unlockAchievement('Completed Main Week No Miss');
-			Achievements.unlockAchievement('Completed Main Week');
-			Achievements.unlockAchievement("What a Funkin' Disaster!");
-			Achievements.unlockAchievement("Fazbear's Virtuoso");
-			Achievements.unlockAchievement('Oversinging Much...?');
-			Achievements.unlockAchievement('Hyperactive');
-			Achievements.unlockAchievement('Example Name1');
-			Achievements.unlockAchievement('Example Name3');
-			Achievements.unlockAchievement('Example Name4');
-			Achievements.unlockAchievement('Example Name5');
-			Achievements.unlockAchievement('Boomer');
-			Achievements.unlockAchievement('What a pretty face!');
-			Achievements.unlockAchievement('Traumatized');
-			ClientPrefs.saveSettings();
-		}
 	}
 }

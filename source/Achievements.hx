@@ -11,7 +11,7 @@ using StringTools;
 
 class Achievements {
 	public static var achievementsStuff:Array<Dynamic> = [ //Name, Description, Achievement save tag, Hidden achievement
-		["Freaky on a Friday Night",		"Play on a Friday... Night.",							'friday_night_play',		 true],
+		["Freaky on a Friday Night",		"Play on a Friday... Night.",							'friday_night_play',		 false],
 		["Completed Main Week No Miss",		"Beat the Main Week in Story Mode with no Misses.",		'week1_nomiss',				false],
 		["Completed Main Week",				"Beat the Main Week in Story Mode.",					'week1',					false],
 		["What a Funkin' Disaster!",		"Complete a Song with a rating lower than 20%.",		'ur_bad',					false],
@@ -19,9 +19,9 @@ class Achievements {
 		["Oversinging Much...?",			"Hold down a note for 10 seconds.",						'oversinging',				false],
 		["Hyperactive",						"Finish a Song without going Idle.",					'hype',						false],
 		["Example Name1",					"Beat the main week with a rating of GFC or better",	'week1_gfc',				false],
-		["Example Name3",					"You cracked the code!",								'code_cracker',				true],
-		["Example Name4",					"Finished the first secret song",						'secret_song_one',			true],
-		["Example Name5",					"Finished the second secret song",						'secret_song_two',			true],
+		["Example Name3",					"You cracked the code!",								'code_cracker',				false],
+		["Example Name4",					"Finished the first secret song",						'secret_song_one',			false],
+		["Example Name5",					"Finished the second secret song",						'secret_song_two',			false],
 		["Boomer",							"Complete 'Fear Forever' without using the system restart menu",			'boomer',				false],
 		["What a pretty face!",				"Complete 'Fear Forever' without clicking on Mangle",						'pretty_face',			false],
 		["Traumatized",						"Complete 'Fear Forever' without doing any mechanics",						'traumatized',			false]
@@ -62,6 +62,11 @@ class Achievements {
 class AttachedAchievement extends FlxSprite {
 	public var sprTracker:FlxSprite;
 	private var tag:String;
+
+	// Filepath shortcuts
+	var spritePath:String = 'menus/achievementsMenu/';
+	var achieveSprites:String = 'menus/achievementsMenu/achievements/';
+
 	public function new(x:Float = 0, y:Float = 0, name:String) {
 		super(x, y);
 
@@ -76,9 +81,9 @@ class AttachedAchievement extends FlxSprite {
 
 	public function reloadAchievementImage() {
 		if(Achievements.isAchievementUnlocked(tag)) {
-			loadGraphic(Paths.image('achievements/' + tag));
+			loadGraphic(Paths.image(achieveSprites + tag));
 		} else {
-			loadGraphic(Paths.image('achievements/lockedachievement'));
+			loadGraphic(Paths.image(spritePath + 'lockedachievement'));
 		}
 		scale.set(0.7, 0.7);
 		updateHitbox();

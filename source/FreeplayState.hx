@@ -537,7 +537,7 @@ class FreeplayState extends MusicBeatState
 		if (FlxG.keys.justPressed.ALT) {
 			persistentUpdate = false;
 			FlxG.sound.play(Paths.sound('done'), 0.7);
-			openSubState(new AchievementsMenuState());
+			MusicBeatState.switchState(new AchievementsMenuState());
 			
 		}
 
