@@ -77,6 +77,9 @@ class FreeplayState extends MusicBeatState
 	private var camMenu:FlxCamera;
 	private var camAchievement:FlxCamera;
 
+	// Misc
+	var modifierButton:FlxSprite;
+
 	/*------------------------------------------------*/
 
 	override function create()
@@ -150,6 +153,9 @@ class FreeplayState extends MusicBeatState
 		/* Call our separated function for creating text objects */
 		createTextStuff();
 
+		/* Call our separated function for creating various other menu buttons */
+		createMenuButtons();
+
 		super.create();
 	}
 
@@ -192,6 +198,18 @@ class FreeplayState extends MusicBeatState
 		helpText.setFormat(Paths.font("5Computers-In-Love.ttf"), 8, FlxColor.WHITE, CENTER);
 		helpText.scrollFactor.set();
 		add(helpText);
+	}
+
+	function createMenuButtons()
+	{
+		var modifierButton = new FlxButton(0, 700, "", openModifiers.bind());
+		modifierButton.loadGraphic(Paths.image(spritePath + 'button'));
+		modifierButton.frames = Paths.getSparrowAtlas(spritePath + 'button');
+		modifierButton.animation.addByPrefix('idle', 'idle', 12, true);
+		modifierButton.scale.x = 0.69;
+		modifierButton.scale.y = 0.7;
+		modifierButton.updateHitbox();
+		add(modifierButton);
 	}
 
 	public function createGroup(songList:Array<String>):FlxTypedGroup<FlxButton> 
@@ -478,6 +496,10 @@ class FreeplayState extends MusicBeatState
 			ClientPrefs.saveSettings();
 		}
 	}
+	public function openModifiers()
+	{
+		openSubState(new GameplayChangersSubstate());
+	}
 	/*--------------- End of FNAF 3 Menu Stuff --------------- */
 
 	override function closeSubState() 
@@ -604,4 +626,4 @@ class SongMetadata
 		this.folder = Paths.currentModDirectory;
 		if(this.folder == null) this.folder = '';
 	}
-}
+}}

@@ -33,13 +33,24 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 	private var curSelected:Int = 0;
 	private var optionsArray:Array<Dynamic> = [];
 
-	private var grpOptions:FlxTypedGroup<Alphabet>;
-	private var checkboxGroup:FlxTypedGroup<CheckboxThingie>;
-	private var grpTexts:FlxTypedGroup<AttachedText>;
+	private var grpOptions:FlxTypedGroup<FlxText>;
+	private var boolTextGroup:FlxTypedGroup<FlxText>;
+	private var grpTexts:FlxTypedGroup<FlxText>;
+
+	private var modifierTablet:FlxSprite;
+	private var optionText:FlxText;
+	private var boolText:FlxText;
+	private var valueText:FlxText;
+
+	private var realBoolValue:Bool;
+	private var boolValue:String;
+
+	// Filepath shortcuts
+	private var spritePath:String = 'menus/freeplayMenu/';
 
 	function getOptions()
 	{
-		var goption:GameplayOption = new GameplayOption('Scroll Type', 'scrolltype', 'string', 'multiplicative', ["multiplicative", "constant"]);
+		var goption:GameplayOption = new GameplayOption('Scroll Type', 'scrolltype', 'string', 'X-MOD', ["X-MOD", "C-MOD"]);
 		optionsArray.push(goption);
 
 		var option:GameplayOption = new GameplayOption('Scroll Speed', 'scrollspeed', 'float', 1);
@@ -60,7 +71,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		optionsArray.push(option);
 
 		#if !html5
-		var option:GameplayOption = new GameplayOption('Playback Rate', 'songspeed', 'float', 1);
+		var option:GameplayOption = new GameplayOption('Song Speed', 'songspeed', 'float', 1);
 		option.scrollSpeed = 1;
 		option.minValue = 0.5;
 		option.maxValue = 3.0;
@@ -70,26 +81,10 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		optionsArray.push(option);
 		#end
 
-		var option:GameplayOption = new GameplayOption('Health Gain Multiplier', 'healthgain', 'float', 1);
-		option.scrollSpeed = 2.5;
-		option.minValue = 0;
-		option.maxValue = 5;
-		option.changeValue = 0.1;
-		option.displayFormat = '%vX';
-		optionsArray.push(option);
-
-		var option:GameplayOption = new GameplayOption('Health Loss Multiplier', 'healthloss', 'float', 1);
-		option.scrollSpeed = 2.5;
-		option.minValue = 0.5;
-		option.maxValue = 5;
-		option.changeValue = 0.1;
-		option.displayFormat = '%vX';
-		optionsArray.push(option);
-
 		var option:GameplayOption = new GameplayOption('Mirror Mode', 'mirrormode', 'bool', false);
 		optionsArray.push(option);
 
-		var option:GameplayOption = new GameplayOption('Instakill on Miss', 'instakill', 'bool', false);
+		var option:GameplayOption = new GameplayOption('Sudden Death', 'instakill', 'bool', false);
 		optionsArray.push(option);
 
 		var option:GameplayOption = new GameplayOption('Practice Mode', 'practice', 'bool', false);
@@ -113,60 +108,90 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 	public function new()
 	{
 		super();
-		
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-		bg.alpha = 0.75;
-		add(bg);
-
+	
+		modifierTablet = new FlxSprite();
+		modifierTablet.loadGraphic(Paths.image(spritePath + 'tablet_options'));
+		modifierTablet.frames = Paths.getSparrowAtlas(spritePath + 'tablet_options');
+		modifierTablet.antialiasing = ClientPrefs.globalAntialiasing;
+		modifierTablet.x = 0;
+		modifierTablet.y = 360;
+		modifierTablet.scale.x = 0.6;
+		modifierTablet.scale.y = 0.6;
+		modifierTablet.updateHitbox();
+		modifierTablet.animation.addByPrefix('Anim In', 'Anim In', 60, false);
+		modifierTablet.animation.addByPrefix('Anim Out', 'Anim Out', 60, false);
+		modifierTablet.animation.addByPrefix('Anim Opened', 'Anim Opened', 60, true);
+		modifierTablet.animation.play('Anim In');
+		modifierTablet.alpha = 1;
+		add(modifierTablet);
+	
 		// avoids lagspikes while scrolling through menus!
-		grpOptions = new FlxTypedGroup<Alphabet>();
+		grpOptions = new FlxTypedGroup<FlxText>();
 		add(grpOptions);
-
-		grpTexts = new FlxTypedGroup<AttachedText>();
+	
+		grpTexts = new FlxTypedGroup<FlxText>();
 		add(grpTexts);
-
-		checkboxGroup = new FlxTypedGroup<CheckboxThingie>();
-		add(checkboxGroup);
-		
+	
+		boolTextGroup = new FlxTypedGroup<FlxText>();
+		add(boolTextGroup);
+	
 		getOptions();
+	
+		var yOffset:Float = 0; // Initialize the Y offset
 
 		for (i in 0...optionsArray.length)
 		{
-			var optionText:Alphabet = new Alphabet(290, 0, optionsArray[i].name, false);
-			optionText.scaleX = 0.5;
-			optionText.scaleY = 0.5;
-			optionText.y = 260;
-			optionText.isMenuItem = true;
-			optionText.targetY = i;
-
+			optionText = new FlxText(24, modifierTablet.y + 24 + yOffset, 0, optionsArray[i].name, 16, true);
+			optionText.setFormat(Paths.font('stalker1.ttf'), 32, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.GREEN, true);
+			optionText.borderSize = 2;
+			optionText.visible = false; // Hide the optionText initially
 			grpOptions.add(optionText);
-
+	
 			if(optionsArray[i].type == 'bool') {
-				var checkbox:CheckboxThingie = new CheckboxThingie(0, optionText.y, optionsArray[i].getValue() == true);
-				checkbox.scale.x = 0.5;
-				checkbox.scale.y = 0.5;
-				checkbox.sprTracker = optionText;
-				checkbox.offsetX -= 110;
-				checkbox.ID = i;
-				checkboxGroup.add(checkbox);
+				boolText = new FlxText(optionText.x + 200, optionText.y, 0, '', 16, true);
+				boolText.text = optionsArray[i].getValue(true) ? "On" : "Off";
+				boolText.setFormat(Paths.font('stalker1.ttf'), 32, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.RED, true);
+				boolText.borderSize = 2;
+				boolText.ID = i;
+				boolText.visible = false; // Hide the boolText initially
+				boolTextGroup.add(boolText);
+	
 			} else {
-				optionText.startPosition.x -= 50;
-				var valueText:AttachedText = new AttachedText('' + optionsArray[i].getValue(), optionText.width + 20);
-				valueText.scaleX = 0.5;
-				valueText.scaleY = 0.5;
-				valueText.sprTracker = optionText;
-				valueText.copyAlpha = true;
+				valueText = new FlxText(optionText.x + 200, optionText.y, optionText.width, '', 16, true);
+				valueText.text = Std.string(optionsArray[i].getValue());
+				valueText.setFormat(Paths.font('stalker1.ttf'), 32, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.RED, true);
+				valueText.borderSize = 2;
 				valueText.ID = i;
+				valueText.visible = false; // Hide the valueText initially
 				grpTexts.add(valueText);
 				optionsArray[i].setChild(valueText);
 			}
 			updateTextFrom(optionsArray[i]);
+	
+			yOffset += 32; // Increment the Y offset by 32 pixels
 		}
-
 		changeSelection();
-		reloadCheckboxes();
-	}
+		reloadBoolValues();
 
+		modifierTablet.animation.finishCallback = function(name:String) {
+			switch (name) {
+				case 'Anim In':
+					modifierTablet.animation.play('Anim Opened');
+					for (optionText in grpOptions.members) {
+						optionText.visible = true;
+					}
+					for (boolText in boolTextGroup.members) {
+						boolText.visible = true;
+					}
+					for (valueText in grpTexts.members) {
+						valueText.visible = true;
+					}
+				case 'Anim Out':
+					close();
+			}
+		};
+	}
+	
 	var nextAccept:Int = 5;
 	var holdTime:Float = 0;
 	var holdValue:Float = 0;
@@ -182,27 +207,38 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		}
 
 		if (controls.BACK) {
-			close();
+			
+			for (optionText in grpOptions.members) {
+				optionText.visible = false;
+			}
+			for (boolText in boolTextGroup.members) {
+				boolText.visible = false;
+			}
+			for (valueText in grpTexts.members) {
+				valueText.visible = false;
+			}
+			modifierTablet.animation.play('Anim Out');
+
 			ClientPrefs.saveSettings();
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 		}
 
 		if(nextAccept <= 0)
 		{
-			var usesCheckbox = true;
+			var usesboolValue = true;
 			if(curOption.type != 'bool')
 			{
-				usesCheckbox = false;
+				usesboolValue = false;
 			}
 
-			if(usesCheckbox)
+			if(usesboolValue)
 			{
 				if(controls.ACCEPT)
 				{
 					FlxG.sound.play(Paths.sound('scrollMenu'));
 					curOption.setValue((curOption.getValue() == true) ? false : true);
 					curOption.change();
-					reloadCheckboxes();
+					reloadBoolValues();
 				}
 			} else {
 				if(controls.UI_LEFT || controls.UI_RIGHT) {
@@ -323,7 +359,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 					leOption.change();
 				}
 				FlxG.sound.play(Paths.sound('cancelMenu'));
-				reloadCheckboxes();
+				reloadBoolValues();
 			}
 		}
 
@@ -360,39 +396,35 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		var bullShit:Int = 0;
 
 		for (item in grpOptions.members) {
-			item.targetY = bullShit - curSelected;
 			bullShit++;
-
-			item.alpha = 0.6;
-			if (item.targetY == 0) {
-				item.alpha = 1;
-			}
+			item.alpha = 1;
 		}
 		for (text in grpTexts) {
-			text.alpha = 0.6;
 			if(text.ID == curSelected) {
 				text.alpha = 1;
 			}
+			text.alpha = 0.6;
 		}
 		curOption = optionsArray[curSelected]; //shorter lol
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
-	function reloadCheckboxes() {
-		for (checkbox in checkboxGroup) {
-			checkbox.daValue = (optionsArray[checkbox.ID].getValue() == true);
+	function reloadBoolValues() {
+		for (boolText in boolTextGroup) {
+			var newValue = optionsArray[boolText.ID].getValue(true);
+			boolText.text = newValue ? "On" : "Off";
 		}
-	}
+	}	
 }
 
 class GameplayOption
 {
-	private var child:Alphabet;
+	private var child:FlxText;
 	public var text(get, set):String;
 	public var onChange:Void->Void = null; //Pressed enter (on Bool type options) or pressed/held left/right (on other types)
 
 	public var type(get, default):String = 'bool'; //bool, int (or integer), float (or fl), percent, string (or str)
-	// Bool will use checkboxes
+	// Bool will use boolValuees
 	// Everything else will use a text
 
 	public var showBoyfriend:Bool = false;
@@ -476,7 +508,7 @@ class GameplayOption
 		ClientPrefs.gameplaySettings.set(variable, value);
 	}
 
-	public function setChild(child:Alphabet)
+	public function setChild(child:FlxText)
 	{
 		this.child = child;
 	}
