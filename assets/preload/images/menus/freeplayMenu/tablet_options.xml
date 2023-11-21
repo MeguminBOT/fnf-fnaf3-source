@@ -14,33 +14,27 @@
 	<SubTexture name="Anim In0009" x="2740" y="569" width="680" height="561"/>
 	<SubTexture name="Anim In0010" x="4" y="1134" width="680" height="561"/>
 	<SubTexture name="Anim In0011" x="688" y="1134" width="680" height="561"/>
-	<SubTexture name="Anim In0012" x="688" y="1134" width="680" height="561"/>
-	<SubTexture name="Anim In0013" x="688" y="1134" width="680" height="561"/>
-	<SubTexture name="Anim In0014" x="688" y="1134" width="680" height="561"/>
-	<SubTexture name="Anim In0015" x="688" y="1134" width="680" height="561"/>
-	<SubTexture name="Anim In0016" x="688" y="1134" width="680" height="561"/>
-	<SubTexture name="Anim In0017" x="688" y="1134" width="680" height="561"/>
-	<SubTexture name="Anim In0018" x="1372" y="1134" width="680" height="561"/>
-	<SubTexture name="Anim In0019" x="2056" y="1134" width="680" height="561"/>
-	<SubTexture name="Anim In0020" x="2740" y="1134" width="680" height="561"/>
-	<SubTexture name="Anim In0021" x="4" y="1699" width="680" height="561"/>
-	<SubTexture name="Anim In0022" x="688" y="1699" width="680" height="561"/>
-	<SubTexture name="Anim In0023" x="1372" y="1699" width="680" height="561"/>
-	<SubTexture name="Anim In0024" x="2056" y="1699" width="680" height="561"/>
-	<SubTexture name="Anim In0025" x="2740" y="1699" width="680" height="561"/>
-	<SubTexture name="Anim In0026" x="4" y="2264" width="680" height="561"/>
-	<SubTexture name="Anim In0027" x="688" y="2264" width="680" height="561"/>
-	<SubTexture name="Anim In0028" x="1372" y="2264" width="680" height="561"/>
-	<SubTexture name="Anim In0029" x="2056" y="2264" width="680" height="561"/>
-	<SubTexture name="Anim In0030" x="2740" y="2264" width="680" height="561"/>
-	<SubTexture name="Anim In0031" x="4" y="2829" width="680" height="561"/>
-	<SubTexture name="Anim In0032" x="688" y="2829" width="680" height="561"/>
-	<SubTexture name="Anim In0033" x="1372" y="2829" width="680" height="561"/>
-	<SubTexture name="Anim In0034" x="2056" y="2829" width="680" height="561"/>
-	<SubTexture name="Anim In0035" x="2740" y="2829" width="680" height="561"/>
-	<SubTexture name="Anim In0036" x="4" y="3394" width="680" height="561"/>
-	<SubTexture name="Anim In0037" x="688" y="3394" width="680" height="561"/>
-	<SubTexture name="Anim In0038" x="688" y="1134" width="680" height="561"/>
+	<SubTexture name="Anim In0012" x="1372" y="1134" width="680" height="561"/>
+	<SubTexture name="Anim In0013" x="2056" y="1134" width="680" height="561"/>
+	<SubTexture name="Anim In0014" x="2740" y="1134" width="680" height="561"/>
+	<SubTexture name="Anim In0015" x="4" y="1699" width="680" height="561"/>
+	<SubTexture name="Anim In0016" x="688" y="1699" width="680" height="561"/>
+	<SubTexture name="Anim In0017" x="1372" y="1699" width="680" height="561"/>
+	<SubTexture name="Anim In0018" x="2056" y="1699" width="680" height="561"/>
+	<SubTexture name="Anim In0019" x="2740" y="1699" width="680" height="561"/>
+	<SubTexture name="Anim In0020" x="4" y="2264" width="680" height="561"/>
+	<SubTexture name="Anim In0021" x="688" y="2264" width="680" height="561"/>
+	<SubTexture name="Anim In0022" x="1372" y="2264" width="680" height="561"/>
+	<SubTexture name="Anim In0022" x="2056" y="2264" width="680" height="561"/>
+	<SubTexture name="Anim In0023" x="2740" y="2264" width="680" height="561"/>
+	<SubTexture name="Anim In0024" x="4" y="2829" width="680" height="561"/>
+	<SubTexture name="Anim In0025" x="688" y="2829" width="680" height="561"/>
+	<SubTexture name="Anim In0026" x="1372" y="2829" width="680" height="561"/>
+	<SubTexture name="Anim In0027" x="2056" y="2829" width="680" height="561"/>
+	<SubTexture name="Anim In0028" x="2740" y="2829" width="680" height="561"/>
+	<SubTexture name="Anim In0029" x="4" y="3394" width="680" height="561"/>
+	<SubTexture name="Anim In0030" x="688" y="3394" width="680" height="561"/>
+	<SubTexture name="Anim In0031" x="688" y="1134" width="680" height="561"/>
 	<SubTexture name="Anim Out0000" x="688" y="2264" width="680" height="561"/>
 	<SubTexture name="Anim Out0001" x="4" y="2264" width="680" height="561"/>
 	<SubTexture name="Anim Out0002" x="2740" y="1699" width="680" height="561"/>
@@ -66,5 +60,5 @@
 	<SubTexture name="Anim Out0022" x="1372" y="4" width="680" height="561"/>
 	<SubTexture name="Anim Out0023" x="688" y="4" width="680" height="561"/>
 	<SubTexture name="Anim Out0024" x="4" y="4" width="680" height="561"/>
-	<SubTexture name="Anim Opened0000" x="1372" y="3394" width="662" height="559"/>
+	<SubTexture name="Anim Opened0000" x="1372" y="3394" width="680" height="561"/>
 </TextureAtlas>

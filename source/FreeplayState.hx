@@ -37,19 +37,6 @@ class FreeplayState extends MusicBeatState
 	var intendedRating:Float = 0;
 
 	/*-------- VS FNAF 3 Custom Freeplay Menu --------*/
-	// UI Text Stuff
-	var textBG:FlxSprite;
-	var scoreText:FlxText;
-	var helpText:FlxText;
-	var dynamicHelpText:String;
-	var ratingSplit:Array<String>;
-
-	// UI Button stuff
-	var btnGroup:FlxTypedGroup<FlxButton>;
-	var outlineGroup:FlxSpriteGroup;
-	var btnGroups:Array<FlxTypedGroup<FlxButton>> = [];
-	var outlineGroups:Array<FlxSpriteGroup> = [];
-
 	// Songlist
 	var songList:Array<String> = ['taken-apart', 'retribution', 'fear-forever', 'everlasting', 'brain-damage', 'party-room', 'totally-real', 'last-hour', 'waffles', 'leantrap', 'endo-revengo', 'misconception', 'out-of-bounds', 'until-next-time'];
 	
@@ -57,7 +44,18 @@ class FreeplayState extends MusicBeatState
 	var spritePath:String = 'menus/freeplayMenu/';
 	var songSprites:String = 'menus/freeplayMenu/songs/';
 
-	// Button properties 
+	// UI Text Stuff
+	var textBG:FlxSprite;
+	var scoreText:FlxText;
+	var ratingSplit:Array<String>;
+
+	// Song Button stuff
+	var btnGroup:FlxTypedGroup<FlxButton>;
+	var outlineGroup:FlxSpriteGroup;
+	var btnGroups:Array<FlxTypedGroup<FlxButton>> = [];
+	var outlineGroups:Array<FlxSpriteGroup> = [];
+
+	// Song Button properties 
 	// DO NOT CHANGE THESE VARIABLES THEY'RE HANDLED IN A FUNCTION LATER ON.
 	var btnWidth:Float = 0; // Width of each button.
 	var btnHeight:Float = 0; // Height of each button.
@@ -77,8 +75,15 @@ class FreeplayState extends MusicBeatState
 	private var camMenu:FlxCamera;
 	private var camAchievement:FlxCamera;
 
-	// Misc
-	var modifierButton:FlxSprite;
+	// Modifiers
+	var modifierButton:FlxButton;
+
+	// Difficulty
+	var difficultyButton:FlxButton;
+	var difficultyTablet:FlxSprite;
+	var isDiffTablet:Bool = false;
+	var diffNormal:FlxText;
+	var diffEasy:FlxText;
 
 	/*------------------------------------------------*/
 
@@ -156,6 +161,9 @@ class FreeplayState extends MusicBeatState
 		/* Call our separated function for creating various other menu buttons */
 		createMenuButtons();
 
+		/* Call our separated function for creating the difficulty selection menu */
+		createDifficultyMenu();
+
 		super.create();
 	}
 
@@ -174,7 +182,7 @@ class FreeplayState extends MusicBeatState
 	function createTextStuff() 
 	{
 		// Create a transparent background for the text objects.
-		textBG = new FlxSprite(0, 0).makeGraphic(FlxG.width, 66, 0xFF000000);
+		textBG = new FlxSprite(0, 0).makeGraphic(FlxG.width, 100, 0xFF000000);
 		textBG.y = FlxG.height * 0.89;
 		textBG.screenCenter(X);
 		textBG.scrollFactor.set();
@@ -186,30 +194,47 @@ class FreeplayState extends MusicBeatState
 		scoreText.setFormat(Paths.font("5Computers-In-Love.ttf"), 16, FlxColor.WHITE, CENTER);
 		add(scoreText);
 
-		// Choose what help text to display based on target build.
-		#if PRELOAD_ALL
-		dynamicHelpText = "Press SPACE to listen to the Song - Press CTRL to open the Gameplay Changers Menu - Press RESET to Reset your Score and Accuracy.\nPress ALT to open the Achievements Menu.";
-		#else
-		dynamicHelpText = "Press CTRL to open the Gameplay Changers Menu";
-		#end
-
-		// Create text showing the players highest score.
-		helpText = new FlxText(textBG.x + 4, textBG.y + 36, FlxG.width, dynamicHelpText, 16);
-		helpText.setFormat(Paths.font("5Computers-In-Love.ttf"), 8, FlxColor.WHITE, CENTER);
-		helpText.scrollFactor.set();
-		add(helpText);
 	}
 
 	function createMenuButtons()
 	{
-		var modifierButton = new FlxButton(0, 700, "", openModifiers.bind());
-		modifierButton.loadGraphic(Paths.image(spritePath + 'button'));
-		modifierButton.frames = Paths.getSparrowAtlas(spritePath + 'button');
-		modifierButton.animation.addByPrefix('idle', 'idle', 12, true);
-		modifierButton.scale.x = 0.69;
-		modifierButton.scale.y = 0.7;
-		modifierButton.updateHitbox();
+		modifierButton = new FlxButton(0, 660, "", openModifiers.bind());
+		modifierButton.loadGraphic(Paths.image(spritePath + 'modifierButton'), true, 360, 60);
 		add(modifierButton);
+
+		difficultyButton = new FlxButton(800, 660, "", difficultySelector.bind());
+		difficultyButton.loadGraphic(Paths.image(spritePath + 'difficultyButton'), true, 400, 60);
+		add(difficultyButton);
+	}
+
+	// PLEASE DON'T LOOK AT ME I'M UGLY
+	function createDifficultyMenu()
+	{
+		difficultyTablet = new FlxSprite();
+		difficultyTablet.loadGraphic(Paths.image(spritePath + 'tablet_options'));
+		difficultyTablet.frames = Paths.getSparrowAtlas(spritePath + 'tablet_options');
+		difficultyTablet.antialiasing = ClientPrefs.globalAntialiasing;
+		difficultyTablet.x = 800;
+		difficultyTablet.y = 340;
+		difficultyTablet.scale.x = 0.7;
+		difficultyTablet.scale.y = 0.7;
+		difficultyTablet.updateHitbox();
+		difficultyTablet.animation.addByPrefix('Anim In', 'Anim In', 48, false);
+		difficultyTablet.animation.addByPrefix('Anim Out', 'Anim Out', 48, false);
+		difficultyTablet.animation.addByPrefix('Anim Opened', 'Anim Opened', 48, true);
+		add(difficultyTablet);
+
+		diffNormal = new FlxText(difficultyTablet.x + 72, difficultyTablet.y + 36, 0, '', 16, true);
+		diffNormal.setFormat(Paths.font('stalker1.ttf'), 64, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.GREEN, true);
+		diffNormal.borderSize = 2;
+		diffNormal.visible = false;
+		add(diffNormal);
+
+		diffEasy = new FlxText(difficultyTablet.x + 108, diffNormal.y + 64, 0, '', 16, true);
+		diffEasy.setFormat(Paths.font('stalker1.ttf'), 64, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.GREEN, true);
+		diffEasy.borderSize = 2;
+		diffEasy.visible = false;
+		add(diffEasy);
 	}
 
 	public function createGroup(songList:Array<String>):FlxTypedGroup<FlxButton> 
@@ -281,8 +306,8 @@ class FreeplayState extends MusicBeatState
 				// Load secret locked song sprite.
 				button.loadGraphic(Paths.image(spritePath + "lockedSongCode"));
 			} else {
-			// Load standard locked song sprite.
-			button.loadGraphic(Paths.image(spritePath + "lockedSong"));
+				// Load standard locked song sprite.
+				button.loadGraphic(Paths.image(spritePath + "lockedSong"));
 			}
 		}
 		
@@ -496,6 +521,27 @@ class FreeplayState extends MusicBeatState
 			ClientPrefs.saveSettings();
 		}
 	}
+
+	public function difficultySelector()
+	{
+		isDiffTablet = true;
+		difficultyTablet.visible = true;
+		difficultyTablet.animation.play('Anim In');
+
+		difficultyTablet.animation.finishCallback = function(name:String) {
+			switch (name) {
+				case 'Anim In':
+					difficultyTablet.animation.play('Anim Opened');
+					diffNormal.visible = true;
+					diffEasy.visible = true;
+	
+				case 'Anim Out':
+					isDiffTablet = false;
+					difficultyTablet.visible = false;
+			}
+		};
+	}
+
 	public function openModifiers()
 	{
 		openSubState(new GameplayChangersSubstate());
@@ -545,18 +591,48 @@ class FreeplayState extends MusicBeatState
 
 		scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
 
-		if (controls.BACK) {
-			persistentUpdate = false;
-			FlxG.sound.play(Paths.sound('cancelMenu'));
-			MusicBeatState.switchState(new MainMenuState());
+		if (controls.UI_LEFT_P || controls.UI_RIGHT_P || controls.UI_DOWN_P || controls.UI_UP_P) {
+			if (isDiffTablet) {
+				if (curDifficulty != 0) {
+					curDifficulty = 0;
+				} else {
+					curDifficulty = 1;
+				}
+			}
 		}
 
-		if(FlxG.keys.justPressed.CONTROL) {
+		/* This is such a ugly way to get this working */
+		// Lulu
+		if (curDifficulty == 0) {
+			diffNormal.text = "< Normal >";
+			diffEasy.text = "Easy";
+			scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+
+		} else if (curDifficulty == 1) {
+			diffNormal.text = "Normal";
+			diffEasy.text = "< Easy >";
+			scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+		}
+
+		if (controls.BACK) {
+			if (isDiffTablet) {
+				diffNormal.visible = false;
+				diffEasy.visible = false;
+				difficultyTablet.animation.play('Anim Out');
+				
+			} else {
+				persistentUpdate = false;
+				FlxG.sound.play(Paths.sound('cancelMenu'));
+				MusicBeatState.switchState(new MainMenuState());
+			}
+		}
+
+		if(FlxG.keys.justPressed.CONTROL && !isDiffTablet) {
 			persistentUpdate = false;
 			openSubState(new GameplayChangersSubstate());
 		}
 
-		if (FlxG.keys.justPressed.ALT) {
+		if (FlxG.keys.justPressed.ALT && !isDiffTablet) {
 			persistentUpdate = false;
 			FlxG.sound.play(Paths.sound('done'), 0.7);
 			MusicBeatState.switchState(new AchievementsMenuState());
@@ -626,4 +702,4 @@ class SongMetadata
 		this.folder = Paths.currentModDirectory;
 		if(this.folder == null) this.folder = '';
 	}
-}}
+}

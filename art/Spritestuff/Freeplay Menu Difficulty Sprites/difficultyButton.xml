@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="difficultyButton.png">
+	<!-- Created with Adobe Animate version 22.0.8.217 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="1difficultyNormal.png" x="0" y="0" width="400" height="60"/>
+	<SubTexture name="2difficultyHighlighted.png" x="400" y="0" width="400" height="60"/>
+	<SubTexture name="3difficultyPressed.png" x="800" y="0" width="400" height="60"/>
+</TextureAtlas>

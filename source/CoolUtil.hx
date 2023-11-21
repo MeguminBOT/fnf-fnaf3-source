@@ -18,6 +18,7 @@ using StringTools;
 class CoolUtil
 {
 	public static var defaultDifficulties:Array<String> = [
+		'Easy',
 		'Normal'
 	];
 	public static var defaultDifficulty:String = 'Normal'; //The chart that has no suffix and starting difficulty on Freeplay/Story Mode
@@ -59,7 +60,7 @@ class CoolUtil
 		difficulties = defaultDifficulties.copy();
 		var diffStr:String = WeekData.getCurrentWeek().difficulties;
 	
-		if (diffStr == null || diffStr.length == 0) diffStr = 'Normal, Hard';
+		if (diffStr == null || diffStr.length == 0) diffStr = 'Easy, Normal';
 		diffStr = diffStr.trim(); //Fuck you HTML5
 	
 		if (diffStr != null && diffStr.length > 0) {
