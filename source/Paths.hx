@@ -31,7 +31,7 @@ using StringTools;
 class Paths
 {
 	inline public static var SOUND_EXT = #if web "mp3" #else "ogg" #end;
-	inline public static var VIDEO_EXT = "mp4";
+	inline public static var VIDEO_EXT = "webm";
 
 	#if MODS_ALLOWED
 	public static var ignoreModFolders:Array<String> = [
