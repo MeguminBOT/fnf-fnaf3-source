@@ -315,6 +315,7 @@ class TitleState extends MusicBeatState {
 	var increaseVolume:Bool = false;
 	function skipIntro():Void {
 		if (!skippedIntro) {
+			videoIntro.dispose();
 			FlxG.camera.flash(FlxColor.WHITE, 1);
 			bg.visible = true;
 			titleText.visible = true;
