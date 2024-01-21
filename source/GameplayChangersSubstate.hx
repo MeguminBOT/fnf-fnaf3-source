@@ -43,7 +43,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		option.minValue = 0.35;
 		option.changeValue = 0.05;
 		option.decimals = 2;
-		if (goption.getValue() != "constant") {
+		if (goption.getValue() != "C-MOD") {
 			option.displayFormat = '%vX';
 			option.maxValue = 3;
 		} else {
