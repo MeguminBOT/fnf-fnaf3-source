@@ -1,0 +1,111 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				151,
+				91
+			],
+			"loop": false,
+			"fps": 16,
+			"anim": "hello",
+			"indices": [],
+			"name": "hello"
+		},
+		{
+			"offsets": [
+				151,
+				91
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"offsets": [
+				15,
+				-22
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "autograph",
+			"indices": [],
+			"name": "autograph"
+		},
+		{
+			"offsets": [
+				18,
+				1
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "backturn",
+			"indices": [],
+			"name": "backturn"
+		},
+		{
+			"offsets": [
+				72,
+				27
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "holy",
+			"indices": [],
+			"name": "holy"
+		},
+		{
+			"offsets": [
+				51,
+				-2
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "mad",
+			"indices": [],
+			"name": "mad"
+		},
+		{
+			"offsets": [
+				-45,
+				1
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "ok",
+			"indices": [],
+			"name": "ok"
+		},
+		{
+			"offsets": [
+				10,
+				0
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "turn",
+			"indices": [],
+			"name": "turn"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/endo01anims",
+	"position": [
+		-100,
+		0
+	],
+	"healthicon": "endo01",
+	"flip_x": false,
+	"healthbar_colors": [
+		80,
+		80,
+		80
+	],
+	"camera_position": [
+		-280,
+		-30
+	],
+	"sing_duration": 6.1,
+	"scale": 1.3
+}

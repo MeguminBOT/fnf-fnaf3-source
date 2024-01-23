@@ -1,4 +1,6 @@
 value1 = camera bop
 value2 = hud bop
 
-default value is 0.025
+I usually use 
+0.06
+0.04

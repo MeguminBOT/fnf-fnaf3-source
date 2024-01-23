@@ -1,59 +1,59 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "Dad idle dance",
-			"indices": []
+			"indices": [],
+			"name": "Dad idle dance"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Dad Sing Note LEFT",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Dad Sing Note LEFT"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				9
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "Dad Sing Note DOWN",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Dad Sing Note DOWN"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Dad Sing Note UP",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "Dad Sing Note UP"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				15,
 				0
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Dad Sing Note RIGHT",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Dad Sing Note RIGHT"
 		}
 	],
 	"no_antialiasing": false,
@@ -62,7 +62,7 @@
 		0,
 		0
 	],
-	"healthicon": "dad",
+	"healthicon": "pkid",
 	"flip_x": true,
 	"healthbar_colors": [
 		161,

@@ -111,7 +111,7 @@ function onStepHit()
 			setProperty('gf.visible', false);
 			setProperty('boyfriend.visible', true);
 		end
-	if curStep == 320 then
+	if curStep == 321 then
 		setProperty('dad.visible', true);
 		setProperty('gf.visible', true);
 		setProperty('boyfriend.visible', true);
@@ -136,7 +136,7 @@ function onStepHit()
 	addLuaSprite('waffle4', false);
 	setObjectOrder('waffle4', getObjectOrder('dadGroup')+ -1)
    end
-	if curStep == 704 then
+	if curStep == 705 then
 
 		removeLuaSprite('wafflestage1', true);
 		removeLuaSprite('waffle1', true);
@@ -161,7 +161,7 @@ function onStepHit()
 
    end
 
-   if curStep == 832 then
+   if curStep == 833 then
 		
     removeLuaSprite('wafflestage4', true);
 	removeLuaSprite('waffle5', true);

@@ -1,6 +1,6 @@
 function opponentNoteHit()
 	local curHealth = getProperty('health')
-	local healthThreshold = 0.4
+	local healthThreshold = 0.75
 	local healthDecrease = 0.02
 
 	if curHealth > healthThreshold then

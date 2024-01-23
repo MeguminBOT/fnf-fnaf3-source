@@ -13,7 +13,7 @@ function onCreatePost()
 	end
 
 	bfAlpha = 0.35
-	dadAlpha = 0.35
+	dadAlpha = 0
 
 	bfEnabled = true
 	dadEnabled = true

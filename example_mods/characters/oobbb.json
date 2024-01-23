@@ -65,9 +65,9 @@
 	"healthicon": "bb2",
 	"flip_x": false,
 	"healthbar_colors": [
-		43,
-		83,
-		151
+		200,
+		40,
+		40
 	],
 	"camera_position": [
 		50,

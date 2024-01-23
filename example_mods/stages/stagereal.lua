@@ -1,8 +1,8 @@
 function onCreate()
 	precacheImage('Chars/shadowbb');
-	makeAnimatedLuaSprite('background','BGs/hoaxing', 700, -200);
+	makeAnimatedLuaSprite('background','BGs/hoaxing', 450, -300);
     addAnimationByPrefix('background','idle','idle',24,true);
-	scaleObject('background', 0.9, 0.9);
+	scaleObject('background', 1.2, 1.2);
 	setObjectOrder('background', 0)
 	setLuaSpriteScrollFactor('background', 1.2, 1.2);
 	addLuaSprite('background', false);

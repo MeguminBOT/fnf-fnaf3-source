@@ -14,8 +14,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				90,
-				0
+				163,
+				-2
 			],
 			"anim": "singLEFT",
 			"fps": 24,
@@ -25,8 +25,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				-70,
-				-10
+				-80,
+				-2
 			],
 			"anim": "singDOWN",
 			"fps": 24,
@@ -36,8 +36,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				-90,
-				35
+				-79,
+				61
 			],
 			"anim": "singUP",
 			"fps": 24,
@@ -47,7 +47,7 @@
 		{
 			"loop": false,
 			"offsets": [
-				-90,
+				-80,
 				-3
 			],
 			"anim": "singRIGHT",
@@ -56,48 +56,90 @@
 			"indices": []
 		},
 		{
-			"offsets": [
-				90,
-				0
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singLEFT-alt",
 			"loop": false,
-			"name": "leftalt"
-		},
-		{
 			"offsets": [
-				-70,
-				-10
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singDOWN-alt",
-			"loop": false,
-			"name": "downalt"
-		},
-		{
-			"offsets": [
-				-90,
-				35
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singUP-alt",
-			"loop": false,
-			"name": "upalt"
-		},
-		{
-			"offsets": [
-				-90,
+				-79,
 				-3
 			],
-			"indices": [],
+			"anim": "singDOWN-loop",
 			"fps": 24,
-			"anim": "singRIGHT-alt",
+			"name": "Dad Sing Note DOWN",
+			"indices": [
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			]
+		},
+		{
 			"loop": false,
-			"name": "rightalt"
+			"offsets": [
+				-79,
+				59
+			],
+			"anim": "singUP-loop",
+			"fps": 24,
+			"name": "Dad Sing Note UP",
+			"indices": [
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			]
+		},
+		{
+			"offsets": [
+				-80,
+				-3
+			],
+			"indices": [
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			],
+			"fps": 24,
+			"anim": "singRIGHT-loop",
+			"loop": false,
+			"name": "Dad Sing Note RIGHT"
+		},
+		{
+			"offsets": [
+				166,
+				-2
+			],
+			"indices": [
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			],
+			"fps": 24,
+			"anim": "singLEFT-loop",
+			"loop": false,
+			"name": "Dad Sing Note LEFT"
 		}
 	],
 	"no_antialiasing": true,
@@ -109,14 +151,14 @@
 	"healthicon": "freddy",
 	"flip_x": true,
 	"healthbar_colors": [
-		149,
-		74,
-		9
+		150,
+		70,
+		10
 	],
 	"camera_position": [
 		550,
 		-550
 	],
 	"sing_duration": 6.5,
-	"scale": 2.5
+	"scale": 2.3
 }

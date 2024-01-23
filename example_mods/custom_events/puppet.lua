@@ -1,5 +1,5 @@
     function onCreate()
-        makeAnimatedLuaSprite('phpuppet','Mechanics/phpuppet', 430, 1000);
+        makeAnimatedLuaSprite('phpuppet','mechanics/phpuppet', 430, 1000);
         setObjectCamera('phpuppet', 'hud');
         scaleObject('phpuppet', 0.8, 0.8)
         addLuaSprite('phpuppet', true);

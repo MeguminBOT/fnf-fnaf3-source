@@ -1,0 +1,122 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				33,
+				7
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Dad Sing Note LEFT"
+		},
+		{
+			"offsets": [
+				176,
+				-13
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Dad Sing Note DOWN"
+		},
+		{
+			"offsets": [
+				43,
+				22
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Dad Sing Note UP"
+		},
+		{
+			"offsets": [
+				34,
+				-13
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Dad Sing Note RIGHT"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 20,
+			"name": "Dad idle dance",
+			"indices": []
+		},
+		{
+			"offsets": [
+				33,
+				7
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT-alt",
+			"loop": false,
+			"name": "Loop LEFT"
+		},
+		{
+			"offsets": [
+				178,
+				-14
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN-alt",
+			"loop": false,
+			"name": "Loop DOWN"
+		},
+		{
+			"offsets": [
+				43,
+				22
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP-alt",
+			"loop": false,
+			"name": "Loop UP"
+		},
+		{
+			"offsets": [
+				33,
+				-13
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT-alt",
+			"loop": false,
+			"name": "Loop RIGHT"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/springtrap",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "springt",
+	"flip_x": false,
+	"healthbar_colors": [
+		93,
+		94,
+		61
+	],
+	"camera_position": [
+		-300,
+		70
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

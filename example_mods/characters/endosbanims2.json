@@ -1,0 +1,45 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				116,
+				1
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"offsets": [
+				116,
+				1
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "fuck",
+			"indices": [],
+			"name": "fuck"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/endosbanims2",
+	"position": [
+		300,
+		0
+	],
+	"healthicon": "glamendo",
+	"flip_x": false,
+	"healthbar_colors": [
+		41,
+		41,
+		41
+	],
+	"camera_position": [
+		-350,
+		-200
+	],
+	"sing_duration": 6.1,
+	"scale": 1.7
+}

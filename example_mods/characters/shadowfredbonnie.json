@@ -1,0 +1,100 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				-2,
+				0
+			],
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Dad idle dance"
+		},
+		{
+			"offsets": [
+				498,
+				-97
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Dad Sing Note LEFT"
+		},
+		{
+			"offsets": [
+				8,
+				-117
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Dad Sing Note DOWN"
+		},
+		{
+			"offsets": [
+				110,
+				10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Dad Sing Note UP"
+		},
+		{
+			"offsets": [
+				-186,
+				-112
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Dad Sing Note RIGHT"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				110,
+				-10
+			],
+			"anim": "stand",
+			"fps": 24,
+			"name": "stand",
+			"indices": []
+		},
+		{
+			"offsets": [
+				110,
+				-10
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "sit",
+			"indices": [],
+			"name": "sit"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/shadowfreddy",
+	"position": [
+		150,
+		0
+	],
+	"healthicon": "fredbon",
+	"flip_x": false,
+	"healthbar_colors": [
+		28,
+		52,
+		34
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 7,
+	"scale": 1.5
+}

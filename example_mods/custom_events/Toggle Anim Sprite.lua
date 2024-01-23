@@ -38,7 +38,7 @@ function onEvent(name, value1, value2)
             else
                 setProperty(value1 .. '.alpha', 1)
                 setProperty(value1 .. '.visible', true)
-                playAnim(value1, value2, true)
+                playAnim(value1, value2, true) 
             end
         end
     end

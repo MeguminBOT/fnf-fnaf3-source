@@ -5,6 +5,12 @@ function onCreate()
 	precacheImage('characters/pshadowfreddy');
 	precacheImage('characters/pshadowfreddy2');
 
+	makeLuaSprite('eyes', 'BGs/eyes', -2000, -550);
+	setLuaSpriteScrollFactor('eyes', 1, 1);
+	scaleObject('eyes', 0.9, 0.9);
+	addLuaSprite('eyes', false);
+	setLuaSpriteScrollFactor('eyes', 0.4, 0.4);
+
 	makeLuaSprite('helloagain', 'helloagain', -400, 540);
 		setLuaSpriteScrollFactor('helloagain', 1, 1);
 		scaleObject('helloagain', 1, 1);
@@ -50,32 +56,34 @@ function onStepHit()
 	
 		end
 
-	if curStep == 458 then
-		makeLuaText('Text',"Tonight ...",1000,140,550)
-		setTextSize('Text',25)
-		addLuaText("Text")			
-	end				
-	if curStep == 467 then		
-		removeLuaText("Text")
-		makeLuaText('Text2',"I won't hold BACK!",1000,140,550)
-		setTextSize('Text2',25)
-		addLuaText("Text2")				
-	end				
-	if curStep == 488 then
-		removeLuaText("Text2")				
-	end
+		if curStep == 1080 then
+
+			removeLuaSprite('sfedstage', true);
+		
+			makeLuaSprite('sfedstage2', 'BGs/sfedstage2', -2000, -550);
+			setLuaSpriteScrollFactor('sfedstage2', 1, 1);
+			scaleObject('sfedstage2', 0.9, 0.9);
+			addLuaSprite('sfedstage2', false);
+		
+			end
 
 	if curStep == 1976 then
 
-    removeLuaSprite('untstage', true);
+    removeLuaSprite('sfedstage2', true);
 
-	makeAnimatedLuaSprite('cameras', 'BGs/cameras', -500, -200);
+	makeAnimatedLuaSprite('cameras', 'BGs/cameras', -500, -250);
 	setLuaSpriteScrollFactor('cameras', 0, 0);
-	scaleObject('cameras', 1.7, 1.7);
+	scaleObject('cameras', 1.9, 1.9);
 
 	addAnimationByPrefix('cameras','cameras','idle',12,true);
 
 	addLuaSprite('cameras', false);
+
+	makeLuaSprite('thegraphic','thegraphic', 0, 0);
+	setObjectCamera('thegraphic', 'hud')
+	addLuaSprite('thegraphic', true);
+	setProperty('thegraphic.alpha', 0)
+	setObjectOrder('thegraphic', 5)
 
 	end
 end

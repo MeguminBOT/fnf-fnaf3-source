@@ -33,9 +33,9 @@ function onStepHit()
 	elseif curStep >= 3760 and curStep <= 4159 then
         zoomValue = mustHitSection and 0.7 or 0.8 -- Looks weird when only set to 0.7, added .1 zoom on opponent as suggestion //Remove if desired.
 	elseif curStep >= 4160 and curStep <= 4287 then
-        zoomValue = mustHitSection and 1.2 or 1.5 -- Zoom seems to be a bit excessive? Removed .2 zoom on both sides as suggestion //Remove if desired.
+        zoomValue = mustHitSection and 1 or 1.5 -- Zoom seems to be a bit excessive? Removed .2 zoom on both sides as suggestion //Remove if desired.
 	elseif curStep >= 4288 then
-        zoomValue = mustHitSection and 1.4 or 1.2 -- Zoom seems to be a very excessive? Puppet's face not visible on BF parts, Removed .3 zoom on opponent and removed .4 on player as suggestion //Remove if desired.
+        zoomValue = mustHitSection and 0.8 or 1.2 -- Zoom seems to be a very excessive? Puppet's face not visible on BF parts, Removed .3 zoom on opponent and removed .4 on player as suggestion //Remove if desired.
     end
 end
 

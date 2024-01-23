@@ -13,8 +13,8 @@
 		},
 		{
 			"offsets": [
-				0,
-				-1
+				57,
+				1
 			],
 			"loop": false,
 			"fps": 24,
@@ -24,8 +24,8 @@
 		},
 		{
 			"offsets": [
-				0,
-				29
+				14,
+				-14
 			],
 			"loop": false,
 			"fps": 24,
@@ -35,8 +35,8 @@
 		},
 		{
 			"offsets": [
-				-5,
-				-1
+				7,
+				55
 			],
 			"loop": false,
 			"fps": 24,
@@ -46,8 +46,8 @@
 		},
 		{
 			"offsets": [
-				17,
-				-1
+				13,
+				0
 			],
 			"loop": false,
 			"fps": 24,
@@ -60,7 +60,7 @@
 	"image": "characters/oobfredbear",
 	"position": [
 		0,
-		-210
+		-150
 	],
 	"healthicon": "fredbear",
 	"flip_x": false,

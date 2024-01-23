@@ -49,39 +49,9 @@ function createJumpscares()
 	setProperty('foxyjump.visible', false)
 end
 
-function createMiscSprites()
-	local miscSprites = {
-		{ name = 'white', image = 'white'},
-		{ name = 'red', image = 'red'},
-		{ name = 'black', image = 'black'},
-		{ name = 'static', image = 'static'},
-	}
-
-	for _, miscSprite in ipairs(miscSprites) do
-		precacheImage(miscSprite.image)
-		if miscSprite.name == 'fnaf1wall' then
-			makeAnimatedLuaSprite(miscSprite.name, miscSprite.image, 0, 0)
-			addAnimationByPrefix(miscSprite.name, miscSprite.name, 'idle', 24, true)
-		else
-			makeLuaSprite(miscSprite.name, miscSprite.image, 0, 0)
-		end
-		setObjectCamera(miscSprite.name, 'camHUD')
-		addLuaSprite(stage.name, true)
-		setProperty(stage.name .. '.visible', false)
-	end
-
-	setProperty('white.visible', true)
-	doTweenAlpha('white', 'white', 0, 0.01, true)
-end
-
 function onStepHit()
-	if curStep == 386 then
-		setTextString('Text', "Follow me...")
 
-	elseif curStep == 400 then
-		setTextString('Text', "")
-
-	elseif curStep == 816 then
+	if curStep == 816 then
 		setProperty('takenstage.visible', false)
 		setProperty('blueglow.visible', false)
 		setProperty('fnaf1wall.visible', true)
@@ -91,12 +61,6 @@ function onStepHit()
 		setProperty('fnaf1wall.visible', false)
 		setProperty('blueglow.visible', true)
 		setProperty('takenstage2.visible', true)
-
-	elseif curStep == 1311 then
-		setTextString('Text', "Follow me...")
-
-	elseif curStep == 1324 then
-		setTextString('Text', "")
 
 	elseif curStep == 1632 then
 		setProperty('takenstage2.visible', false)
@@ -109,35 +73,15 @@ function onStepHit()
 		setProperty('blueglow.visible', true)
 		setProperty('takenstage3.visible', true)
 
-	elseif curStep == 2160 then
-		setTextString('Text', "Follow me...")
-
-	elseif curStep == 2176 then
-		setTextString('Text', "")
-
 	elseif curStep == 2465 then
 		setProperty('takenstage3.visible', false)
 		setProperty('blueglow.visible', false)
 		setProperty('fnaf1wall.visible', true)
 		playAnim('fnaf1wall', 'anim', true)
 
-	elseif curStep == 2606 then
-		setObjectCamera('Text', 'camOther')
-		setTextString('Text', "I'VE GOT YA NOW!")
-
-	elseif curStep == 2630 then
-		setObjectCamera('Text', 'camHUD')
-		setTextString('Text', "")
-
-	elseif curStep == 2646 then
+	elseif curStep == 2607 then
 		setProperty('fnaf1wall.visible', false)
 		setProperty('blueglow.visible', true)
 		setProperty('takenstage4.visible', true)
-
-	elseif curStep == 3031 then
-		setTextString('Text', "Follow me...")
-
-	elseif curStep == 3046 then
-		setTextString('Text', "")
 	end
 end

@@ -65,7 +65,7 @@ function createPhantom(objectName, phantomName, groupName, alpha, flipX, offsetX
 		['flipY'] = true,
 		['y'] = getProperty(objectName .. '.y') + getProperty(objectName .. '.frameHeight') * getProperty(objectName .. '.scale.y') * 2 - offsetY * 2 + fixY
 	})
-	setObjectOrder(phantomName, 1)
+	setObjectOrder(phantomName, 8)
 end
 
 function updateAnimation(objectName, phantomName, prefix)

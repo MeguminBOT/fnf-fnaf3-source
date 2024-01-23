@@ -1,66 +1,66 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
-				100,
+				190,
 				-10
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Dad Sing Note LEFT"
+			"fps": 24,
+			"name": "Dad Sing Note LEFT",
+			"indices": []
 		},
 		{
-			"offsets": [
-				80,
-				-100
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				70,
+				-20
+			],
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Dad Sing Note DOWN"
+			"fps": 24,
+			"name": "Dad Sing Note DOWN",
+			"indices": []
 		},
 		{
-			"offsets": [
-				30,
-				70
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				70,
+				100
+			],
 			"anim": "singUP",
-			"indices": [],
-			"name": "Dad Sing Note UP"
+			"fps": 24,
+			"name": "Dad Sing Note UP",
+			"indices": []
 		},
 		{
-			"offsets": [
-				60,
-				-10
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				-60,
+				10
+			],
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Dad Sing Note RIGHT"
+			"fps": 24,
+			"name": "Dad Sing Note RIGHT",
+			"indices": []
 		},
 		{
-			"offsets": [
-				0,
-				0
-			],
 			"loop": true,
-			"fps": 24,
+			"offsets": [
+				-10,
+				-9
+			],
 			"anim": "idle",
-			"indices": [],
-			"name": "Dad idle dance"
+			"fps": 24,
+			"name": "Dad idle dance",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/oobsbonnie",
 	"position": [
-		0,
-		0
+		40,
+		80
 	],
 	"healthicon": "shadowbon",
 	"flip_x": true,
@@ -73,6 +73,6 @@
 		138,
 		40
 	],
-	"sing_duration": 6.1,
+	"sing_duration": 6.7,
 	"scale": 1.4
 }

@@ -8,7 +8,10 @@ function onCreate()
 	setLuaSpriteScrollFactor('oob', 0, 0);
 	scaleObject('oob', 1, 1);
 	addLuaSprite('oob', true);
-
+	makeLuaSprite('outofbounds', 'outofbounds', 0, 0);
+	setLuaSpriteScrollFactor('outofbounds', 0, 0);
+	scaleObject('outofbounds', 1, 1);
+	addLuaSprite('outofbounds', true);
 	makeLuaSprite('oobbb', 'BGs/oobbb', -720, -50)
 	setObjectOrder('oobbb', 0)
 	scaleObject('oobbb', 0.8, 0.8)
@@ -31,8 +34,13 @@ function onCreate()
 	scaleObject('arcadeffect', 1, 1);
 	setObjectCamera('arcadeffect', 'hud')
 	addLuaSprite('arcadeffect', true);
+	makeLuaSprite('whiteui','whiteui', 0, 0);
+	setObjectCamera('whiteui', 'hud')
+	addLuaSprite('whiteui', true);
+	setProperty('whiteui.alpha', 0);
+	setProperty('outofbounds.alpha', 0);
 end
-
+--50 2 2:45 3:30 4:10 5:05 6:25 7:50
 function onStepHit()
 if curStep == 512 then
 	removeLuaSprite('oob', true);
@@ -76,14 +84,14 @@ if curStep == 2752 then
 end
 if curStep == 3424 then
 	removeLuaSprite('oobchica2', true);
-	makeLuaSprite('oobfredbear', 'BGs/oobfredbear', -700, -40)
+	makeAnimatedLuaSprite('oobfredbear', 'BGs/oobfredbear', -700, -40)
 	setObjectOrder('oobfredbear', 0)
 	scaleObject('oobfredbear', 0.8, 0.8)
 	addLuaSprite('oobfredbear', true)
 	makeAnimatedLuaSprite('springbonnie','Chars/springbonnie', -200, 210);
 	scaleObject('springbonnie', 1.9, 1.9);
 	addLuaSprite('springbonnie', true);
-
+	addAnimationByPrefix('oobfredbear','oobfredbear','idle',24,true);
 	addAnimationByPrefix('springbonnie','springbonnie','idle',24,true);
 end
 if curStep == 4320 then

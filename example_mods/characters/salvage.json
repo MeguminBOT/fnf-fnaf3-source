@@ -36,7 +36,7 @@
 		{
 			"loop": false,
 			"offsets": [
-				0,
+				2,
 				20
 			],
 			"anim": "singUP",
@@ -62,16 +62,16 @@
 		0,
 		0
 	],
-	"healthicon": "dad",
+	"healthicon": "fredtrap",
 	"flip_x": false,
 	"healthbar_colors": [
-		161,
-		161,
-		161
+		50,
+		50,
+		40
 	],
 	"camera_position": [
 		50,
-		0
+		80
 	],
 	"sing_duration": 6.1,
 	"scale": 1

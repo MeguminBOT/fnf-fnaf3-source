@@ -1,0 +1,45 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				16,
+				132
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "idle",
+			"indices": [],
+			"name": "first"
+		},
+		{
+			"offsets": [
+				686,
+				-21
+			],
+			"loop": false,
+			"fps": 15,
+			"anim": "fuckyou",
+			"indices": [],
+			"name": "fuckyou"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/endo02anims2",
+	"position": [
+		-400,
+		0
+	],
+	"healthicon": "endo02",
+	"flip_x": false,
+	"healthbar_colors": [
+		70,
+		70,
+		70
+	],
+	"camera_position": [
+		-240,
+		-190
+	],
+	"sing_duration": 6.1,
+	"scale": 1.5
+}

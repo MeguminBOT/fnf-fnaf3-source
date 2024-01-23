@@ -62,16 +62,16 @@
 		0,
 		0
 	],
-	"healthicon": "dad",
+	"healthicon": "wafflespring",
 	"flip_x": false,
 	"healthbar_colors": [
 		161,
-		161,
-		161
+		121,
+		0
 	],
 	"camera_position": [
 		-340,
-		0
+		-100
 	],
 	"sing_duration": 6.1,
 	"scale": 1.2

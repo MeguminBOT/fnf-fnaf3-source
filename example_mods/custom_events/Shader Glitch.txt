@@ -1,0 +1,9 @@
+makes a glitch effect whenever using
+Value 1: how strong you want the shader to be.
+( examples : 0.010, 0.015, 0.040. )
+I do not recommend going more then 1.
+value 2: duration
+try using numbers between 0-20,
+it won't work if you go further then that probably.
+
+- event made by Just_Dummy

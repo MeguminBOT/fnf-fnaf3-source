@@ -22,9 +22,9 @@ function onStepHit()
         zoomValue = 0.5
     elseif curStep >= 1696 and curStep <= 2431 then
         zoomValue = mustHitSection and 0.6 or 0.9
-    elseif curStep >= 2432 and curStep <= 2645 then
+    elseif curStep >= 2432 and curStep <= 2608 then
         zoomValue = 0.5
-    elseif curStep == 2646 then
+    elseif curStep >= 2608 and curStep <= 3680 then
         zoomValue = mustHitSection and 0.6 or 0.9
     end
 end
