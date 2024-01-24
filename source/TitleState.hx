@@ -33,10 +33,8 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 
-// Updated to hxCodec 3.0.2 which is used on Psych Engine 0.7.1
 #if VIDEOS_ALLOWED 
-import hxcodec.flixel.FlxVideo;
-import hxcodec.flixel.FlxVideoSprite;
+import hxvlc.flixel.FlxVideo;
 #end
 
 using StringTools;
@@ -59,7 +57,7 @@ class TitleState extends MusicBeatState {
 
 	var spritePath:String = 'menus/titleMenu/';
 
-	function startVideo() {
+	function introVideo() {
 		#if VIDEOS_ALLOWED
 		var filepath:String = Paths.video('fnaf3start');
 		#if sys
@@ -74,7 +72,12 @@ class TitleState extends MusicBeatState {
 
 		videoIntro = new FlxVideo();
 		videoIntro.onEndReached.add(videoIntro.dispose);
-		videoIntro.play(filepath);
+		videoIntro.load(filepath);
+
+		new FlxTimer().start(0.001, function(tmr:FlxTimer):Void
+		{
+			videoIntro.play();
+		});
 		#end
 	}
 
@@ -93,9 +96,6 @@ class TitleState extends MusicBeatState {
 		FlxG.keys.preventDefaultKeys = [TAB];
 
 		PlayerSettings.init();
-
-		startVideo();
-		videoIntro.pause();
 
 		swagShader = new ColorSwap();
 		super.create();
@@ -128,6 +128,8 @@ class TitleState extends MusicBeatState {
 		#end
 
 		Highscore.load();
+
+		fnafIntro();
 
 		if (!initialized) {
 			if (FlxG.save.data != null && FlxG.save.data.fullscreen) {
@@ -162,17 +164,17 @@ class TitleState extends MusicBeatState {
 			#end
 
 			if (initialized)
-				startIntro();
+				introVideo();
 			else {
 				new FlxTimer().start(1, function(tmr:FlxTimer) {
-					startIntro();
+					introVideo();
 				});
 			}
 		}
 		#end
 	}
 
-	function startIntro() {
+	function fnafIntro() {
 		if (!initialized) {
 			if (FlxG.sound.music == null) {
 				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
@@ -303,7 +305,6 @@ class TitleState extends MusicBeatState {
 				case 1:
 					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(1, 0, 5);
-					videoIntro.resume();
 
 				case 17:
 					skipIntro();
@@ -315,7 +316,6 @@ class TitleState extends MusicBeatState {
 	var increaseVolume:Bool = false;
 	function skipIntro():Void {
 		if (!skippedIntro) {
-			videoIntro.dispose();
 			FlxG.camera.flash(FlxColor.WHITE, 1);
 			bg.visible = true;
 			titleText.visible = true;

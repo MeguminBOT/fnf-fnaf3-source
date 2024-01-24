@@ -65,9 +65,9 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 
-// Updated to hxCodec 3.0.2
 #if VIDEOS_ALLOWED 
-import hxcodec.flixel.FlxVideo;
+import hxvlc.flixel.FlxVideo;
+import hxvlc.flixel.FlxVideoSprite;
 #end
 
 // Vs FNaF 3 Specific imports
@@ -395,6 +395,7 @@ class PlayState extends MusicBeatState
 		camJump.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
+		FlxG.cameras.add(camVideo, false);
 		FlxG.cameras.add(camHUD, false);
 		FlxG.cameras.add(camOther, false);
 		FlxG.cameras.add(camJump, false);
@@ -1279,28 +1280,34 @@ class PlayState extends MusicBeatState
 	public function startVideo(name:String)
 	{
 		#if VIDEOS_ALLOWED
+		var filepath:String = Paths.video(name);
+		var video:FlxVideo = new FlxVideo();
 		inCutscene = true;
 
-		var filepath:String = Paths.video(name);
-		#if sys
-		if(!FileSystem.exists(filepath))
-		#else
-		if(!OpenFlAssets.exists(filepath))
-		#end
-		{
+		if(#if sys !FileSystem.exists(filepath) #else !OpenFlAssets.exists(filepath) #end) {
 			FlxG.log.warn('Couldnt find video file: ' + name);
 			startAndEnd();
-			return;
+			return null;
 		}
 
-		var video:FlxVideo = new FlxVideo();
-		video.play(filepath);
-		video.onEndReached.add(function()
-		{
+		video.onEndReached.add(function(){
 			video.dispose();
 			startAndEnd();
 			return;
-		}, true);
+		});
+
+		video.load(filepath);
+
+		new FlxTimer().start(0.001, function(tmr:FlxTimer):Void
+		{
+			video.play();
+		});
+
+		return video;
+		#else
+		FlxG.log.warn('Platform does not support video playback!');
+		startAndEnd();
+		return;
 		#end
 	}
 
