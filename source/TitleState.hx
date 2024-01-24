@@ -74,14 +74,13 @@ class TitleState extends MusicBeatState {
 		videoIntro.onEndReached.add(videoIntro.dispose);
 		videoIntro.load(filepath);
 
-		new FlxTimer().start(0.001, function(tmr:FlxTimer):Void
-		{
-			videoIntro.play();
-		});
 		#end
 	}
 
 	override public function create():Void {
+		var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
+		FlxG.mouse.load(mouseSprite.pixels);
+		FlxG.mouse.visible = true;
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
@@ -129,7 +128,7 @@ class TitleState extends MusicBeatState {
 
 		Highscore.load();
 
-		fnafIntro();
+		introVideo();
 
 		if (!initialized) {
 			if (FlxG.save.data != null && FlxG.save.data.fullscreen) {
@@ -164,10 +163,10 @@ class TitleState extends MusicBeatState {
 			#end
 
 			if (initialized)
-				introVideo();
+				fnafIntro();
 			else {
 				new FlxTimer().start(1, function(tmr:FlxTimer) {
-					introVideo();
+					fnafIntro();
 				});
 			}
 		}
@@ -302,10 +301,13 @@ class TitleState extends MusicBeatState {
 		if (!closedState) {
 			sickBeats++;
 			switch (sickBeats) {
-				case 1:
+				case 1: 
+					#if VIDEOS_ALLOWED
+					videoIntro.play();
+					#end
+				case 2:
 					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(1, 0, 5);
-
 				case 17:
 					skipIntro();
 			}
