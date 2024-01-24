@@ -150,6 +150,7 @@
 	<!--Used for Izzy Engine's crash handler-->
 	<haxedef name="HXCPP_CHECK_POINTER" if="CRASH_HANDLER" />
 	<haxedef name="HXCPP_STACK_LINE" if="CRASH_HANDLER" />
+	<haxedef name="HXCPP_STACK_TRACE" />
 
 	<!-- _________________________________ Lulu additions _______________________________ -->
 	<!-- Enables a terminal log prompt on debug builds. -->
@@ -158,13 +159,16 @@
 
 
 	<!-- Build game with clang compiler instead of MSVC -->
-	<haxedef name="HXCPP_CLANG"/>
+	<!--<haxedef name="HXCPP_CLANG"/> -->
 
 	<!-- Allow storage of bigger sprites and memory usage above 2.99 GB. -->
 	<haxedef name="HXCPP_GC_BIG_BLOCKS"/>
 	
 	<!-- Allows the game to dynamically change expand memory working space if required.	-->
 	<haxedef name="HXCPP_GC_DYNAMIC_SIZE"/>
+
+	<!-- Allows the game to use multiple CPU threads. -->
+	<haxedef name="ALLOW_MULTITHREADING" unless="html5" />
 
 	<!-- Enable experimental generational garbage collector. -->
 	<!-- <haxedef name="HXCPP_GC_GENERATIONAL"/> -->
