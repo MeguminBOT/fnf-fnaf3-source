@@ -88,8 +88,9 @@ class ChartingState extends MusicBeatState
 		['Change Scroll Speed', "Value 1: Scroll Speed Multiplier (1 is default)\nValue 2: Time it takes to change fully in seconds."],
 		['Set Property', "Value 1: Variable name\nValue 2: New value"],
 		['Song Credits', "Opens a tablet with song credits\nand removes it after animation is finished.\nLeave values blank."],
+		['Red Warning Flash', "Works only on stagephantom and stageverlasting.\nLeave value 1 blank or set it to 'On' to enable. \nTo manually disable the event, set value 1 to 'Off'"],
 		['Mangle', "Works only on stagephantom. Leave values blank."],
-		['Tablet', "Works only on stagephantom. Leave values blank."]
+		['Tablet', "Works only on stagephantom and stageverlasting. Leave values blank."]
 	];
 
 	var _file:FileReference;

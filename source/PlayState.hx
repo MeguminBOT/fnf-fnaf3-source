@@ -300,7 +300,7 @@ class PlayState extends MusicBeatState
 	var creditsTablet:FlxSprite;
 
 	// Mechanics Stuff
-	static var tablet:Bool = false;
+	static var isTabletActive:Bool = false;
 	static var tabletButtonPressed:Bool = false;
 	var tabletMech:FlxSprite;
 	var tabletButton:FlxSprite;
@@ -308,9 +308,12 @@ class PlayState extends MusicBeatState
 	var tabletSoundOpen:FlxSound;
 	var tabletSoundClose:FlxSound;
 
-	static var mangle:Bool = false;
+	static var isMangleActive:Bool = false;
 	var mangleMech:FlxSprite;
 	var mangleSound:FlxSound;
+
+	static var isRedFlashing:Bool = false;
+	var redFlash:FlxSprite;
 
 	static var isTweenActive:Bool = false;
 	var blackOut:FlxSprite;
@@ -975,7 +978,62 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
+			case 'stageverlasting':
+				var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
+				FlxG.mouse.load(mouseSprite.pixels);
+				FlxG.mouse.visible = true;
+
+				tabletMech = new FlxSprite();
+				tabletMech.loadGraphic(Paths.image('mechanics/tablet'));
+				tabletMech.frames = Paths.getSparrowAtlas('mechanics/tablet');
+				tabletMech.antialiasing = ClientPrefs.globalAntialiasing;
+				tabletMech.x = -180;
+				tabletMech.y = 300;
+				tabletMech.scale.x = 0.6;
+				tabletMech.scale.y = 0.6;
+				tabletMech.updateHitbox();
+				tabletMech.cameras = [camOther];
+				tabletMech.animation.addByPrefix('idle', 'idle', 24, true);
+				tabletMech.animation.addByPrefix('notpressed', 'notpressed', 24, true);
+				tabletMech.animation.addByPrefix('pressed', 'pressed', 24, true);
+				tabletMech.animation.addByPrefix('in', 'in', 24, false);
+				tabletMech.animation.addByPrefix('out', 'out', 24, false);
+				tabletMech.animation.play('idle');
+				tabletMech.alpha = 0;
+				add(tabletMech);
+
+				tabletButton = new FlxSprite();
+				tabletButton.loadGraphic(Paths.image('mechanics/button'));
+				tabletButton.frames = Paths.getSparrowAtlas('mechanics/button');
+				tabletButton.antialiasing = ClientPrefs.globalAntialiasing;
+				tabletButton.x = 0;
+				tabletButton.y = 650;
+				tabletButton.scale.x = 0.69;
+				tabletButton.scale.y = 0.7;
+				tabletButton.updateHitbox();
+				tabletButton.cameras = [camOther];
+				tabletButton.animation.addByPrefix('idle', 'idle', 24, true);
+				tabletButton.alpha = 0;
+				add(tabletButton);
+
+				tabletSoundOpen = FlxG.sound.load(Paths.sound('tabletin'), 1);
+				tabletSoundClose = FlxG.sound.load(Paths.sound('tabletout'), 1);
+
+				blackOut = new FlxSprite();
+				blackOut.makeGraphic(2560, 1440, FlxColor.BLACK);
+				blackOut.cameras = [camOther];
+				blackOut.alpha = 0;
+				add(blackOut);
+
+				redFlash = new FlxSprite();
+				redFlash.makeGraphic(2560, 1440, FlxColor.RED);
+				redFlash.cameras = [camOther];
+				redFlash.alpha = 0;
+				add(redFlash);
+	
 			case 'stagephantom':
+				var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
+				FlxG.mouse.load(mouseSprite.pixels);
 				FlxG.mouse.visible = true;
 				
 				mangleMech = new FlxSprite();
@@ -1035,6 +1093,12 @@ class PlayState extends MusicBeatState
 				blackOut.cameras = [camOther];
 				blackOut.alpha = 0;
 				add(blackOut);
+
+				redFlash = new FlxSprite();
+				redFlash.makeGraphic(2560, 1440, FlxColor.RED);
+				redFlash.cameras = [camOther];
+				redFlash.alpha = 0;
+				add(redFlash);
 		}
 
 		// A little tablet that pops up showing song title and composer.
@@ -2163,12 +2227,17 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
-		if (mangle) {
-			handleMangle();
-		}
+		var daSong:String = Song.getChartFileName(SONG.song);
 
-		if (tablet) {
-			handleTablet();
+		switch(daSong) {
+			case 'fear-forever':
+				handleMangle();
+				handleTablet();
+				redWarningFlash();
+			
+			case 'everlasting':
+				handleTablet();
+				redWarningFlash();
 		}
 
 		setOnLuas('curDecStep', curDecStep);
@@ -2484,6 +2553,12 @@ class PlayState extends MusicBeatState
 			vocals.pause();
 		}
 
+		// Vs FNaF 3 checks
+		if (isMangleActive) {
+			mangleSound.pause();
+		}
+		// End of VS FNaF 3 checks
+
 		openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
 		#if desktop
@@ -2532,6 +2607,24 @@ class PlayState extends MusicBeatState
 				for (timer in modchartTimers) {
 					timer.active = true;
 				}
+
+				// Vs FNaF 3 checks
+				if (isMangleActive) {
+					mangleSound.stop();
+				}
+
+				if (isTabletActive) {
+					isTabletActive = false;
+				}
+
+				if (isRedFlashing) {
+					isRedFlashing = false;
+				}
+				
+				if (isTweenActive) {
+					isTweenActive = false;
+				}
+				// End of VS FNaF 3 checks
 
 				openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x - boyfriend.positionArray[0], boyfriend.getScreenPosition().y - boyfriend.positionArray[1], camFollowPos.x, camFollowPos.y));
 
@@ -2818,16 +2911,29 @@ class PlayState extends MusicBeatState
 				creditsTablet.animation.play('idle');
 				creditsTablet.alpha = 1;
 
+			// The actual function for these three is called inside the update function.
+			// These events just sets a variable that constantly gets checked under the songs they're used.
+			case 'Red Warning Flash':
+				if (isRedFlashing && value1.toLowerCase() == 'off') {
+					isRedFlashing = false;
+				} else if (isRedFlashing && (value1 == null || value1.toLowerCase() == "on")) {
+					return;
+				} else {
+					isRedFlashing = true;
+				}
+
 			case 'Mangle':
-				// The actual function for mangleMechanic is called inside the update function.
-				if (!mangle) {
-					mangle = true;
+				if (isMangleActive) {
+					return;
+				} else {
+					isMangleActive = true;
 				}
 
 			case 'Tablet':
-				// The actual function for tabletMechanic is called inside the update function.
-				if (!tablet) {
-					tablet = true;
+				if (isTabletActive) {
+					return;
+				} else {
+					isTabletActive = true;
 				}
 		}
 		callOnLuas('onEvent', [eventName, value1, value2]);
@@ -4137,8 +4243,11 @@ class PlayState extends MusicBeatState
 
 	// Originally written by JustDom in lua. Rewritten to haxe to prevent a bug causing Mangle to become unclickable and get stuck on the screen.
 	function handleMangle() {
+		if (!isMangleActive) {
+			return;
+		}
+
 		var mousePosMangle:FlxPoint = FlxG.mouse.getScreenPosition(camHUD);
-	
 		mangleSound.play();
 	
 		if (mangleMech.animation.curAnim.name == 'none') {
@@ -4160,12 +4269,16 @@ class PlayState extends MusicBeatState
 				case 'out':
 					mangleMech.animation.play('none');
 					mangleSound.stop();
-					mangle = false;
+					isMangleActive = false;
 			}
 		};
 	}
 	
 	function handleTablet() {
+		if (!isTabletActive)
+			return;
+		}
+		var daSong:String = Song.getChartFileName(SONG.song);
 		var mousePosTablet:FlxPoint = FlxG.mouse.getScreenPosition(camOther);
 	
 		if (!isTweenActive) {
@@ -4198,7 +4311,7 @@ class PlayState extends MusicBeatState
 					tabletMech.animation.play('notpressed');
 				case 'notpressed':
 					tabletMech.animation.play('pressed');
-					startTimer = new FlxTimer().start(5 / playbackRate, function(tmr:FlxTimer) {
+					tabletReboot = new FlxTimer().start(5 / playbackRate, function(tmr:FlxTimer) {
 						tabletMech.animation.finish();
 					}, 1);
 				case 'pressed':
@@ -4207,12 +4320,15 @@ class PlayState extends MusicBeatState
 				case 'out':
 					tabletMech.animation.play('idle');
 					tabletMech.alpha = 0;
-					tablet = false;
+					isTabletActive = false;
 					tabletButtonPressed = false;
+					if (daSong == 'fear-forever') {
+						isRedFlashing = false;
+					}
 					blackOutSineOut();
 			}
 		};
-	
+
 		tabletSoundOpen.onComplete = function() {
 			tabletSoundOpen.stop();
 		};
@@ -4221,23 +4337,38 @@ class PlayState extends MusicBeatState
 			tabletSoundClose.stop();
 		};
 	}
+
+	function redWarningFlash() {
+		if (!isRedFlashing) {
+			redFlash.alpha = 0;
+			return;
+		}
+
+		// Flash the red FlxSprite every second beat
+		if (curBeat % 2 == 0) {
+			redFlash.alpha = 0.1;
+		} else {
+			redFlash.alpha = 0;
+		}
+	}
 	
 	function blackOutSineIn() {
-		if (tablet) {
-			isTweenActive = true;
-			FlxTween.tween(blackOut, {alpha: 0.9}, 2 / playbackRate, {
-				onComplete: function(tween:FlxTween) {
-					blackOut.alpha = 0.9;
-					blackOutSineOut();
-				}
-			});
+		if (!isTabletActive) {
+			return;
 		}
+
+		isTweenActive = true;
+		FlxTween.tween(blackOut, {alpha: 0.9}, 2 / playbackRate, {
+			onComplete: function(tween:FlxTween) {
+				blackOutSineOut();
+			}
+		});
+
 	}
 	
 	function blackOutSineOut() {
 		FlxTween.tween(blackOut, {alpha: 0}, 2 / playbackRate, {
 			onComplete: function(tween:FlxTween) {
-				blackOut.alpha = 0;
 				isTweenActive = false;
 			}
 		});
