@@ -65,13 +65,15 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 
+// Vs FNaF 3 Specific imports
+import SongUnlock;
+
 #if VIDEOS_ALLOWED 
 import hxvlc.flixel.FlxVideo;
 import hxvlc.flixel.FlxVideoSprite;
 #end
 
-// Vs FNaF 3 Specific imports
-import SongUnlock;
+
 
 using StringTools;
 
@@ -317,7 +319,6 @@ class PlayState extends MusicBeatState
 
 	var showTimeTxt:Bool;
 	var showTimeBar:Bool;
-
 	/*---------------------------------*/
 
 	override public function create()
@@ -385,7 +386,6 @@ class PlayState extends MusicBeatState
 		cpuControlled = ClientPrefs.getGameplaySetting('botplay', false);
 
 		// VS FNAF 3 Gameplay Modifiers.
-		
 		mirrorMode = ClientPrefs.getGameplaySetting('mirrormode', false);
 
 		// var gameCam:FlxCamera = FlxG.camera;
@@ -1698,6 +1698,7 @@ class PlayState extends MusicBeatState
 		creditsTablet.animation.play('idle');
 		creditsTablet.alpha = 1;
 
+
 		// Song duration in a float, useful for the time left feature
 		songLength = FlxG.sound.music.length;
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
@@ -2487,6 +2488,7 @@ class PlayState extends MusicBeatState
 			FlxG.sound.music.pause();
 			vocals.pause();
 		}
+
 		openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
 		#if desktop
@@ -2535,6 +2537,7 @@ class PlayState extends MusicBeatState
 				for (timer in modchartTimers) {
 					timer.active = true;
 				}
+
 				openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x - boyfriend.positionArray[0], boyfriend.getScreenPosition().y - boyfriend.positionArray[1], camFollowPos.x, camFollowPos.y));
 
 				// MusicBeatState.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
