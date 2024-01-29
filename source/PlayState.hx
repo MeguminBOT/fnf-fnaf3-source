@@ -1037,6 +1037,7 @@ class PlayState extends MusicBeatState
 				add(blackOut);
 		}
 
+		// A little tablet that pops up showing song title and composer.
 		creditsTablet = new FlxSprite(-150, 290);
 		creditsTablet.loadGraphic(Paths.image('songCredits/' + daSong));
 		creditsTablet.frames = Paths.getSparrowAtlas('songCredits/' + daSong);
@@ -1046,7 +1047,7 @@ class PlayState extends MusicBeatState
 		creditsTablet.updateHitbox();
 		creditsTablet.cameras = [camOther];
 		creditsTablet.animation.addByPrefix('idle', 'idle', 24, false);
-		creditsTablet.alpha = 0;
+		creditsTablet.alpha = 0; // We're toggling the visibility with the "Song Credits" event.
 		add(creditsTablet);
 
 		super.create();
@@ -1691,12 +1692,6 @@ class PlayState extends MusicBeatState
 			vocals.pause();
 		}
 
-		creditsTablet.animation.finishCallback = function(name:String):Void {
-			remove(creditsTablet);
-			creditsTablet.destroy();
-		}
-		creditsTablet.animation.play('idle');
-		creditsTablet.alpha = 1;
 
 
 		// Song duration in a float, useful for the time left feature
@@ -2813,6 +2808,15 @@ class PlayState extends MusicBeatState
 				} else {
 					FunkinLua.setVarInArray(this, value1, value2);
 				}
+
+			case 'Song Credits':
+				creditsTablet.animation.finishCallback = function(name:String):Void {
+					remove(creditsTablet);
+					creditsTablet.destroy();
+				}
+
+				creditsTablet.animation.play('idle');
+				creditsTablet.alpha = 1;
 
 			case 'Mangle':
 				// The actual function for mangleMechanic is called inside the update function.

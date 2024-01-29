@@ -87,6 +87,7 @@ class ChartingState extends MusicBeatState
 		['Change Character', "Value 1: Character to change (Dad, BF, GF)\nValue 2: New character's name"],
 		['Change Scroll Speed', "Value 1: Scroll Speed Multiplier (1 is default)\nValue 2: Time it takes to change fully in seconds."],
 		['Set Property', "Value 1: Variable name\nValue 2: New value"],
+		['Song Credits', "Opens a tablet with song credits\nand removes it after animation is finished.\nLeave values blank."],
 		['Mangle', "Works only on stagephantom. Leave values blank."],
 		['Tablet', "Works only on stagephantom. Leave values blank."]
 	];
