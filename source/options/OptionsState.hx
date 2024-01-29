@@ -47,6 +47,8 @@ class OptionsState extends MusicBeatState
 
 	override function create()
 	{
+		var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
+		FlxG.mouse.load(mouseSprite.pixels);
 		FlxG.mouse.visible = true; // Make the mouse visible since the UI is made for mouse and touch input.
 
 		#if desktop

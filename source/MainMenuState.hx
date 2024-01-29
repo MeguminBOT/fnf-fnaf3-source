@@ -34,12 +34,16 @@ class MainMenuState extends MusicBeatState
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 
+	var mouseSprite:FlxSprite;
+
 	var spritePath:String = 'menus/mainMenu/';
 
 	override function create()
 	{
+		mouseSprite = new FlxSprite(Paths.image('cursor'));
+		FlxG.mouse.load(mouseSprite.pixels);
 		FlxG.mouse.visible = true;
-
+		
 		#if MODS_ALLOWED
 		Paths.pushGlobalMods();
 		#end

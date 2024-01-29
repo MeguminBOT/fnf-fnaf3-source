@@ -89,11 +89,12 @@ class FreeplayState extends MusicBeatState
 
 	override function create()
 	{
-		
-		FlxG.mouse.visible = true; // Make the mouse visible since the UI is made for mouse and touch input.
-
 		Paths.clearStoredMemory(); // Force clear cache.
 		Paths.clearUnusedMemory(); // Force clear unused but allocated memory.
+
+		var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
+		FlxG.mouse.load(mouseSprite.pixels);
+		FlxG.mouse.visible = true; // Make the mouse visible since the UI is made for mouse and touch input.
 
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;

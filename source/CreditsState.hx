@@ -53,6 +53,8 @@ class CreditsState extends FlxState
         background.animation.play('play');
         background.scale.set(0.666666, 0.666666);
 
+        var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
+        FlxG.mouse.load(mouseSprite.pixels);
         FlxG.mouse.visible = true;
         super.create();
 

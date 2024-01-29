@@ -35,6 +35,9 @@ class StoryMenuState extends MusicBeatState
 
 	override function create()
 	{
+		var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
+		FlxG.mouse.load(mouseSprite.pixels);
+
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
