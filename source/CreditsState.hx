@@ -58,7 +58,7 @@ class CreditsState extends FlxState
         FlxG.mouse.visible = true;
         super.create();
 
-        var names = ['pouria', 'thunder', 'penove', 'dom', 'glitch', 'aleks', 'vev', 'others'];
+        var names = ['pouria', 'thunder', 'penove', 'glitch', 'lulu', 'aleks', 'vev', 'dom', 'others'];
         for (i in 0...names.length)
         {
             var sprite = new FlxSprite();
@@ -69,13 +69,16 @@ class CreditsState extends FlxState
             sprite.visible = i == 0;
             sprites.push(sprite);
 
-            var button = new FlxButton(500, 500, "", onButtonClicked.bind(i));
+            var button = new FlxButton(450, 500, "", onButtonClicked.bind(i));
             button.screenCenter();
             button.loadGraphic(Paths.image(spritePath + 'button' + '${i+1}'), true, 100, 100);
             add(button);
-            button.x = 450 + i * 100;
-            button.y = 30;
-            button.scale.set(1, 1);
+            button.x = 450 + i * 85;
+            button.y = 40;
+            button.scale.set(0.85, 0.85);
+            button.updateHitbox();
+
+
             buttons.push(button);
         }
     }
