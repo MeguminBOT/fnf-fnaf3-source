@@ -105,6 +105,7 @@ class PlayState extends MusicBeatState
 	public var variables:Map<String, Dynamic> = new Map();
 	public var modchartTweens:Map<String, FlxTween> = new Map<String, FlxTween>();
 	public var modchartSprites:Map<String, ModchartSprite> = new Map<String, ModchartSprite>();
+	public var modchartVideoSprites:Map<String, ModchartVideoSprite> = new Map<String, ModchartVideoSprite>();
 	public var modchartTimers:Map<String, FlxTimer> = new Map<String, FlxTimer>();
 	public var modchartSounds:Map<String, FlxSound> = new Map<String, FlxSound>();
 	public var modchartTexts:Map<String, ModchartText> = new Map<String, ModchartText>();
@@ -116,6 +117,7 @@ class PlayState extends MusicBeatState
 	public var variables:Map<String, Dynamic> = new Map<String, Dynamic>();
 	public var modchartTweens:Map<String, FlxTween> = new Map();
 	public var modchartSprites:Map<String, ModchartSprite> = new Map();
+	public var modchartVideoSprites:Map<String, ModchartVideoSprite> = new Map();
 	public var modchartTimers:Map<String, FlxTimer> = new Map();
 	public var modchartSounds:Map<String, FlxSound> = new Map();
 	public var modchartTexts:Map<String, ModchartText> = new Map();
@@ -292,6 +294,7 @@ class PlayState extends MusicBeatState
 	public var laneUnderlay:FlxSprite;
 	public var laneUnderlayOpponent:FlxSprite;
 	public var camJump:FlxCamera;
+	public var camVideo:FlxCamera;
 	var creditsTablet:FlxSprite;
 
 	// Mechanics Stuff
@@ -387,10 +390,12 @@ class PlayState extends MusicBeatState
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
+		camVideo = new FlxCamera();
 		camHUD = new FlxCamera();
 		camOther = new FlxCamera();
 		camJump = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
+		camVideo.bgColor.alpha = 0;
 		camOther.bgColor.alpha = 0;
 		camJump.bgColor.alpha = 0;
 
@@ -920,6 +925,7 @@ class PlayState extends MusicBeatState
 		#end
 
 		var daSong:String = Paths.formatToSongPath(curSong);
+
 		if (isStoryMode && !seenCutscene)
 		{
 			switch (daSong)
@@ -1263,6 +1269,12 @@ class PlayState extends MusicBeatState
 	public function getLuaObject(tag:String, text:Bool=true):FlxSprite {
 		if(modchartSprites.exists(tag)) return modchartSprites.get(tag);
 		if(text && modchartTexts.exists(tag)) return modchartTexts.get(tag);
+		if(variables.exists(tag)) return variables.get(tag);
+		return null;
+	}
+
+	public function getLuaVideoObject(tag:String):FlxVideoSprite {
+		if(modchartVideoSprites.exists(tag)) return modchartVideoSprites.get(tag);
 		if(variables.exists(tag)) return variables.get(tag);
 		return null;
 	}

@@ -57,6 +57,10 @@ import hscript.Expr;
 import Discord;
 #end
 
+#if VIDEOS_ALLOWED
+import hxvlc.flixel.FlxVideoSprite;
+#end
+
 using StringTools;
 
 class FunkinLua {
@@ -1767,6 +1771,18 @@ class FunkinLua {
 			PlayState.instance.modchartSprites.set(tag, leSprite);
 			leSprite.active = true;
 		});
+
+		Lua_helper.add_callback(lua, "makeVideoSprite", function(tag:String, video:String, x:Int, y:Int) {
+			tag = tag.replace('.', '');
+			resetSpriteTag(tag);
+			var leVideo:ModchartVideoSprite = new ModchartVideoSprite(x, y);
+			if(video != null && video.length > 0)
+			{
+				leVideo.load(Paths.video(video));
+			}
+			PlayState.instance.modchartVideoSprites.set(tag, leVideo);
+		});
+
 		Lua_helper.add_callback(lua, "makeAnimatedLuaSprite", function(tag:String, image:String, x:Float, y:Float, ?spriteType:String = "sparrow") {
 			tag = tag.replace('.', '');
 			resetSpriteTag(tag);
@@ -1904,6 +1920,7 @@ class FunkinLua {
 				object.scrollFactor.set(scrollX, scrollY);
 			}
 		});
+
 		Lua_helper.add_callback(lua, "addLuaSprite", function(tag:String, front:Bool = false) {
 			if(PlayState.instance.modchartSprites.exists(tag)) {
 				var shit:ModchartSprite = PlayState.instance.modchartSprites.get(tag);
@@ -1934,6 +1951,34 @@ class FunkinLua {
 				}
 			}
 		});
+
+		// Dumb copy paste implementation because I'm lazy.
+		Lua_helper.add_callback(lua, "addVideoSprite", function(tag:String, front:Bool = false) {
+			if(PlayState.instance.modchartVideoSprites.exists(tag)) {
+				var shit:ModchartVideoSprite = PlayState.instance.modchartVideoSprites.get(tag);
+				if(!shit.wasAdded) {
+					if(front) {
+						getInstance().add(shit);
+					} else {
+						if(PlayState.instance.isDead) {
+							GameOverSubstate.instance.insert(GameOverSubstate.instance.members.indexOf(GameOverSubstate.instance.boyfriend), shit);
+						} else {
+							var position:Int = PlayState.instance.members.indexOf(PlayState.instance.gfGroup);
+							if (PlayState.instance.members.indexOf(PlayState.instance.boyfriendGroup) < position) {
+								position = PlayState.instance.members.indexOf(PlayState.instance.boyfriendGroup);
+							} else if (PlayState.instance.members.indexOf(PlayState.instance.dadGroup) < position) {
+								position = PlayState.instance.members.indexOf(PlayState.instance.dadGroup);
+							}
+							PlayState.instance.insert(position, shit);
+						}
+					}
+					shit.wasAdded = true;
+					shit.play();
+					//trace('added a thing: ' + tag);
+				}
+			}
+		});
+
 		Lua_helper.add_callback(lua, "setGraphicSize", function(obj:String, x:Int, y:Int = 0, updateHitbox:Bool = true) {
 			if(PlayState.instance.getLuaObject(obj)!=null) {
 				var shit:FlxSprite = PlayState.instance.getLuaObject(obj);
@@ -1976,6 +2021,43 @@ class FunkinLua {
 			}
 			luaTrace('scaleObject: Couldnt find object: ' + obj, false, false, FlxColor.RED);
 		});
+
+		// Dumb copy paste implementation because I'm lazy.
+		Lua_helper.add_callback(lua, "scaleVideo", function(obj:String, x:Float, y:Float, updateHitbox:Bool = true) {
+			if(PlayState.instance.getLuaVideoObject(obj)!=null) {
+				var shit:FlxVideoSprite = PlayState.instance.getLuaVideoObject(obj);
+				shit.scale.set(x, y);
+				if(updateHitbox) shit.updateHitbox();
+				return;
+			}
+
+			var killMe:Array<String> = obj.split('.');
+			var poop:FlxVideoSprite = getVideoDirectly(killMe[0]);
+			if(killMe.length > 1) {
+				poop = getVarInArray(getPropertyLoopThingWhatever(killMe), killMe[killMe.length-1]);
+			}
+
+			if(poop != null) {
+				poop.scale.set(x, y);
+				if(updateHitbox) poop.updateHitbox();
+				return;
+			}
+			luaTrace('scaleObject: Couldnt find object: ' + obj, false, false, FlxColor.RED);
+		});
+
+		Lua_helper.add_callback(lua, "setVideoScrollFactor", function(obj:String, scrollX:Float, scrollY:Float) {
+			if(PlayState.instance.getLuaVideoObject(obj)!=null) {
+				PlayState.instance.getLuaVideoObject(obj).scrollFactor.set(scrollX, scrollY);
+				return;
+			}
+
+			var object:FlxObject = Reflect.getProperty(getInstance(), obj);
+			if(object != null) {
+				object.scrollFactor.set(scrollX, scrollY);
+			}
+		});
+
+
 		Lua_helper.add_callback(lua, "updateHitbox", function(obj:String) {
 			if(PlayState.instance.getLuaObject(obj)!=null) {
 				var shit:FlxSprite = PlayState.instance.getLuaObject(obj);
@@ -1990,6 +2072,7 @@ class FunkinLua {
 			}
 			luaTrace('updateHitbox: Couldnt find object: ' + obj, false, false, FlxColor.RED);
 		});
+
 		Lua_helper.add_callback(lua, "updateHitboxFromGroup", function(group:String, index:Int) {
 			if(Std.isOfType(Reflect.getProperty(getInstance(), group), FlxTypedGroup)) {
 				Reflect.getProperty(getInstance(), group).members[index].updateHitbox();
@@ -2004,6 +2087,28 @@ class FunkinLua {
 			}
 
 			var pee:ModchartSprite = PlayState.instance.modchartSprites.get(tag);
+			if(destroy) {
+				pee.kill();
+			}
+
+			if(pee.wasAdded) {
+				getInstance().remove(pee, true);
+				pee.wasAdded = false;
+			}
+
+			if(destroy) {
+				pee.destroy();
+				PlayState.instance.modchartSprites.remove(tag);
+			}
+		});
+
+		// Dumb copy paste implementation because I'm lazy.
+		Lua_helper.add_callback(lua, "removeVideoSprite", function(tag:String, destroy:Bool = true) {
+			if(!PlayState.instance.modchartVideoSprites.exists(tag)) {
+				return;
+			}
+
+			var pee:ModchartVideoSprite = PlayState.instance.modchartVideoSprites.get(tag);
 			if(destroy) {
 				pee.kill();
 			}
@@ -2076,6 +2181,29 @@ class FunkinLua {
 			luaTrace("setObjectCamera: Object " + obj + " doesn't exist!", false, false, FlxColor.RED);
 			return false;
 		});
+
+		// Dumb copy paste implementation because I'm lazy.
+		Lua_helper.add_callback(lua, "setVideoCamera", function(obj:String, camera:String = '') {
+			var real = PlayState.instance.getLuaVideoObject(obj);
+			if(real!=null){
+				real.cameras = [cameraFromString(camera)];
+				return true;
+			}
+
+			var killMe:Array<String> = obj.split('.');
+			var object:FlxSprite = getObjectDirectly(killMe[0]);
+			if(killMe.length > 1) {
+				object = getVarInArray(getPropertyLoopThingWhatever(killMe), killMe[killMe.length-1]);
+			}
+
+			if(object != null) {
+				object.cameras = [cameraFromString(camera)];
+				return true;
+			}
+			luaTrace("setVideoCamera: Object " + obj + " doesn't exist!", false, false, FlxColor.RED);
+			return false;
+		});
+
 		Lua_helper.add_callback(lua, "setBlendMode", function(obj:String, blend:String = '') {
 			var real = PlayState.instance.getLuaObject(obj);
 			if(real!=null) {
@@ -2124,6 +2252,37 @@ class FunkinLua {
 			}
 			luaTrace("screenCenter: Object " + obj + " doesn't exist!", false, false, FlxColor.RED);
 		});
+
+		// Dumb copy paste implementation because I'm lazy.
+		Lua_helper.add_callback(lua, "screenCenterVideo", function(obj:String, pos:String = 'xy') {
+			var spr:FlxVideoSprite = PlayState.instance.getLuaVideoObject(obj);
+
+			if(spr==null){
+				var killMe:Array<String> = obj.split('.');
+				spr = getObjectDirectly(killMe[0]);
+				if(killMe.length > 1) {
+					spr = getVarInArray(getPropertyLoopThingWhatever(killMe), killMe[killMe.length-1]);
+				}
+			}
+
+			if(spr != null)
+			{
+				switch(pos.trim().toLowerCase())
+				{
+					case 'x':
+						spr.screenCenter(X);
+						return;
+					case 'y':
+						spr.screenCenter(Y);
+						return;
+					default:
+						spr.screenCenter(XY);
+						return;
+				}
+			}
+			luaTrace("screenCenterVideo: Object " + obj + " doesn't exist!", false, false, FlxColor.RED);
+		});
+
 		Lua_helper.add_callback(lua, "objectsOverlap", function(obj1:String, obj2:String) {
 			var namesArray:Array<String> = [obj1, obj2];
 			var objectsArray:Array<FlxSprite> = [];
@@ -3140,6 +3299,7 @@ class FunkinLua {
 			case 'camhud' | 'hud': return PlayState.instance.camHUD;
 			case 'camother' | 'other': return PlayState.instance.camOther;
 			case 'camjump' | 'jump': return PlayState.instance.camJump;
+			case 'camvideo' | 'video': return PlayState.instance.camVideo;
 		}
 		return PlayState.instance.camGame;
 	}
@@ -3269,6 +3429,15 @@ class FunkinLua {
 		return coverMeInPiss;
 	}
 
+	public static function getVideoDirectly(objectName:String):Dynamic
+	{
+		var coverMeInPiss:Dynamic = PlayState.instance.getLuaVideoObject(objectName);
+		if(coverMeInPiss==null)
+			coverMeInPiss = getVarInArray(getInstance(), objectName);
+
+		return coverMeInPiss;
+	}
+
 	function typeToString(type:Int):String {
 		#if LUA_ALLOWED
 		switch(type) {
@@ -3335,6 +3504,16 @@ class ModchartSprite extends FlxSprite
 	{
 		super(x, y);
 		antialiasing = ClientPrefs.globalAntialiasing;
+	}
+}
+
+class ModchartVideoSprite extends FlxVideoSprite
+{
+	public var wasAdded:Bool = false;
+
+	public function new(?x:Int = 0, ?y:Int = 0)
+	{
+		super(x, y);
 	}
 }
 
