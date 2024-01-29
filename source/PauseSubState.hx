@@ -33,6 +33,10 @@ class PauseSubState extends MusicBeatSubstate
 
 	public static var songName:String = '';
 
+	public static var curSong:String = '';
+	public static var spritePath:String = 'menus/pauseMenu/';
+	var pauseMenuChar:FlxSprite;
+
 	public function new(x:Float, y:Float)
 	{
 		super();
@@ -76,6 +80,137 @@ class PauseSubState extends MusicBeatSubstate
 		bg.alpha = 0;
 		bg.scrollFactor.set();
 		add(bg);
+
+		curSong = PlayState.SONG.song;
+		var formattedSongName = curSong.split(' ').join('-').toLowerCase();
+		switch (formattedSongName)
+		{
+			case 'taken-apart':
+				pauseMenuChar = new FlxSprite(500, 0);
+				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
+				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
+				pauseMenuChar.scale.x = 0.8;
+				pauseMenuChar.scale.y = 0.8;
+				pauseMenuChar.updateHitbox();
+				add(pauseMenuChar);
+
+			case 'retribution':
+				pauseMenuChar = new FlxSprite(600, 0);
+				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
+				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
+				pauseMenuChar.scale.x = 0.8;
+				pauseMenuChar.scale.y = 0.8;
+				pauseMenuChar.updateHitbox();
+				add(pauseMenuChar);
+
+			case 'fear-forever':
+				pauseMenuChar = new FlxSprite(500, 50);
+				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
+				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
+				pauseMenuChar.scale.x = 0.6;
+				pauseMenuChar.scale.y = 0.6;
+				pauseMenuChar.updateHitbox();
+				add(pauseMenuChar);
+
+			case 'everlasting':
+				pauseMenuChar = new FlxSprite(550, 0);
+				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
+				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
+				pauseMenuChar.scale.x = 0.8;
+				pauseMenuChar.scale.y = 0.8;
+				pauseMenuChar.updateHitbox();
+				add(pauseMenuChar);
+
+			case 'brain-damage':
+				pauseMenuChar = new FlxSprite(600, 0);
+				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
+				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
+				pauseMenuChar.scale.x = 0.8;
+				pauseMenuChar.scale.y = 0.8;
+				pauseMenuChar.updateHitbox();
+				add(pauseMenuChar);
+
+			case 'party-room':
+				pauseMenuChar = new FlxSprite(600, 20);
+				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
+				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
+				pauseMenuChar.scale.x = 0.7;
+				pauseMenuChar.scale.y = 0.7;
+				pauseMenuChar.updateHitbox();
+				add(pauseMenuChar);
+
+			case 'totally-real':
+				pauseMenuChar = new FlxSprite(575, 0);
+				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
+				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
+				pauseMenuChar.scale.x = 0.8;
+				pauseMenuChar.scale.y = 0.8;
+				pauseMenuChar.updateHitbox();
+				add(pauseMenuChar);
+
+			case 'last-hour':
+				pauseMenuChar = new FlxSprite(540, 95);
+				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
+				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
+				pauseMenuChar.scale.x = 0.5;
+				pauseMenuChar.scale.y = 0.5;
+				pauseMenuChar.updateHitbox();
+				add(pauseMenuChar);
+
+			case 'waffles':
+				pauseMenuChar = new FlxSprite(550, 150);
+				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
+				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
+				pauseMenuChar.scale.x = 0.5;
+				pauseMenuChar.scale.y = 0.5;
+				pauseMenuChar.updateHitbox();
+				add(pauseMenuChar);
+
+			case 'leantrap':
+				pauseMenuChar = new FlxSprite(600, 75);
+				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
+				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
+				pauseMenuChar.scale.x = 0.6;
+				pauseMenuChar.scale.y = 0.6;
+				pauseMenuChar.updateHitbox();
+				add(pauseMenuChar);
+
+			case 'endo-revengo':
+				pauseMenuChar = new FlxSprite(570, 150);
+				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
+				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
+				pauseMenuChar.scale.x = 0.5;
+				pauseMenuChar.scale.y = 0.5;
+				pauseMenuChar.updateHitbox();
+				add(pauseMenuChar);
+
+			case 'misconception':
+				pauseMenuChar = new FlxSprite(560, 0);
+				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
+				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
+				pauseMenuChar.scale.x = 0.75;
+				pauseMenuChar.scale.y = 0.75;
+				pauseMenuChar.updateHitbox();
+				add(pauseMenuChar);
+
+			case 'out-of-bounds':
+				pauseMenuChar = new FlxSprite(500, 0);
+				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
+				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
+				pauseMenuChar.scale.x = 0.4;
+				pauseMenuChar.scale.y = 0.4;
+				pauseMenuChar.updateHitbox();
+				add(pauseMenuChar);
+
+			case 'until-next-time':
+				pauseMenuChar = new FlxSprite(560, 0);
+				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
+				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
+				pauseMenuChar.scale.x = 0.7;
+				pauseMenuChar.scale.y = 0.7;
+				pauseMenuChar.updateHitbox();
+				add(pauseMenuChar);
+		}
 
 		var levelInfo:FlxText = new FlxText(20, 15, 0, "", 32);
 		levelInfo.text += PlayState.SONG.song;
@@ -324,7 +459,7 @@ class PauseSubState extends MusicBeatSubstate
 			bullShit++;
 
 			item.alpha = 0.6;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
+			//item.setGraphicSize(Std.int(item.width * 0.5));
 
 			if (item.targetY == 0)
 			{
