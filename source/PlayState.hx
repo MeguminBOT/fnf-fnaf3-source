@@ -4278,9 +4278,10 @@ class PlayState extends MusicBeatState
 	}
 	
 	function handleTablet() {
-		if (!isTabletActive)
+		if (!isTabletActive) {
 			return;
 		}
+
 		var daSong:String = Song.getChartFileName(SONG.song);
 		var mousePosTablet:FlxPoint = FlxG.mouse.getScreenPosition(camOther);
 	
