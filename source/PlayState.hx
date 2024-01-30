@@ -297,6 +297,7 @@ class PlayState extends MusicBeatState
 	public var laneUnderlayOpponent:FlxSprite;
 	public var camJump:FlxCamera;
 	public var camVideo:FlxCamera;
+	public var camEasy:FlxCamera;
 	var creditsTablet:FlxSprite;
 
 	// Mechanics Stuff
@@ -393,6 +394,7 @@ class PlayState extends MusicBeatState
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
+		camEasy = new FlxCamera();
 		camVideo = new FlxCamera();
 		camHUD = new FlxCamera();
 		camOther = new FlxCamera();
@@ -401,6 +403,7 @@ class PlayState extends MusicBeatState
 		camVideo.bgColor.alpha = 0;
 		camOther.bgColor.alpha = 0;
 		camJump.bgColor.alpha = 0;
+		camEasy.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camVideo, false);

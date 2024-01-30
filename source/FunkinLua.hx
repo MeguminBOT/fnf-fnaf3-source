@@ -3300,6 +3300,7 @@ class FunkinLua {
 			case 'camother' | 'other': return PlayState.instance.camOther;
 			case 'camjump' | 'jump': return PlayState.instance.camJump;
 			case 'camvideo' | 'video': return PlayState.instance.camVideo;
+			case 'cameasy' | 'easy': return PlayState.instance.camEasy;
 		}
 		return PlayState.instance.camGame;
 	}
