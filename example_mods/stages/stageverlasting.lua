@@ -1,148 +1,314 @@
+-- Using Lulu's optimizations to avoid game lagging.
+
 function onCreate()
-	makeLuaSprite('office', 'BGs/Freddy', -1771, -468)
-	setObjectOrder('office', 5)
-	scaleObject('office', 0.9, 0.9)
-	addLuaSprite('office', true)
+	-- Custom functions for stage.
+	createStage() -- Create stages.
+	createStageAnimated() -- Create animated stages.
+	createMiscSprites() -- Create misc sprites.
+	createJumpscares() -- Create jumpscares.
+	createVideoSprites() -- Create video sprites.
+
+	-- Toggle visibility of characters.
+	setProperty('dad.visible', false)
+	setProperty('boyfriend.visible', false)
+end
+
+function createStage()
+	local stages = {
+		{ name = 'bg', image = 'BGs/freddy2', posX = -1687, posY = -480, scrollX = 0.8, scrollY = 0.8, scaleX = 0.9, scaleY = 0.9, add = false },
+		{ name = 'office', image = 'BGs/freddy', posX = -1771, posY = -468, scrollX = 1, scrollY = 1, scaleX = 0.9, scaleY = 0.9, add = true },
+		{ name = 'door', image = 'BGs/springtrap2', posX = -795, posY = -448, scrollX = 0.9, scrollY = 0.9, scaleX = 0.7, scaleY = 0.7, add = true },
+		{ name = 'hallway', image = 'BGs/springtrap1', posX = -794, posY = -440, scrollX = 0.9, scrollY = 0.9, scaleX = 0.7, scaleY = 0.7, add = true },
+	}
 	
-	makeLuaSprite('bg', 'BGs/Freddy2', -1687, -480)
-	setObjectOrder('bg', 0)
-	scaleObject('bg', 0.9, 0.9)
-	setScrollFactor('bg', 0.8, 0.8)
-	addLuaSprite('bg', true)
-	
-	makeAnimatedLuaSprite('fan', 'BGs/Fan', -1771, -468)
-	setObjectOrder('fan', 7)
-	scaleObject('fan', 0.9, 0.9)
-	addAnimationByPrefix('fan', 'anim', 'idle0', 24, true)
-	playAnim('fan', 'anim', true)
-	addLuaSprite('fan', true)
-	
-	makeAnimatedLuaSprite('cam05', 'cam05', 443, 480)
-	setObjectOrder('cam05', 15)
-	scaleObject('cam05', 0.253, 0.2)
-	addAnimationByPrefix('cam05', 'anim', 'idle0', 24, true)
-	playAnim('cam05', 'anim', true)
-	addLuaSprite('cam05', true)
+	for _, stage in ipairs(stages) do
+		precacheImage(stage.image)
+		makeLuaSprite(stage.name, stage.image, stage.posX, stage.posY)
+		setScrollFactor(stage.name, stage.scrollX, stage.scrollY)
+		scaleObject(stage.name, stage.scaleX, stage.scaleY)
+		addLuaSprite(stage.name, stage.add)
+		setProperty(stage.name .. '.visible', false)
+	end
+end
 
-	makeAnimatedLuaSprite('cam02', 'cam02', 443, 480)
-	setObjectOrder('cam02', 15)
-	scaleObject('cam02', 0.253, 0.2)
-	addAnimationByPrefix('cam02', 'anim', 'idle0', 24, true)
-	playAnim('cam02', 'anim', true)
-	addLuaSprite('cam02', true)
-	
-	makeAnimatedLuaSprite('camstatic', 'camstatic', 443, 480)
-	setObjectOrder('camstatic', 16)
-	scaleObject('camstatic', 0.253, 0.2)
-	addAnimationByPrefix('camstatic', 'anim', 'idle0', 24, true)
-	playAnim('camstatic', 'anim', true)
-	addLuaSprite('camstatic', true)
+function createStageAnimated()
+	local stagesAnimated = {
+		{ name = 'fan', image = 'BGs/fan', animation = 'anim', xmlPrefix = 'idle', fps = 24, loop = true, posX = -1771, posY = -468, scrollX = 1, scrollY = 1, scaleX = 0.9, scaleY = 0.9, add = true },
+		{ name = 'cam05', image = 'BGs/cam05', animation = 'anim', xmlPrefix = 'idle', fps = 24, loop = true, posX = 443, posY = 480, scrollX = 1, scrollY = 1, scaleX = 0.253, scaleY = 0.2, add = true },
+		{ name = 'cam02', image = 'BGs/cam02', animation = 'anim', xmlPrefix = 'idle', fps = 24, loop = true, posX = 443, posY = 480, scrollX = 1, scrollY = 1, scaleX = 0.253, scaleY = 0.2, add = true },
+		{ name = 'camstatic', image = 'BGs/camstatic', animation = 'anim', xmlPrefix = 'idle', fps = 24, loop = true, posX = 443, posY = 480, scrollX = 1, scrollY = 1, scaleX = 0.253, scaleY = 0.2, add = true },
+		{ name = 'longasshallway', image = 'BGs/foxychase', animation = 'anim', xmlPrefix = 'idle', fps = 24, loop = true, posX = -327, posY = -365, scrollX = 0.9, scrollY = 0.9, scaleX = 1.3, scaleY = 1.3, add = true },
+		{ name = 'bfeet', image = 'Chars/bfeet', animation = 'anim', xmlPrefix = 'idle', fps = 24, loop = true, posX = 1265, posY = 553, scrollX = 0.9, scrollY = 0.9, scaleX = 0.7, scaleY = 0.7, add = true },
+		{ name = 'aftonfeet', image = 'Chars/springtrapfeet', animation = 'anim', xmlPrefix = 'idle', fps = 40, loop = true, posX = -19, posY = 221, scrollX = 0.9, scrollY = 0.9, scaleX = 1, scaleY = 1, add = true },
+		{ name = 'prefire', image = 'BGs/prefirestage', animation = 'anim', xmlPrefix = 'idle', fps = 24, loop = true, posX = -2592, posY = -1066, scrollX = 0.9, scrollY = 0.9, scaleX = 1.5, scaleY = 1.5, add = true },
+		{ name = 'bflighter', image = 'Chars/bflighter', animation = 'anim', xmlPrefix = 'idle', fps = 24, loop = false, posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, add = true },
+	}
 
-	setProperty('camstatic.alpha', 0);
-	setProperty('cam02.alpha', 0);
-	setProperty('cam05.alpha', 0);
+	for _, stage in ipairs(stagesAnimated) do
+		precacheImage(stage.image)
+		makeAnimatedLuaSprite(stage.name, stage.image, stage.posX, stage.posY)
+		setScrollFactor(stage.name, stage.scrollX, stage.scrollY)
+		addAnimationByPrefix(stage.name, stage.animation, stage.xmlPrefix, stage.fps, stage.loop)
+		scaleObject(stage.name, stage.scaleX, stage.scaleY)
+		addLuaSprite(stage.name, stage.add)
+		setProperty(stage.name .. '.visible', false)
 
-	makeLuaSprite('white','white', -5000, -5000);
-	setLuaSpriteScrollFactor('white', 0, 0);
-	scaleObject('white', 20, 20);
-	addLuaSprite('white', true);
-	makeLuaSprite('black','black', -5000, -5000);
-	setLuaSpriteScrollFactor('black', 0, 0);
-	scaleObject('black', 20, 20);
-	addLuaSprite('black', true);
-	makeLuaSprite('whiteui','whiteui', 0, 0);
-	setObjectCamera('whiteui', 'hud')
-	addLuaSprite('whiteui', true);
-	setProperty('whiteui.alpha', 0);
-	setProperty('white.alpha', 0);
-	setObjectOrder('whiteui', 98)
-	setObjectOrder('white', 99)
-	setObjectOrder('black', 100)
+		if (stage.name == 'bflighter') then
+			if immersionLevel == 'Partial' then
+				setObjectCamera(stage.name, 'camEasy')
+			else
+				setObjectCamera(stage.name, 'camHUD')
+			end
+		end
+	end
+end
 
+function createMiscSprites()
+    local miscSprites = {
+		{ name = 'whiteui', image = 'whiteui', camera = 'camHUD', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
+		{ name = 'white', image = 'white', camera = 'camGame', posX = -3200, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 0 },
+		{ name = 'black', image = 'black', camera = 'camGame', posX = -3000, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 1 },
+    }
 
+    for _, miscSprite in ipairs(miscSprites) do
+        precacheImage(miscSprite.image)
+        makeLuaSprite(miscSprite.name, miscSprite.image, miscSprite.posX, miscSprite.posY)
+		setScrollFactor(miscSprite.name, miscSprite.scrollX, miscSprite.scrollY)
+		scaleObject(miscSprite.name, miscSprite.scaleX, miscSprite.scaleX)
+        setObjectCamera(miscSprite.name, miscSprite.camera)
+        addLuaSprite(miscSprite.name, true)
+        setProperty(miscSprite.name .. '.alpha', miscSprite.alpha)
+    end
+end
+
+function createJumpscares()
+	local jumpscares = {
+		{ name = 'rarescreen1', image = 'jumpscares/rarescreen1', animation = 'rarescreen1', xmlPrefix = 'idle0', fps = 24, loop = true, posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, add = true },
+		{ name = 'rarescreen2', image = 'jumpscares/rarescreen2', animation = 'rarescreen2', xmlPrefix = 'idle0', fps = 24, loop = true, posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, add = true },
+		{ name = 'rarescreen3', image = 'jumpscares/rarescreen3', animation = 'rarescreen3', xmlPrefix = 'idle0', fps = 24, loop = true, posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, add = true },
+	}
+
+	for _, jumpscare in ipairs(jumpscares) do
+		precacheImage(jumpscare.image)
+		makeAnimatedLuaSprite(jumpscare.name, jumpscare.image, jumpscare.posX, jumpscare.posY)
+		setScrollFactor(jumpscare.name, jumpscare.scrollX, jumpscare.scrollY)
+		addAnimationByPrefix(jumpscare.name, jumpscare.animation, jumpscare.xmlPrefix, jumpscare.fps, jumpscare.loop)
+		scaleObject(jumpscare.name, jumpscare.scaleX, jumpscare.scaleY)
+		if immersionLevel == 'Partial' then
+			setObjectCamera(jumpscare.name, 'camEasy')
+		else
+			setObjectCamera(jumpscare.name, 'camJump')
+		end
+		addLuaSprite(jumpscare.name, jumpscare.add)
+		setProperty(jumpscare.name .. '.visible', false)
+	end
+end
+
+function createVideoSprites()
+	local videoSprites = {
+		{ name = 'everlasting', video = 'everlasting', camera = 'camVideo',  posX = -320, posY = -180, scrollX = 1, scrollY = 1, scaleX = 0.667, scaleY = 0.667},
+		{ name = 'leftbehind', video = 'leftbehind', camera = 'camGame', posX = -300, posY = -200, scrollX = 0, scrollY = 0, scaleX = 0.667, scaleY = 0.667},
+		{ name = 'firebg', video = 'firebg', camera = 'camGame', posX = -700, posY = 100, scrollX = 0.9, scrollY = 0.9, scaleX = 2.2, scaleY = 2.2},
+	}
+
+	for _, videoSprite in ipairs(videoSprites) do
+		makeVideoSprite(videoSprite.name, videoSprite.video, videoSprite.posX, videoSprite.posY)
+		scaleObject(videoSprite.name, videoSprite.scaleX, videoSprite.scaleY)
+		setObjectCamera(videoSprite.name, videoSprite.camera)
+		setScrollFactor(videoSprite.name, videoSprite.scrollX, videoSprite.scrollY);
+	end
 end
 
 function onStepHit()
-	if curStep == 832 then
+	if curStep == 224 then
+		-- Toggle visibility of stage sprites.
+		setProperty('office.visible', true)
+		setProperty('bg.visible', true)
+		setProperty('fan.visible', true)
+
+		-- Toggle visibility of characters.
+		setProperty('dad.visible', true)
+		setProperty('boyfriend.visible', true)
+
+	elseif curStep == 824 then
+		-- Toggle visibility of stage sprites.
+		setProperty('camstatic.alpha', 0)
+		setProperty('camstatic.visible', true)
+
+	elseif curStep == 832 then
+        -- Scale Springtrap's size.
+		scaleObject('dad', 0.285, 0.23)
+
+        -- Modify object order.
 		setObjectOrder('bg', 0)
 		setObjectOrder('office', 1)
-		setObjectOrder('fan', 2)
-		scaleObject('dad', 0.285, 0.23)
+		setObjectOrder('dadGroup', 2)
+		setObjectOrder('cam05', 3)
+		setObjectOrder('cam02', 4)
+		setObjectOrder('camstatic', 5)
+		setObjectOrder('fan', 6)
+
+        -- Re-position characters.
 		setProperty('boyfriend.x', 630)
 		setProperty('boyfriend.y', 600)
-	end
-	if curStep == 1088 then
+
+		-- Toggle visibility of stage sprites.
+		setProperty('cam05.visible', true)
+
+		-- Force play animations so they start from the beginning.
+		playAnim('cam05', 'anim', true)
+
+	elseif curStep == 1088 then
+		-- Scale Springtrap's size
 		scaleObject('dad', 0.285, 0.23)
-		setProperty('cam02.alpha', 1);
-	end
-	if curStep == 1376 then
-		removeLuaSprite('camstatic', true);
-		removeLuaSprite('cam05', true);
-		removeLuaSprite('cam02', true);
-		removeLuaSprite('fan', true);
-		removeLuaSprite('office', true);
-		removeLuaSprite('bg', true);
 
-		makeLuaSprite('door', 'BGs/springtrap2', -795, -448)
-		setObjectOrder('door', 5)
-		scaleObject('door', 0.7, 0.7)
-		addLuaSprite('door', true)
-		
-		makeLuaSprite('hallway', 'BGs/springtrap1', -794, -440)
+		-- Remove previous stage sprites.
+		removeLuaSprite('cam05', true)
+
+		-- Toggle visibility of stage sprites.
+		setProperty('cam02.visible', true)
+
+		-- Force play animations so they start from the beginning.
+		playAnim('cam02', 'anim', true)
+
+	elseif curStep == 1376 then
+        -- Remove previous stage sprites.
+		removeLuaSprite('camstatic', true)
+		removeLuaSprite('cam02', true)
+		removeLuaSprite('fan', true)
+		removeLuaSprite('office', true)
+		removeLuaSprite('bg', true)
+
+        -- Toggle visibility of stage sprites.
+		setProperty('door.visible', true)
+		setProperty('hallway.visible', true)
+
+        -- Modify object order.
 		setObjectOrder('hallway', 0)
-		scaleObject('hallway', 0.7, 0.7)
-		setScrollFactor('hallway', 0.9, 0.9)
-		addLuaSprite('hallway', true)
+		setObjectOrder('dadGroup', 1)
+		setObjectOrder('springtrap2', 2)
 
+        -- Re-position characters.
 		setProperty('boyfriend.x', 630)
 		setProperty('boyfriend.y', 400)
-	end
-	if curStep == 1680 then
-		removeLuaSprite('door', true);
-		removeLuaSprite('hallway', true);
-	end
-	if curStep == 2736 then
 
-		makeAnimatedLuaSprite('longasshallway', 'BGs/foxychase', -327, -365)
+	elseif curStep == 1674 then
+        -- Toggle visibility of HUD elements
+		setProperty('healthBar.visible', false)
+		setProperty('healthBarBG.visible', false)
+		setProperty('healthBarOverlay.visible', false)
+		setProperty('iconP1.visible', false)
+		setProperty('iconP2.visible', false)
+		setProperty('scoreTxt.visible', false)
+		setProperty('timeTxt.visible', false)
+		setProperty('timeBar.visible', false)
+		setProperty('timeBarBG.visible', false)
+
+	elseif curStep == 1679 then
+        -- Remove previous stage sprites.
+		removeLuaSprite('door', true)
+		removeLuaSprite('hallway', true)
+
+		-- Toggle visibility of cinematic bars.
+		setProperty('LowerBar(With HUD).visible', false)
+		setProperty('UpperBar(With HUD).visible', false)
+
+		-- Start video sprite playback.
+		addVideoSprite('everlasting', true)
+
+	elseif curStep == 2736 then
+        -- Toggle visibility of HUD elements
+		setProperty('healthBar.visible', true)
+		setProperty('healthBarBG.visible', true)
+		setProperty('healthBarOverlay.visible', true)
+		setProperty('iconP1.visible', true)
+		setProperty('iconP2.visible', true)
+		setProperty('scoreTxt.visible', true)
+		setProperty('timeTxt.visible', true)
+		setProperty('timeBar.visible', true)
+		setProperty('timeBarBG.visible', true)
+
+	elseif curStep == 2752 then
+		-- Remove previous video sprite.
+		setProperty('everlasting.visible', false)
+
+		-- Toggle visibility of cinematic bars.
+		setProperty('LowerBar(With HUD).visible', true)
+		setProperty('UpperBar(With HUD).visible', true)
+
+        -- Toggle visibility of stage sprites.
+		setProperty('longasshallway.visible', true)
+        setProperty('bfeet.visible', true)
+        setProperty('aftonfeet.visible', true)
+
+		-- Modify object order.
 		setObjectOrder('longasshallway', 0)
-		scaleObject('longasshallway', 1.3, 1.3)
-		addAnimationByPrefix('longasshallway', 'anim', 'idle0', 24, true)
-		playAnim('longasshallway', 'anim', true)
-		addLuaSprite('longasshallway', true)
-		
-		makeAnimatedLuaSprite('bfeet', 'Chars/bfeet', 1265, 553)
-		setObjectOrder('bfeet', 1)
-		scaleObject('bfeet', 0.7, 0.7)
-		addAnimationByPrefix('bfeet', 'anim', 'idle0', 24, true)
-		playAnim('bfeet', 'anim', true)
-		addLuaSprite('bfeet', true)
-		
-		makeAnimatedLuaSprite('aftonfeet', 'Chars/springtrapfeet', -19, 221)
-		setObjectOrder('aftonfeet', 1)
-		addAnimationByPrefix('aftonfeet', 'anim', 'idle0', 40, true)
-		playAnim('aftonfeet', 'anim', true)
-		addLuaSprite('aftonfeet', true)
+        setObjectOrder('bfeet', 1)
+        setObjectOrder('aftonfeet', 2)
+		setObjectOrder('dadGroup', 3)
+		setObjectOrder('boyfriendGroup', 4)
 
+        -- Force play animations so they start from the beginning.
+        playAnim('longasshallway', 'anim', true)
+        playAnim('bfeet', 'anim', true)
+        playAnim('aftonfeet', 'anim', true)
+
+        -- Re-position characters.
 		setProperty('boyfriend.x', 1429)
-		setProperty('boyfriend.y', 330)
+		setProperty('boyfriend.y', 270)
 		setProperty('dad.x', 301)
-		setProperty('dad.y', -75)
-	end
-	if curStep == 3280 then
-		removeLuaSprite('aftonfeet', true);
-		removeLuaSprite('bfeet', true);
-		removeLuaSprite('longasshallway', true);
+		setProperty('dad.y', -100)
+
+	elseif curStep == 3280 then
+        -- Remove previous stage sprites.
+		removeLuaSprite('aftonfeet', true)
+		removeLuaSprite('bfeet', true)
+		removeLuaSprite('longasshallway', true)
+
+        -- Re-position characters.
 		setProperty('boyfriend.x', 700)
-	end
-	if curStep == 3792 then
-		makeAnimatedLuaSprite('prefire', 'BGs/prefirestage', -2592, -1066)
-		setObjectOrder('prefire', 1)
-		scaleObject('prefire', 1.5, 1.5)
-		addAnimationByPrefix('prefire', 'anim', 'idle0', 24, true)
+
+        -- Start video sprite playback.
+		addVideoSprite('leftbehind', true)
+
+		-- Modify object order.
+		setObjectOrder('leftbehind', 0)
+		setObjectOrder('dadGroup', 1)
+		setObjectOrder('boyfriendGroup', 2)
+
+	elseif curStep == 3792 then
+        -- Remove previous video sprite.
+		setProperty('leftbehind.visible', false)
+
+        -- Toggle visibility of stage sprites.
+		setProperty('prefire.visible', true)
+
+		-- Modify object order.
+		setObjectOrder('prefire', 0)
+		setObjectOrder('dadGroup', 1)
+		setObjectOrder('boyfriendGroup', 2)
+
+        -- Force play animations so they start from the beginning.
 		playAnim('prefire', 'anim', true)
-		addLuaSprite('prefire', true)
-	end
-	if curStep == 4304 then
-		removeLuaSprite('prefire', true);
+
+	elseif curStep == 3904 then
+		-- Modify object order.
+		setObjectOrder('rarescreen1', 50)
+		setObjectOrder('rarescreen2', 51)
+		setObjectOrder('rarescreen3', 52)
+
+	elseif curStep == 4320 then
+		-- Remove previous stage sprites.
+		removeLuaSprite('bflighter', true)
+		removeLuaSprite('prefire', true)
+
+        -- Start video sprite playback.
+		addVideoSprite('firebg', true)
+
+		-- Modify object order.
+		setObjectOrder('prefire', 0)
+		setObjectOrder('firebg', 1)
+		setObjectOrder('dadGroup', 2)
+		setObjectOrder('boyfriendGroup', 3)
 	end
 end

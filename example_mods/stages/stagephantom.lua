@@ -4,9 +4,20 @@ function onCreate()
 	createStageAnimated() -- Create animated stages.
 	createJumpscares() -- Create jumpscares.
 	createMiscSprites() -- Create misc sprites.
-	createSubtitles() -- Create subtitles.
 
 	doTweenY('dadTweenY', 'dad', 1000, 1, 'cubeIn')
+
+	makeAnimatedLuaSprite('fan', 'BGs/Fan', -2050, -170)
+	setObjectOrder('dadGroup', 2);
+	setObjectOrder('fan', 8)
+	scaleObject('fan', 0.75, 0.75)
+	addAnimationByPrefix('fan', 'anim', 'idle0', 24, true)
+	playAnim('fan', 'anim', true)
+	addLuaSprite('fan', true)
+end
+
+function onCreatePost()
+	createSubtitles() -- Create subtitles. (Had to put them on createPost for some reason)
 end
 
 function createStage()
@@ -41,7 +52,7 @@ function createStageProps()
 		return
 	end
 
-	local stagesExtras = {
+	local props = {
 		{ name = 'arcade', image = 'Props/arcade', posX = 800, posY = 0, scrollX = 1.3, scrollY = 1.2, scaleX = 2.5, scaleY = 2.5, add = true },
 		{ name = 'wire', image = 'Props/wire', posX = -1700, posY = 0, scrollX = 1.3, scrollY = 1.2, scaleX = 2.5, scaleY = 2.5, add = true },
 		{ name = 'greenglow', image = 'BGs/greenglow', posX = -2000, posY = -3000, scrollX = 1.3, scrollY = 1.2, scaleX = 2.5, scaleY = 2.5, add = true },
@@ -54,13 +65,13 @@ function createStageProps()
 		{ name = 'table', image = 'Props/table', posX = -1500, posY = 500, scrollX = 1.3, scrollY = 1.3, scaleX = 1.5, scaleY = 1.5, add = true },
 	}
 
-	for _, stage in ipairs(stagesExtras) do
-		precacheImage(stage.image)
-		makeLuaSprite(stage.name, stage.image, stage.posX, stage.posY)
-		setScrollFactor(stage.name, stage.scrollX, stage.scrollY)
-		scaleObject(stage.name, stage.scaleX, stage.scaleY)
-		addLuaSprite(stage.name, stage.add)
-		setProperty(stage.name .. '.visible', false)
+	for _, prop in ipairs(props) do
+		precacheImage(prop.image)
+		makeLuaSprite(prop.name, prop.image, prop.posX, prop.posY)
+		setScrollFactor(prop.name, prop.scrollX, prop.scrollY)
+		scaleObject(prop.name, prop.scaleX, prop.scaleY)
+		addLuaSprite(prop.name, prop.add)
+		setProperty(prop.name .. '.visible', false)
 	end
 end
 
@@ -101,7 +112,6 @@ function createJumpscares()
 	
 	for _, jumpscare in ipairs(jumpscares) do
 		precacheImage(jumpscare.image)
-
 		if jumpscare.name == 'phfreddyjump' or jumpscare.name == 'foxyjump' or jumpscare.name == 'chicajump' or jumpscare.name == 'manglejump' then
 			makeAnimatedLuaSprite(jumpscare.name, jumpscare.image, jumpscare.posX, jumpscare.posY)
 			addAnimationByPrefix(jumpscare.name, 'anim', 'idle', 24, true)
@@ -109,7 +119,12 @@ function createJumpscares()
 			makeLuaSprite(jumpscare.name, jumpscare.image, jumpscare.posX, jumpscare.posY)
 		end
 
-		setObjectCamera(jumpscare.name, 'camJump')
+		if immersionLevel == 'Partial' then
+			setObjectCamera(jumpscare.name, 'camEasy')
+		else
+			setObjectCamera(jumpscare.name, 'camJump')
+		end
+
 		addLuaSprite(jumpscare.name, jumpscare.add)
 		setProperty(jumpscare.name .. '.visible', false)
 	end
@@ -137,17 +152,17 @@ function createMiscSprites()
 end
 
 function createSubtitles()
-	makeLuaSprite('textBG', 'black', 0, 540)
-	setObjectCamera('textBG', 'camOther')
-	scaleObject('textBG', 1, 0.1)
-	addLuaSprite('textBG', true)
-	setProperty('textBG.alpha', 0)
+	makeLuaSprite('TextBG', 'black', 0, 540)
+	setObjectCamera('TextBG', 'camOther')
+	scaleObject('TextBG', 1, 0.1)
+	addLuaSprite('TextBG', true)
+	setProperty('TextBG.alpha', 0)
 
-	makeLuaText('text', '', 1000, 135, 545)
-	setObjectCamera('text', 'camOther')
-	addLuaText('text')
-	setTextSize('text', 45)
-	setTextFont('text', 'stalker2.ttf')
+	makeLuaText('Text', '', 1000, 135, 545)
+	addLuaText('Text')
+	setTextSize('Text', 45)
+	setTextFont('Text', 'stalker2.ttf')
+	setObjectCamera('Text', 'camOther')
 end
 
 function onEvent(name, value1, value2)
@@ -161,6 +176,7 @@ function onEvent(name, value1, value2)
 		removeLuaSprite('freddy', true)
 		removeLuaSprite('freddy2', true)
 		removeLuaSprite('phfreddyjump', true) 
+		removeLuaSprite('fan', true)
 
 		-- Modify object order.
 		setObjectOrder('freddy3', 0)
@@ -231,10 +247,10 @@ function onEvent(name, value1, value2)
 		setObjectOrder('foxyjumping', 5)
 
 		-- Re-position characters.
-		setProperty('dad.x', 495)
-		setProperty('dad.y', 155)
-		setProperty('boyfriend.x', 1600)
-		setProperty('boyfriend.y', 600)
+		setProperty('dad.x', 520)
+		setProperty('dad.y', 175)
+		setProperty('boyfriend.x', 1700)
+		setProperty('boyfriend.y', 630)
 
 		-- Miscellaneous.
 		setProperty('foxyjumping.alpha', 0)
@@ -303,6 +319,7 @@ function onEvent(name, value1, value2)
 		-- Modfy object order.
         setObjectOrder('bb', 1)
 		setObjectOrder('greenstatic', 2)
+		setObjectOrder('dadGroup', 3);
 
 		-- Toggle visibility of the next stage sprites.
 		setProperty('bb.visible', true)

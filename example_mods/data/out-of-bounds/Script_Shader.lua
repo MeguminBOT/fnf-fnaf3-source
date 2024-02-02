@@ -14,7 +14,7 @@ function onCreate()
         game.initLuaShader(shaderName);
         
         var shader0 = game.createRuntimeShader(shaderName);
-        game.camGame.setFilters([new ShaderFilter(shader0)]);
+        game.camHUD.setFilters([new ShaderFilter(shader0)]);
         game.getLuaObject("shader").shader = shader0; // setting it into temporary sprite so luas can set its shader uniforms/properties
         game.camGame.setFilters([new ShaderFilter(game.getLuaObject("shader").shader)]);
         return;

@@ -1,0 +1,8 @@
+Sets subtitles. 
+(Requires subtitle lua objects to be present in script.lua or stage.lua)
+
+Value 1 = Text
+Value 2 = Color (Hex Code)
+
+Leave value 1 empty to remove subtitles and the subtitle background.
+Leaving value 2 empty will force subtitles to be White.

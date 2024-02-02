@@ -2,38 +2,7 @@
 	"song": {
 		"player1": "cassidy8bit",
 		"player2": "afton8bit",
-		"events": [
-			[
-				69600,
-				[
-					[
-						"Change Scroll Speed",
-						"1.1",
-						"19"
-					]
-				]
-			],
-			[
-				125850,
-				[
-					[
-						"Change Scroll Speed",
-						"1",
-						"2"
-					]
-				]
-			],
-			[
-				165600,
-				[
-					[
-						"Change Scroll Speed",
-						"1.2",
-						"21"
-					]
-				]
-			]
-		],
+		"events": [],
 		"notes": [
 			{
 				"typeOfSection": 0,
@@ -9504,7 +9473,7 @@
 		"stage": "stageretribution",
 		"arrowSkin": "",
 		"needsVoices": true,
-		"speed": 2,
+		"speed": 2.9,
 		"bpm": 200
 	}
 }

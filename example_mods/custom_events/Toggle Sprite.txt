@@ -1,0 +1,6 @@
+Toggles visibility of a sprite.
+
+Value 1: Lua Sprite Tag
+Value 2: "Hide" or "Show"
+
+Controls the "alpha" and "visible" properties.

@@ -1,6 +1,8 @@
 --[[
 
->>> Camera Flash Event for Psych Engine with configurable camera and flash properties. // AutisticLulu
+>>> Camera Flash Event for Psych Engine with configurable camera and flash properties written by AutisticLulu.
+>>> With additional stuff specifically for Vs FNAF 3. (If you gonna use this on regular Psych Engine, remove the following lines: 35, 36, 37 and 44.
+
 * Supports all parameters for the cameraFlash function.
 * Supports RGB input
 * Only triggers if Flashing Lights are enabled.
@@ -8,8 +10,6 @@
 Value 1:
 	Camera [camGame/camHUD/camOther], forced? [true/false] 
 	(Example: camGame, true)
-	If no camera value is specified, it defaults to camGame
-	If no bool value is specified, it defaults to false
 
 Value 2:
 	Colour [HEX], Duration [Seconds] 
@@ -17,6 +17,8 @@ Value 2:
 
 	Colour [RGB], Duration [Seconds] 
 	(Example: 157, 207, 237, 4)
+
+	If no duration value is specified, it defaults to 1 second.
 
 ]]
 
@@ -30,7 +32,7 @@ local validCameras = {
 -- This function is called when an event occurs.
 function onEvent(name, value1, value2)
 	if name == 'Camera Flash' or name == 'Camera_Flash' and flashingLights then
-		if epilepsy and epilepsyLevel == 'Two' or epilepsyLevel == 'Three' then
+		if epilepsy then
 			return
 		else
 			-- Parse the input fields for value1 and value2.
@@ -68,7 +70,6 @@ function parseFlashValue(value)
 		-- Convert RGB values to hexadecimal format.
 		colour = rgbToHex(tonumber(r), tonumber(g), tonumber(b))
 		return colour, tonumber(duration)
-
 	else
 		return colour, tonumber(duration)
 	end

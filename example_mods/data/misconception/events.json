@@ -12,6 +12,16 @@
 				]
 			],
 			[
+				11294.1176470588,
+				[
+					[
+						"Song Credits",
+						"",
+						""
+					]
+				]
+			],
+			[
 				44470.5882352941,
 				[
 					[
@@ -1878,6 +1888,26 @@
 						"fadeout",
 						"white",
 						"1"
+					],
+					[
+						"Change Character",
+						"dad",
+						"fred"
+					],
+					[
+						"Change Character",
+						"bf",
+						"frank"
+					]
+				]
+			],
+			[
+				183176.470588235,
+				[
+					[
+						"fadein",
+						"black",
+						"0.3"
 					]
 				]
 			],
@@ -1888,6 +1918,11 @@
 						"zoom",
 						"0.8",
 						"0.2"
+					],
+					[
+						"addanimimage",
+						"purpleguy",
+						""
 					]
 				]
 			],
@@ -1898,6 +1933,31 @@
 						"zoom",
 						"0.8",
 						"0.2"
+					],
+					[
+						"Change Character",
+						"dad",
+						"purple freddy"
+					],
+					[
+						"Change Character",
+						"bf",
+						"purple dad"
+					]
+				]
+			],
+			[
+				184941.176470588,
+				[
+					[
+						"remove image",
+						"purpleguy",
+						""
+					],
+					[
+						"fadeout",
+						"black",
+						"0.5"
 					]
 				]
 			],

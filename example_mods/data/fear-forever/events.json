@@ -42,6 +42,16 @@
 				]
 			],
 			[
+				20215.5662076418,
+				[
+					[
+						"Song Credits",
+						"",
+						""
+					]
+				]
+			],
+			[
 				30481.2834224599,
 				[
 					[
@@ -393,6 +403,11 @@
 						"Cinematics (With HUD)",
 						"1",
 						"70"
+					],
+					[
+						"Change Scroll Speed",
+						"1.04166667",
+						"1"
 					]
 				]
 			],
@@ -483,6 +498,11 @@
 						"fearforever2",
 						"",
 						""
+					],
+					[
+						"Change Scroll Speed",
+						"1",
+						"1"
 					]
 				]
 			],
@@ -490,7 +510,7 @@
 				75080.2139037432,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I can't recall the moment...",
 						"ee5252"
 					]
@@ -500,7 +520,7 @@
 				78048.1283422459,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Where anything was as tragic",
 						"ee5252"
 					]
@@ -510,9 +530,29 @@
 				81016.0427807486,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"As the moment I died...",
 						"ee5252"
+					]
+				]
+			],
+			[
+				83198.4273362828,
+				[
+					[
+						"Toggle Subtitles",
+						"",
+						""
+					]
+				]
+			],
+			[
+				83291.5950381462,
+				[
+					[
+						"Toggle Subtitles",
+						"",
+						""
 					]
 				]
 			],
@@ -520,7 +560,7 @@
 				83384.7627400096,
 				[
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -673,6 +713,11 @@
 						"Mangle",
 						"",
 						""
+					],
+					[
+						"Change Scroll Speed",
+						"1.04166667",
+						"1"
 					]
 				]
 			],
@@ -1178,6 +1223,11 @@
 						"fadeout",
 						"black",
 						"0.001"
+					],
+					[
+						"Change Scroll Speed",
+						"1.08333333",
+						"1"
 					]
 				]
 			],
@@ -1795,9 +1845,9 @@
 				149358.256609285,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"black",
-						""
+						"on"
 					],
 					[
 						"zoom",
@@ -1825,9 +1875,19 @@
 				149979.142010077,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"foxyjump",
-						""
+						"off"
+					]
+				]
+			],
+			[
+				150773.259657136,
+				[
+					[
+						"Change Scroll Speed",
+						"1",
+						"1"
 					]
 				]
 			],
@@ -1918,6 +1978,11 @@
 						"bop",
 						"0.05",
 						"0.03"
+					],
+					[
+						"Change Scroll Speed",
+						"1.08333333",
+						"1"
 					]
 				]
 			],
@@ -1935,9 +2000,10 @@
 				205729.675384049,
 				[
 					[
-						"Toggle Anim Sprite",
+						"fadein",
 						"chicajump",
-						"anim"
+						"0.001"
+
 					],
 					[
 						"Tablet",
@@ -1963,6 +2029,7 @@
 						"fadein",
 						"chicajump",
 						"0.001"
+
 					]
 				]
 			],
@@ -1980,9 +2047,10 @@
 				206351.43704208,
 				[
 					[
-						"Toggle Anim Sprite",
+						"fadein",
 						"chicajump",
-						"anim"
+						"0.001"
+
 					]
 				]
 			],
@@ -2003,6 +2071,7 @@
 						"fadein",
 						"chicajump",
 						"0.001"
+
 					]
 				]
 			],
@@ -2020,9 +2089,10 @@
 				208216.722016173,
 				[
 					[
-						"Toggle Anim Sprite",
+						"fadein",
 						"chicajump",
-						"anim"
+						"0.001"
+
 					]
 				]
 			],
@@ -2043,6 +2113,7 @@
 						"fadein",
 						"chicajump",
 						"0.001"
+
 					]
 				]
 			],
@@ -2063,6 +2134,7 @@
 						"fadein",
 						"chicajump",
 						"0.001"
+
 					]
 				]
 			],
@@ -2080,9 +2152,10 @@
 				208993.924088712,
 				[
 					[
-						"Toggle Anim Sprite",
+						"fadein",
 						"chicajump",
-						"anim"
+						"0.001"
+
 					]
 				]
 			],
@@ -2103,6 +2176,7 @@
 						"fadein",
 						"chicajump",
 						"0.001"
+
 					]
 				]
 			],
@@ -2120,14 +2194,15 @@
 				214356.61838923,
 				[
 					[
-						"Toggle Anim Sprite",
+						"fadein",
 						"chicajump",
-						"anim"
+						"0.001"
+
 					],
 					[
-						"addimage",
+						"Toggle Sprite",
 						"black",
-						""
+						"on"
 					]
 				]
 			],
@@ -2145,9 +2220,14 @@
 				214989.894152039,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"chicajump",
-						""
+						"off"
+					],
+					[
+						"Change Scroll Speed",
+						"1",
+						"1"
 					]
 				]
 			],
@@ -2250,7 +2330,7 @@
 				271545.449707595,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I've got to ask myself",
 						"00ccff"
 					],
@@ -2275,7 +2355,7 @@
 				272878.783040928,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"What's going on with that kid ?",
 						"00ccff"
 					]
@@ -2285,7 +2365,7 @@
 				275101.00526315,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"In the old location he was cute",
 						"00ccff"
 					]
@@ -2295,7 +2375,7 @@
 				276878.783040928,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"But now he's menacing",
 						"00ccff"
 					]
@@ -2305,7 +2385,7 @@
 				278656.560818706,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Why did I even try",
 						"00ccff"
 					]
@@ -2315,7 +2395,7 @@
 				280434.338596484,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"To be his only friend",
 						"00ccff"
 					]
@@ -2325,7 +2405,7 @@
 				282212.116374261,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Now every minute",
 						"00ccff"
 					]
@@ -2335,7 +2415,7 @@
 				283323.227485372,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I get very close, to my end",
 						"00ccff"
 					]
@@ -2345,7 +2425,27 @@
 				285545.449707595,
 				[
 					[
-						"removesub",
+						"Toggle Subtitles",
+						"",
+						""
+					]
+				]
+			],
+			[
+				285656.560818706,
+				[
+					[
+						"Toggle Subtitles",
+						"",
+						""
+					]
+				]
+			],
+			[
+				285767.671929817,
+				[
+					[
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -2367,26 +2467,16 @@
 				]
 			],
 			[
-				299763.042300187,
-				[
-					[
-						"Tablet",
-						"",
-						""
-					]
-				]
-			],
-			[
 				299767.671929817,
 				[
 					[
-						"addimage",
-						"Jumpscares/bb",
-						""
+						"Toggle Sprite",
+						"bbjump",
+						"on"
 					],
 					[
 						"fadeout",
-						"Jumpscares/bb",
+						"bbjump",
 						"2"
 					],
 					[
@@ -2395,7 +2485,7 @@
 						"0.01"
 					],
 					[
-						"fadein",
+						"Tablet",
 						"",
 						""
 					]
@@ -2428,6 +2518,11 @@
 						"Opponent Fade",
 						"0",
 						"0"
+					],
+					[
+						"Change Scroll Speed",
+						"1.08333333",
+						"1"
 					]
 				]
 			],
@@ -3648,6 +3743,11 @@
 						"zoom",
 						"0.5",
 						"0.5"
+					],
+					[
+						"Change Scroll Speed",
+						"1.16666667",
+						"1"
 					]
 				]
 			],
@@ -3735,9 +3835,9 @@
 				384212.116374261,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"mangleinvert",
-						""
+						"on"
 					],
 					[
 						"bop",
@@ -3783,6 +3883,56 @@
 						"Change Character",
 						"gf",
 						"bfnone"
+					],
+					[
+						"Change Scroll Speed",
+						"1",
+						"1"
+					]
+				]
+			],
+			[
+				419121.207283351,
+				[
+					[
+						"Change Scroll Speed",
+						"1.04166667",
+						"1"
+					]
+				]
+			],
+			[
+				436575.752737897,
+				[
+					[
+						"Change Scroll Speed",
+						"1.08333333",
+						"1"
+					]
+				]
+			],
+			[
+				454030.298192442,
+				[
+					[
+						"Change Scroll Speed",
+						"1.125",
+						"1"
+					]
+				]
+			],
+			[
+				470393.934556079,
+				[
+					[
+						"Cinematics (With HUD)",
+						"2",
+						"0"
+					],
+					[
+						"zoom",
+						"1.2",
+						"2"
 					]
 				]
 			],
@@ -3803,6 +3953,16 @@
 						"Videoplayer",
 						"phantom",
 						""
+					]
+				]
+			],
+			[
+				486757.570919715,
+				[
+					[
+						"Change Scroll Speed",
+						"1.25",
+						"1"
 					]
 				]
 			],
@@ -4858,6 +5018,16 @@
 						"fadein",
 						"black",
 						"2"
+					]
+				]
+			],
+			[
+				528212.11637426,
+				[
+					[
+						"Hud Fade",
+						"0",
+						"20"
 					]
 				]
 			]

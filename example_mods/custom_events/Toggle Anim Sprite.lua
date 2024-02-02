@@ -1,3 +1,5 @@
+-- Simple event to toggle sprites on and off. //Lulu
+
 local epilepsySafetyOne = {
 	'static',
 	'static2'
@@ -29,17 +31,15 @@ function onEvent(name, value1, value2)
 		elseif epilepsy and epilepsyLevel == 'Three' and table.contains(epilepsySafetyThree, value1) then 
 			return;
         else
-            if value2 == nil then
-                setProperty(value1 .. '.alpha', 1)
-                setProperty(value1 .. '.visible', true)
-                if value1 ~= 'chicajump' then -- Ignores chicajump as it's a loop intended to continuously play.
-                    playAnim(value1, value1, true)
-                end
-            else
-                setProperty(value1 .. '.alpha', 1)
-                setProperty(value1 .. '.visible', true)
-                playAnim(value1, value2, true) 
-            end
+			setProperty(value1 .. '.alpha', 1)
+			setProperty(value1 .. '.visible', true)
+			if value2 == nil or value2 == '' or value2 == ' ' then
+				playAnim(value1, value1, true) 
+			else
+				if value1 ~= 'chicajump' then
+					playAnim(value1, value2, true)
+				end
+			end
         end
     end
 end

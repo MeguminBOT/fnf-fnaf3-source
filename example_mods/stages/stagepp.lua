@@ -1,6 +1,9 @@
 function onCreate()
 	precacheImage('characters/paperbb');
 	precacheImage('characters/paperbonnie');
+	precacheImage('paper');
+	precacheImage('paperpeople');
+	precacheImage('paperpeople2');
 	makeLuaSprite('ppstage', 'BGs/ppstage', -2000, -550);
 	setLuaSpriteScrollFactor('ppstage', 1, 1);
 	scaleObject('ppstage', 1.07, 1.07);

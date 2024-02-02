@@ -28,6 +28,11 @@
 						"Add Camera Zoom",
 						"0.025",
 						"0.015"
+					],
+					[
+						"Camera Flash",
+						"camOther, true",
+						"808080, 0.2"
 					]
 				]
 			],
@@ -38,6 +43,11 @@
 						"Add Camera Zoom",
 						"0.025",
 						"0.015"
+					],
+					[
+						"Camera Flash",
+						"camOther, true",
+						"C8C8C8, 0.2"
 					]
 				]
 			],
@@ -48,6 +58,11 @@
 						"Add Camera Zoom",
 						"0.025",
 						"0.015"
+					],
+					[
+						"Camera Flash",
+						"camOther, true",
+						"808080, 0.06"
 					]
 				]
 			],
@@ -58,6 +73,11 @@
 						"Add Camera Zoom",
 						"0.025",
 						"0.015"
+					],
+					[
+						"Camera Flash",
+						"camOther, true",
+						"C8C8C8, 0.06"
 					]
 				]
 			],
@@ -68,6 +88,11 @@
 						"Add Camera Zoom",
 						"0.025",
 						"0.015"
+					],
+					[
+						"Camera Flash",
+						"camOther, true",
+						"808080, 0.06"
 					]
 				]
 			],
@@ -78,6 +103,11 @@
 						"Add Camera Zoom",
 						"0.025",
 						"0.015"
+					],
+					[
+						"Camera Flash",
+						"camOther, true",
+						"C8C8C8, 0.06"
 					]
 				]
 			],
@@ -2380,9 +2410,9 @@
 				89250,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"whiteui",
-						""
+						"on"
 					]
 				]
 			],
@@ -2450,9 +2480,9 @@
 				90150,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"whiteui",
-						""
+						"on"
 					]
 				]
 			],
@@ -2790,9 +2820,9 @@
 				98850,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -2860,9 +2890,9 @@
 				99750,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -3040,9 +3070,9 @@
 				103650,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -3100,9 +3130,9 @@
 				104550,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -3420,9 +3450,9 @@
 				112650,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -3470,9 +3500,9 @@
 				113100,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -3510,9 +3540,9 @@
 				113400,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -3540,9 +3570,9 @@
 				113550,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -3570,9 +3600,9 @@
 				113850,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -3640,9 +3670,9 @@
 				114300,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -3670,9 +3700,9 @@
 				114600,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -3700,9 +3730,9 @@
 				114750,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -3750,9 +3780,9 @@
 				115050,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -3820,9 +3850,9 @@
 				115500,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -3870,9 +3900,9 @@
 				115800,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -3900,9 +3930,9 @@
 				115950,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -3950,9 +3980,9 @@
 				116250,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4030,9 +4060,9 @@
 				116700,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4080,9 +4110,9 @@
 				117000,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4110,9 +4140,9 @@
 				117150,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4160,9 +4190,9 @@
 				117450,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4360,9 +4390,9 @@
 				122325,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4410,9 +4440,9 @@
 				122700,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4440,9 +4470,9 @@
 				123000,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4470,9 +4500,9 @@
 				123150,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4500,9 +4530,9 @@
 				123450,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4560,9 +4590,9 @@
 				123900,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4590,9 +4620,9 @@
 				124200,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4620,9 +4650,9 @@
 				124350,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4670,9 +4700,9 @@
 				124650,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4740,9 +4770,9 @@
 				125100,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4790,9 +4820,9 @@
 				125400,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4820,9 +4850,9 @@
 				125550,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4870,9 +4900,9 @@
 				125850,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -4940,18 +4970,13 @@
 				126300,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
-					]
-				]
-			],
-			[
-				126304.6875,
-				[
+						"on"
+					],
 					[
 						"Add Camera Zoom",
-						"0.1",
+						"0.01",
 						"0.04"
 					]
 				]
@@ -5010,18 +5035,13 @@
 				126600,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
-					]
-				]
-			],
-			[
-				126603.125,
-				[
+						"on"
+					],
 					[
 						"Add Camera Zoom",
-						"0.1",
+						"0.01",
 						"0.04"
 					]
 				]
@@ -5050,18 +5070,13 @@
 				126750,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
-					]
-				]
-			],
-			[
-				126753.125,
-				[
+						"on"
+					],
 					[
 						"Add Camera Zoom",
-						"0.1",
+						"0.01",
 						"0.04"
 					]
 				]
@@ -5122,7 +5137,7 @@
 					[
 						"fadeout",
 						"black",
-						"1"
+						"0.8"
 					]
 				]
 			],
@@ -5342,12 +5357,12 @@
 				]
 			],
 			[
-				146396.875,
+				146212.5,
 				[
 					[
 						"fadein",
 						"white",
-						"0.001"
+						"0.2"
 					]
 				]
 			],
@@ -5413,6 +5428,21 @@
 						"bop",
 						"0.035",
 						"0.035"
+					],
+					[
+						"fadeout",
+						"black2",
+						"0.3"
+					]
+				]
+			],
+			[
+				167812.5,
+				[
+					[
+						"fadein",
+						"white2",
+						"0.2"
 					]
 				]
 			],
@@ -5428,12 +5458,7 @@
 						"fadeout",
 						"black2",
 						"0.001"
-					]
-				]
-			],
-			[
-				168003.125,
-				[
+					],
 					[
 						"fadeout",
 						"white2",
@@ -5445,9 +5470,9 @@
 				168012.5,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -5495,9 +5520,9 @@
 				168443.75,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -5545,9 +5570,9 @@
 				168893.75,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -5575,9 +5600,9 @@
 				169343.75,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -5655,9 +5680,9 @@
 				170118.75,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"gfed",
-						""
+						"on"
 					]
 				]
 			],
@@ -5675,14 +5700,14 @@
 				170212.5,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"itsme",
-						""
+						"on"
 					],
 					[
-						"remove image",
+						"Toggle Sprite",
 						"gfed",
-						""
+						"off"
 					]
 				]
 			],
@@ -5700,14 +5725,14 @@
 				170287.5,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"gfed",
-						""
+						"on"
 					],
 					[
-						"remove image",
+						"Toggle Sprite",
 						"itsme",
-						""
+						"off"
 					]
 				]
 			],
@@ -5735,9 +5760,9 @@
 				170406.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -5745,9 +5770,9 @@
 				170409.375,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"gfed",
-						""
+						"off"
 					]
 				]
 			],
@@ -5795,9 +5820,9 @@
 				170856.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -5845,9 +5870,9 @@
 				171306.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -5895,9 +5920,9 @@
 				171756.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -5925,9 +5950,9 @@
 				172204.6875,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"fred",
-						""
+						"on"
 					]
 				]
 			],
@@ -5935,9 +5960,9 @@
 				172275,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"fred",
-						""
+						"off"
 					]
 				]
 			],
@@ -5955,9 +5980,9 @@
 				172353.125,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"bon",
-						""
+						"on"
 					]
 				]
 			],
@@ -5965,9 +5990,9 @@
 				172425,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"bon",
-						""
+						"off"
 					]
 				]
 			],
@@ -5985,9 +6010,9 @@
 				172512.5,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"chic",
-						""
+						"on"
 					]
 				]
 			],
@@ -6005,9 +6030,9 @@
 				172600,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"chic",
-						""
+						"off"
 					]
 				]
 			],
@@ -6025,9 +6050,9 @@
 				172662.5,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"fox",
-						""
+						"on"
 					]
 				]
 			],
@@ -6065,9 +6090,9 @@
 				172796.875,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"fox",
-						""
+						"off"
 					]
 				]
 			],
@@ -6085,9 +6110,9 @@
 				172806.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -6135,9 +6160,9 @@
 				173256.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -6185,9 +6210,9 @@
 				173706.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -6235,9 +6260,9 @@
 				174156.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -6265,9 +6290,9 @@
 				174609.375,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"gfed2",
-						""
+						"on"
 					]
 				]
 			],
@@ -6305,14 +6330,14 @@
 				174979.6875,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"gfed2",
-						""
+						"off"
 					],
 					[
-						"addimage",
+						"Toggle Sprite",
 						"itsme",
-						""
+						"on"
 					]
 				]
 			],
@@ -6330,14 +6355,14 @@
 				175054.6875,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"gfed2",
-						""
+						"on"
 					],
 					[
-						"remove image",
+						"Toggle Sprite",
 						"itsme",
-						""
+						"off"
 					]
 				]
 			],
@@ -6355,14 +6380,14 @@
 				175092.1875,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"gfed2",
-						""
+						"off"
 					],
 					[
-						"addimage",
+						"Toggle Sprite",
 						"itsme",
-						""
+						"on"
 					]
 				]
 			],
@@ -6380,9 +6405,9 @@
 				175129.6875,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"itsme",
-						""
+						"off"
 					]
 				]
 			],
@@ -6400,14 +6425,9 @@
 				175167.1875,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"gfed2",
-						""
-					],
-					[
-						"",
-						"",
-						""
+						"on"
 					]
 				]
 			],
@@ -6415,9 +6435,9 @@
 				175196.875,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"gfed2",
-						""
+						"off"
 					]
 				]
 			],
@@ -6435,9 +6455,9 @@
 				175206.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -6485,9 +6505,9 @@
 				175656.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -6535,9 +6555,9 @@
 				176106.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -6585,9 +6605,9 @@
 				176556.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -6625,9 +6645,9 @@
 				177037.5,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"spring",
-						""
+						"on"
 					]
 				]
 			],
@@ -6645,14 +6665,14 @@
 				177309.375,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"cassid",
-						""
+						"on"
 					],
 					[
-						"remove image",
+						"Toggle Sprite",
 						"spring",
-						""
+						"off"
 					]
 				]
 			],
@@ -6670,14 +6690,14 @@
 				177454.6875,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"spring",
-						""
+						"on"
 					],
 					[
-						"remove image",
+						"Toggle Sprite",
 						"cassid",
-						""
+						"off"
 					]
 				]
 			],
@@ -6695,14 +6715,14 @@
 				177492.1875,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"cassid",
-						""
+						"on"
 					],
 					[
-						"remove image",
+						"Toggle Sprite",
 						"spring",
-						""
+						"off"
 					]
 				]
 			],
@@ -6720,14 +6740,14 @@
 				177529.6875,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"spring",
-						""
+						"on"
 					],
 					[
-						"remove image",
+						"Toggle Sprite",
 						"cassid",
-						""
+						"off"
 					]
 				]
 			],
@@ -6745,14 +6765,14 @@
 				177567.1875,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"cassid",
-						""
+						"on"
 					],
 					[
-						"remove image",
+						"Toggle Sprite",
 						"spring",
-						""
+						"off"
 					]
 				]
 			],
@@ -6760,9 +6780,9 @@
 				177595.3125,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"cassid",
-						""
+						"off"
 					]
 				]
 			],
@@ -6780,9 +6800,9 @@
 				177606.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -6830,9 +6850,9 @@
 				178056.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -6880,9 +6900,9 @@
 				178506.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -6910,9 +6930,9 @@
 				178943.75,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -7020,9 +7040,9 @@
 				179718.75,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"gfed",
-						""
+						"on"
 					]
 				]
 			],
@@ -7040,14 +7060,14 @@
 				179812.5,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"itsme",
-						""
+						"on"
 					],
 					[
-						"remove image",
+						"Toggle Sprite",
 						"gfed",
-						""
+						"off"
 					]
 				]
 			],
@@ -7065,14 +7085,14 @@
 				179887.5,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"gfed",
-						""
+						"on"
 					],
 					[
-						"remove image",
+						"Toggle Sprite",
 						"itsme",
-						""
+						"off"
 					]
 				]
 			],
@@ -7090,9 +7110,9 @@
 				179990.625,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"gfed",
-						""
+						"off"
 					]
 				]
 			],
@@ -7110,9 +7130,9 @@
 				180006.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -7160,9 +7180,9 @@
 				180456.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -7210,9 +7230,9 @@
 				180906.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -7260,9 +7280,9 @@
 				181356.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -7350,9 +7370,9 @@
 				181800,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"fred",
-						""
+						"on"
 					]
 				]
 			],
@@ -7360,9 +7380,9 @@
 				181912.5,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"fred",
-						""
+						"off"
 					]
 				]
 			],
@@ -7390,9 +7410,9 @@
 				182006.25,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"bon",
-						""
+						"on"
 					]
 				]
 			],
@@ -7420,9 +7440,9 @@
 				182081.25,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"bon",
-						""
+						"off"
 					]
 				]
 			],
@@ -7430,9 +7450,9 @@
 				182175,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"chic",
-						""
+						"on"
 					]
 				]
 			],
@@ -7460,9 +7480,9 @@
 				182268.75,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"chic",
-						""
+						"off"
 					]
 				]
 			],
@@ -7480,9 +7500,9 @@
 				182312.5,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"fox",
-						""
+						"on"
 					]
 				]
 			],
@@ -7510,9 +7530,9 @@
 				182395.3125,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"fox",
-						""
+						"off"
 					]
 				]
 			],
@@ -7530,9 +7550,9 @@
 				182406.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -7580,9 +7600,9 @@
 				182856.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -7630,9 +7650,9 @@
 				183306.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -7680,9 +7700,9 @@
 				183756.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -7770,9 +7790,9 @@
 				184275,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"gfed2",
-						""
+						"on"
 					]
 				]
 			],
@@ -7810,14 +7830,14 @@
 				184575,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"gfed2",
-						""
+						"off"
 					],
 					[
-						"addimage",
+						"Toggle Sprite",
 						"itsme",
-						""
+						"on"
 					]
 				]
 			],
@@ -7845,14 +7865,14 @@
 				184668.75,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"itsme",
-						""
+						"off"
 					],
 					[
-						"addimage",
+						"Toggle Sprite",
 						"gfed2",
-						""
+						"on"
 					]
 				]
 			],
@@ -7890,9 +7910,9 @@
 				184781.25,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"gfed2",
-						""
+						"off"
 					]
 				]
 			],
@@ -7910,9 +7930,9 @@
 				184806.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -7940,9 +7960,9 @@
 				185256.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -8000,9 +8020,9 @@
 				185706.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -8070,9 +8090,9 @@
 				186156.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -8180,9 +8200,9 @@
 				186637.5,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"spring",
-						""
+						"on"
 					]
 				]
 			],
@@ -8240,14 +8260,14 @@
 				186909.375,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"cassid",
-						""
+						"on"
 					],
 					[
-						"remove image",
+						"Toggle Sprite",
 						"spring",
-						""
+						"off"
 					]
 				]
 			],
@@ -8265,14 +8285,14 @@
 				187054.6875,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"spring",
-						""
+						"on"
 					],
 					[
-						"remove image",
+						"Toggle Sprite",
 						"cassid",
-						""
+						"off"
 					]
 				]
 			],
@@ -8300,14 +8320,14 @@
 				187092.1875,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"cassid",
-						""
+						"on"
 					],
 					[
-						"remove image",
+						"Toggle Sprite",
 						"spring",
-						""
+						"off"
 					]
 				]
 			],
@@ -8335,14 +8355,14 @@
 				187129.6875,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"spring",
-						""
+						"on"
 					],
 					[
-						"remove image",
+						"Toggle Sprite",
 						"cassid",
-						""
+						"off"
 					]
 				]
 			],
@@ -8370,14 +8390,14 @@
 				187167.1875,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"cassid",
-						""
+						"on"
 					],
 					[
-						"remove image",
+						"Toggle Sprite",
 						"spring",
-						""
+						"off"
 					]
 				]
 			],
@@ -8395,9 +8415,9 @@
 				187195.3125,
 				[
 					[
-						"remove image",
+						"Toggle Sprite",
 						"cassid",
-						""
+						"off"
 					]
 				]
 			],
@@ -8415,9 +8435,9 @@
 				187206.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -8445,9 +8465,9 @@
 				187656.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -8555,9 +8575,9 @@
 				189606.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -8585,9 +8605,9 @@
 				190056.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -8695,9 +8715,9 @@
 				192006.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -8725,9 +8745,9 @@
 				192456.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -8755,9 +8775,9 @@
 				192906.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -8785,9 +8805,9 @@
 				193356.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -8815,9 +8835,9 @@
 				193806.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -8845,9 +8865,9 @@
 				194106.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -8875,9 +8895,9 @@
 				194406.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -8945,9 +8965,9 @@
 				195006.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -9015,9 +9035,9 @@
 				195606.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -9045,9 +9065,9 @@
 				195906.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -9075,9 +9095,9 @@
 				196206.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
@@ -9105,9 +9125,9 @@
 				196506.25,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"whiteui",
-						"0.001"
+						"on"
 					]
 				]
 			],
