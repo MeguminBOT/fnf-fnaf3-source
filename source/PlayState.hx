@@ -2724,7 +2724,7 @@ class PlayState extends MusicBeatState
 					if(Math.isNaN(hudZoom)) hudZoom = 0.03;
 
 					FlxG.camera.zoom += camZoom;
-					camHUD.zoom += hudZoom;
+					if (ClientPrefs.immersionLevel == 'Full') camHUD.zoom += hudZoom;
 				}
 
 			case 'Play Animation':
@@ -2878,7 +2878,7 @@ class PlayState extends MusicBeatState
 				reloadTimeBarColors();
 
 			case 'Change Scroll Speed':
-				if (songSpeedType == "constant")
+				if (songSpeedType == "C-MOD")
 					return;
 				var val1:Float = Std.parseFloat(value1);
 				var val2:Float = Std.parseFloat(value2);
