@@ -141,8 +141,16 @@ class AchievementsMenuState extends MusicBeatState
 		var button = new FlxButton(btnX, btnY, "", onButtonClicked.bind(index, achieveList));
 		// Check if the achievement is unlocked.
 		if (Achievements.isAchievementUnlocked(achieveList[index])) {
-			// Load a sprite sharing the name of the achievement.
-			button.loadGraphic(Paths.image(achieveSprites + achieveList[index]));
+			if (index == 8) {
+				// Load animated achievement
+				button.loadGraphic(Paths.image(achieveSprites + "code_cracker"));
+				button.frames = Paths.getSparrowAtlas(achieveSprites + "code_cracker");
+				button.animation.addByPrefix('anim', 'idle', 24, true);
+				button.animation.play('anim', true);
+			} else {
+				// Load a sprite sharing the name of the achievement.
+				button.loadGraphic(Paths.image(achieveSprites + achieveList[index]));
+			}
 		} else {
 			// Load locked sprite.
 			button.loadGraphic(Paths.image(spritePath + "lockedachievement"));
