@@ -18,11 +18,11 @@ class Achievements {
 		["Fazbear's Virtuoso",				"Complete a Song with a rating of 100%.",				'ur_good',					false],
 		["Oversinging Much...?",			"Hold down a note for 10 seconds.",						'oversinging',				false],
 		["Hyperactive",						"Finish a Song without going Idle.",					'hype',						false],
-		["Example Name1",					"Beat the main week with a rating of GFC or better",	'week1_gfc',				false],
-		["Example Name3",					"You cracked the code!",								'code_cracker',				false],
-		["Example Name4",					"Finished the first secret song",						'secret_song_one',			false],
-		["Example Name5",					"Finished the second secret song",						'secret_song_two',			false],
-		["Boomer",							"Complete 'Fear Forever' without using the system restart menu",			'boomer',				false],
+		["Completed Main Week GFC",			"Beat the main week with a rating of GFC or better",	'week1_gfc',				false],
+		["Code Cracker",					"You cracked the code!",								'code_cracker',				false],
+		["Inaccessible",					"Finished the first secret song",						'secret_song_one',			false],
+		["He did hold back",				"Finished the second secret song",						'secret_song_two',			false],
+		["Boomer",							"Complete 'Fear Forever' or 'Everlasting'\n without using the system restart menu",			'boomer',				false],
 		["What a pretty face!",				"Complete 'Fear Forever' without clicking on Mangle",						'pretty_face',			false],
 		["Traumatized",						"Complete 'Fear Forever' without doing any mechanics",						'traumatized',			false]
 	];
@@ -109,7 +109,8 @@ class AchievementObject extends FlxSpriteGroup {
 		var achievementBG:FlxSprite = new FlxSprite(60, 50).makeGraphic(420, 120, FlxColor.BLACK);
 		achievementBG.scrollFactor.set();
 
-		var achievementIcon:FlxSprite = new FlxSprite(achievementBG.x + 10, achievementBG.y + 10).loadGraphic(Paths.image('achievements/' + name));
+		var achieveSprites:String = 'menus/achievementsMenu/achievements/';
+		var achievementIcon:FlxSprite = new FlxSprite(achievementBG.x + 10, achievementBG.y + 10).loadGraphic(Paths.image(achieveSprites + name));
 		achievementIcon.scrollFactor.set();
 		achievementIcon.setGraphicSize(Std.int(achievementIcon.width * (2 / 3)));
 		achievementIcon.updateHitbox();

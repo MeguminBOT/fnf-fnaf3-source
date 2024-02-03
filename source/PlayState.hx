@@ -73,8 +73,6 @@ import hxvlc.flixel.FlxVideo;
 import hxvlc.flixel.FlxVideoSprite;
 #end
 
-
-
 using StringTools;
 
 class PlayState extends MusicBeatState
@@ -293,14 +291,16 @@ class PlayState extends MusicBeatState
 	/*-------- VS FNAF 3 Stuff --------*/
 	public static var isCodeInput:Bool = false;
 	public static var mirrorMode:Bool = false;
+	
 	public var laneUnderlay:FlxSprite;
 	public var laneUnderlayOpponent:FlxSprite;
+	
 	public var camJump:FlxCamera;
 	public var camVideo:FlxCamera;
 	public var camEasy:FlxCamera;
+	
 	var creditsTablet:FlxSprite;
 
-	// Mechanics Stuff
 	static var isTabletActive:Bool = false;
 	static var tabletButtonPressed:Bool = false;
 	var tabletMech:FlxSprite;
@@ -308,10 +308,14 @@ class PlayState extends MusicBeatState
 	var tabletReboot:FlxTimer;
 	var tabletSoundOpen:FlxSound;
 	var tabletSoundClose:FlxSound;
+	var tabletCounter:Int = 0;
+	static var tabletAchieveFailed:Bool = false;
 
 	static var isMangleActive:Bool = false;
 	var mangleMech:FlxSprite;
 	var mangleSound:FlxSound;
+	var mangleCounter:Int = 0;
+	static var mangleAchieveFailed:Bool = false;
 
 	static var isRedFlashing:Bool = false;
 	var redFlash:FlxSprite;
@@ -2237,8 +2241,6 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
-
-
 		switch(curStage) {
 			case 'stagephantom':
 				handleMangle();
@@ -2623,12 +2625,16 @@ class PlayState extends MusicBeatState
 					isMangleActive = false;
 					mangleMech.animation.finish();
 					mangleSound.stop();
+					mangleCounter = 0;
+					mangleAchieveFailed = false;
 				}
 
 				if (isTabletActive) {
 					isTabletActive = false;
 					tabletButtonPressed = true;
 					tabletMech.animation.finish();
+					tabletCounter = 0;
+					tabletAchieveFailed = false;
 				}
 
 				if (isRedFlashing) {
@@ -2940,15 +2946,19 @@ class PlayState extends MusicBeatState
 
 			case 'Mangle':
 				if (isMangleActive) {
+					mangleCounter++;
 					return;
 				} else {
+					mangleCounter++;
 					isMangleActive = true;
 				}
 
 			case 'Tablet':
 				if (isTabletActive) {
+					tabletCounter++;
 					return;
 				} else {
+					tabletCounter++;
 					isTabletActive = true;
 				}
 		}
@@ -3077,7 +3087,7 @@ class PlayState extends MusicBeatState
 		if(achievementObj != null) {
 			return;
 		} else {
-			var achieve:String = checkForAchievement(['week1_nomiss', 'week1_gfc', 'week1', 'ur_bad', 'ur_good', 'hype', 'two_keys', 'toastie']);
+			var achieve:String = checkForAchievement(['week1_nomiss', 'week1_gfc', 'week1', 'ur_bad', 'ur_good', 'hype', 'two_keys', 'secret_song_one', 'secret_song_two', 'boomer', 'pretty_face', 'traumatized']);
 
 			if(achieve != null) {
 				startAchievement(achieve);
@@ -3160,7 +3170,7 @@ class PlayState extends MusicBeatState
 
 			} else if (isCodeInput) {
 				PlayState.SONG = Song.loadFromJson('until-next-time', 'until-next-time');
-				PlayState.isCodeInput = false;
+				PlayState.isCodeInput = true;
 				FlxG.sound.music.stop();
 				cancelMusicFadeTween();
 				LoadingState.loadAndSwitchState(new PlayState());
@@ -4156,7 +4166,6 @@ class PlayState extends MusicBeatState
 	private function checkForAchievement(achievesToCheck:Array<String> = null):String
 	{
 		if(chartingMode) return null;
-
 		var usedPractice:Bool = (ClientPrefs.getGameplaySetting('practice', false) || ClientPrefs.getGameplaySetting('botplay', false));
 		for (i in 0...achievesToCheck.length) {
 			var achievementName:String = achievesToCheck[i];
@@ -4195,6 +4204,27 @@ class PlayState extends MusicBeatState
 						}
 					case 'hype':
 						if(!boyfriendIdled && !usedPractice) {
+							unlock = true;
+						}
+					case 'pretty_face':
+						if (!mangleAchieveFailed && mangleCounter == 3 && !usedPractice) {
+							unlock = true;
+						}
+					case 'boomer':
+						if (!tabletAchieveFailed && tabletCounter == 5 && !usedPractice) {
+							unlock = true;
+						}
+					case 'traumatized':
+						if (!tabletAchieveFailed && !mangleAchieveFailed && tabletCounter == 5 && mangleCounter == 3 && !usedPractice) {
+							unlock = true;
+						}
+					case 'secret_song_one':
+						if (isCodeInput = true && curStage == 'stageoob' && !usedPractice) {
+							unlock = true;
+						}
+
+					case 'secret_song_two':
+						if (isCodeInput = true && curStage == 'stageunt' && !usedPractice) {
 							unlock = true;
 						}
 				}
@@ -4272,6 +4302,7 @@ class PlayState extends MusicBeatState
 		}
 	
 		if (mangleMech.overlapsPoint(mousePosMangle) && FlxG.mouse.justPressed) {
+			mangleAchieveFailed = true;
 			if (mangleMech.animation.curAnim.name == 'idle') {
 				mangleMech.animation.finish();
 			}
@@ -4306,6 +4337,7 @@ class PlayState extends MusicBeatState
 			tabletButton.alpha = 1;
 			tabletButton.animation.play('idle');
 			if (tabletButton.overlapsPoint(mousePosTablet) && FlxG.mouse.justPressed) {
+				tabletAchieveFailed = true;
 				tabletButtonPressed = true;
 				tabletMech.alpha = 1;
 				tabletMech.animation.play('in');
