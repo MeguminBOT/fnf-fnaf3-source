@@ -51,12 +51,12 @@ class AchievementsMenuState extends MusicBeatState
 
 	override function create()
 	{
+		Paths.clearStoredMemory(); // Force clear cache.
+		Paths.clearUnusedMemory(); // Force clear unused but allocated memory.
+
 		var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
 		FlxG.mouse.load(mouseSprite.pixels);
 		FlxG.mouse.visible = true; // Make the mouse visible since the UI is made for mouse and touch input.
-
-		Paths.clearStoredMemory(); // Force clear cache.
-		Paths.clearUnusedMemory(); // Force clear unused but allocated memory.
 
 		persistentUpdate = true;
 
@@ -139,7 +139,6 @@ class AchievementsMenuState extends MusicBeatState
 	{
 		// Button creation.
 		var button = new FlxButton(btnX, btnY, "", onButtonClicked.bind(index, achieveList));
-	
 		// Check if the achievement is unlocked.
 		if (Achievements.isAchievementUnlocked(achieveList[index])) {
 			// Load a sprite sharing the name of the achievement.
