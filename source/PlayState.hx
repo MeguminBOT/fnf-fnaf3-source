@@ -318,8 +318,7 @@ class PlayState extends MusicBeatState
 
 	static var isTweenActive:Bool = false;
 	var blackOut:FlxSprite;
-	var tweenSineIn:FlxTween;
-	var tweenSineOut:FlxTween;
+	var blackOutTween:FlxTween;
 
 	var showTimeTxt:Bool;
 	var showTimeBar:Bool;
@@ -1033,6 +1032,8 @@ class PlayState extends MusicBeatState
 				redFlash.cameras = [camOther];
 				redFlash.alpha = 0;
 				add(redFlash);
+
+				tabletButtonPressed = false;
 	
 			case 'stagephantom':
 				var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
@@ -1102,6 +1103,8 @@ class PlayState extends MusicBeatState
 				redFlash.cameras = [camOther];
 				redFlash.alpha = 0;
 				add(redFlash);
+
+				tabletButtonPressed = false;
 		}
 
 		// A little tablet that pops up showing song title and composer.
@@ -2617,19 +2620,25 @@ class PlayState extends MusicBeatState
 
 				// Vs FNaF 3 checks
 				if (isMangleActive) {
+					isMangleActive = false;
+					mangleMech.animation.finish();
 					mangleSound.stop();
 				}
 
 				if (isTabletActive) {
 					isTabletActive = false;
+					tabletButtonPressed = true;
+					tabletMech.animation.finish();
 				}
 
 				if (isRedFlashing) {
 					isRedFlashing = false;
+					redFlash.alpha = 0;
 				}
 				
 				if (isTweenActive) {
 					isTweenActive = false;
+					blackOutTween.cancel();
 				}
 				// End of VS FNaF 3 checks
 
@@ -4366,7 +4375,7 @@ class PlayState extends MusicBeatState
 		}
 
 		isTweenActive = true;
-		FlxTween.tween(blackOut, {alpha: 0.9}, 2 / playbackRate, {
+		blackOutTween = FlxTween.tween(blackOut, {alpha: 0.9}, 2 / playbackRate, {
 			onComplete: function(tween:FlxTween) {
 				blackOutSineOut();
 			}
@@ -4375,7 +4384,7 @@ class PlayState extends MusicBeatState
 	}
 	
 	function blackOutSineOut() {
-		FlxTween.tween(blackOut, {alpha: 0}, 2 / playbackRate, {
+		blackOutTween = FlxTween.tween(blackOut, {alpha: 0}, 2 / playbackRate, {
 			onComplete: function(tween:FlxTween) {
 				isTweenActive = false;
 			}
