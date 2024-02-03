@@ -2234,15 +2234,15 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
-		var daSong:String = Song.getChartFileName(SONG.song);
 
-		switch(daSong) {
-			case 'fear-forever':
+
+		switch(curStage) {
+			case 'stagephantom':
 				handleMangle();
 				handleTablet();
 				redWarningFlash();
 			
-			case 'everlasting':
+			case 'stageverlasting':
 				handleTablet();
 				redWarningFlash();
 		}
@@ -4286,7 +4286,6 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
-		var daSong:String = Song.getChartFileName(SONG.song);
 		var mousePosTablet:FlxPoint = FlxG.mouse.getScreenPosition(camOther);
 	
 		if (!isTweenActive) {
@@ -4330,7 +4329,7 @@ class PlayState extends MusicBeatState
 					tabletMech.alpha = 0;
 					isTabletActive = false;
 					tabletButtonPressed = false;
-					if (daSong == 'fear-forever') {
+					if (curStage == 'stagephantom') {
 						isRedFlashing = false;
 					}
 					blackOutSineOut();
