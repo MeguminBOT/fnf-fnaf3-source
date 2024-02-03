@@ -78,9 +78,9 @@ class AttachedSongSprite extends FlxSprite {
 
 	public function reloadSongImage() {
 		if(SongUnlock.isSongUnlocked(tag)) {
-			loadGraphic(Paths.image('freeplay/songs/' + tag));
+			loadGraphic(Paths.image('menus/freeplayMenu/songs/' + tag));
 		} else {
-			loadGraphic(Paths.image('freeplay/lockedSong'));
+			loadGraphic(Paths.image('menus/freeplayMenu/lockedSong'));
 		}
 		scale.set(0.7, 0.7);
 		updateHitbox();
@@ -106,7 +106,7 @@ class SongObject extends FlxSpriteGroup {
 		var songUnlockBG:FlxSprite = new FlxSprite(60, 50).makeGraphic(420, 120, FlxColor.BLACK);
 		songUnlockBG.scrollFactor.set();
 
-		var songUnlockIcon:FlxSprite = new FlxSprite(songUnlockBG.x + 10, songUnlockBG.y + 10).loadGraphic(Paths.image('freeplay/songs/' + name.replace("_unlockSong", "")));
+		var songUnlockIcon:FlxSprite = new FlxSprite(songUnlockBG.x + 10, songUnlockBG.y + 10).loadGraphic(Paths.image('menus/freeplayMenu/songs/' + name.replace("_unlockSong", "")));
 		songUnlockIcon.scrollFactor.set();
 		songUnlockIcon.setGraphicSize(Std.int(songUnlockIcon.width * (2 / 3)));
 		songUnlockIcon.updateHitbox();
