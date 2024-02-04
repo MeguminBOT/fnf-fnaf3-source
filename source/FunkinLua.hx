@@ -59,6 +59,7 @@ import Discord;
 
 #if VIDEOS_ALLOWED
 import hxvlc.flixel.FlxVideoSprite;
+import hxvlc.util.Handle;
 #end
 
 using StringTools;
@@ -2302,6 +2303,22 @@ class FunkinLua {
 			}
 			return true;
 			#end
+		});
+
+		Lua_helper.add_callback(lua, "pauseVideoSprite", function(tag:String) {
+			if(tag != null && tag.length > 1 && PlayState.instance.modchartVideoSprites.exists(tag)) {
+				PlayState.instance.modchartVideoSprites.get(tag).pause();
+			}
+		});
+		Lua_helper.add_callback(lua, "resumeVideoSprite", function(tag:String) {
+			if(tag != null && tag.length > 1 && PlayState.instance.modchartVideoSprites.exists(tag)) {
+				PlayState.instance.modchartVideoSprites.get(tag).resume();
+			}
+		});
+		Lua_helper.add_callback(lua, "playVideoSprite", function(tag:String) {
+			if(tag != null && tag.length > 1 && PlayState.instance.modchartVideoSprites.exists(tag)) {
+				PlayState.instance.modchartVideoSprites.get(tag).play();
+			}
 		});
 
 		Lua_helper.add_callback(lua, "playMusic", function(sound:String, volume:Float = 1, loop:Bool = false) {

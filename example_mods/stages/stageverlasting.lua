@@ -317,3 +317,24 @@ function onStepHit()
 		setObjectOrder('boyfriendGroup', 3)
 	end
 end
+
+function onPause()
+	if curStep >= 1678 and curStep <= 2753 then
+		pauseVideoSprite('everlasting')
+	elseif curStep >= 3280 and curStep <= 3791 then
+		pauseVideoSprite('leftbehind')
+	elseif curStep >= 4320 then
+		pauseVideoSprite('firebg')
+	end
+	return Function_Continue; -- return Function_Stop if you want to stop the player from pausing the game
+end
+
+function onResume()
+	if curStep >= 1678 and curStep <= 2753 then
+		resumeVideoSprite('everlasting')
+	elseif curStep >= 3280 and curStep <= 3791 then
+		resumeVideoSprite('leftbehind')
+	elseif curStep >= 4320 then
+		resumeVideoSprite('firebg')
+	end
+end

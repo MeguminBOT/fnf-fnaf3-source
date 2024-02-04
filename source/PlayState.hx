@@ -71,6 +71,7 @@ import SongUnlock;
 #if VIDEOS_ALLOWED 
 import hxvlc.flixel.FlxVideo;
 import hxvlc.flixel.FlxVideoSprite;
+import hxvlc.util.Handle;
 #end
 
 using StringTools;
@@ -1352,12 +1353,6 @@ class PlayState extends MusicBeatState
 		return null;
 	}
 
-	public function getLuaVideoObject(tag:String):FlxVideoSprite {
-		if(modchartVideoSprites.exists(tag)) return modchartVideoSprites.get(tag);
-		if(variables.exists(tag)) return variables.get(tag);
-		return null;
-	}
-
 	function startCharacterPos(char:Character, ?gfCheck:Bool = false) {
 		if(gfCheck && char.curCharacter.startsWith('gf')) { //IF DAD IS GIRLFRIEND, HE GOES TO HER POSITION
 			char.setPosition(GF_X, GF_Y);
@@ -1388,6 +1383,8 @@ class PlayState extends MusicBeatState
 		});
 
 		video.load(filepath);
+		video.autoResize = true;
+		video.autoVolumeHandle = true;
 
 		new FlxTimer().start(0.001, function(tmr:FlxTimer):Void
 		{
@@ -2570,7 +2567,6 @@ class PlayState extends MusicBeatState
 			mangleSound.pause();
 		}
 		// End of VS FNaF 3 checks
-
 		openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
 		#if desktop
