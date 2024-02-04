@@ -1935,7 +1935,7 @@ class FunkinLua {
 					{
 						if(PlayState.instance.isDead)
 						{
-							GameOverSubstate.instance.insert(GameOverSubstate.instance.members.indexOf(GameOverSubstate.instance.boyfriend), shit);
+							GameOverSubstate.instance.insert(GameOverSubstate.instance.members.indexOf(GameOverSubstate.instance.deathBG), shit);
 						}
 						else
 						{
@@ -1963,7 +1963,7 @@ class FunkinLua {
 						getInstance().add(shit);
 					} else {
 						if(PlayState.instance.isDead) {
-							GameOverSubstate.instance.insert(GameOverSubstate.instance.members.indexOf(GameOverSubstate.instance.boyfriend), shit);
+							GameOverSubstate.instance.insert(GameOverSubstate.instance.members.indexOf(GameOverSubstate.instance.deathBG), shit);
 						} else {
 							var position:Int = PlayState.instance.members.indexOf(PlayState.instance.gfGroup);
 							if (PlayState.instance.members.indexOf(PlayState.instance.boyfriendGroup) < position) {
