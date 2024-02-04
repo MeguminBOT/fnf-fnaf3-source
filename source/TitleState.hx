@@ -78,11 +78,14 @@ class TitleState extends MusicBeatState {
 	}
 
 	override public function create():Void {
+		Paths.clearStoredMemory();
+		Paths.clearUnusedMemory();
+
+		introVideo();
+
 		var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
 		FlxG.mouse.load(mouseSprite.pixels);
 		FlxG.mouse.visible = true;
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
 
 		#if LUA_ALLOWED
 		Paths.pushGlobalMods();
@@ -128,7 +131,7 @@ class TitleState extends MusicBeatState {
 
 		Highscore.load();
 
-		introVideo();
+	
 
 		if (!initialized) {
 			if (FlxG.save.data != null && FlxG.save.data.fullscreen) {
@@ -305,7 +308,6 @@ class TitleState extends MusicBeatState {
 					#if VIDEOS_ALLOWED
 					videoIntro.play();
 					#end
-				case 2:
 					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(1, 0, 5);
 				case 17:
