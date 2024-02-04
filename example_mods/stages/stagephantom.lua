@@ -419,8 +419,8 @@ function onBeatHit()
 		doTweenAlpha('strumFadeIn', 'camHUD', 1, 0.25, 'linear')
 	elseif curBeat == 648 then
 		doTweenAlpha('strumFadeOut', 'camHUD', 0, 0.25, 'linear')
-	elseif curBeat == 676 then
-		doTweenAlpha('strumFadeIn', 'camHUD', 1, 2, 'linear')
+	elseif curBeat == 709 then
+		doTweenAlpha('strumFadeIn', 'camHUD', 1, 1, 'linear')
 	elseif curBeat == 839 then
 		doTweenAlpha('strumFadeOut', 'camHUD', 0, 0.25, 'linear')
 	elseif curBeat == 868 then

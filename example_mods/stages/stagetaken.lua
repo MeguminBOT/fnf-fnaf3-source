@@ -146,5 +146,8 @@ function onStepHit()
 		setProperty('fnaf1wall.visible', false)
 		setProperty('blueglow.visible', true)
 		setProperty('takenstage4.visible', true)
+
+	elseif curStep == 3696 then
+		doTweenAlpha('strumFadeOut', 'camHUD', 0, 1, 'linear')
 	end
 end

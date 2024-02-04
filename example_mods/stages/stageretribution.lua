@@ -119,14 +119,17 @@ function onStepHit()
 
 		-- Toggle visibility of the next stage sprites.
 		setProperty('retribution3.visible', true)
+		setProperty('blackui.alpha', 0.5)
 
 		-- Miscellaneous.
 		setScrollFactor('boyfriendGroup', 1, 1)
 
 	elseif curStep == 1952 then
 		setObjectOrder('boyfriendGroup', 7)
+
 		-- Remove previous stage sprites.
 		removeLuaSprite('retribution3', true)
+		removeLuaSprite('blackui', true)
 		
 		-- Toggle visibility of the next stage sprites.
 		setProperty('retribution.visible', true)
@@ -167,13 +170,5 @@ end
 function onBeatHit()
 	if curBeat >= 552 and curBeat % 3 == 0 then
 		playAnim('retribution2', 'bop', true)
-	end
-end
-
-function onEvent(name, value1, value2)
-	if name == 'Camera Flash' or name == 'Camera_Flash' and flashingLights then
-		if epilepsy then
-			return
-		end
 	end
 end
