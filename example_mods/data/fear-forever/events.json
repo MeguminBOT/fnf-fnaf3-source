@@ -2000,6 +2000,12 @@
 				205729.675384049,
 				[
 					[
+						"Toggle Sprite",
+						"chicajump",
+						"on"
+
+					],
+					[
 						"fadein",
 						"chicajump",
 						"0.001"
