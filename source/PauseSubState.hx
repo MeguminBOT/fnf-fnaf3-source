@@ -83,10 +83,11 @@ class PauseSubState extends MusicBeatSubstate
 
 		curSong = PlayState.SONG.song;
 		var formattedSongName = curSong.split(' ').join('-').toLowerCase();
+		var tweenOffset:Float = 3000;
 		switch (formattedSongName)
 		{
 			case 'taken-apart':
-				pauseMenuChar = new FlxSprite(500, 0);
+				pauseMenuChar = new FlxSprite(tweenOffset + 500, 0);
 				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
 				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
 				pauseMenuChar.scale.x = 0.8;
@@ -95,7 +96,7 @@ class PauseSubState extends MusicBeatSubstate
 				add(pauseMenuChar);
 
 			case 'retribution':
-				pauseMenuChar = new FlxSprite(600, 0);
+				pauseMenuChar = new FlxSprite(tweenOffset + 600, 0);
 				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
 				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
 				pauseMenuChar.scale.x = 0.8;
@@ -104,7 +105,7 @@ class PauseSubState extends MusicBeatSubstate
 				add(pauseMenuChar);
 
 			case 'fear-forever':
-				pauseMenuChar = new FlxSprite(500, 50);
+				pauseMenuChar = new FlxSprite(tweenOffset + 500, 50);
 				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
 				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
 				pauseMenuChar.scale.x = 0.6;
@@ -113,7 +114,7 @@ class PauseSubState extends MusicBeatSubstate
 				add(pauseMenuChar);
 
 			case 'everlasting':
-				pauseMenuChar = new FlxSprite(550, 0);
+				pauseMenuChar = new FlxSprite(tweenOffset + 550, 0);
 				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
 				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
 				pauseMenuChar.scale.x = 0.8;
@@ -122,7 +123,7 @@ class PauseSubState extends MusicBeatSubstate
 				add(pauseMenuChar);
 
 			case 'brain-damage':
-				pauseMenuChar = new FlxSprite(600, 0);
+				pauseMenuChar = new FlxSprite(tweenOffset + 600, 0);
 				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
 				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
 				pauseMenuChar.scale.x = 0.8;
@@ -131,7 +132,7 @@ class PauseSubState extends MusicBeatSubstate
 				add(pauseMenuChar);
 
 			case 'party-room':
-				pauseMenuChar = new FlxSprite(600, 20);
+				pauseMenuChar = new FlxSprite(tweenOffset + 600, 20);
 				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
 				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
 				pauseMenuChar.scale.x = 0.7;
@@ -140,7 +141,7 @@ class PauseSubState extends MusicBeatSubstate
 				add(pauseMenuChar);
 
 			case 'totally-real':
-				pauseMenuChar = new FlxSprite(575, 0);
+				pauseMenuChar = new FlxSprite(tweenOffset + 575, 0);
 				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
 				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
 				pauseMenuChar.scale.x = 0.8;
@@ -149,7 +150,7 @@ class PauseSubState extends MusicBeatSubstate
 				add(pauseMenuChar);
 
 			case 'last-hour':
-				pauseMenuChar = new FlxSprite(540, 95);
+				pauseMenuChar = new FlxSprite(tweenOffset + 540, 95);
 				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
 				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
 				pauseMenuChar.scale.x = 0.5;
@@ -158,7 +159,7 @@ class PauseSubState extends MusicBeatSubstate
 				add(pauseMenuChar);
 
 			case 'waffles':
-				pauseMenuChar = new FlxSprite(550, 150);
+				pauseMenuChar = new FlxSprite(tweenOffset + 550, 150);
 				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
 				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
 				pauseMenuChar.scale.x = 0.5;
@@ -167,7 +168,7 @@ class PauseSubState extends MusicBeatSubstate
 				add(pauseMenuChar);
 
 			case 'leantrap':
-				pauseMenuChar = new FlxSprite(600, 75);
+				pauseMenuChar = new FlxSprite(tweenOffset + 600, 75);
 				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
 				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
 				pauseMenuChar.scale.x = 0.6;
@@ -176,7 +177,7 @@ class PauseSubState extends MusicBeatSubstate
 				add(pauseMenuChar);
 
 			case 'endo-revengo':
-				pauseMenuChar = new FlxSprite(570, 150);
+				pauseMenuChar = new FlxSprite(tweenOffset + 570, 150);
 				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
 				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
 				pauseMenuChar.scale.x = 0.5;
@@ -185,7 +186,7 @@ class PauseSubState extends MusicBeatSubstate
 				add(pauseMenuChar);
 
 			case 'misconception':
-				pauseMenuChar = new FlxSprite(560, 0);
+				pauseMenuChar = new FlxSprite(tweenOffset + 560, 0);
 				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
 				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
 				pauseMenuChar.scale.x = 0.75;
@@ -194,7 +195,7 @@ class PauseSubState extends MusicBeatSubstate
 				add(pauseMenuChar);
 
 			case 'out-of-bounds':
-				pauseMenuChar = new FlxSprite(500, 0);
+				pauseMenuChar = new FlxSprite(tweenOffset + 500, 0);
 				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
 				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
 				pauseMenuChar.scale.x = 0.4;
@@ -203,7 +204,7 @@ class PauseSubState extends MusicBeatSubstate
 				add(pauseMenuChar);
 
 			case 'until-next-time':
-				pauseMenuChar = new FlxSprite(560, 0);
+				pauseMenuChar = new FlxSprite(tweenOffset + 560, 0);
 				pauseMenuChar.loadGraphic(Paths.image(spritePath + formattedSongName));
 				pauseMenuChar.antialiasing = ClientPrefs.globalAntialiasing;
 				pauseMenuChar.scale.x = 0.7;
@@ -262,6 +263,7 @@ class PauseSubState extends MusicBeatSubstate
 		FlxTween.tween(levelInfo, {alpha: 1, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 		FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 		FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
+		FlxTween.tween(pauseMenuChar, {alpha: 1, x: pauseMenuChar.x - tweenOffset}, 1, {ease: FlxEase.quartInOut});
 
 		grpMenuShit = new FlxTypedGroup<Alphabet>();
 		add(grpMenuShit);
