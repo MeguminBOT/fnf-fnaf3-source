@@ -10,6 +10,17 @@
 			"fps": 24,
 			"name": "idle",
 			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "firstDeath",
+			"fps": 24,
+			"name": "firstDeath",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,

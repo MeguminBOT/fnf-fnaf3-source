@@ -3,4 +3,27 @@
 	<!-- Created with Adobe Animate version 20.5.1.31044 -->
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="idle0000" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="idle0001" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="idle0002" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="idle0003" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="idle0004" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="idle0005" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="idle0006" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="idle0007" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="idle0008" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="idle0009" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="idle0010" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="idle0011" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="firstDeath0000" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="firstDeath0001" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="firstDeath0002" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="firstDeath0003" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="firstDeath0004" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="firstDeath0005" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="firstDeath0006" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="firstDeath0007" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="firstDeath0008" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="firstDeath0009" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="firstDeath0010" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
+	<SubTexture name="firstDeath0011" x="0" y="0" width="100" height="100" pivotX="0" pivotY="0"/>
 </TextureAtlas>
