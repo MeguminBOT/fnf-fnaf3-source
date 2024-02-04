@@ -4,14 +4,10 @@ local chica = 0;
 local foxy = 0;
 
 function onCreate()
-	video.Load("Death/takenapartfreddy.webm")
-	video.Load("Death/takenapartbonnie.webm")
-	video.Load("Death/takenapartchica.webm")
-	video.Load("Death/takenapartfoxy.webm")
-	setPropertyFromClass('GameOverSubstate', 'deathSoundName', 'fnf_loss_sfx')
-	setPropertyFromClass('GameOverSubstate', 'loopSoundName', 'fnf_loss_sfx')
-	makeLuaSprite('gameover', 'gameover', 0, 0);
-	setObjectCamera('gameover', 'hud')
+	video.Load("death/takenApart1.webm")
+	video.Load("death/takenApart2.webm")
+	video.Load("death/takenApart3.webm")
+	video.Load("death/takenApart4.webm")
 end
 
 function onStepHit()
@@ -39,15 +35,13 @@ function onStepHit()
 end
 
 function onGameOverStart()
-	setProperty('boyfriend.visible', false);
-	addLuaSprite('gameover');
 	if freddy == 1 then
-		startVideo('Death/takenapartfreddy');
+		startVideo('death/takenApart1')
 	elseif bonnie == 1 then
-		startVideo('Death/takenapartbonnie');
+		startVideo('death/takenApart2')
 	elseif chica == 1 then
-		startVideo('Death/takenapartchica');
+		startVideo('death/takenApart3')
 	else
-		startVideo('Death/takenapartfoxy');
+		startVideo('death/takenApart4')
 	end
 end

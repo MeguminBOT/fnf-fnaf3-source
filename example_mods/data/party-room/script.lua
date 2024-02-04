@@ -1,2 +1,0 @@
-function onCreate()
-end
