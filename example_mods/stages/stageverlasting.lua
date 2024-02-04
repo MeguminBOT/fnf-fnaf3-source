@@ -7,10 +7,6 @@ function onCreate()
 	createMiscSprites() -- Create misc sprites.
 	createJumpscares() -- Create jumpscares.
 	createVideoSprites() -- Create video sprites.
-
-	-- Toggle visibility of characters.
-	setProperty('dad.visible', false)
-	setProperty('boyfriend.visible', false)
 end
 
 function createStage()
@@ -94,13 +90,14 @@ function createJumpscares()
 		setScrollFactor(jumpscare.name, jumpscare.scrollX, jumpscare.scrollY)
 		addAnimationByPrefix(jumpscare.name, jumpscare.animation, jumpscare.xmlPrefix, jumpscare.fps, jumpscare.loop)
 		scaleObject(jumpscare.name, jumpscare.scaleX, jumpscare.scaleY)
+		addLuaSprite(jumpscare.name, jumpscare.add)
+		setProperty(jumpscare.name .. '.visible', false)
+
 		if immersionLevel == 'Partial' then
 			setObjectCamera(jumpscare.name, 'camEasy')
 		else
 			setObjectCamera(jumpscare.name, 'camJump')
 		end
-		addLuaSprite(jumpscare.name, jumpscare.add)
-		setProperty(jumpscare.name .. '.visible', false)
 	end
 end
 
@@ -133,7 +130,12 @@ function onStepHit()
 	elseif curStep == 824 then
 		-- Toggle visibility of stage sprites.
 		setProperty('camstatic.alpha', 0)
+		setProperty('cam02.alpha', 0)
+		setProperty('cam05.alpha', 0)
 		setProperty('camstatic.visible', true)
+
+		-- Force play animations so they start from the beginning.
+		playAnim('camstatic', 'anim', true)
 
 	elseif curStep == 832 then
         -- Scale Springtrap's size.
@@ -204,7 +206,7 @@ function onStepHit()
 		setProperty('timeBar.visible', false)
 		setProperty('timeBarBG.visible', false)
 
-	elseif curStep == 1679 then
+	elseif curStep == 1678 then
         -- Remove previous stage sprites.
 		removeLuaSprite('door', true)
 		removeLuaSprite('hallway', true)
@@ -229,6 +231,9 @@ function onStepHit()
 		setProperty('timeBarBG.visible', true)
 
 	elseif curStep == 2752 then
+		doTweenAlpha('camVideoAlpha', 'camVideo', 0, 0.5, true)
+
+	elseif curStep == 2754 then
 		-- Remove previous video sprite.
 		setProperty('everlasting.visible', false)
 
