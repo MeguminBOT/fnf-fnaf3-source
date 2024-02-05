@@ -85,6 +85,9 @@ class FreeplayState extends MusicBeatState
 	var diffNormal:FlxText;
 	var diffEasy:FlxText;
 
+	// Difficulty
+	var awardsButton:FlxButton;
+
 	/*------------------------------------------------*/
 
 	override function create()
@@ -184,14 +187,14 @@ class FreeplayState extends MusicBeatState
 	{
 		// Create a transparent background for the text objects.
 		textBG = new FlxSprite(0, 0).makeGraphic(FlxG.width, 100, 0xFF000000);
-		textBG.y = FlxG.height * 0.89;
+		textBG.y = FlxG.height * 0.86;
 		textBG.screenCenter(X);
 		textBG.scrollFactor.set();
 		textBG.alpha = 0.5;
 		add(textBG);
 
 		// Create text showing the players highest score.
-		scoreText = new FlxText(textBG.x + 4, textBG.y + 4, FlxG.width, "", 32);
+		scoreText = new FlxText(textBG.x + 18, textBG.y + 6, FlxG.width, "", 32);
 		scoreText.setFormat(Paths.font("5Computers-In-Love.ttf"), 16, FlxColor.WHITE, CENTER);
 		add(scoreText);
 
@@ -199,11 +202,15 @@ class FreeplayState extends MusicBeatState
 
 	function createMenuButtons()
 	{
-		modifierButton = new FlxButton(0, 660, "", openModifiers.bind());
+		modifierButton = new FlxButton(0, 650, "", openModifiers.bind());
 		modifierButton.loadGraphic(Paths.image(spritePath + 'modifierButton'), true, 360, 60);
 		add(modifierButton);
 
-		difficultyButton = new FlxButton(800, 660, "", difficultySelector.bind());
+		awardsButton = new FlxButton(500, 650, "", openAwards.bind());
+		awardsButton.loadGraphic(Paths.image(spritePath + 'awardsButton'), true, 240, 60);
+		add(awardsButton);
+
+		difficultyButton = new FlxButton(820, 650, "", difficultySelector.bind());
 		difficultyButton.loadGraphic(Paths.image(spritePath + 'difficultyButton'), true, 400, 60);
 		add(difficultyButton);
 	}
@@ -263,17 +270,17 @@ class FreeplayState extends MusicBeatState
 			// Position configuration depending on the index range.
 			if (i >= 0 && i <= 3) { // Row 1
 				btnX = 230 + (btnWidth + btnSpacing) * i;
-				btnY = 64;
+				btnY = 44;
 				outlineX = btnX - (outlineWidth - btnWidth) / 2;
 				outlineY = btnY - (outlineHeight - btnHeight) / 2;
 			} else if (i >= 4 && i <= 8) { // Row 2
 				btnX = 200 + (btnWidth + btnSpacing) * (i - 4);
-				btnY = 264;
+				btnY = 244;
 				outlineX = btnX + (btnWidth - outlineWidth) / 2 - 6;
 				outlineY = btnY - (outlineHeight - btnHeight) / 2 - 6;
 			} else if (i >= 9 && i <= 13) { // Row 3
 				btnX = 200 + (btnWidth + btnSpacing) * (i - 9);
-				btnY = 448;
+				btnY = 428;
 				outlineX = btnX + (btnWidth - outlineWidth) / 2 - 6;
 				outlineY = btnY - (outlineHeight - btnHeight) / 2 - 6;
 			}
@@ -548,6 +555,12 @@ class FreeplayState extends MusicBeatState
 	{
 		openSubState(new GameplayChangersSubstate());
 	}
+
+	public function openAwards()
+	{
+		MusicBeatState.switchState(new AchievementsMenuState());
+	}
+
 	/*--------------- End of FNAF 3 Menu Stuff --------------- */
 
 	override function closeSubState() 
