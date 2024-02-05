@@ -65,11 +65,13 @@ function createMiscSprites()
 		makeLuaSprite(miscSprite.name, miscSprite.image, miscSprite.posX, miscSprite.posY)
 		setScrollFactor(miscSprite.name, miscSprite.scrollX, miscSprite.scrollY)
 		scaleObject(miscSprite.name, miscSprite.scaleX, miscSprite.scaleX)
+
 		if (miscSprite.camera ~= 'camGame' and immersionLevel == 'Partial') then
 			setObjectCamera(miscSprite.name, 'camEasy')
 		else
 			setObjectCamera(miscSprite.name, miscSprite.camera)
 		end
+
 		addLuaSprite(miscSprite.name, true)
 		setProperty(miscSprite.name .. '.alpha', miscSprite.alpha)
 	end
@@ -147,6 +149,7 @@ function onStepHit()
 		-- Remove previous stage sprites.
 		removeLuaSprite('retribution', true)
 		setObjectOrder('boyfriendGroup', 0)
+
 		-- Toggle visibility of the next stage sprites.
 		setProperty('retribution2.visible', true)
 
