@@ -3158,15 +3158,24 @@ class PlayState extends MusicBeatState
 
 					prevCamFollow = camFollow;
 					prevCamFollowPos = camFollowPos;
+
 					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0] + difficulty, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
 					cancelMusicFadeTween();
 					LoadingState.loadAndSwitchState(new PlayState());
 				}
 
-			} else if (isCodeInput) {
-				PlayState.SONG = Song.loadFromJson('until-next-time', 'until-next-time');
-				PlayState.isCodeInput = true;
+			} else if (isCodeInput && curStage == 'stageoob') {
+				var difficulty:String = CoolUtil.getDifficultyFilePath();
+				
+				FlxTransitionableState.skipNextTransIn = true;
+				FlxTransitionableState.skipNextTransOut = true;
+
+				prevCamFollow = camFollow;
+				prevCamFollowPos = camFollowPos;
+
+				PlayState.SONG = Song.loadFromJson('until-next-time' + difficulty, 'until-next-time');
+				PlayState.isCodeInput = false;
 				FlxG.sound.music.stop();
 				cancelMusicFadeTween();
 				LoadingState.loadAndSwitchState(new PlayState());
