@@ -4,9 +4,9 @@ function onCreate()
 	-- Custom functions for stage.
 	createStage() -- Create stages.
 	createStageAnimated() -- Create animated stages.
-	createMiscSprites() -- Create misc sprites.
 	createJumpscares() -- Create jumpscares.
 	createVideoSprites() -- Create video sprites.
+	createMiscSprites() -- Create misc sprites.
 end
 
 function createStage()
@@ -59,24 +59,6 @@ function createStageAnimated()
 	end
 end
 
-function createMiscSprites()
-    local miscSprites = {
-		{ name = 'whiteui', image = 'whiteui', camera = 'camHUD', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
-		{ name = 'white', image = 'white', camera = 'camGame', posX = -3200, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 0 },
-		{ name = 'black', image = 'black', camera = 'camGame', posX = -3000, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 1 },
-    }
-
-    for _, miscSprite in ipairs(miscSprites) do
-        precacheImage(miscSprite.image)
-        makeLuaSprite(miscSprite.name, miscSprite.image, miscSprite.posX, miscSprite.posY)
-		setScrollFactor(miscSprite.name, miscSprite.scrollX, miscSprite.scrollY)
-		scaleObject(miscSprite.name, miscSprite.scaleX, miscSprite.scaleX)
-        setObjectCamera(miscSprite.name, miscSprite.camera)
-        addLuaSprite(miscSprite.name, true)
-        setProperty(miscSprite.name .. '.alpha', miscSprite.alpha)
-    end
-end
-
 function createJumpscares()
 	local jumpscares = {
 		{ name = 'rarescreen1', image = 'jumpscares/rarescreen1', animation = 'rarescreen1', xmlPrefix = 'idle0', fps = 24, loop = true, posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, add = true },
@@ -114,6 +96,25 @@ function createVideoSprites()
 		setObjectCamera(videoSprite.name, videoSprite.camera)
 		setScrollFactor(videoSprite.name, videoSprite.scrollX, videoSprite.scrollY);
 	end
+end
+
+function createMiscSprites()
+    local miscSprites = {
+		{ name = 'whiteui', image = 'whiteui', camera = 'camHUD', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
+		{ name = 'white', image = 'white', camera = 'camGame', posX = -3200, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 0 },
+		{ name = 'black', image = 'black', camera = 'camGame', posX = -3000, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 1 },
+		{ name = 'blackVid', image = 'black', camera = 'camVideo', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
+    }
+
+    for _, miscSprite in ipairs(miscSprites) do
+        precacheImage(miscSprite.image)
+        makeLuaSprite(miscSprite.name, miscSprite.image, miscSprite.posX, miscSprite.posY)
+		setScrollFactor(miscSprite.name, miscSprite.scrollX, miscSprite.scrollY)
+		scaleObject(miscSprite.name, miscSprite.scaleX, miscSprite.scaleX)
+        setObjectCamera(miscSprite.name, miscSprite.camera)
+        addLuaSprite(miscSprite.name, true)
+        setProperty(miscSprite.name .. '.alpha', miscSprite.alpha)
+    end
 end
 
 function onStepHit()
@@ -230,12 +231,10 @@ function onStepHit()
 		setProperty('timeBar.visible', true)
 		setProperty('timeBarBG.visible', true)
 
-	elseif curStep == 2752 then
-		doTweenAlpha('camVideoAlpha', 'camVideo', 0, 0.5, true)
-
-	elseif curStep == 2754 then
+	elseif curStep == 2755 then
 		-- Remove previous video sprite.
 		setProperty('everlasting.visible', false)
+		setProperty('camVideo.alpha', 0)
 
 		-- Toggle visibility of cinematic bars.
 		setProperty('LowerBar(With HUD).visible', true)
@@ -293,6 +292,10 @@ function onStepHit()
 		setObjectOrder('dadGroup', 1)
 		setObjectOrder('boyfriendGroup', 2)
 
+		-- Re-position characters.
+		dumbassDadOffset = getProperty('dad.y')
+		setProperty('dad.y', dumbassDadOffset + 60)
+
         -- Force play animations so they start from the beginning.
 		playAnim('prefire', 'anim', true)
 
@@ -315,6 +318,10 @@ function onStepHit()
 		setObjectOrder('firebg', 1)
 		setObjectOrder('dadGroup', 2)
 		setObjectOrder('boyfriendGroup', 3)
+
+		-- Re-position characters.
+		dumbassDadOffset = getProperty('dad.y')
+		setProperty('dad.y', dumbassDadOffset + 60)
 	end
 end
 
