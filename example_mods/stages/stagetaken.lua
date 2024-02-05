@@ -51,7 +51,7 @@ function createStage()
 end
 
 function createJumpscares()
-	makeAnimatedLuaSprite('foxyjump', 'Jumpscares/foxyjump', 0, 0)
+	makeAnimatedLuaSprite('foxyjump', 'jumpscares/foxyjump', 0, 0)
 	addAnimationByPrefix('foxyjump', 'foxyjump', 'idle', 24, true)
 
 	if immersionLevel == 'Partial' then
@@ -66,10 +66,11 @@ end
 
 function createMiscSprites()
     local miscSprites = {
+		{ name = 'arcadeffect', image = 'arcadeffect', camera = 'camOther', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 1 },
+		{ name = 'black', image = 'black', camera = 'camGame', posX = -3200, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 1 },
 		{ name = 'static', image = 'static', camera = 'camHUD', posX = 0, posY = 0, scrollX = 0, scrollY = 0, scaleX = 1, scaleY = 1, alpha = 0 },
 		{ name = 'red', image = 'red', camera = 'camHUD', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
 		{ name = 'white', image = 'white', camera = 'camGame', posX = -3200, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 0 },
-		{ name = 'black', image = 'black', camera = 'camGame', posX = -3200, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 1 },
     }
 
     for _, miscSprite in ipairs(miscSprites) do
@@ -112,38 +113,70 @@ end
 
 function onStepHit()
 	if curStep == 64 then
-		setProperty('minigamestart.visible', false)
+		-- Remove previous stage sprites.
+		removeLuaSprite('minigamestart', true)
+		removeLuaSprite('arcadeffect', true)
 
 	elseif curStep == 816 then
-		setProperty('takenstage.visible', false)
+		-- Remove previous stage sprites.
+		removeLuaSprite('takenstage', true)
+
+		-- Hide stage sprites that will be reused.
 		setProperty('blueglow.visible', false)
+
+		-- Toggle visibility of the next stage sprites.
 		setProperty('fnaf1wall.visible', true)
+
+		-- Force play animations so they start from the beginning.
 		playAnim('fnaf1wall', 'anim', true)
 
 	elseif curStep == 944 then
+		-- Hide stage sprites that will be reused.
 		setProperty('fnaf1wall.visible', false)
+
+		-- Toggle visibility of the next stage sprites.
 		setProperty('blueglow.visible', true)
 		setProperty('takenstage2.visible', true)
 
 	elseif curStep == 1632 then
-		setProperty('takenstage2.visible', false)
+		-- Remove previous stage sprites.
+		removeLuaSprite('takenstage2', true)
+
+		-- Hide stage sprites that will be reused.
 		setProperty('blueglow.visible', false)
+
+		-- Toggle visibility of the next stage sprites.
 		setProperty('fnaf1wall.visible', true)
+
+		-- Force play animations so they start from the beginning.
 		playAnim('fnaf1wall', 'anim', true)
 
 	elseif curStep == 1696 then
+		-- Hide stage sprites that will be reused.
 		setProperty('fnaf1wall.visible', false)
+
+		-- Toggle visibility of the next stage sprites.
 		setProperty('blueglow.visible', true)
 		setProperty('takenstage3.visible', true)
 
 	elseif curStep == 2465 then
-		setProperty('takenstage3.visible', false)
+		-- Remove previous stage sprites.
+		removeLuaSprite('takenstage3', true)
+
+		-- Hide stage sprites that will be reused.
 		setProperty('blueglow.visible', false)
+
+		-- Toggle visibility of the next stage sprites.
 		setProperty('fnaf1wall.visible', true)
+
+		-- Force play animations so they start from the beginning.
 		playAnim('fnaf1wall', 'anim', true)
 
 	elseif curStep == 2607 then
-		setProperty('fnaf1wall.visible', false)
+		-- Remove previous stage sprites.
+		removeLuaSprite('fnaf1wall', false)
+
+		-- Toggle visibility of the next stage sprites.
 		setProperty('blueglow.visible', true)
 		setProperty('takenstage4.visible', true)
 
