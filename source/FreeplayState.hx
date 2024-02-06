@@ -15,6 +15,7 @@ import WeekData;
 // FNAF 3 Specific Imports
 import flixel.FlxCamera;
 import flixel.ui.FlxButton;
+import flixel.util.FlxTimer;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxSpriteGroup;
 import flixel.input.keyboard.FlxKey;
@@ -444,11 +445,23 @@ class FreeplayState extends MusicBeatState
 
 		FlxG.sound.play(Paths.sound('confirmMenu'), 1);
 
-		var difficulty:String = CoolUtil.getDifficultyFilePath();
-		PlayState.SONG = Song.loadFromJson('out-of-bounds' + difficulty, 'out-of-bounds');
 		PlayState.isCodeInput = true;
+		PlayState.isStoryMode = true;
 
-		LoadingState.loadAndSwitchState(FlxG.keys.pressed.SHIFT ? new ChartingState() : new PlayState());
+		PlayState.storyPlaylist = ['out-of-bounds', 'until-next-time'];
+
+		var diffic = CoolUtil.getDifficultyFilePath(curDifficulty);
+		if(diffic == null) diffic = '';
+
+		PlayState.storyDifficulty = curDifficulty;
+		PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+		
+		PlayState.campaignScore = 0;
+		PlayState.campaignMisses = 0;
+
+		new FlxTimer().start(1, function(tmr:FlxTimer) {
+			LoadingState.loadAndSwitchState(new PlayState(), true);
+		});
 
 		FlxG.mouse.visible = false;
 		FlxG.sound.music.volume = 0;

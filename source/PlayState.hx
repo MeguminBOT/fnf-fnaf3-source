@@ -3119,7 +3119,9 @@ class PlayState extends MusicBeatState
 				return;
 			}
 
-			if (isStoryMode) {
+			// Really dumb copy paste straight from story mode if statement.
+			// I just want this to work at this point.. which this does.
+			if (isCodeInput && isStoryMode) {
 				campaignScore += songScore;
 				campaignMisses += songMisses;
 
@@ -3165,20 +3167,51 @@ class PlayState extends MusicBeatState
 					LoadingState.loadAndSwitchState(new PlayState());
 				}
 
-			} else if (isCodeInput && curStage == 'stageoob') {
-				var difficulty:String = CoolUtil.getDifficultyFilePath();
-				
-				FlxTransitionableState.skipNextTransIn = true;
-				FlxTransitionableState.skipNextTransOut = true;
+			} else if (isStoryMode) {
+				campaignScore += songScore;
+				campaignMisses += songMisses;
 
-				prevCamFollow = camFollow;
-				prevCamFollowPos = camFollowPos;
+				storyPlaylist.remove(storyPlaylist[0]);
 
-				PlayState.SONG = Song.loadFromJson('until-next-time' + difficulty, 'until-next-time');
-				PlayState.isCodeInput = false;
-				FlxG.sound.music.stop();
-				cancelMusicFadeTween();
-				LoadingState.loadAndSwitchState(new PlayState());
+				if (storyPlaylist.length <= 0) {
+					WeekData.loadTheFirstEnabledMod();
+					FlxG.sound.playMusic(Paths.music('freakyMenu'));
+
+					cancelMusicFadeTween();
+					if(FlxTransitionableState.skipNextTransIn) {
+						CustomFadeTransition.nextCamera = null;
+					}
+					MusicBeatState.switchState(new FreeplayState());
+
+					if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {
+						StoryMenuState.weekCompleted.set(WeekData.weeksList[storyWeek], true);
+
+						if (SONG.validScore) {
+							Highscore.saveWeekScore(WeekData.getWeekFileName(), campaignScore, storyDifficulty);
+						}
+
+						FlxG.save.data.weekCompleted = StoryMenuState.weekCompleted;
+						FlxG.save.flush();
+					}
+					changedDifficulty = false;
+
+				} else {
+					var difficulty:String = CoolUtil.getDifficultyFilePath();
+
+					trace('LOADING NEXT SONG');
+					trace(Paths.formatToSongPath(PlayState.storyPlaylist[0]) + difficulty);
+
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
+
+					prevCamFollow = camFollow;
+					prevCamFollowPos = camFollowPos;
+
+					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0] + difficulty, PlayState.storyPlaylist[0]);
+					FlxG.sound.music.stop();
+					cancelMusicFadeTween();
+					LoadingState.loadAndSwitchState(new PlayState());
+				}
 
 			} else {
 				trace('WENT BACK TO FREEPLAY??');

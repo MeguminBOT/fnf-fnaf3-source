@@ -225,6 +225,7 @@ class FunkinLua {
 		set('timeBarEnabled', ClientPrefs.timeBarEnabled);
 		set('graphicsQuality', ClientPrefs.graphicsQuality);
 		set('immersionLevel', ClientPrefs.immersionLevel);
+		set('isCodeInput', PlayState.isCodeInput);
 
 		#if windows
 		set('buildTarget', 'windows');

@@ -1,0 +1,21 @@
+{
+	"songs": [
+		["out-of-bounds", "bb2", [146, 113, 253]],
+		["until-next-time", "psf", [146, 113, 253]]
+	],
+
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"weekBackground": "stage",
+
+	"storyName": "Very Secret LOL",
+	"weekBefore": "tutorial",
+	"weekName": "Week 3",
+	"startUnlocked": true,
+
+	"hideStoryMode": false,
+	"hideFreeplay": false
+}
