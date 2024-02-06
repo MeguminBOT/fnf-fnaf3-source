@@ -432,15 +432,12 @@ class PlayState extends MusicBeatState
 		storyDifficultyText = CoolUtil.difficulties[storyDifficulty];
 
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
-		if (isStoryMode)
-		{
-			detailsText = "Story Mode: " + WeekData.getCurrentWeek().weekName;
-		}
-		if (isCodeInput)
-			detailsText = "Secret Song: ";
-		else
-		{
-			detailsText = "Freeplay";
+		if (isCodeInput && isStoryMode) {
+			detailsText = "Secret Song ";
+		} else if (isStoryMode) {
+			detailsText = "Story Mode ";
+		} else {
+			detailsText = "Freeplay ";
 		}
 
 		// String for when the game is paused
