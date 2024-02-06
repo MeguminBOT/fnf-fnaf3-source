@@ -33,6 +33,10 @@ class StoryMenuState extends MusicBeatState
 
 	var spritePath:String = 'menus/storyMenu/';
 
+	var startButton:FlxButton;
+	var normalButton:FlxButton;
+	var easyButton:FlxButton;
+
 	override function create()
 	{
 		Paths.clearStoredMemory();
@@ -74,6 +78,7 @@ class StoryMenuState extends MusicBeatState
 		if(lastDifficultyName == '') {
 			lastDifficultyName = CoolUtil.defaultDifficulty;
 		}
+
 		curDifficulty = Math.round(Math.max(0, CoolUtil.defaultDifficulties.indexOf(lastDifficultyName)));
 
 		changeWeek();
@@ -95,7 +100,7 @@ class StoryMenuState extends MusicBeatState
 		bg.x = 0;
 		bg.y = 0;
 
-		var startButton = new FlxButton(0, 0, " ", startweek);
+		startButton = new FlxButton(0, 0, " ", selectDiff);
 		startButton.screenCenter();
 		add(startButton);
 		startButton.loadGraphic(Paths.image(spritePath + 'start'), true, 169, 35);
@@ -130,8 +135,33 @@ class StoryMenuState extends MusicBeatState
 	var selectedWeek:Bool = false;
 	var stopspamming:Bool = false;
 
+	function selectDiff()
+	{
+		remove(startButton);
+
+		normalButton = new FlxButton(0, 0, " ", startweek);
+		normalButton.screenCenter();
+		add(normalButton);
+		normalButton.loadGraphic(Paths.image(spritePath + 'diffNormal'), true, 169, 35);
+		normalButton.antialiasing = ClientPrefs.globalAntialiasing;
+		normalButton.x = 535;
+		normalButton.y = 367;
+		normalButton.onOver.callback = onNormalHighlight.bind();
+
+		easyButton = new FlxButton(0, 0, " ", startweekEasy);
+		easyButton.screenCenter();
+		add(easyButton);
+		easyButton.loadGraphic(Paths.image(spritePath + 'diffEasy'), true, 169, 35);
+		easyButton.antialiasing = ClientPrefs.globalAntialiasing;
+		easyButton.x = 535;
+		easyButton.y = 403;
+		easyButton.onOver.callback = onEasyHighlight.bind();
+	}
+
 	function startweek()
 	{
+		persistentUpdate = false;
+
 		if (!weekIsLocked(loadedWeeks[curWeek].fileName)) {
 			if (stopspamming == false) {
 				FlxG.sound.play(Paths.sound('confirmMenu'));
@@ -139,20 +169,22 @@ class StoryMenuState extends MusicBeatState
 			}
 
 			FlxG.mouse.visible = false;
-			// We can't use Dynamic Array .copy() because that crashes HTML5, here's a workaround.
 			var songArray:Array<String> = [];
 			var leWeek:Array<Dynamic> = loadedWeeks[curWeek].songs;
 			for (i in 0...leWeek.length) {
 				songArray.push(leWeek[i][0]);
 			}
 
-			// Nevermind that's stupid lmao
 			PlayState.storyPlaylist = songArray;
 			PlayState.isStoryMode = true;
 			selectedWeek = true;
 
 			var diffic = CoolUtil.getDifficultyFilePath(curDifficulty);
 			if(diffic == null) diffic = '';
+			
+			#if debug
+			trace('Difficulty: ' + diffic);
+			#end
 
 			PlayState.storyDifficulty = curDifficulty;
 			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
@@ -165,6 +197,73 @@ class StoryMenuState extends MusicBeatState
 		} else {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 		}
+	}
+
+	function startweekEasy()
+	{
+		persistentUpdate = false;
+
+		if (!weekIsLocked(loadedWeeks[curWeek].fileName)) {
+			if (stopspamming == false) {
+				FlxG.sound.play(Paths.sound('confirmMenu'));
+				stopspamming = true;
+			}
+
+			FlxG.mouse.visible = false;
+			var songArray:Array<String> = [];
+			var leWeek:Array<Dynamic> = loadedWeeks[curWeek].songs;
+			for (i in 0...leWeek.length) {
+				songArray.push(leWeek[i][0]);
+			}
+
+			PlayState.storyPlaylist = songArray;
+			PlayState.isStoryMode = true;
+			selectedWeek = true;
+
+			var diffic = CoolUtil.getDifficultyFilePath(curDifficulty);
+			if(diffic == null) diffic = '';
+
+			#if debug
+			trace('Difficulty: ' + diffic);
+			#end
+	
+			PlayState.storyDifficulty = curDifficulty;
+			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+			PlayState.campaignMisses = 0;
+
+			new FlxTimer().start(1, function(tmr:FlxTimer) {
+				LoadingState.loadAndSwitchState(new PlayState(), true);
+			});
+
+		} else {
+			FlxG.sound.play(Paths.sound('cancelMenu'));
+		}
+	}
+
+	function onNormalHighlight() 
+	{
+		persistentUpdate = false;
+
+		if (curDifficulty != 1) {
+			curDifficulty = 1;
+		}
+
+		#if debug
+		trace('Difficulty: ' + curDifficulty);
+		#end
+	}
+	
+	function onEasyHighlight() 
+	{
+		persistentUpdate = false;
+
+		if (curDifficulty != 0) {
+			curDifficulty = 0;
+		}
+
+		#if debug
+		trace('Difficulty: ' + curDifficulty);
+		#end
 	}
 
 	function changeDifficulty(change:Int = 0):Void
