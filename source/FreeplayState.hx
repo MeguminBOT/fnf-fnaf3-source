@@ -455,7 +455,7 @@ class FreeplayState extends MusicBeatState
 
 		PlayState.storyDifficulty = curDifficulty;
 		PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
-		
+
 		PlayState.campaignScore = 0;
 		PlayState.campaignMisses = 0;
 
@@ -508,7 +508,7 @@ class FreeplayState extends MusicBeatState
 					trace("Invalid key press. userInput cleared.");
 				}
 			}
-			
+
 			if (userInput.length == secretCode.length) {
 				var isSecretCodeMatched:Bool = true;
 				
