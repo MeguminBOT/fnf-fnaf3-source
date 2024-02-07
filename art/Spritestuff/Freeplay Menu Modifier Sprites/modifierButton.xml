@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="modifierButton.png">
-	<!-- Created with Adobe Animate version 22.0.8.217 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="1modifierNormal.png" x="0" y="0" width="360" height="60"/>
-	<SubTexture name="2modifierHighlight.png" x="360" y="0" width="360" height="60"/>
-	<SubTexture name="3modifierPressed.png" x="720" y="0" width="360" height="60"/>
-</TextureAtlas>
