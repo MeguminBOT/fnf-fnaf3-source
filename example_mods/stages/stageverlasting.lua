@@ -101,9 +101,9 @@ end
 function createMiscSprites()
     local miscSprites = {
 		{ name = 'whiteui', image = 'whiteui', camera = 'camHUD', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
+		{ name = 'blackhud', image = 'black', camera = 'camOther', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
 		{ name = 'white', image = 'white', camera = 'camGame', posX = -3200, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 0 },
 		{ name = 'black', image = 'black', camera = 'camGame', posX = -3000, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 1 },
-		{ name = 'blackVid', image = 'black', camera = 'camVideo', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
     }
 
     for _, miscSprite in ipairs(miscSprites) do
@@ -168,6 +168,14 @@ function onStepHit()
 		-- Remove previous stage sprites.
 		removeLuaSprite('cam05', true)
 
+		-- Modify object order.
+		setObjectOrder('bg', 0)
+		setObjectOrder('office', 1)
+		setObjectOrder('dadGroup', 2)
+		setObjectOrder('cam02', 3)
+		setObjectOrder('camstatic', 4)
+		setObjectOrder('fan', 5)
+
 		-- Toggle visibility of stage sprites.
 		setProperty('cam02.visible', true)
 
@@ -231,10 +239,9 @@ function onStepHit()
 		setProperty('timeBar.visible', true)
 		setProperty('timeBarBG.visible', true)
 
-	elseif curStep == 2755 then
+	elseif curStep == 2752 then
 		-- Remove previous video sprite.
 		setProperty('everlasting.visible', false)
-		setProperty('camVideo.alpha', 0)
 
 		-- Toggle visibility of cinematic bars.
 		setProperty('LowerBar(With HUD).visible', true)
