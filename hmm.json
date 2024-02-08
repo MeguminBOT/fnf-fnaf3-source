@@ -48,8 +48,10 @@
     },
     {
       "name": "hxcpp",
-      "type": "haxelib",
-      "version": null
+      "type": "git",
+      "dir": null,
+      "ref": "c3e5ab8",
+      "url": "https://github.com/HaxeFoundation/hxcpp"
     },
     {
       "name": "hxcpp-debug-server",
@@ -64,7 +66,7 @@
     {
       "name": "lime",
       "type": "haxelib",
-      "version": "8.0.1"
+      "version": "8.1.1"
     },
     {
       "name": "linc_luajit",
@@ -76,7 +78,7 @@
     {
       "name": "openfl",
       "type": "haxelib",
-      "version": "9.2.1"
+      "version": "9.3.1"
     },
     {
       "name": "tjson",
