@@ -192,7 +192,11 @@ function onEvent(name, value1, value2)
 		removeLuaSprite('greenglow', true)
 		removeLuaSprite('wire', true)
 		removeLuaSprite('arcade', true) 
-		removeLuaSprite('freddy3', true) 
+		removeLuaSprite('freddy3', true)
+
+		runHaxeCode([[
+            Paths.clearUnusedMemory();
+        ]])
 
 		-- Modify object order.
 		setObjectOrder('foxy', 1)
@@ -214,6 +218,10 @@ function onEvent(name, value1, value2)
 	elseif name == 'fearforever3' then
 		-- Remove previous stage sprites.
 		removeLuaSprite('foxy', true)
+
+		runHaxeCode([[
+            Paths.clearUnusedMemory();
+        ]])
 
 		-- Modify object order.
 		setObjectOrder('foxy2', 1)
@@ -239,6 +247,10 @@ function onEvent(name, value1, value2)
 		removeLuaSprite('foxy2', true)
 		removeLuaSprite('present', true)
 		removeLuaSprite('box', true)
+
+		runHaxeCode([[
+            Paths.clearUnusedMemory();
+        ]])
 		
 		-- Modify object order.
 		setObjectOrder('foxychase', 1)
@@ -275,6 +287,10 @@ function onEvent(name, value1, value2)
 		removeLuaSprite('foxyjumping', true) 
 		removeLuaSprite('bfeetblue', true) 
 
+		runHaxeCode([[
+            Paths.clearUnusedMemory();
+        ]])
+
 		-- Modify object order.
 		setObjectOrder('static3', 2)
 		setObjectOrder('chica', 3)
@@ -310,6 +326,10 @@ function onEvent(name, value1, value2)
 		removeLuaSprite('present', true)
 		removeLuaSprite('static3', true)
 
+		runHaxeCode([[
+            Paths.clearUnusedMemory();
+        ]])
+
 		-- Re-position characters.
 		setProperty('dad.x', 600)
 		setProperty('dad.y', 300)
@@ -341,6 +361,10 @@ function onEvent(name, value1, value2)
 		removeLuaSprite('table', true) 
 		removeLuaSprite('greenstatic', true)
 
+		runHaxeCode([[
+            Paths.clearUnusedMemory();
+        ]])
+
 		-- Modify object order.
         setObjectOrder('dadGroup', 3)
         setObjectOrder('gfGroup', 4)
@@ -357,6 +381,10 @@ function onEvent(name, value1, value2)
 
 		-- Remove previous stage sprites.
 		removeLuaSprite('mangle', true) 
+
+		runHaxeCode([[
+            Paths.clearUnusedMemory();
+        ]])
 
 		-- Modify object order.
 		setObjectOrder('puppet', 1)
@@ -391,6 +419,10 @@ function onEvent(name, value1, value2)
 		removeLuaSprite('puppet2', true)
 		removeLuaSprite('starstring', true) 
 		removeLuaSprite('starstring2', true)
+
+		runHaxeCode([[
+            Paths.clearUnusedMemory();
+        ]])
 
 		-- Modify object order.
 		setObjectOrder('phantoms', 0)
