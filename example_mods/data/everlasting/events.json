@@ -1697,6 +1697,16 @@
 				]
 			],
 			[
+				61894.7368421052,
+				[
+					[
+						"Red Warning Flash",
+						"Off",
+						""
+					]
+				]
+			],
+			[
 				63157.8947368421,
 				[
 					[
@@ -1933,6 +1943,16 @@
 						"Change Character",
 						"dad",
 						"springtrap2"
+					]
+				]
+			],
+			[
+				65684.2105263157,
+				[
+					[
+						"Red Warning Flash",
+						"Off",
+						""
 					]
 				]
 			],
@@ -2765,14 +2785,9 @@
 						"0.01"
 					],
 					[
-						"Change Character",
-						"dad",
-						"springtrap3"
-					],
-					[
-						"fadeout",
-						"cam05",
-						"0.001"
+						"fadein",
+						"cam02",
+						"0.01"
 					],
 					[
 						"fadein",
@@ -2788,6 +2803,11 @@
 						"Add Camera Zoom",
 						"0.04",
 						"0.025"
+					],
+					[
+						"Change Character",
+						"Dad",
+						"springtrap3"
 					]
 				]
 			],
@@ -2803,6 +2823,16 @@
 						"fadeout",
 						"white",
 						"0.5"
+					]
+				]
+			],
+			[
+				86052.6315789473,
+				[
+					[
+						"Red Warning Flash",
+						"Off",
+						""
 					]
 				]
 			],
@@ -4828,6 +4858,11 @@
 						"Add Camera Zoom",
 						"0.04",
 						"0.025"
+					],
+					[
+						"Red Warning Flash",
+						"Off",
+						""
 					]
 				]
 			],
