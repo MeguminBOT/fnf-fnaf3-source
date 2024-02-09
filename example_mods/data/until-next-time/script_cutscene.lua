@@ -2,8 +2,8 @@ local allowCountdown = false
 local allowEnd = false
 
 function onStartCountdown()
-	if not allowCountdown and isStoryMode and not seenCutscene then
-		startVideo('cutscene4')
+	if not allowCountdown then
+		startVideo('unt')
 		allowCountdown = true
 		return Function_Stop
 	end
@@ -11,8 +11,8 @@ function onStartCountdown()
 end
 
 function onEndSong()
-	if not allowEnd and isStoryMode then
-		startVideo('unt')
+	if not allowEnd then
+		startVideo('until')
 		allowEnd = true;
 		return Function_Stop;
 	end
