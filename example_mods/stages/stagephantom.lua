@@ -165,8 +165,53 @@ function createSubtitles()
 	setObjectCamera('Text', 'camOther')
 end
 
-function onEvent(name, value1, value2)
-	if name == 'fearforever' then
+function onBeatHit()
+	-- Fade the strumline in and out.
+	if curBeat == 228 then
+		doTweenAlpha('strumFadeOut', 'camHUD', 0, 1, 'linear')
+	elseif curBeat == 256 then
+		doTweenAlpha('strumFadeIn', 'camHUD', 1, 1, 'linear')
+	elseif curBeat == 456 then
+		doTweenAlpha('strumFadeOut', 'camHUD', 0, 0.25, 'linear')
+	elseif curBeat == 480 then
+		doTweenAlpha('strumFadeIn', 'camHUD', 1, 0.25, 'linear')
+	elseif curBeat == 648 then
+		doTweenAlpha('strumFadeOut', 'camHUD', 0, 0.25, 'linear')
+	elseif curBeat == 709 then
+		doTweenAlpha('strumFadeIn', 'camHUD', 1, 1, 'linear')
+	elseif curBeat == 839 then
+		doTweenAlpha('strumFadeOut', 'camHUD', 0, 0.25, 'linear')
+	elseif curBeat == 868 then
+		doTweenAlpha('strumFadeIn', 'camHUD', 1, 1, 'linear')
+	elseif curBeat == 1072 then
+		doTweenAlpha('strumFadeOut', 'camHUD', 0, 0.25, 'linear')
+	elseif curBeat == 1100 then
+		doTweenAlpha('strumFadeIn', 'camHUD', 1, 1, 'linear')
+	end
+end
+
+function onStepHit()
+	if curStep == 100 then
+		-- Funny Freddy walk.
+		doTweenX('Walk', 'dad', -400, 10, 'quadIn')
+
+	elseif curStep == 192 then
+		-- Funny Freddy walk.
+		doTweenX('Walk', 'dad', -550, 5, 'quadIn')
+
+	elseif curStep == 320 then
+		-- Funny Freddy walk.
+		doTweenX('Walk', 'dad', -700, 5, 'quadIn')
+
+	elseif curStep == 448 then
+		-- Funny Freddy walk.
+		doTweenX('Walk', 'dad', -850, 5, 'quadIn')
+
+	elseif curStep == 576 then
+		-- Funny Freddy walk.
+		doTweenX('Walk', 'dad', -1000, 5, 'quadIn')
+
+	elseif curStep == 640 then
 		-- Phase Transition.
 		setProperty('phfreddyjumpinverted.visible', true)
 		setProperty('phfreddyjumpinverted.alpha', 1)
@@ -187,13 +232,14 @@ function onEvent(name, value1, value2)
 		setProperty('wire.visible', true)
 		setProperty('greenglow.visible', true)
 
-	elseif name == 'fearforever2' then
+	elseif curStep == 928 then
 		-- Remove previous stage sprites.
 		removeLuaSprite('greenglow', true)
 		removeLuaSprite('wire', true)
 		removeLuaSprite('arcade', true) 
 		removeLuaSprite('freddy3', true)
 
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
 		runHaxeCode([[
             Paths.clearUnusedMemory();
         ]])
@@ -215,10 +261,11 @@ function onEvent(name, value1, value2)
 		-- Toggle visibility of the next stage sprites.
 		setProperty('foxy.visible', true)
 
-	elseif name == 'fearforever3' then
+	elseif curStep == 1280 then
 		-- Remove previous stage sprites.
 		removeLuaSprite('foxy', true)
 
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
 		runHaxeCode([[
             Paths.clearUnusedMemory();
         ]])
@@ -241,45 +288,8 @@ function onEvent(name, value1, value2)
 		setProperty('foxy2.visible', true)
 		setProperty('box.visible', true)
 		setProperty('present.visible', true)
-	
-	elseif name == 'fearforever4' then
-		-- Remove previous stage sprites.
-		removeLuaSprite('foxy2', true)
-		removeLuaSprite('present', true)
-		removeLuaSprite('box', true)
 
-		runHaxeCode([[
-            Paths.clearUnusedMemory();
-        ]])
-		
-		-- Modify object order.
-		setObjectOrder('foxychase', 1)
-		setObjectOrder('foxysfeet', 2)
-		setObjectOrder('bfeet', 3)
-		setObjectOrder('foxyjumping', 5)
-
-		-- Re-position characters.
-		setProperty('dad.x', 520)
-		setProperty('dad.y', 175)
-		setProperty('boyfriend.x', 1700)
-		setProperty('boyfriend.y', 630)
-
-		-- Miscellaneous.
-		setProperty('foxyjumping.alpha', 0)
-
-		-- Toggle visibility of the next stage sprites.
-		setProperty('foxychase.visible', true)
-		setProperty('foxysfeet.visible', true)
-		setProperty('bfeet.visible', true)
-		setProperty('foxyjumping.visible', true)
-
-		-- Force play animations so they start from the beginning.
-		playAnim('foxyChase', 'foxyChase', true)
-		playAnim('foxysfeet', 'foxysfeet', true)
-		playAnim('bfeet', 'bfeet', true)
-		playAnim('foxyjumping', 'anim', true)
-
-	elseif name == 'fearforever5' then
+	elseif curStep == 1856 then
 		-- Remove previous stage sprites.
 		removeLuaSprite('foxychase', true)
 		removeLuaSprite('foxysfeet', true)
@@ -287,6 +297,7 @@ function onEvent(name, value1, value2)
 		removeLuaSprite('foxyjumping', true) 
 		removeLuaSprite('bfeetblue', true) 
 
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
 		runHaxeCode([[
             Paths.clearUnusedMemory();
         ]])
@@ -318,7 +329,54 @@ function onEvent(name, value1, value2)
 		-- Force play animations so they start from the beginning.
 		playAnim('static3', 'anim', true)
 
-	elseif name == 'fearforever6' then
+	elseif curStep == 2336 then
+		-- Modify object order.
+		setObjectOrder('static3', 0)
+		setObjectOrder('chica', 1)
+
+		-- Re-position characters.
+		setProperty('dad.x', -300)
+		setProperty('dad.y', 250)
+
+	elseif curStep == 1568 then
+		-- Remove previous stage sprites.
+		removeLuaSprite('foxy2', true)
+		removeLuaSprite('present', true)
+		removeLuaSprite('box', true)
+
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+            Paths.clearUnusedMemory();
+        ]])
+		
+		-- Modify object order.
+		setObjectOrder('foxychase', 1)
+		setObjectOrder('foxysfeet', 2)
+		setObjectOrder('bfeet', 3)
+		setObjectOrder('foxyjumping', 5)
+
+		-- Re-position characters.
+		setProperty('dad.x', 520)
+		setProperty('dad.y', 175)
+		setProperty('boyfriend.x', 1700)
+		setProperty('boyfriend.y', 630)
+
+		-- Miscellaneous.
+		setProperty('foxyjumping.alpha', 0)
+
+		-- Toggle visibility of the next stage sprites.
+		setProperty('foxychase.visible', true)
+		setProperty('foxysfeet.visible', true)
+		setProperty('bfeet.visible', true)
+		setProperty('foxyjumping.visible', true)
+
+		-- Force play animations so they start from the beginning.
+		playAnim('foxyChase', 'foxyChase', true)
+		playAnim('foxysfeet', 'foxysfeet', true)
+		playAnim('bfeet', 'bfeet', true)
+		playAnim('foxyjumping', 'anim', true)
+
+	elseif curStep == 2698 then
 		-- Remove previous stage sprites.
 		removeLuaSprite('chica', true)
 		removeLuaSprite('coffee', true)
@@ -326,6 +384,7 @@ function onEvent(name, value1, value2)
 		removeLuaSprite('present', true)
 		removeLuaSprite('static3', true)
 
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
 		runHaxeCode([[
             Paths.clearUnusedMemory();
         ]])
@@ -350,7 +409,11 @@ function onEvent(name, value1, value2)
 		-- Force play animations so they start from the beginning.
 		playAnim('greenstatic', 'anim', true)
 
-	elseif name == 'fearforever7' then
+	elseif curStep == 3360 then
+		-- Set alpha values.
+		setProperty('black.alpha', 1)
+
+	elseif curStep == 3376 then
 		-- Phase Transition.
 		setProperty('black.alpha', 1)
 		doTweenAlpha('blackTransition', 'black', 0, 1, 'linear', true)
@@ -361,6 +424,7 @@ function onEvent(name, value1, value2)
 		removeLuaSprite('table', true) 
 		removeLuaSprite('greenstatic', true)
 
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
 		runHaxeCode([[
             Paths.clearUnusedMemory();
         ]])
@@ -375,13 +439,18 @@ function onEvent(name, value1, value2)
 		-- Toggle visibility of the next stage sprites.
 		setProperty('mangle.visible', true)
 
-	elseif name == 'fearforever8' then
+	elseif curStep == 3388 then
+		-- Phase Transition.
+		doTweenAlpha('blackTransition', 'black', 0, 6, 'linear', true)
+
+	elseif curStep == 4404 then
 		-- Phase Transition.
 		doTweenAlpha('blackTransition', 'black', 0, 1, 'linear', true)
 
 		-- Remove previous stage sprites.
 		removeLuaSprite('mangle', true) 
 
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
 		runHaxeCode([[
             Paths.clearUnusedMemory();
         ]])
@@ -413,13 +482,42 @@ function onEvent(name, value1, value2)
 		playAnim('starstring', 'anim', true)
 		playAnim('starstring2', 'anim', true)
 
-	elseif name == 'fearforever9' then
+	elseif curStep == 4288 then
+		-- Set alpha values.
+		setProperty('black.alpha', 1)
+
+	elseif curStep == 4544 then
+		-- Slowly tween in the background sprite.
+		doTweenAlpha('bgappear', 'puppet', 1, 10, 'sineInOut')
+
+	elseif curStep == 4672 then
+		-- Tween in the presents sprite.
+		doTweenY('presents', 'puppet2', 600, 5, 'cubeOut')
+
+	elseif curStep == 4800 then
+		-- Tween in the first stars.
+		doTweenY('stardown2', 'starstring2', -100, 5, 'cubeOut')
+
+	elseif curStep == 4832 then
+		-- Tween in the second stars.
+		doTweenY('stardown1', 'starstring', -100, 5, 'cubeOut')
+
+	elseif curStep == 4944 then
+		-- Remove previous stage sprites.
+		removeLuaSprite('starstring', true)
+		removeLuaSprite('starstring2', true)
+
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+            Paths.clearUnusedMemory();
+        ]])
+
+	elseif curStep == 5056 then
 		-- Remove previous stage sprites.
 		removeLuaSprite('puppet', true)
 		removeLuaSprite('puppet2', true)
-		removeLuaSprite('starstring', true) 
-		removeLuaSprite('starstring2', true)
 
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
 		runHaxeCode([[
             Paths.clearUnusedMemory();
         ]])
@@ -437,74 +535,5 @@ function onEvent(name, value1, value2)
 
 		-- Force play animations so they start from the beginning.
 		playAnim('phantoms', 'anim', true)
-	end
-end
-
-function onBeatHit()
-	if curBeat == 228 then
-		doTweenAlpha('strumFadeOut', 'camHUD', 0, 1, 'linear')
-	elseif curBeat == 256 then
-		doTweenAlpha('strumFadeIn', 'camHUD', 1, 1, 'linear')
-	elseif curBeat == 456 then
-		doTweenAlpha('strumFadeOut', 'camHUD', 0, 0.25, 'linear')
-	elseif curBeat == 480 then
-		doTweenAlpha('strumFadeIn', 'camHUD', 1, 0.25, 'linear')
-	elseif curBeat == 648 then
-		doTweenAlpha('strumFadeOut', 'camHUD', 0, 0.25, 'linear')
-	elseif curBeat == 709 then
-		doTweenAlpha('strumFadeIn', 'camHUD', 1, 1, 'linear')
-	elseif curBeat == 839 then
-		doTweenAlpha('strumFadeOut', 'camHUD', 0, 0.25, 'linear')
-	elseif curBeat == 868 then
-		doTweenAlpha('strumFadeIn', 'camHUD', 1, 1, 'linear')
-	elseif curBeat == 1072 then
-		doTweenAlpha('strumFadeOut', 'camHUD', 0, 0.25, 'linear')
-	elseif curBeat == 1100 then
-		doTweenAlpha('strumFadeIn', 'camHUD', 1, 1, 'linear')
-	end
-end
-
-function onStepHit()
-	if curStep == 100 then
-		doTweenX('Walk', 'dad', -400, 10, 'quadIn')
-
-	elseif curStep == 192 then
-		doTweenX('Walk', 'dad', -550, 5, 'quadIn')
-
-	elseif curStep == 320 then
-		doTweenX('Walk', 'dad', -700, 5, 'quadIn')
-
-	elseif curStep == 448 then
-		doTweenX('Walk', 'dad', -850, 5, 'quadIn')
-
-	elseif curStep == 576 then
-		doTweenX('Walk', 'dad', -1000, 5, 'quadIn')
-
-	elseif curStep == 2336 then
-		setObjectOrder('static3', 0)
-		setObjectOrder('chica', 1)
-		setProperty('dad.x', -300)
-		setProperty('dad.y', 250)
-
-	elseif curStep == 3360 then
-		setProperty('black.alpha', 1)
-
-	elseif curStep == 3388 then
-		doTweenAlpha('blackTransition', 'black', 0, 6, 'linear', true)
-
-	elseif curStep == 4288 then
-		setProperty('black.alpha', 1)
-
-	elseif curStep == 4544 then
-		doTweenAlpha('bgappear', 'puppet', 1, 10, 'sineInOut')
-
-	elseif curStep == 4672 then
-		doTweenY('presents', 'puppet2', 600, 5, 'cubeOut')
-
-	elseif curStep == 4800 then
-		doTweenY('stardown2', 'starstring2', -100, 5, 'cubeOut')
-
-	elseif curStep == 4832 then
-		doTweenY('stardown1', 'starstring', -100, 5, 'cubeOut')
 	end
 end
