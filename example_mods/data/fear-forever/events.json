@@ -1665,6 +1665,11 @@
 						"anim"
 					],
 					[
+						"fadein",
+						"foxyjumping",
+						"0.001"
+					],
+					[
 						"Opponent Fade",
 						"0",
 						"0"
