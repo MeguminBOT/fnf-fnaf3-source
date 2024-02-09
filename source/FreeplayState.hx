@@ -631,12 +631,12 @@ class FreeplayState extends MusicBeatState
 
 		/* This is such a ugly way to get this working */
 		// Lulu
-		if (curDifficulty == 0) {
+		if (curDifficulty == 1) {
 			diffNormal.text = "< Normal >";
 			diffEasy.text = "Easy";
 			scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
 
-		} else if (curDifficulty == 1) {
+		} else if (curDifficulty == 0) {
 			diffNormal.text = "Normal";
 			diffEasy.text = "< Easy >";
 			scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
