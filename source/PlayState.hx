@@ -2061,6 +2061,7 @@ class PlayState extends MusicBeatState
 						babyArrow.x += FlxG.width / 2 + 25;
 					}
 				}
+				opponentStrums.add(babyArrow);
 			}
 
 			strumLineNotes.add(babyArrow);
