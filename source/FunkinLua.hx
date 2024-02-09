@@ -223,7 +223,7 @@ class FunkinLua {
 		set('epilepsyLevel', ClientPrefs.epilepsyLevel);
 		set('timeBarTxtMode', ClientPrefs.timeBarTxtMode);
 		set('timeBarEnabled', ClientPrefs.timeBarEnabled);
-		set('graphicsQuality', ClientPrefs.graphicsQuality);
+		//set('graphicsQuality', ClientPrefs.graphicsQuality);
 		set('immersionLevel', ClientPrefs.immersionLevel);
 		set('isCodeInput', PlayState.isCodeInput);
 

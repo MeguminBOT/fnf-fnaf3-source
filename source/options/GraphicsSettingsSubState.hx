@@ -54,13 +54,13 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 			false); //Default value
 		addOption(option);
 
-		var option:Option = new Option('Graphics Quality',
-			"Changes the amount of sprites to be displayed.\nLow = Removes any sprites that won't reduce mod experience.\nVery Low = Removes a lot of sprites, reduces mod experience a lot.",
-			'graphicsQuality',
-			'string',
-			'Normal',
-			['Very Low', 'Low', 'Normal']);
-		addOption(option);
+		// var option:Option = new Option('Graphics Quality',
+		// 	"Changes the amount of sprites to be displayed.\nLow = Removes any sprites that won't reduce mod experience.\nVery Low = Removes a lot of sprites, reduces mod experience a lot.",
+		// 	'graphicsQuality',
+		// 	'string',
+		// 	'Normal',
+		// 	['Very Low', 'Low', 'Normal']);
+		// addOption(option);
 
 		var option:Option = new Option('Anti-Aliasing',
 			'If unchecked, disables anti-aliasing, increases performance\nat the cost of sharper visuals.',
@@ -88,7 +88,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 
 		#if !html5 //Apparently other framerates isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		var option:Option = new Option('Framerate',
-			"Pretty self explanatory, isn't it?",
+			"Highest framerate the game should run at",
 			'framerate',
 			'int',
 			60);

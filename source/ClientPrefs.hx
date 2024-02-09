@@ -68,7 +68,7 @@ class ClientPrefs {
 	public static var epilepsyDisableWarning:Bool = false;
 	public static var timeBarTxtMode:String = 'Disabled';
 	public static var timeBarEnabled:Bool = true;
-	public static var graphicsQuality:String = 'Normal';
+	//public static var graphicsQuality:String = 'Normal';
 	public static var immersionLevel:String = 'Full';
 
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
@@ -148,7 +148,7 @@ class ClientPrefs {
 		FlxG.save.data.epilepsyDisableWarning = epilepsyDisableWarning;
 		FlxG.save.data.timeBarTxtMode = timeBarTxtMode;
 		FlxG.save.data.timeBarEnabled = timeBarEnabled;
-		FlxG.save.data.graphicsQuality = graphicsQuality;
+		//FlxG.save.data.graphicsQuality = graphicsQuality;
 		FlxG.save.data.immersionLevel = immersionLevel;
 
 		FlxG.save.flush();
@@ -297,15 +297,18 @@ class ClientPrefs {
 		if (FlxG.save.data.epilepsyLevel != null) {
 			epilepsyLevel = FlxG.save.data.epilepsyLevel;
 		}
+		if (FlxG.save.data.epilepsyDisableWarning != null) {
+			epilepsyDisableWarning = FlxG.save.data.epilepsyDisableWarning;
+		}
 		if(FlxG.save.data.timeBarTxtMode != null) {
 			timeBarTxtMode = FlxG.save.data.timeBarTxtMode;
 		}
 		if(FlxG.save.data.timeBarEnabled != null) {
 			timeBarEnabled = FlxG.save.data.timeBarEnabled;
 		}
-		if(FlxG.save.data.graphicsQuality != null) {
-			graphicsQuality = FlxG.save.data.graphicsQuality;
-		}
+		// if(FlxG.save.data.graphicsQuality != null) {
+		// 	graphicsQuality = FlxG.save.data.graphicsQuality;
+		// }
 		if(FlxG.save.data.immersionLevel != null) {
 			immersionLevel = FlxG.save.data.immersionLevel;
 		}
