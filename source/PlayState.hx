@@ -660,21 +660,12 @@ class PlayState extends MusicBeatState
 		strumLine.scrollFactor.set();
 
 		// Lane Underlay backported from Rhythm Engine.
-		laneUnderlayOpponent = new FlxSprite(0, 0).makeGraphic(110 * 4 + 50, FlxG.height * 2);
-		laneUnderlayOpponent.alpha = ClientPrefs.underlay;
-		laneUnderlayOpponent.color = FlxColor.BLACK;
-		laneUnderlayOpponent.scrollFactor.set();
-		laneUnderlayOpponent.visible = false;
 
 		laneUnderlay = new FlxSprite(0, 0).makeGraphic(110 * 4 + 50, FlxG.height * 2);
 		laneUnderlay.alpha = ClientPrefs.underlay;
 		laneUnderlay.color = FlxColor.BLACK;
 		laneUnderlay.scrollFactor.set();
 
-		if (!ClientPrefs.middleScroll)
-		{
-			add(laneUnderlayOpponent);
-		}
 		add(laneUnderlay);
 		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, 19, 400, "", 32);
 		timeTxt.setFormat(Paths.font("stalker2.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -843,7 +834,6 @@ class PlayState extends MusicBeatState
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 		laneUnderlay.cameras = [camHUD];
-		laneUnderlayOpponent.cameras = [camHUD];
 
 		startingSong = true;
 		
@@ -1488,9 +1478,7 @@ class PlayState extends MusicBeatState
 
 			//Lane Underlay
 			laneUnderlay.x = playerStrums.members[0].x - 25;
-			laneUnderlayOpponent.x = opponentStrums.members[0].x - 25;
 			laneUnderlay.screenCenter(Y);
-			laneUnderlayOpponent.screenCenter(Y);
 
 			for (i in 0...playerStrums.length) {
 				setOnLuas('defaultPlayerStrumX' + i, playerStrums.members[i].x);
