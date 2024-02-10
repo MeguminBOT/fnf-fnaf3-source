@@ -22,7 +22,7 @@ class OutdatedState extends MusicBeatState
 
 		warnText = new FlxText(0, 0, FlxG.width,
 			"Sup bro, looks like you're running an   \n
-			outdated version of 'Vs. FNaF 3' (" + MainMenuState.psychEngineVersion + "),\n
+			outdated version of 'Vs. FNaF 3' (" + MainMenuState.fnafVersion + "),\n
 			please update to " + TitleState.updateVersion + "!\n
 			Press ESCAPE to proceed anyway.\n
 			\n
@@ -38,7 +38,7 @@ class OutdatedState extends MusicBeatState
 		if(!leftState) {
 			if (controls.ACCEPT) {
 				leftState = true;
-				CoolUtil.browserLoad("https://github.com/ShadowMario/FNF-PsychEngine/releases");
+				CoolUtil.browserLoad("https://github.com/MeguminBOT/fnf-fnaf3-source/releases/");
 			}
 			else if(controls.BACK) {
 				leftState = true;

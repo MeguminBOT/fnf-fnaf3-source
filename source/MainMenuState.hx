@@ -28,7 +28,8 @@ using StringTools;
 
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = '0.6.2 (Modified)'; //This is also used for Discord RPC
+	public static var fnafVersion:String = "1.0"; //This is also used for Discord RPC
+	public static var psychEngineVersion:String = '0.6.2 (Modified)'; 
 	public static var curSelected:Int = 0;
 
 	private var camGame:FlxCamera;
@@ -84,7 +85,7 @@ class MainMenuState extends MusicBeatState
 		var versionShit:FlxText = new FlxText(1000, FlxG.height - 44, 0, '', 16);
 		versionShit.setFormat("stalker2.ttf", 16, FlxColor.WHITE, FlxTextAlign.RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		versionShit.scrollFactor.set();
-		versionShit.text = 'Vs FNaF 3 v' + Application.current.meta.get('version') + '\nPsych Engine v' + psychEngineVersion;
+		versionShit.text = 'Vs FNaF 3 v' + fnafVersion + '\nPsych Engine v' + psychEngineVersion;
 		add(versionShit);
 
 		#if ACHIEVEMENTS_ALLOWED

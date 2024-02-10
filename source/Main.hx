@@ -122,7 +122,7 @@ class Main extends Sprite
 		dateNow = dateNow.replace(" ", "_");
 		dateNow = dateNow.replace(":", "'");
 
-		path = "./crash/" + "PsychEngine_" + dateNow + ".txt";
+		path = "./crashlogs/" + "VsFNaF3_" + dateNow + ".txt";
 
 		for (stackItem in callStack)
 		{
@@ -135,7 +135,7 @@ class Main extends Sprite
 			}
 		}
 
-		errMsg += "\nUncaught Error: " + e.error + "\nPlease report this error to the GitHub page: https://github.com/ShadowMario/FNF-PsychEngine\n\n> Crash Handler written by: sqirra-rng";
+		errMsg += "\nUncaught Error: " + e.error + "\nPlease report this error either in '#mod-issues in PouriaSFMs discord server'\n or @AutisticLulu on Discord\n or to the GitHub page: https://github.com/MeguminBOT/fnf-fnaf3-source/issues\n\nDon't forget to send the Crashlog!!\n\n> Crash Handler written by: sqirra-rng";
 
 		if (!FileSystem.exists("./crash/"))
 			FileSystem.createDirectory("./crash/");
