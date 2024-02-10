@@ -86,13 +86,15 @@ class FlxVideo extends Video
 			height = FlxG.scaleMode.gameSize.y;
 		}
 
-		#if FLX_SOUND_SYSTEM
+		// Modified to use the old volume handling from HxCodec since videos became too quiet with new method 
+		// Lulu
+		#if FLX_SOUND_SYSTEM 
 		if (autoVolumeHandle && !mute)
 		{
-			final curVolume:Int = Math.floor((FlxG.sound.muted ? 0 : 1) * FlxG.sound.volume * 100);
-
-			if (volume != curVolume)
-				volume = curVolume;
+			if (FlxG.sound.muted || FlxG.sound.volume <= 0)
+				volume = 0;
+			else
+				volume = FlxG.sound.volume + 0.1;
 		}
 		#end
 	}
