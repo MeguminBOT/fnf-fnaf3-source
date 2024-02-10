@@ -35,7 +35,7 @@ class AccessibilitySubState extends BaseOptionsMenu
 		rpcTitle = 'Accessibility Settings Menu'; //for Discord Rich Presence
 
 		var option:Option = new Option('Epilepsy Safety',
-			"Enables extra measures increase safety for people with Epilepsy.\nEspecially for those sensitive to lights and sounds.",
+			"Enables extra measures increase safety for people with Epilepsy.\nEspecially for those sensitive to lights and sounds.\nNOTE: Currently only affects the story mode songs.",
 			'epilepsy',
 			'bool',
 			false);

@@ -48,7 +48,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 
 		//I'd suggest using "Low Quality" as an example for making your own option since it is the simplest here
 		var option:Option = new Option('Low Quality', //Name
-			'If checked, disables some background details,\ndecreases loading times and improves performance.', //Description
+			'If checked, disables some background details,\ndecreases loading times and improves performance.\nNOTE: Currently only affects the story mode songs.', //Description
 			'lowQuality', //Save data variable name
 			'bool', //Variable type
 			false); //Default value
@@ -88,7 +88,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 
 		#if !html5 //Apparently other framerates isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		var option:Option = new Option('Framerate',
-			"Highest framerate the game should run at",
+			"Highest framerate the game should run at. \nRecommended is 120 FPS is recommended if your computer is strong enough",
 			'framerate',
 			'int',
 			60);

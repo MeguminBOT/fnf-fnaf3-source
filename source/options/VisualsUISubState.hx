@@ -35,7 +35,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		rpcTitle = 'Visuals & UI Settings Menu'; //for Discord Rich Presence
 
 		var option:Option = new Option('Immersion Level',
-			"How ''immersive'' do you want your mod experience to be? Affects wheter some objects go above or under the notes.\nFull = Throw everything at me!\nPartial = Some objects will be under the notes for clarity.",
+			"How ''immersive'' do you want your mod experience to be? Affects wheter some objects go above or under the notes.\nFull = Throw everything at me!\nPartial = Some objects will be under the notes for clarity.\n\nNOTE: Currently only affects the story mode songs.",
 			'immersionLevel',
 			'string',
 			'Full',
