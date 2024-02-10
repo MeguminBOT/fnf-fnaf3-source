@@ -327,6 +327,11 @@ class PlayState extends MusicBeatState
 
 	var showTimeTxt:Bool;
 	var showTimeBar:Bool;
+
+	#if VIDEOS_ALLOWED
+	public var video:FlxVideo;
+	public static var videoIsActive:Bool = false;
+	#end
 	/*---------------------------------*/
 
 	override public function create()
@@ -1355,7 +1360,7 @@ class PlayState extends MusicBeatState
 	{
 		#if VIDEOS_ALLOWED
 		var filepath:String = Paths.video(name);
-		var video:FlxVideo = new FlxVideo();
+		video = new FlxVideo();
 		inCutscene = true;
 
 		if(#if sys !FileSystem.exists(filepath) #else !OpenFlAssets.exists(filepath) #end) {
@@ -1364,8 +1369,9 @@ class PlayState extends MusicBeatState
 			return null;
 		}
 
-		video.onEndReached.add(function(){
+		video.onEndReached.add(function() {
 			video.dispose();
+			videoIsActive = false;
 			startAndEnd();
 			return;
 		});
@@ -1376,6 +1382,7 @@ class PlayState extends MusicBeatState
 
 		new FlxTimer().start(0.001, function(tmr:FlxTimer):Void
 		{
+			videoIsActive = true;
 			video.play();
 		});
 
@@ -2122,6 +2129,11 @@ class PlayState extends MusicBeatState
 				timer.active = true;
 			}
 			paused = false;
+
+			if (videoIsActive) {
+				video.play();
+			}
+
 			callOnLuas('onResume', []);
 
 			#if desktop
@@ -2543,6 +2555,10 @@ class PlayState extends MusicBeatState
 		persistentUpdate = false;
 		persistentDraw = true;
 		paused = true;
+
+		if (videoIsActive) {
+			video.pause();
+		}
 
 		if(FlxG.sound.music != null) {
 			FlxG.sound.music.pause();
