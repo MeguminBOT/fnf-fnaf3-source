@@ -157,9 +157,8 @@
 	<!-- Makes debugging easier -->
 	<haxelib name="hxcpp-debug-server" if="debug"/>
 
-
 	<!-- Build game with clang compiler instead of MSVC -->
-	<!--<haxedef name="HXCPP_CLANG"/> -->
+	<haxedef name="HXCPP_CLANG"/>
 
 	<!-- Allow storage of bigger sprites and memory usage above 2.99 GB. -->
 	<haxedef name="HXCPP_GC_BIG_BLOCKS"/>
