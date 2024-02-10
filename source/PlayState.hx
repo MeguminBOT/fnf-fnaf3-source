@@ -4283,6 +4283,7 @@ class PlayState extends MusicBeatState
 						} else if(isStoryMode && campaignMisses + songMisses < 1 && shits < 1 && bads < 1 && ratingFC == "GFC" && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice) {
 							unlock = true;
 						}
+				}
 						
 
 				if(unlock) {
