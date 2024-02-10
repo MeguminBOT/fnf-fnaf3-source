@@ -1,88 +1,8 @@
 {
 	"song": {
-		"player1": "bf",
-		"player2": "bf-pixel-opponent",
+		"player1": "oobsbonnie",
+		"player2": "oobbb",
 		"events": [
-			[
-				51200,
-				[
-					[
-						"Change Scroll Speed",
-						"1.1",
-						"1"
-					]
-				]
-			],
-			[
-				118400,
-				[
-					[
-						"Change Scroll Speed",
-						"1",
-						"3.75"
-					]
-				]
-			],
-			[
-				166400,
-				[
-					[
-						"Change Scroll Speed",
-						"1.2",
-						"1.5"
-					]
-				]
-			],
-			[
-				208078.431372549,
-				[
-					[
-						"Change Scroll Speed",
-						"1",
-						"2.75"
-					]
-				]
-			],
-			[
-				256078.43137255,
-				[
-					[
-						"Change Scroll Speed",
-						"1.2",
-						"1.25"
-					]
-				]
-			],
-			[
-				308078.431372549,
-				[
-					[
-						"Change Scroll Speed",
-						"1",
-						"1"
-					]
-				]
-			],
-			[
-				382745.098039215,
-				[
-					[
-						"Change Scroll Speed",
-						"1.2",
-						"6"
-					]
-				]
-			],
-			[
-				478078.431372548,
-				[
-					[
-						"Change Scroll Speed",
-						"1",
-						"1"
-					]
-				]
-			]
 		],
 		"notes": [
 			{
@@ -22719,7 +22639,7 @@
 		"splashSkin": "noteSplashes",
 		"song": "Out of Bounds",
 		"validScore": true,
-		"stage": "stage",
+		"stage": "stageoob",
 		"arrowSkin": "",
 		"needsVoices": true,
 		"speed": 2.6,

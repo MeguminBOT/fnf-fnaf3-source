@@ -1,7 +1,7 @@
 {
 	"song": {
-		"player1": "bf",
-		"gfVersion": "bf",
+		"player1": "bfpp",
+		"gfVersion": "papernone",
 		"notes": [
 			{
 				"sectionBeats": 4,
@@ -7092,12 +7092,12 @@
 			}
 		],
 		"events": [],
-		"player2": "dad",
+		"player2": "nothing",
 		"splashSkin": "noteSplashes",
-		"song": "Party-Room",
+		"song": "Party Room",
 		"needsVoices": true,
 		"arrowSkin": "",
-		"stage": "stage",
+		"stage": "stagepp",
 		"validScore": true,
 		"bpm": 198,
 		"speed": 2.3

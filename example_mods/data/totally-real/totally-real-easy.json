@@ -1,9 +1,10 @@
 {
 	"song": {
-		"speed": 2.7,
-		"stage": "stage",
-		"player1": "bf",
-		"player2": "bf-pixel-opponent",
+		"speed": 2.4,
+		"stage": "stagereal",
+		"player1": "phbonnie",
+		"gfVersion": "bf",
+		"player2": "salvage",
 		"events": [],
 		"notes": [
 			{
@@ -4656,7 +4657,6 @@
 		],
 		"splashSkin": "noteSplashes",
 		"validScore": false,
-		"gfVersion": "bf",
 		"bpm": 120,
 		"arrowSkin": "",
 		"needsVoices": true,

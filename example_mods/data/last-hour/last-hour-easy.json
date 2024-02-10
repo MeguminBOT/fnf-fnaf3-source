@@ -1,7 +1,7 @@
 {
 	"song": {
-		"player1": "bf",
-		"player2": "dad",
+		"player1": "securityguy",
+		"player2": "5amspringtrap",
 		"notes": [
 			{
 				"lengthInSteps": 16,
@@ -9768,13 +9768,13 @@
 				"mustHitSection": true
 			}
 		],
-		"gfVersion": "gf",
+		"gfVersion": "5amfreddy",
 		"events": [],
 		"player3": null,
-		"song": "Last-Hour",
+		"song": "Last Hour",
 		"validScore": true,
 		"needsVoices": true,
-		"stage": "stage",
+		"stage": "stage5am",
 		"speed": 2.5,
 		"bpm": 160
 	}

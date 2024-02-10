@@ -4622,26 +4622,6 @@
 		],
 		"gfVersion": "gf",
 		"events": [
-			[
-				67826.0869565218,
-				[
-					[
-						"Change Scroll Speed",
-						"1.3",
-						"42"
-					]
-				]
-			],
-			[
-				99130.4347826088,
-				[
-					[
-						"Change Scroll Speed",
-						"0.5",
-						"15"
-					]
-				]
-			]
 		],
 		"player3": null,
 		"song": "leantrap",

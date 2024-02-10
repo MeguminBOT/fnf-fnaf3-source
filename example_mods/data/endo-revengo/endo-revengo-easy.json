@@ -1,6 +1,6 @@
 {
 	"song": {
-		"player1": "bf",
+		"player1": "bf2",
 		"events": [
 			[
 				73600,
@@ -43,7 +43,7 @@
 				]
 			]
 		],
-		"gfVersion": "gf",
+		"gfVersion": "nothing",
 		"notes": [
 			{
 				"sectionNotes": [],
@@ -9870,10 +9870,10 @@
 				"mustHitSection": true
 			}
 		],
-		"player2": "dad",
+		"player2": "endo01",
 		"player3": null,
-		"song": "Endo-Revengo",
-		"stage": "stage",
+		"song": "Endo Revengo",
+		"stage": "stageendo",
 		"needsVoices": true,
 		"validScore": true,
 		"bpm": 150,
