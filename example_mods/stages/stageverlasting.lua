@@ -99,22 +99,22 @@ function createVideoSprites()
 end
 
 function createMiscSprites()
-    local miscSprites = {
+	local miscSprites = {
 		{ name = 'whiteui', image = 'whiteui', camera = 'camHUD', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
 		{ name = 'blackhud', image = 'black', camera = 'camOther', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
 		{ name = 'white', image = 'white', camera = 'camGame', posX = -3200, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 0 },
 		{ name = 'black', image = 'black', camera = 'camGame', posX = -3000, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 1 },
-    }
+	}
 
-    for _, miscSprite in ipairs(miscSprites) do
-        precacheImage(miscSprite.image)
-        makeLuaSprite(miscSprite.name, miscSprite.image, miscSprite.posX, miscSprite.posY)
+	for _, miscSprite in ipairs(miscSprites) do
+		precacheImage(miscSprite.image)
+		makeLuaSprite(miscSprite.name, miscSprite.image, miscSprite.posX, miscSprite.posY)
 		setScrollFactor(miscSprite.name, miscSprite.scrollX, miscSprite.scrollY)
 		scaleObject(miscSprite.name, miscSprite.scaleX, miscSprite.scaleX)
-        setObjectCamera(miscSprite.name, miscSprite.camera)
-        addLuaSprite(miscSprite.name, true)
-        setProperty(miscSprite.name .. '.alpha', miscSprite.alpha)
-    end
+		setObjectCamera(miscSprite.name, miscSprite.camera)
+		addLuaSprite(miscSprite.name, true)
+		setProperty(miscSprite.name .. '.alpha', miscSprite.alpha)
+	end
 end
 
 function onStepHit()
@@ -139,10 +139,10 @@ function onStepHit()
 		playAnim('camstatic', 'anim', true)
 
 	elseif curStep == 832 then
-        -- Scale Springtrap's size.
+		-- Scale Springtrap's size.
 		scaleObject('dad', 0.285, 0.23)
 
-        -- Modify object order.
+		-- Modify object order.
 		setObjectOrder('bg', 0)
 		setObjectOrder('office', 1)
 		setObjectOrder('dadGroup', 2)
@@ -151,7 +151,7 @@ function onStepHit()
 		setObjectOrder('camstatic', 5)
 		setObjectOrder('fan', 6)
 
-        -- Re-position characters.
+		-- Re-position characters.
 		setProperty('boyfriend.x', 630)
 		setProperty('boyfriend.y', 600)
 
@@ -183,28 +183,33 @@ function onStepHit()
 		playAnim('cam02', 'anim', true)
 
 	elseif curStep == 1376 then
-        -- Remove previous stage sprites.
+		-- Remove previous stage sprites.
 		removeLuaSprite('camstatic', true)
 		removeLuaSprite('cam02', true)
 		removeLuaSprite('fan', true)
 		removeLuaSprite('office', true)
 		removeLuaSprite('bg', true)
 
-        -- Toggle visibility of stage sprites.
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+			Paths.clearUnusedMemory();
+		]])
+
+		-- Toggle visibility of stage sprites.
 		setProperty('door.visible', true)
 		setProperty('hallway.visible', true)
 
-        -- Modify object order.
+		-- Modify object order.
 		setObjectOrder('hallway', 0)
 		setObjectOrder('dadGroup', 1)
 		setObjectOrder('springtrap2', 2)
 
-        -- Re-position characters.
+		-- Re-position characters.
 		setProperty('boyfriend.x', 630)
 		setProperty('boyfriend.y', 400)
 
 	elseif curStep == 1674 then
-        -- Toggle visibility of HUD elements
+		-- Toggle visibility of HUD elements
 		setProperty('healthBar.visible', false)
 		setProperty('healthBarBG.visible', false)
 		setProperty('healthBarOverlay.visible', false)
@@ -216,9 +221,14 @@ function onStepHit()
 		setProperty('timeBarBG.visible', false)
 
 	elseif curStep == 1678 then
-        -- Remove previous stage sprites.
+		-- Remove previous stage sprites.
 		removeLuaSprite('door', true)
 		removeLuaSprite('hallway', true)
+
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+			Paths.clearUnusedMemory();
+		]])
 
 		-- Toggle visibility of cinematic bars.
 		setProperty('LowerBar(With HUD).visible', false)
@@ -228,7 +238,7 @@ function onStepHit()
 		addVideoSprite('everlasting', true)
 
 	elseif curStep == 2736 then
-        -- Toggle visibility of HUD elements
+		-- Toggle visibility of HUD elements
 		setProperty('healthBar.visible', true)
 		setProperty('healthBarBG.visible', true)
 		setProperty('healthBarOverlay.visible', true)
@@ -247,39 +257,44 @@ function onStepHit()
 		setProperty('LowerBar(With HUD).visible', true)
 		setProperty('UpperBar(With HUD).visible', true)
 
-        -- Toggle visibility of stage sprites.
+		-- Toggle visibility of stage sprites.
 		setProperty('longasshallway.visible', true)
-        setProperty('bfeet.visible', true)
-        setProperty('aftonfeet.visible', true)
+		setProperty('bfeet.visible', true)
+		setProperty('aftonfeet.visible', true)
 
 		-- Modify object order.
 		setObjectOrder('longasshallway', 0)
-        setObjectOrder('bfeet', 1)
-        setObjectOrder('aftonfeet', 2)
+		setObjectOrder('bfeet', 1)
+		setObjectOrder('aftonfeet', 2)
 		setObjectOrder('dadGroup', 3)
 		setObjectOrder('boyfriendGroup', 4)
 
-        -- Force play animations so they start from the beginning.
-        playAnim('longasshallway', 'anim', true)
-        playAnim('bfeet', 'anim', true)
-        playAnim('aftonfeet', 'anim', true)
+		-- Force play animations so they start from the beginning.
+		playAnim('longasshallway', 'anim', true)
+		playAnim('bfeet', 'anim', true)
+		playAnim('aftonfeet', 'anim', true)
 
-        -- Re-position characters.
+		-- Re-position characters.
 		setProperty('boyfriend.x', 1429)
 		setProperty('boyfriend.y', 270)
 		setProperty('dad.x', 301)
 		setProperty('dad.y', -100)
 
 	elseif curStep == 3280 then
-        -- Remove previous stage sprites.
+		-- Remove previous stage sprites.
 		removeLuaSprite('aftonfeet', true)
 		removeLuaSprite('bfeet', true)
 		removeLuaSprite('longasshallway', true)
 
-        -- Re-position characters.
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+			Paths.clearUnusedMemory();
+		]])
+
+		-- Re-position characters.
 		setProperty('boyfriend.x', 700)
 
-        -- Start video sprite playback.
+		-- Start video sprite playback.
 		addVideoSprite('leftbehind', true)
 
 		-- Modify object order.
@@ -288,10 +303,10 @@ function onStepHit()
 		setObjectOrder('boyfriendGroup', 2)
 
 	elseif curStep == 3792 then
-        -- Remove previous video sprite.
+		-- Remove previous video sprite.
 		setProperty('leftbehind.visible', false)
 
-        -- Toggle visibility of stage sprites.
+		-- Toggle visibility of stage sprites.
 		setProperty('prefire.visible', true)
 
 		-- Modify object order.
@@ -303,7 +318,7 @@ function onStepHit()
 		dumbassDadOffset = getProperty('dad.y')
 		setProperty('dad.y', dumbassDadOffset + 60)
 
-        -- Force play animations so they start from the beginning.
+		-- Force play animations so they start from the beginning.
 		playAnim('prefire', 'anim', true)
 
 	elseif curStep == 3904 then
@@ -317,7 +332,12 @@ function onStepHit()
 		removeLuaSprite('bflighter', true)
 		removeLuaSprite('prefire', true)
 
-        -- Start video sprite playback.
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+			Paths.clearUnusedMemory();
+		]])
+
+		-- Start video sprite playback.
 		addVideoSprite('firebg', true)
 
 		-- Modify object order.

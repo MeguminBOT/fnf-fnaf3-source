@@ -65,22 +65,22 @@ function createJumpscares()
 end
 
 function createMiscSprites()
-    local miscSprites = {
+	local miscSprites = {
 		{ name = 'arcadeffect', image = 'arcadeffect', camera = 'camOther', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 1 },
 		{ name = 'black', image = 'black', camera = 'camGame', posX = -3200, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 1 },
 		{ name = 'static', image = 'static', camera = 'camHUD', posX = 0, posY = 0, scrollX = 0, scrollY = 0, scaleX = 1, scaleY = 1, alpha = 0 },
 		{ name = 'red', image = 'red', camera = 'camHUD', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
 		{ name = 'white', image = 'white', camera = 'camGame', posX = -3200, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 0 },
-    }
+	}
 
-    for _, miscSprite in ipairs(miscSprites) do
-        precacheImage(miscSprite.image)
+	for _, miscSprite in ipairs(miscSprites) do
+		precacheImage(miscSprite.image)
 
 		if miscSprite.name == 'static' then
 			makeAnimatedLuaSprite(miscSprite.name, miscSprite.image, 0, 0);
 			addAnimationByPrefix(miscSprite.name, 'anim', 'idle', 24, true)
 		else
-        	makeLuaSprite(miscSprite.name, miscSprite.image, miscSprite.posX, miscSprite.posY)
+			makeLuaSprite(miscSprite.name, miscSprite.image, miscSprite.posX, miscSprite.posY)
 		end
 
 		setScrollFactor(miscSprite.name, miscSprite.scrollX, miscSprite.scrollY)
@@ -92,9 +92,9 @@ function createMiscSprites()
 			setObjectCamera(miscSprite.name, miscSprite.camera)
 		end
 
-        addLuaSprite(miscSprite.name, true)
-        setProperty(miscSprite.name .. '.alpha', miscSprite.alpha)
-    end
+		addLuaSprite(miscSprite.name, true)
+		setProperty(miscSprite.name .. '.alpha', miscSprite.alpha)
+	end
 end
 
 function createSubtitles()
@@ -117,9 +117,19 @@ function onStepHit()
 		removeLuaSprite('minigamestart', true)
 		removeLuaSprite('arcadeffect', true)
 
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+			Paths.clearUnusedMemory();
+		]])
+
 	elseif curStep == 816 then
 		-- Remove previous stage sprites.
 		removeLuaSprite('takenstage', true)
+		
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+			Paths.clearUnusedMemory();
+		]])
 
 		-- Hide stage sprites that will be reused.
 		setProperty('blueglow.visible', false)
@@ -142,6 +152,11 @@ function onStepHit()
 		-- Remove previous stage sprites.
 		removeLuaSprite('takenstage2', true)
 
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+			Paths.clearUnusedMemory();
+		]])
+
 		-- Hide stage sprites that will be reused.
 		setProperty('blueglow.visible', false)
 
@@ -163,6 +178,11 @@ function onStepHit()
 		-- Remove previous stage sprites.
 		removeLuaSprite('takenstage3', true)
 
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+			Paths.clearUnusedMemory();
+		]])
+
 		-- Hide stage sprites that will be reused.
 		setProperty('blueglow.visible', false)
 
@@ -175,6 +195,11 @@ function onStepHit()
 	elseif curStep == 2607 then
 		-- Remove previous stage sprites.
 		removeLuaSprite('fnaf1wall', false)
+
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+			Paths.clearUnusedMemory();
+		]])
 
 		-- Toggle visibility of the next stage sprites.
 		setProperty('blueglow.visible', true)

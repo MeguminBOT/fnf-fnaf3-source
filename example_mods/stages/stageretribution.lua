@@ -108,6 +108,11 @@ function onStepHit()
 		-- Remove previous stage sprites.
 		removeLuaSprite('minigameafton', true)
 
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+			Paths.clearUnusedMemory();
+		]])
+
 		-- Toggle visibility of the next stage sprites.
 		setProperty('retribution.visible', true)
 		setProperty('blackui.alpha', 0)
@@ -132,6 +137,11 @@ function onStepHit()
 		-- Remove previous stage sprites.
 		removeLuaSprite('retribution3', true)
 		removeLuaSprite('blackui', true)
+
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+			Paths.clearUnusedMemory();
+		]])
 		
 		-- Toggle visibility of the next stage sprites.
 		setProperty('retribution.visible', true)
@@ -148,6 +158,13 @@ function onStepHit()
 	elseif curStep == 2208 then
 		-- Remove previous stage sprites.
 		removeLuaSprite('retribution', true)
+
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+			Paths.clearUnusedMemory();
+		]])
+
+		-- Modify object order.
 		setObjectOrder('boyfriendGroup', 0)
 
 		-- Toggle visibility of the next stage sprites.
