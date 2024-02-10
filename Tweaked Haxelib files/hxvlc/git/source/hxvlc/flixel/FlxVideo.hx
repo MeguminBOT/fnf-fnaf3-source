@@ -89,12 +89,16 @@ class FlxVideo extends Video
 		// Modified to use the old volume handling from HxCodec since videos became too quiet with new method 
 		// Lulu
 		#if FLX_SOUND_SYSTEM 
+		final curVolume:Int = Math.floor((FlxG.sound.muted ? 0 : 1) * FlxG.sound.volume * 100);
+
 		if (autoVolumeHandle && !mute)
 		{
-			if (FlxG.sound.muted || FlxG.sound.volume <= 0)
+			if (curVolume == 0)
 				volume = 0;
-			else
-				volume = FlxG.sound.volume + 0.1;
+			else if (curVolume >= 100)
+				volume = 95;
+			else if (curVolume <= 35)
+				volume = Std.int(curVolume) + Std.int(35);
 		}
 		#end
 	}
