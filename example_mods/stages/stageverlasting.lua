@@ -239,7 +239,7 @@ function onStepHit()
 		setProperty('timeBar.visible', true)
 		setProperty('timeBarBG.visible', true)
 
-	elseif curStep == 2752 then
+	elseif curStep == 2758 then
 		-- Remove previous video sprite.
 		setProperty('everlasting.visible', false)
 
@@ -333,7 +333,7 @@ function onStepHit()
 end
 
 function onPause()
-	if curStep >= 1678 and curStep <= 2753 then
+	if curStep >= 1678 and curStep <= 2758 then
 		pauseVideoSprite('everlasting')
 	elseif curStep >= 3280 and curStep <= 3791 then
 		pauseVideoSprite('leftbehind')
@@ -344,7 +344,7 @@ function onPause()
 end
 
 function onResume()
-	if curStep >= 1678 and curStep <= 2753 then
+	if curStep >= 1678 and curStep <= 2758 then
 		resumeVideoSprite('everlasting')
 	elseif curStep >= 3280 and curStep <= 3791 then
 		resumeVideoSprite('leftbehind')

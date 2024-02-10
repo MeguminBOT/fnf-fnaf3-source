@@ -130,9 +130,9 @@
 						"oobsbonnie2"
 					],
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.001"
+						""
 					],
 					[
 						"Play Animation",
@@ -255,9 +255,9 @@
 				108800,
 				[
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.001"
+						""
 					],
 					[
 						"fadeout",
@@ -300,9 +300,9 @@
 				121600,
 				[
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.01"
+						""
 					],
 					[
 						"Change Character",
@@ -390,9 +390,9 @@
 				140800,
 				[
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.001"
+						""
 					],
 					[
 						"Change Character",
@@ -425,9 +425,9 @@
 				147200,
 				[
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.001"
+						""
 					]
 				]
 			],
@@ -455,9 +455,9 @@
 				153600,
 				[
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.001"
+						""
 					]
 				]
 			],
@@ -485,9 +485,9 @@
 				160000,
 				[
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.001"
+						""
 					]
 				]
 			],
@@ -560,9 +560,9 @@
 				168176.470588235,
 				[
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.01"
+						""
 					]
 				]
 			],
@@ -600,9 +600,9 @@
 				168529.411764706,
 				[
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.01"
+						""
 					]
 				]
 			],
@@ -640,9 +640,9 @@
 				168882.352941176,
 				[
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.01"
+						""
 					]
 				]
 			],
@@ -680,9 +680,9 @@
 				169235.294117647,
 				[
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.01"
+						""
 					]
 				]
 			],
@@ -875,9 +875,9 @@
 				213411.764705883,
 				[
 					[
-						"fadein",
+						"addimage",
 						"white",
-						"0.001"
+						""
 					],
 					[
 						"fadeout",
@@ -1025,14 +1025,14 @@
 				257411.764705883,
 				[
 					[
+						"addimagebehindui",
+						"white",
+						""
+					],
+					[
 						"fadeout",
 						"static",
 						"0.1"
-					],
-					[
-						"fadein",
-						"white",
-						"0.001"
 					],
 					[
 						"Change Character",
@@ -1080,9 +1080,9 @@
 				280078.431372549,
 				[
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.01"
+						""
 					],
 					[
 						"fadeout",
@@ -4240,9 +4240,9 @@
 				388078.431372548,
 				[
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.001"
+						""
 					],
 					[
 						"Change Character",
@@ -4280,9 +4280,9 @@
 				396078.431372548,
 				[
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.001"
+						""
 					]
 				]
 			],
@@ -4750,9 +4750,9 @@
 						"0.001"
 					],
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.001"
+						""
 					],
 					[
 						"Change Character",
@@ -4955,9 +4955,9 @@
 						"0.03"
 					],
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.001"
+						""
 					],
 					[
 						"fadeout",
@@ -5220,9 +5220,9 @@
 				504724.264705881,
 				[
 					[
-						"fadein",
+						"addimagebehindui",
 						"white",
-						"0.01"
+						""
 					]
 				]
 			],
@@ -5720,9 +5720,9 @@
 				515401.348039214,
 				[
 					[
-						"fadein",
-						"whiteui",
-						"0.01"
+						"addimagebehindui",
+						"white",
+						""
 					]
 				]
 			],
@@ -5741,7 +5741,7 @@
 				[
 					[
 						"fadeout",
-						"whiteui",
+						"white",
 						"0.5"
 					]
 				]
@@ -6220,9 +6220,9 @@
 				526068.014705881,
 				[
 					[
-						"fadein",
-						"whiteui",
-						"0.01"
+						"addimagebehindui",
+						"white",
+						""
 					]
 				]
 			],
@@ -6241,7 +6241,7 @@
 				[
 					[
 						"fadeout",
-						"whiteui",
+						"white",
 						"0.5"
 					]
 				]
@@ -6710,9 +6710,9 @@
 				536731.209150325,
 				[
 					[
-						"fadein",
-						"whiteui",
-						"0.01"
+						"addimagebehindui",
+						"white",
+						""
 					]
 				]
 			],
@@ -6731,7 +6731,7 @@
 				[
 					[
 						"fadeout",
-						"whiteui",
+						"white",
 						"0.5"
 					]
 				]

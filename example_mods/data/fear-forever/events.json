@@ -1958,13 +1958,11 @@
 						"Toggle Sprite",
 						"chicajump",
 						"on"
-
 					],
 					[
 						"fadein",
 						"chicajump",
 						"0.001"
-
 					],
 					[
 						"Tablet",
@@ -1990,7 +1988,6 @@
 						"fadein",
 						"chicajump",
 						"0.001"
-
 					]
 				]
 			],
@@ -2011,7 +2008,6 @@
 						"fadein",
 						"chicajump",
 						"0.001"
-
 					]
 				]
 			],
@@ -2032,7 +2028,6 @@
 						"fadein",
 						"chicajump",
 						"0.001"
-
 					]
 				]
 			],
@@ -2053,7 +2048,6 @@
 						"fadein",
 						"chicajump",
 						"0.001"
-
 					]
 				]
 			],
@@ -2074,7 +2068,6 @@
 						"fadein",
 						"chicajump",
 						"0.001"
-
 					]
 				]
 			],
@@ -2095,7 +2088,6 @@
 						"fadein",
 						"chicajump",
 						"0.001"
-
 					]
 				]
 			],
@@ -2116,7 +2108,6 @@
 						"fadein",
 						"chicajump",
 						"0.001"
-
 					]
 				]
 			],
@@ -2137,7 +2128,6 @@
 						"fadein",
 						"chicajump",
 						"0.001"
-
 					]
 				]
 			],
@@ -2158,7 +2148,6 @@
 						"fadein",
 						"chicajump",
 						"0.001"
-
 					],
 					[
 						"Toggle Sprite",
@@ -2423,6 +2412,16 @@
 				]
 			],
 			[
+				299758.412670557,
+				[
+					[
+						"addimage",
+						"black2",
+						""
+					]
+				]
+			],
+			[
 				299767.671929817,
 				[
 					[
@@ -2498,6 +2497,11 @@
 					[
 						"fadeout",
 						"black",
+						"5"
+					],
+					[
+						"fadeout",
+						"black2",
 						"5"
 					]
 				]
