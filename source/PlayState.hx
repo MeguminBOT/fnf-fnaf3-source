@@ -1031,7 +1031,12 @@ class PlayState extends MusicBeatState
 				redFlash.alpha = 0;
 				add(redFlash);
 
+				// Just to ensure these variables get reset.
+				isRedFlashing = false;
 				tabletButtonPressed = false;
+				isTabletActive = false;
+				tabletCounter = 0;
+				tabletAchieveFailed = false;
 	
 			case 'stagephantom':
 				var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
@@ -1102,7 +1107,15 @@ class PlayState extends MusicBeatState
 				redFlash.alpha = 0;
 				add(redFlash);
 
+				// Just to ensure these variables get reset.
+				isRedFlashing = false;
 				tabletButtonPressed = false;
+				isTabletActive = false;
+				tabletCounter = 0;
+				tabletAchieveFailed = false;
+				isMangleActive = false;
+				mangleCounter = 0;
+				mangleAchieveFailed = false;
 		}
 
 		// A little tablet that pops up showing song title and composer.
@@ -4218,11 +4231,6 @@ class PlayState extends MusicBeatState
 					if(isStoryMode && campaignMisses + songMisses < 1 && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice)
 						unlock = true;
 				}
-				if (achievementName.contains(WeekData.getWeekFileName()) && achievementName.endsWith('gfc')) // any FC achievements, name should be "weekFileName_nomiss", e.g: "weekd_nomiss";
-				{
-					if(isStoryMode && campaignMisses + songMisses < 1 && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice && ratingFC == "GFC" || ratingFC == "SFC")
-						unlock = true;
-				}
 				if (achievementName.contains(WeekData.getWeekFileName()))
 				{
 					if(isStoryMode && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice)
@@ -4268,7 +4276,14 @@ class PlayState extends MusicBeatState
 						if (isCodeInput = true && curStage == 'stageunt' && !usedPractice) {
 							unlock = true;
 						}
-				}
+					case 'week1_gfc':
+						// Haha this is so ugly.
+						if(isStoryMode && campaignMisses + songMisses < 1 && shits < 1 && bads < 1 && goods < 1 && ratingFC == "SFC" && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice) {
+							unlock = true;
+						} else if(isStoryMode && campaignMisses + songMisses < 1 && shits < 1 && bads < 1 && ratingFC == "GFC" && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice) {
+							unlock = true;
+						}
+						
 
 				if(unlock) {
 					Achievements.unlockAchievement(achievementName);
