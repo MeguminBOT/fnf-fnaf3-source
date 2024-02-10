@@ -1,6 +1,15 @@
 {
 	"song": {
 		"events": [
+			[	1,
+				[
+					[
+						"Red Warning Flash",
+						"Off",
+						""
+					]
+				]
+			],
 			[
 				77.720207253886,
 				[
@@ -392,6 +401,11 @@
 					[
 						"Tablet",
 						"",
+						""
+					],
+					[
+						"Red Warning Flash",
+						"On",
 						""
 					],
 					[
@@ -1180,6 +1194,11 @@
 						""
 					],
 					[
+						"Red Warning Flash",
+						"On",
+						""
+					],
+					[
 						"fadeout",
 						"black",
 						"0.001"
@@ -1818,6 +1837,11 @@
 						"Tablet",
 						"",
 						""
+					],
+					[
+						"Red Warning Flash",
+						"On",
+						""
 					]
 				]
 			],
@@ -1967,6 +1991,11 @@
 					[
 						"Tablet",
 						"",
+						""
+					],
+					[
+						"Red Warning Flash",
+						"On",
 						""
 					]
 				]
@@ -2442,6 +2471,11 @@
 					[
 						"Tablet",
 						"",
+						""
+					],
+					[
+						"Red Warning Flash",
+						"On",
 						""
 					]
 				]
