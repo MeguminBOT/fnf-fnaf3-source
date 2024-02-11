@@ -4,6 +4,11 @@ local chica = 0;
 local foxy = 0;
 
 function onCreate()
+	precacheSound("death/takenApart1.webm")
+	precacheSound("death/takenApart2.webm")
+	precacheSound("death/takenApart3.webm")
+	precacheSound("death/takenApart4.webm")
+
 	video.Load("death/takenApart1.webm")
 	video.Load("death/takenApart2.webm")
 	video.Load("death/takenApart3.webm")
@@ -36,12 +41,16 @@ end
 
 function onGameOverStart()
 	if freddy == 1 then
+		playSound('death/takenApart1')
 		startVideo('death/takenApart1')
 	elseif bonnie == 1 then
+		playSound('death/takenApart2')
 		startVideo('death/takenApart2')
 	elseif chica == 1 then
+		playSound('death/takenApart3')
 		startVideo('death/takenApart3')
 	else
+		playSound('death/takenApart4')
 		startVideo('death/takenApart4')
 	end
 end
