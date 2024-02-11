@@ -121,7 +121,7 @@ class AchievementObject extends FlxSpriteGroup {
 		achievementName.scrollFactor.set();
 
 		var achievementText:FlxText = new FlxText(achievementName.x, achievementName.y + 32, 280, Achievements.achievementsStuff[id][1], 16);
-		achievementText.setFormat(Paths.font("stalker2s.ttf"), 16, FlxColor.WHITE, LEFT);
+		achievementText.setFormat(Paths.font("stalker2.ttf"), 16, FlxColor.WHITE, LEFT);
 		achievementText.scrollFactor.set();
 
 		add(achievementBG);
