@@ -1037,6 +1037,7 @@ class PlayState extends MusicBeatState
 				isTabletActive = false;
 				tabletCounter = 0;
 				tabletAchieveFailed = false;
+				isTweenActive = false;
 	
 			case 'stagephantom':
 				var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
@@ -1116,6 +1117,7 @@ class PlayState extends MusicBeatState
 				isMangleActive = false;
 				mangleCounter = 0;
 				mangleAchieveFailed = false;
+				isTweenActive = false;
 		}
 
 		// A little tablet that pops up showing song title and composer.
