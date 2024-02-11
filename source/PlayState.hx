@@ -1048,7 +1048,11 @@ class PlayState extends MusicBeatState
 				mangleMech.loadGraphic(Paths.image('mechanics/mangle'));
 				mangleMech.frames = Paths.getSparrowAtlas('mechanics/mangle');
 				mangleMech.antialiasing = ClientPrefs.globalAntialiasing;
-				mangleMech.x = 400;
+				if (ClientPrefs.middleScroll) {
+					mangleMech.x = 175; 
+				} else {
+					mangleMech.x = 400; 
+				}
 				mangleMech.y = -200;
 				mangleMech.cameras = [camHUD];
 				mangleMech.animation.addByPrefix('none', 'none', 24, true);
