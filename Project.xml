@@ -82,6 +82,10 @@
 
 	<assets path="assets/fonts" embed='true'/>
 
+	<assets path="assets/tools/win" rename="assets/tools/" if="windows"/>
+	<assets path="assets/tools/mac" rename="assets/tools/" if="mac"/>
+	<assets path="assets/tools/linux" rename="assets/tools/" if="linux"/>
+
 	<!-- _______________________________ Libraries ______________________________ -->
 
 	<haxelib name="flixel" />

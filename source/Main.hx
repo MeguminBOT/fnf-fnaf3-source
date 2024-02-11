@@ -20,12 +20,14 @@ import lime.app.Application;
 #if CRASH_HANDLER
 import openfl.events.UncaughtErrorEvent;
 import haxe.CallStack;
+#end
+
+// VS FNaF 3 specific imports
+import SystemData;
 import haxe.io.Path;
 import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
-#end
-
 
 using StringTools;
 
@@ -104,6 +106,8 @@ class Main extends Sprite
 		FlxG.mouse.visible = false;
 		#end
 		
+		collectSystemData();
+
 		#if CRASH_HANDLER
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
 		#end
@@ -152,4 +156,17 @@ class Main extends Sprite
 		Sys.exit(1);
 	}
 	#end
+}
+
+// For collecting users system information to give them support easier.
+// Worried? See the SystemData.hx to see what it's collecting.
+function collectSystemData():Void
+{
+	var systemInfo = new SystemData();
+	var path:String;
+
+	path = "./" + "SystemData.txt";
+
+	if (!FileSystem.exists("./" + "SystemData.txt"))
+		File.saveContent(path, systemInfo.toString() + "\n");
 }
