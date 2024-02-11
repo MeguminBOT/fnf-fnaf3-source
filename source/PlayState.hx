@@ -1393,11 +1393,8 @@ class PlayState extends MusicBeatState
 		video.autoResize = true;
 		video.autoVolumeHandle = true;
 
-		new FlxTimer().start(0.001, function(tmr:FlxTimer):Void
-		{
-			videoIsActive = true;
-			video.play();
-		});
+		videoIsActive = true;
+		video.play();
 
 		return video;
 		#else
