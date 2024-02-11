@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Vs FNaF 3" file="Vs FNaF 3" packageName="com.thefunkymodders.vsfnaf3" package="com.thefunkymodders.vsfnaf3" main="Main" version="Dev" company="TheFunkyModders" />
+	<app title="Friday Night Funkin': Vs FNaF 3" file="Vs FNaF 3" packageName="com.thefunkymodders.vsfnaf3" package="com.thefunkymodders.vsfnaf3" main="Main" version="1.0" company="TheFunkyModders" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -47,13 +47,13 @@
 	<define name="LUA_ALLOWED" if="desktop" />
 	<define name="ACHIEVEMENTS_ALLOWED" />
 	<define name="VIDEOS_ALLOWED" if="desktop" unless="32bits"/>
-	<define name="CRASH_HANDLER" if="desktop release" />
+	<define name="CRASH_HANDLER" if="desktop" />
 
 	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
 	<assets path="assets/preload" rename="assets" exclude="*.mp3"  unless="web"/>
 
 	<!-- DONT ENABLE THIS -->
-	<define name="CHECK_FOR_UPDATES" if="desktop officialBuild"/>
+	<define name="CHECK_FOR_UPDATES" if="desktop"/>
 
 	<!-- <define name="PRELOAD_ALL" /> -->
 	<define name="PRELOAD_ALL" unless="web" />
