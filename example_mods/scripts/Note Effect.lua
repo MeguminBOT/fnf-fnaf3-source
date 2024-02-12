@@ -4,7 +4,6 @@ local notePositions = {}  -- Table to store note positions
 
 function onCreatePost()
 	luaDebugMode = true
-	precacheImage('NOTE_assets')
 	pixel = getProperty('isPixelStage')
 end
 
