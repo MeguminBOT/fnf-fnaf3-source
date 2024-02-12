@@ -1395,6 +1395,13 @@ class PlayState extends MusicBeatState
 			return;
 		});
 
+		video.onStopped.add(function() {
+			video.dispose();
+			videoIsActive = false;
+			startAndEnd();
+			return;
+		});
+
 		video.load(filepath);
 		video.autoResize = true;
 		video.autoVolumeHandle = true;
@@ -2237,6 +2244,13 @@ class PlayState extends MusicBeatState
 	{
 		var halfElapsed:Float = elapsed / 2;
 		callOnLuas('onUpdate', [halfElapsed]);
+
+		if(inCutscene) {
+			if (FlxG.keys.justPressed.ENTER || FlxG.keys.justPressed.SPACE) {
+				video.stop();
+				videoIsActive = false;
+			}
+		}
 
 		if(!inCutscene) {
 			var lerpVal:Float = CoolUtil.boundTo(elapsed * 2.4 * cameraSpeed * playbackRate, 0, 1);
