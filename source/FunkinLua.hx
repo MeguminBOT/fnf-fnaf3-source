@@ -3440,18 +3440,8 @@ class ModchartVideoSprite extends FlxVideoSprite
 	public function new(?x:Int = 0, ?y:Int = 0)
 	{
 		super(x, y);
-		
+		setSpeed(PlayState.instance.playbackRate);
 	}
-
-	override public function update(elapsed:Float):Void
-	{
-		super.update(elapsed);
-		if (PlayState.instance.playbackRate == 1)
-			return;
-		else 
-			setSpeed(PlayState.instance.playbackRate);
-	}
-	
 }
 
 class ModchartText extends FlxText
