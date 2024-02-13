@@ -1246,17 +1246,19 @@ class PlayState extends MusicBeatState
 
 	function set_playbackRate(value:Float):Float
 	{
-		if(generatedMusic)
-		{
-			if(vocals != null) vocals.pitch = value;
-			FlxG.sound.music.pitch = value;
+		if (!isStoryMode) {
+			if(generatedMusic)
+			{
+				if(vocals != null) vocals.pitch = value;
+				FlxG.sound.music.pitch = value;
+			}
+			playbackRate = value;
+			FlxAnimationController.globalSpeed = value;
+			trace('Anim speed: ' + FlxAnimationController.globalSpeed);
+			Conductor.safeZoneOffset = (ClientPrefs.safeFrames / 60) * 1000 * value;
+			setOnLuas('playbackRate', playbackRate);
+			return value;
 		}
-		playbackRate = value;
-		FlxAnimationController.globalSpeed = value;
-		trace('Anim speed: ' + FlxAnimationController.globalSpeed);
-		Conductor.safeZoneOffset = (ClientPrefs.safeFrames / 60) * 1000 * value;
-		setOnLuas('playbackRate', playbackRate);
-		return value;
 	}
 
 	public function addTextToDebug(text:String, color:FlxColor) {
@@ -1398,7 +1400,10 @@ class PlayState extends MusicBeatState
 		video.load(filepath);
 		video.autoResize = true;
 		video.autoVolumeHandle = true;
-		video.set_rate(1 * playbackRate);
+
+		if (!isStoryMode) {
+			video.set_rate(1 * playbackRate);
+		}
 
 		videoIsActive = true;
 		video.play();
