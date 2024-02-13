@@ -1246,7 +1246,7 @@ class PlayState extends MusicBeatState
 
 	function set_playbackRate(value:Float):Float
 	{
-		if (!isStoryMode) {
+		if (!isStoryMode)
 			if(generatedMusic)
 			{
 				if(vocals != null) vocals.pitch = value;
@@ -1258,7 +1258,6 @@ class PlayState extends MusicBeatState
 			Conductor.safeZoneOffset = (ClientPrefs.safeFrames / 60) * 1000 * value;
 			setOnLuas('playbackRate', playbackRate);
 			return value;
-		}
 	}
 
 	public function addTextToDebug(text:String, color:FlxColor) {
