@@ -60,6 +60,9 @@ import Discord;
 #if VIDEOS_ALLOWED
 import hxvlc.flixel.FlxVideoSprite;
 import hxvlc.util.Handle;
+import hxvlc.externs.Types;
+import hxvlc.openfl.Video;
+import hxvlc.util.OneOfThree;
 #end
 
 using StringTools;
@@ -3437,6 +3440,7 @@ class ModchartVideoSprite extends FlxVideoSprite
 	public function new(?x:Int = 0, ?y:Int = 0)
 	{
 		super(x, y);
+		setSpeed(PlayState.instance.playbackRate);
 	}
 }
 
