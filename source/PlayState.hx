@@ -1405,7 +1405,6 @@ class PlayState extends MusicBeatState
 		video.load(filepath);
 		video.autoResize = true;
 		video.autoVolumeHandle = true;
-		video.set_rate(1 * playbackRate);
 
 		videoIsActive = true;
 		video.play();
