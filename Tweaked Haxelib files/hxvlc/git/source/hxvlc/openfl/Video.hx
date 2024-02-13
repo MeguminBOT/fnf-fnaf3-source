@@ -682,8 +682,7 @@ class Video extends Bitmap
 		return value;
 	}
 
-	//Allow direct access.
-	@:noCompletion public function get_rate():Single 
+	@:noCompletion private function get_rate():Single
 	{
 		if (mediaPlayer != null)
 			return LibVLC.media_player_get_rate(mediaPlayer);
@@ -691,8 +690,7 @@ class Video extends Bitmap
 		return -1;
 	}
 
-	//Allow direct access.
-	@:noCompletion public function set_rate(value:Single):Single
+	@:noCompletion private function set_rate(value:Single):Single
 	{
 		if (mediaPlayer != null)
 			LibVLC.media_player_set_rate(mediaPlayer, value);

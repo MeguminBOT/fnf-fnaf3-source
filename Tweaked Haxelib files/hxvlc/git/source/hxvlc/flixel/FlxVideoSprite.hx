@@ -78,16 +78,6 @@ class FlxVideoSprite extends FlxSprite
 	}
 
 	/**
-	 * Add easy access to the rate variable. //Lulu
-	*/
-	public function setSpeed(rate:Single):Void
-	{
-		if (bitmap != null)
-			bitmap.set_rate(rate);
-		
-	}
-
-	/**
 	 * Call this function to play a video.
 	 *
 	 * @return `true` if the video started playing or `false` if there's an error.
