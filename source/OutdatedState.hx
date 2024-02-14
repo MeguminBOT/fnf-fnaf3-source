@@ -2,6 +2,7 @@ package;
 
 import lime.app.Application;
 import flixel.FlxG;
+import flixel.FlxCamera;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.text.FlxText;
@@ -17,16 +18,22 @@ class OutdatedState extends MusicBeatState
 	{
 		super.create();
 
+		var camMenu = new FlxCamera();
+		camMenu.antialiasing = ClientPrefs.hudAntialiasing;
+		camMenu.bgColor.alpha = 0;
+		FlxG.cameras.reset(camMenu);
+		FlxG.cameras.setDefaultDrawTarget(camMenu, true);
+
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		add(bg);
 
 		warnText = new FlxText(0, 0, FlxG.width,
-			"Sup bro, looks like you're running an   \n
+			"It looks like you're running an   \n
 			outdated version of 'Vs. FNaF 3' (" + MainMenuState.fnafVersion + "),\n
 			please update to " + TitleState.updateVersion + "!\n
 			Press ESCAPE to proceed anyway.\n
 			\n
-			Thank you for using the Engine!",
+			Thank you for playing the mod!",
 			24);
 		warnText.setFormat("stalker2.ttf", 24, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);

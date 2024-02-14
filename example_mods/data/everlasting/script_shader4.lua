@@ -3,9 +3,8 @@ local shaderName = "fire"
 function onStepHit()
     if curStep == 40 then	
         onDestroy()
-    end
 
-	if curStep == 4320 then	
+    elseif curStep == 4320 then	
         shaderCoordFix()
 
         makeLuaSprite("glitch")
@@ -22,6 +21,16 @@ function onStepHit()
             game.getLuaObject("glitch").shader = shader0;
             game.camHUD.setFilters([new ShaderFilter(game.getLuaObject("glitch").shader)]);
             return;
+        ]])
+
+    elseif curStep == 4784 then	
+        doTweenAlpha('shaderTweenOut', 'glitch', 0, 1, 'linear')
+    
+    elseif curStep == 4800 then
+        runHaxeCode([[
+            game.camGame.setFilters([]);
+			game.camHUD.setFilters([]);
+			game.camOther.setFilters([]);
         ]])
     end
 end

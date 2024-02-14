@@ -59,6 +59,9 @@ class MainMenuState extends MusicBeatState
 		camAchievement = new FlxCamera();
 		camAchievement.bgColor.alpha = 0;
 
+		camGame.antialiasing = ClientPrefs.hudAntialiasing;
+		camAchievement.antialiasing = ClientPrefs.hudAntialiasing;
+
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camAchievement, false);
 		FlxG.cameras.setDefaultDrawTarget(camGame, true);

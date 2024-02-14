@@ -179,6 +179,8 @@ class FreeplayState extends MusicBeatState
 		camAchievement = new FlxCamera();
 		camAchievement.bgColor.alpha = 0;
 
+		camMenu.antialiasing = ClientPrefs.hudAntialiasing;
+		camAchievement.antialiasing = ClientPrefs.hudAntialiasing;
 		FlxG.cameras.reset(camMenu);
 		FlxG.cameras.add(camAchievement, false);
 		FlxG.cameras.setDefaultDrawTarget(camMenu, true);
@@ -198,7 +200,6 @@ class FreeplayState extends MusicBeatState
 		scoreText = new FlxText(textBG.x + 18, textBG.y + 6, FlxG.width, "", 32);
 		scoreText.setFormat(Paths.font("5Computers-In-Love.ttf"), 16, FlxColor.WHITE, CENTER);
 		add(scoreText);
-
 	}
 
 	function createMenuButtons()
@@ -546,6 +547,8 @@ class FreeplayState extends MusicBeatState
 
 	public function difficultySelector()
 	{
+		FlxG.mouse.visible = false;
+
 		isDiffTablet = true;
 		difficultyTablet.visible = true;
 		difficultyTablet.animation.play('Anim In');
@@ -560,12 +563,14 @@ class FreeplayState extends MusicBeatState
 				case 'Anim Out':
 					isDiffTablet = false;
 					difficultyTablet.visible = false;
+				FlxG.mouse.visible = true;
 			}
 		};
 	}
 
 	public function openModifiers()
 	{
+		FlxG.mouse.visible = false;
 		openSubState(new GameplayChangersSubstate());
 	}
 
@@ -578,6 +583,7 @@ class FreeplayState extends MusicBeatState
 
 	override function closeSubState() 
 	{
+		FlxG.mouse.visible = true;
 		changeSelection(0, false);
 		persistentUpdate = true;
 		super.closeSubState();

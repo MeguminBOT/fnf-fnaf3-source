@@ -35,7 +35,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		rpcTitle = 'Visuals & UI Settings Menu'; //for Discord Rich Presence
 
 		var option:Option = new Option('Immersion Level',
-			"How ''immersive'' do you want your mod experience to be? Affects wheter some objects go above or under the notes.\nFull = Throw everything at me!\nPartial = Some objects will be under the notes for clarity.\n\nNOTE: Currently only affects the story mode songs.",
+			"How ''immersive'' do you want your mod experience to be? Affects wheter some objects go above or under the notes.\nPartial = Some objects will be under the notes for clarity.\n\nNOTE: Currently only affects the story mode songs.",
 			'immersionLevel',
 			'string',
 			'Full',
@@ -125,7 +125,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		#if CHECK_FOR_UPDATES
 		var option:Option = new Option('Check for Updates',
-			'On Release builds, turn this on to check for updates when you start the game.',
+			'Check for updates and bugfixes when you start the game.',
 			'checkForUpdates',
 			'bool',
 			true);

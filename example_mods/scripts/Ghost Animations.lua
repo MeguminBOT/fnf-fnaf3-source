@@ -1,17 +1,17 @@
 function onCreate()
-	if not lowQuality then
+	if not lowQuality and not songName == 'Waffles' then
 		precacheImage(char .. '.imageFile')
 	end
 end
 
 function rgbToHex(array)
-	if not lowQuality then
+	if not lowQuality and not songName == 'Waffles' then
 		return string.format('%.2x%.2x%.2x', array[1], array[2], array[3])
 	end
 end
 
 function goodNoteHit(id, direction, noteType, isSustainNote)
-	if not lowQuality then
+	if not lowQuality and not songName == 'Waffles' then
 		if _G['boyfriendGhostData.strumTime'] == getPropertyFromGroup('notes', id, 'strumTime') and not isSustainNote then
 			createGhost('boyfriend')
 		end
@@ -24,7 +24,7 @@ function goodNoteHit(id, direction, noteType, isSustainNote)
 end
 
 function opponentNoteHit(id, direction, noteType, isSustainNote)
-	if not lowQuality then
+	if not lowQuality and not songName == 'Waffles' then
 		if _G['dadGhostData.strumTime'] == getPropertyFromGroup('notes', id, 'strumTime') and not isSustainNote then
 			createGhost('dad')
 		end
@@ -37,7 +37,7 @@ function opponentNoteHit(id, direction, noteType, isSustainNote)
 end
 
 function createGhost(char)
-	if not lowQuality then
+	if not lowQuality and not songName == 'Waffles' then
 		songPos = getSongPosition() --in case game stutters
 		makeAnimatedLuaSprite(char .. 'Ghost' .. songPos, getProperty(char .. '.imageFile'),getProperty(char .. '.x'),getProperty(char .. '.y'))
 		addLuaSprite(char .. 'Ghost' .. songPos, false)
@@ -54,7 +54,7 @@ function createGhost(char)
 end
 
 function onTweenCompleted(tag)
-	if not lowQuality then
+	if not lowQuality and not songName == 'Waffles' then
 		if (tag:sub(#tag- 5, #tag)) == 'delete' then
 			removeLuaSprite(tag:sub(1, #tag - 6), true)
 		end
@@ -62,7 +62,7 @@ function onTweenCompleted(tag)
 end
 
 function updateGData(char)
-	if not lowQuality then
+	if not lowQuality and not songName == 'Waffles' then
 		_G[char .. 'GhostData.frameName'] = getProperty(char .. '.animation.frameName')
 		_G[char .. 'GhostData.offsetX'] = getProperty(char .. '.offset.x')
 		_G[char .. 'GhostData.offsetY'] = getProperty(char .. '.offset.y')

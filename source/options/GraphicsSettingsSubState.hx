@@ -47,8 +47,8 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		boyfriend.visible = false;
 
 		//I'd suggest using "Low Quality" as an example for making your own option since it is the simplest here
-		var option:Option = new Option('Low Quality', //Name
-			'If checked, disables some background details,\ndecreases loading times and improves performance.\nNOTE: Currently only affects the story mode songs.', //Description
+		var option:Option = new Option('Reduce details', //Name
+			'If checked, disables various graphical details,\nimproves performance.', //Description
 			'lowQuality', //Save data variable name
 			'bool', //Variable type
 			false); //Default value
@@ -62,7 +62,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		// 	['Very Low', 'Low', 'Normal']);
 		// addOption(option);
 
-		var option:Option = new Option('Anti-Aliasing',
+		var option:Option = new Option('Sprite Anti-Aliasing',
 			'If unchecked, disables anti-aliasing, increases performance\nat the cost of sharper visuals.',
 			'globalAntialiasing',
 			'bool',
@@ -70,6 +70,13 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		option.onChange = onChangeAntiAliasing;
 		addOption(option);
 		antialiasingOption = optionsArray.length-1;
+
+		var option:Option = new Option('UI Anti-Aliasing',
+			'If unchecked, disables anti-aliasing on the UI, increases performance\nat the cost of smoother visuals.',
+			'hudAntialiasing',
+			'bool',
+			true);
+		addOption(option);
 
 		// Backported from Rhythm Engine. Fixes insane stuttering.
 		var option:Option = new Option('Prefer GPU Caching',
@@ -95,7 +102,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		addOption(option);
 
 		option.minValue = 60;
-		option.scrollSpeed = 400;
+		option.scrollSpeed = 100;
 		option.maxValue = 360;
 		option.displayFormat = '%v FPS';
 		option.onChange = onChangeFramerate;

@@ -14,6 +14,7 @@ import openfl.Assets;
 
 // Flixel
 import flixel.FlxG;
+import flixel.FlxCamera;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.input.keyboard.FlxKey;
@@ -83,10 +84,6 @@ class TitleState extends MusicBeatState {
 
 		introVideo();
 
-		var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
-		FlxG.mouse.load(mouseSprite.pixels);
-		FlxG.mouse.visible = true;
-
 		#if LUA_ALLOWED
 		Paths.pushGlobalMods();
 		#end
@@ -106,6 +103,16 @@ class TitleState extends MusicBeatState {
 
 		ClientPrefs.loadPrefs();
 
+		var camMenu = new FlxCamera();
+		camMenu.antialiasing = ClientPrefs.hudAntialiasing;
+		camMenu.bgColor.alpha = 0;
+		FlxG.cameras.reset(camMenu);
+		FlxG.cameras.setDefaultDrawTarget(camMenu, true);
+
+		var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
+		FlxG.mouse.load(mouseSprite.pixels);
+		FlxG.mouse.visible = true; // Make the mouse visible since the UI is made for mouse and touch input.
+
 		#if CHECK_FOR_UPDATES
 		if (ClientPrefs.checkForUpdates && !closedState) {
 			trace('checking for update');
@@ -113,7 +120,7 @@ class TitleState extends MusicBeatState {
 
 			http.onData = function(data:String) {
 				updateVersion = data.split('\n')[0].trim();
-				var curVersion:String = MainMenuState.psychEngineVersion.trim();
+				var curVersion:String = MainMenuState.fnafVersion.trim();
 				trace('version online: ' + updateVersion + ', your version: ' + curVersion);
 				if (updateVersion != curVersion) {
 					trace('versions arent matching!');

@@ -175,7 +175,6 @@
 
 	<!-- Enable experimental generational garbage collector. -->
 	<!-- <haxedef name="HXCPP_GC_GENERATIONAL"/> -->
-
 	<!-- _________________________________ Custom _______________________________ -->
 
 	<!--Place custom nodes like icons here (higher priority to override the HaxeFlixel icon)-->
