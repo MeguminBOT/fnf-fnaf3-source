@@ -5,6 +5,7 @@ import Discord.DiscordClient;
 #end
 
 import flixel.FlxG;
+import flixel.FlxCamera;
 import flixel.FlxSprite;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
@@ -54,10 +55,15 @@ class AchievementsMenuState extends MusicBeatState
 		Paths.clearStoredMemory(); // Force clear cache.
 		Paths.clearUnusedMemory(); // Force clear unused but allocated memory.
 
+		var camMenu = new FlxCamera();
+		camMenu.antialiasing = ClientPrefs.hudAntialiasing;
+		camMenu.bgColor.alpha = 0;
+		FlxG.cameras.reset(camMenu);
+		FlxG.cameras.setDefaultDrawTarget(camMenu, true);
+
 		var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
 		FlxG.mouse.load(mouseSprite.pixels);
 		FlxG.mouse.visible = true; // Make the mouse visible since the UI is made for mouse and touch input.
-
 		persistentUpdate = true;
 
 		#if desktop

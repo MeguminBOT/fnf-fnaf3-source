@@ -47,8 +47,8 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		boyfriend.visible = false;
 
 		//I'd suggest using "Low Quality" as an example for making your own option since it is the simplest here
-		var option:Option = new Option('Low Quality', //Name
-			'If checked, disables some background details,\ndecreases loading times and improves performance.\nNOTE: Currently only affects the story mode songs.', //Description
+		var option:Option = new Option('Reduce details', //Name
+			'If checked, disables various graphical details,\nimproves performance.', //Description
 			'lowQuality', //Save data variable name
 			'bool', //Variable type
 			false); //Default value
@@ -102,7 +102,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		addOption(option);
 
 		option.minValue = 60;
-		option.scrollSpeed = 400;
+		option.scrollSpeed = 100;
 		option.maxValue = 360;
 		option.displayFormat = '%v FPS';
 		option.onChange = onChangeFramerate;

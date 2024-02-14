@@ -11,6 +11,7 @@ import Conductor.BPMChangeEvent;
 import Section.SwagSection;
 import Song.SwagSong;
 import flixel.FlxG;
+import flixel.FlxCamera;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
@@ -203,6 +204,16 @@ class ChartingState extends MusicBeatState
 	public var mouseQuant:Bool = false;
 	override function create()
 	{
+		var camMenu = new FlxCamera();
+		camMenu.antialiasing = ClientPrefs.hudAntialiasing;
+		camMenu.bgColor.alpha = 0;
+		FlxG.cameras.reset(camMenu);
+		FlxG.cameras.setDefaultDrawTarget(camMenu, true);
+
+		var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
+		FlxG.mouse.load(mouseSprite.pixels);
+		FlxG.mouse.visible = true; // Make the mouse visible since the UI is made for mouse and touch input.
+
 		if (PlayState.SONG != null)
 			_song = PlayState.SONG;
 		else

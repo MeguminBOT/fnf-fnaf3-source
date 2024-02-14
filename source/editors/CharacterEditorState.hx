@@ -82,11 +82,19 @@ class CharacterEditorState extends MusicBeatState
 	{
 		//FlxG.sound.playMusic(Paths.music('breakfast'), 0.5);
 
+		var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
+		FlxG.mouse.load(mouseSprite.pixels);
+		FlxG.mouse.visible = true; // Make the mouse visible since the UI is made for mouse and touch input.
+
 		camEditor = new FlxCamera();
+
 		camHUD = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
+		camHUD.antialiasing = ClientPrefs.hudAntialiasing;
+
 		camMenu = new FlxCamera();
 		camMenu.bgColor.alpha = 0;
+		camMenu.antialiasing = ClientPrefs.hudAntialiasing;
 
 		FlxG.cameras.reset(camEditor);
 		FlxG.cameras.add(camHUD, false);
