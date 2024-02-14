@@ -89,10 +89,16 @@ function createStageAnimated()
 	}
 
 	for _, stage in ipairs(stagesAnimated) do
-		precacheImage(stage.image)
-		makeAnimatedLuaSprite(stage.name, stage.image, stage.posX, stage.posY)
+		if (lowQuality or epilepsy and stage.name == 'phantoms') then
+			precacheImage(stage.image)
+			makeLuaSprite(stage.name, 'BGs/phantomsLQ', stage.posX, stage.posY)
+		else
+			precacheImage(stage.image)
+			makeAnimatedLuaSprite(stage.name, stage.image, stage.posX, stage.posY)
+			addAnimationByPrefix(stage.name, stage.animation, stage.xmlPrefix, stage.fps, stage.loop)
+		end
+
 		setScrollFactor(stage.name, stage.scrollX, stage.scrollY)
-		addAnimationByPrefix(stage.name, stage.animation, stage.xmlPrefix, stage.fps, stage.loop)
 		scaleObject(stage.name, stage.scaleX, stage.scaleY)
 		addLuaSprite(stage.name, stage.add)
 		setProperty(stage.name .. '.visible', false)
@@ -112,7 +118,7 @@ function createJumpscares()
 	
 	for _, jumpscare in ipairs(jumpscares) do
 		precacheImage(jumpscare.image)
-		if jumpscare.name == 'phfreddyjump' or jumpscare.name == 'foxyjump' or jumpscare.name == 'chicajump' or jumpscare.name == 'manglejump' then
+		if (jumpscare.name == 'phfreddyjump' or jumpscare.name == 'foxyjump' or jumpscare.name == 'chicajump' or jumpscare.name == 'manglejump' and not epilepsy) then
 			makeAnimatedLuaSprite(jumpscare.name, jumpscare.image, jumpscare.posX, jumpscare.posY)
 			addAnimationByPrefix(jumpscare.name, 'anim', 'idle', 24, true)
 		else

@@ -328,6 +328,13 @@ class PlayState extends MusicBeatState
 	var showTimeTxt:Bool;
 	var showTimeBar:Bool;
 
+	public static var campaignShits:Int = 0;
+	public static var campaignBads:Int = 0;
+	public static var campaignGoods:Int = 0;
+	public static var campaignGFCs:Int = 0;
+	public static var campaignSFCs:Int = 0;
+	public static var campaignFCs:Int = 0;
+
 	#if VIDEOS_ALLOWED
 	public var video:FlxVideo;
 	public static var videoIsActive:Bool = false;
@@ -1405,7 +1412,7 @@ class PlayState extends MusicBeatState
 		video.autoResize = true;
 		video.autoVolumeHandle = true;
 
-		if (!isStoryMode) {
+		if (isStoryMode) {
 			video.set_rate(1 * playbackRate);
 		}
 
@@ -2245,8 +2252,7 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
-		var halfElapsed:Float = elapsed / 2;
-		callOnLuas('onUpdate', [halfElapsed]);
+		callOnLuas('onUpdate', [elapsed]);
 
 		if(!inCutscene) {
 			var lerpVal:Float = CoolUtil.boundTo(elapsed * 2.4 * cameraSpeed * playbackRate, 0, 1);
@@ -2278,7 +2284,7 @@ class PlayState extends MusicBeatState
 		setOnLuas('curDecBeat', curDecBeat);
 
 		if(botplayTxt.visible) {
-			botplaySine += 180 * halfElapsed;
+			botplaySine += 180 * elapsed;
 			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
 		}
 
@@ -2573,7 +2579,7 @@ class PlayState extends MusicBeatState
 		setOnLuas('cameraX', camFollowPos.x);
 		setOnLuas('cameraY', camFollowPos.y);
 		setOnLuas('botPlay', cpuControlled);
-		callOnLuas('onUpdatePost', [halfElapsed]);
+		callOnLuas('onUpdatePost', [elapsed]);
 	}
 
 	function openPauseMenu()
@@ -3199,6 +3205,9 @@ class PlayState extends MusicBeatState
 			} else if (isStoryMode) {
 				campaignScore += songScore;
 				campaignMisses += songMisses;
+				campaignShits += shits;
+				campaignBads += bads;
+				campaignGoods += goods;
 
 				storyPlaylist.remove(storyPlaylist[0]);
 
@@ -4238,17 +4247,6 @@ class PlayState extends MusicBeatState
 			var achievementName:String = achievesToCheck[i];
 			if(!Achievements.isAchievementUnlocked(achievementName) && !cpuControlled) {
 				var unlock:Bool = false;
-				
-				if (achievementName.contains(WeekData.getWeekFileName()) && achievementName.endsWith('nomiss')) // any FC achievements, name should be "weekFileName_nomiss", e.g: "weekd_nomiss";
-				{
-					if(isStoryMode && campaignMisses + songMisses < 1 && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice)
-						unlock = true;
-				}
-				if (achievementName.contains(WeekData.getWeekFileName()))
-				{
-					if(isStoryMode && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice)
-						unlock = true;
-				}
 
 				switch(achievementName)
 				{
@@ -4291,13 +4289,21 @@ class PlayState extends MusicBeatState
 						}
 					case 'week1_gfc':
 						// Haha this is so ugly.
-						if(isStoryMode && campaignMisses + songMisses < 1 && shits < 1 && bads < 1 && goods < 1 && ratingFC == "SFC" && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice) {
+						if(isStoryMode && campaignMisses + songMisses < 1 && campaignShits + shits < 1 && campaignBads + bads < 1 && campaignGoods + goods < 1 && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice) {
 							unlock = true;
-						} else if(isStoryMode && campaignMisses + songMisses < 1 && shits < 1 && bads < 1 && ratingFC == "GFC" && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice) {
+						} else if(isStoryMode && campaignMisses + songMisses < 1 && campaignShits + shits < 1 && campaignBads + bads < 1 && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice) {
 							unlock = true;
 						}
-				}
-						
+
+					case 'week1_nomiss':
+						if(isStoryMode && campaignMisses + songMisses < 1 && campaignFCs > 3 && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice) {
+							unlock = true;
+						}
+
+					case 'week1':
+						if(isStoryMode && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice)
+							unlock = true;
+						}
 
 				if(unlock) {
 					Achievements.unlockAchievement(achievementName);
@@ -4319,7 +4325,10 @@ class PlayState extends MusicBeatState
 			var songUnlockName:String = songsToCheck[i];
 			var daSong:String = Song.getChartFileName(SONG.song);
 
-			if(!SongUnlock.isSongUnlocked(songUnlockName) && !cpuControlled) {
+			if(SongUnlock.isSongUnlocked(songUnlockName) && !cpuControlled) {
+				var unlock:Bool = false;
+
+			} else if(!SongUnlock.isSongUnlocked(songUnlockName) && !cpuControlled) {
 				var unlock:Bool = false;
 				
 				if (songUnlockName.contains(Song.getChartFileName(SONG.song)) && songUnlockName.endsWith('unlockSong')) {
