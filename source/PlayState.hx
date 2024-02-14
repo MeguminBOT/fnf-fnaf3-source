@@ -1412,7 +1412,7 @@ class PlayState extends MusicBeatState
 		video.autoResize = true;
 		video.autoVolumeHandle = true;
 
-		if (isStoryMode) {
+		if (!isStoryMode) {
 			video.set_rate(1 * playbackRate);
 		}
 
