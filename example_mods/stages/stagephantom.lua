@@ -445,6 +445,7 @@ function onStepHit()
         setObjectOrder('boyfriendGroup', 5)
 		setObjectOrder('mangle', 2)
 		setObjectOrder('dadPhantom', 0)
+		setProperty('mangleMech.alpha', 0)
 
 		-- Toggle visibility of the next stage sprites.
 		setProperty('mangle.visible', true)
