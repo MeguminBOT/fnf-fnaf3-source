@@ -420,6 +420,11 @@ class PlayState extends MusicBeatState
 		FlxG.cameras.add(camHUD, false);
 		FlxG.cameras.add(camOther, false);
 		FlxG.cameras.add(camJump, false);
+		camEasy.antialiasing = ClientPrefs.hudAntialiasing;
+		camHUD.antialiasing = ClientPrefs.hudAntialiasing;
+		camOther.antialiasing = ClientPrefs.hudAntialiasing;
+		camJump.antialiasing = ClientPrefs.hudAntialiasing;
+
 		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
 
 		FlxG.cameras.setDefaultDrawTarget(camGame, true);

@@ -4,6 +4,7 @@ package;
 import Discord.DiscordClient;
 #end
 import flixel.FlxG;
+import flixel.FlxCamera;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.addons.transition.FlxTransitionableState;
@@ -41,6 +42,11 @@ class StoryMenuState extends MusicBeatState
 	{
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
+
+		var camMenu = new FlxCamera();
+		camMenu.antialiasing = ClientPrefs.hudAntialiasing;
+		FlxG.cameras.reset(camMenu);
+		FlxG.cameras.setDefaultDrawTarget(camMenu, true);
 
 		var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
 		FlxG.mouse.load(mouseSprite.pixels);

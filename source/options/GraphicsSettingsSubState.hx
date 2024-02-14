@@ -62,7 +62,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		// 	['Very Low', 'Low', 'Normal']);
 		// addOption(option);
 
-		var option:Option = new Option('Anti-Aliasing',
+		var option:Option = new Option('Sprite Anti-Aliasing',
 			'If unchecked, disables anti-aliasing, increases performance\nat the cost of sharper visuals.',
 			'globalAntialiasing',
 			'bool',
@@ -70,6 +70,13 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		option.onChange = onChangeAntiAliasing;
 		addOption(option);
 		antialiasingOption = optionsArray.length-1;
+
+		var option:Option = new Option('UI Anti-Aliasing',
+			'If unchecked, disables anti-aliasing on the UI, increases performance\nat the cost of smoother visuals.',
+			'hudAntialiasing',
+			'bool',
+			true);
+		addOption(option);
 
 		// Backported from Rhythm Engine. Fixes insane stuttering.
 		var option:Option = new Option('Prefer GPU Caching',

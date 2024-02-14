@@ -179,6 +179,8 @@ class FreeplayState extends MusicBeatState
 		camAchievement = new FlxCamera();
 		camAchievement.bgColor.alpha = 0;
 
+		camMenu.antialiasing = ClientPrefs.hudAntialiasing;
+		camAchievement.antialiasing = ClientPrefs.hudAntialiasing;
 		FlxG.cameras.reset(camMenu);
 		FlxG.cameras.add(camAchievement, false);
 		FlxG.cameras.setDefaultDrawTarget(camMenu, true);

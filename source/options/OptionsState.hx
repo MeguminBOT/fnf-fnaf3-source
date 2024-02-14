@@ -5,6 +5,7 @@ import Discord.DiscordClient;
 #end
 
 import flixel.FlxG;
+import flixel.FlxCamera;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.animation.FlxAnimationController;
@@ -47,6 +48,11 @@ class OptionsState extends MusicBeatState
 
 	override function create()
 	{
+		var camMenu = new FlxCamera();
+		camMenu.antialiasing = ClientPrefs.hudAntialiasing;
+		FlxG.cameras.reset(camMenu);
+		FlxG.cameras.setDefaultDrawTarget(camMenu, true);
+
 		var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
 		FlxG.mouse.load(mouseSprite.pixels);
 		FlxG.mouse.visible = true; // Make the mouse visible since the UI is made for mouse and touch input.

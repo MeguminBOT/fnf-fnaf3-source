@@ -70,6 +70,7 @@ class ClientPrefs {
 	public static var timeBarEnabled:Bool = true;
 	//public static var graphicsQuality:String = 'Normal';
 	public static var immersionLevel:String = 'Full';
+	public static var hudAntialiasing:Bool = true;
 
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
@@ -150,6 +151,7 @@ class ClientPrefs {
 		FlxG.save.data.timeBarEnabled = timeBarEnabled;
 		//FlxG.save.data.graphicsQuality = graphicsQuality;
 		FlxG.save.data.immersionLevel = immersionLevel;
+		FlxG.save.data.hudAntialiasing = hudAntialiasing;
 
 		FlxG.save.flush();
 
@@ -311,6 +313,9 @@ class ClientPrefs {
 		// }
 		if(FlxG.save.data.immersionLevel != null) {
 			immersionLevel = FlxG.save.data.immersionLevel;
+		}
+		if(FlxG.save.data.hudAntialiasing != null) {
+			hudAntialiasing = FlxG.save.data.hudAntialiasing;
 		}
 		
 		var save:FlxSave = new FlxSave();
