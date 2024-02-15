@@ -1,5 +1,5 @@
 name: Bug report
-description: Report bugs with the engine here
+description: Report bugs with the mod here
 labels: [bug]
 body:
   - type: textarea
@@ -10,41 +10,45 @@ body:
       required: true
 
   - type: textarea
-    id: terminal
+    id: systemdata
     attributes:
-      label: "Command Prompt/Terminal logs (if existing)"
-      render: bash
+      label: "Information from the SystemData.txt in your VS FNaF 3 folder"
+    validations:
+      required: true
+
+  - type: textarea
+    id: crashlog
+    attributes:
+      label: "Information from the latest crashlog in your VS FNaF 3/crash folder"
     validations:
       required: false
 
   - type: dropdown
-    id: modding
+    id: consistency
     attributes:
-      label: "Are you modding a build from source or with Lua?"
+      label: "Does the issue occur consistently?"
       options:
-        - Lua
-        - Source
+        - "Yes"
+        - "No"
     validations:
       required: true
 
   - type: dropdown
-    id: btarget
+    id: cachingmethod
     attributes:
-      label: "What is your build target?"
+      label: "Do you have 'Prefer GPU Caching' enabled in Graphics settings?"
       options:
-        - "Windows"
-        - "Linux"
-        - "Mac"
-        - "HTML5"
-        - "Flash/Air-based target"
-        - "Neko, HashLink, or other build system"
+        - "Yes"
+        - "No"
     validations:
       required: true
 
-  - type: input
-    id: buildsummary
+  - type: dropdown
+    id: cachingmethod
     attributes:
-      label: "Did you edit anything in this build? If so, mention or summarize your changes."
-      placeholder: "Yes, I edited ClientPrefs.hx and tried to add a new setting"
+      label: "Do you have 'Shaders' enabled in Graphics settings?"
+      options:
+        - "Yes"
+        - "No"
     validations:
       required: true
