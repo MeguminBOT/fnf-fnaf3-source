@@ -184,8 +184,8 @@ class MainMenuState extends MusicBeatState
 
 		super.update(elapsed);
 
-		// Here for debugging purposes only
-		if (FlxG.keys.justPressed.ONE) {
+		// This was here for debugging purposes, but now it is for file saves getting corrupted, will do proper rewrite for the next bigger update.
+		if (FlxG.keys.justPressed.I) {
 			var achieveID2:Int = Achievements.getAchievementIndex('week1');
 			if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID2][2])) { //It's a friday night. WEEEEEEEEEEEEEEEEEE
 				Achievements.achievementsMap.set(Achievements.achievementsStuff[achieveID2][2], true);
@@ -205,5 +205,57 @@ class MainMenuState extends MusicBeatState
 			SongUnlock.unlockSong('misconception');	
 			ClientPrefs.saveSettings();
 		}
+
+		if (FlxG.keys.justPressed.O) {
+			var achieveID2:Int = Achievements.getAchievementIndex('week1');
+			if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID2][2])) { //It's a friday night. WEEEEEEEEEEEEEEEEEE
+				Achievements.achievementsMap.set(Achievements.achievementsStuff[achieveID2][2], true);
+				giveAchievement();
+			}
+			SongUnlock.unlockSong('takenapart');
+			SongUnlock.unlockSong('retribution');
+			SongUnlock.unlockSong('fearforever');
+			SongUnlock.unlockSong('everlasting');
+			ClientPrefs.saveSettings();
+		}
+
+		if (FlxG.keys.justPressed.P) {
+			var achieveID2:Int = Achievements.getAchievementIndex('week1');
+			if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID2][2])) { //It's a friday night. WEEEEEEEEEEEEEEEEEE
+				Achievements.achievementsMap.set(Achievements.achievementsStuff[achieveID2][2], true);
+				giveAchievement();
+			}
+			var achieveID2:Int = Achievements.getAchievementIndex('code_cracker');
+			if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID2][2])) { //It's a friday night. WEEEEEEEEEEEEEEEEEE
+				Achievements.achievementsMap.set(Achievements.achievementsStuff[achieveID2][2], true);
+				giveAchievement();
+			}
+			var achieveID2:Int = Achievements.getAchievementIndex('secret_song_one');
+			if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID2][2])) { //It's a friday night. WEEEEEEEEEEEEEEEEEE
+				Achievements.achievementsMap.set(Achievements.achievementsStuff[achieveID2][2], true);
+				giveAchievement();
+			}
+			var achieveID2:Int = Achievements.getAchievementIndex('secret_song_two');
+			if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID2][2])) { //It's a friday night. WEEEEEEEEEEEEEEEEEE
+				Achievements.achievementsMap.set(Achievements.achievementsStuff[achieveID2][2], true);
+				giveAchievement();
+			}
+			SongUnlock.unlockSong('takenapart');
+			SongUnlock.unlockSong('retribution');
+			SongUnlock.unlockSong('fearforever');
+			SongUnlock.unlockSong('everlasting');
+			SongUnlock.unlockSong('braindamage');
+			SongUnlock.unlockSong('partyroom');
+			SongUnlock.unlockSong('totallyreal');
+			SongUnlock.unlockSong('lasthour');
+			SongUnlock.unlockSong('waffles');
+			SongUnlock.unlockSong('leantrap');
+			SongUnlock.unlockSong('endorevengo');
+			SongUnlock.unlockSong('misconception');	
+			SongUnlock.unlockSong('outofbounds');
+			SongUnlock.unlockSong('untilnexttime');
+			ClientPrefs.saveSettings();
+		}
 	}
 }
+
