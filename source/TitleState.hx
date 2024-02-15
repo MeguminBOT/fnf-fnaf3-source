@@ -116,7 +116,7 @@ class TitleState extends MusicBeatState {
 		#if CHECK_FOR_UPDATES
 		if (ClientPrefs.checkForUpdates && !closedState) {
 			trace('checking for update');
-			var http = new haxe.Http("https://github.com/MeguminBOT/fnf-fnaf3-source/blob/main/gitVersion.txt");
+			var http = new haxe.Http("https://raw.githubusercontent.com/MeguminBOT/fnf-fnaf3-source/main/modVersion.txt");
 
 			http.onData = function(data:String) {
 				updateVersion = data.split('\n')[0].trim();

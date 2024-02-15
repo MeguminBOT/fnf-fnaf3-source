@@ -2589,6 +2589,7 @@ class PlayState extends MusicBeatState
 		paused = true;
 
 		if (videoIsActive) {
+			videoIsActive = false;
 			video.pause();
 		}
 
@@ -3085,6 +3086,43 @@ class PlayState extends MusicBeatState
 
 	public function endSong():Void
 	{
+		if (video != null) {
+			video.dispose();
+		}
+
+		// Vs FNaF 3 checks
+		if (isMangleActive) {
+			isMangleActive = false;
+			mangleMech.animation.finish();
+			mangleSound.stop();
+			mangleCounter = 0;
+			mangleAchieveFailed = false;
+			mangleMech.kill();
+			mangleMech.destroy();
+		}
+
+		if (isTabletActive) {
+			isTabletActive = false;
+			tabletButtonPressed = true;
+			tabletMech.animation.finish();
+			tabletCounter = 0;
+			tabletAchieveFailed = false;
+			tabletMech.kill();
+			tabletMech.destroy();
+		}
+
+		if (isRedFlashing) {
+			isRedFlashing = false;
+			redFlash.alpha = 0;
+			redFlash.kill();
+			redFlash.destroy();
+		}
+		
+		if (isTweenActive) {
+			isTweenActive = false;
+			blackOutTween.cancel();
+			blackOutTween.destroy();
+		}
 		//Should kill you if you tried to cheat
 		if(!startingSong) {
 			notes.forEach(function(daNote:Note) {
