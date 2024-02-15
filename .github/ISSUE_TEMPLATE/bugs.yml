@@ -44,7 +44,7 @@ body:
       required: true
 
   - type: dropdown
-    id: cachingmethod
+    id: shaders
     attributes:
       label: "Do you have 'Shaders' enabled in Graphics settings?"
       options:
