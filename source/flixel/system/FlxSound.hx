@@ -659,7 +659,7 @@ class FlxSound extends FlxBasic
 	 *                         the position and fading will be reset as well.
 	 * @param  resetPosition   Whether or not to reset the position of the sound.
 	 */
-	function cleanup(destroySound:Bool, resetPosition:Bool = true):Void
+	public function cleanup(destroySound:Bool, resetPosition:Bool = true):Void
 	{
 		if (destroySound)
 		{

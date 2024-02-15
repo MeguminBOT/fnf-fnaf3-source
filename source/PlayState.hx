@@ -2163,8 +2163,13 @@ class PlayState extends MusicBeatState
 			}
 			paused = false;
 
-			if (videoIsActive) {
-				video.play();
+			if (!videoIsActive && video != null) {
+				videoIsActive = true;
+				video.resume();
+			}
+
+			if (isMangleActive) {
+				mangleSound.play();
 			}
 
 			callOnLuas('onResume', []);
@@ -2600,8 +2605,22 @@ class PlayState extends MusicBeatState
 
 		// Vs FNaF 3 checks
 		if (isMangleActive) {
+			isMangleActive = false;
 			mangleSound.pause();
 		}
+
+		if (isRedFlashing) {
+			isRedFlashing = false;
+		}
+
+		if (isTabletActive) {
+			isTabletActive = false;
+		}
+
+		if (isTweenActive) {
+			isTweenActive = false;
+		}
+
 		// End of VS FNaF 3 checks
 		openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
@@ -3091,35 +3110,29 @@ class PlayState extends MusicBeatState
 		}
 
 		// Vs FNaF 3 checks
-		if (isMangleActive) {
-			isMangleActive = false;
-			mangleMech.animation.finish();
+		if (mangleSound != null) {
 			mangleSound.stop();
-			mangleCounter = 0;
-			mangleAchieveFailed = false;
+			mangleSound.cleanup(true, true);
+		}
+
+		if (isMangleActive) {
+			mangleMech.animation.finish();
 			mangleMech.kill();
 			mangleMech.destroy();
 		}
-
 		if (isTabletActive) {
-			isTabletActive = false;
-			tabletButtonPressed = true;
 			tabletMech.animation.finish();
-			tabletCounter = 0;
-			tabletAchieveFailed = false;
 			tabletMech.kill();
 			tabletMech.destroy();
 		}
 
 		if (isRedFlashing) {
 			isRedFlashing = false;
-			redFlash.alpha = 0;
 			redFlash.kill();
 			redFlash.destroy();
 		}
 		
 		if (isTweenActive) {
-			isTweenActive = false;
 			blackOutTween.cancel();
 			blackOutTween.destroy();
 		}
