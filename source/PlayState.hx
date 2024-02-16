@@ -2163,7 +2163,7 @@ class PlayState extends MusicBeatState
 			}
 			paused = false;
 
-			if (!videoIsActive && video != null) {
+			if (video != null && !videoIsActive) {
 				videoIsActive = true;
 				video.resume();
 			}
@@ -2593,7 +2593,7 @@ class PlayState extends MusicBeatState
 		persistentDraw = true;
 		paused = true;
 
-		if (videoIsActive) {
+		if (video != null && videoIsActive) {
 			videoIsActive = false;
 			video.pause();
 		}
@@ -3105,8 +3105,9 @@ class PlayState extends MusicBeatState
 
 	public function endSong():Void
 	{
-		if (video != null) {
-			video.dispose();
+		if (video != null && videoIsActive) {
+			videoIsActive = false;
+			video.stop();
 		}
 
 		// Vs FNaF 3 checks
