@@ -13,22 +13,22 @@ function onCreate()
 	precacheImage('Props/waffle4');
 	precacheImage('Props/waffle5');
 	makeLuaSprite('wafflestage1', 'BGs/wafflestage1', 0, 300);
-	setLuaSpriteScrollFactor('wafflestage1', 1, 1);
+	setScrollFactor('wafflestage1', 1, 1);
 	scaleObject('wafflestage1', 0.4, 0.4);
 	addLuaSprite('wafflestage1', false);
 	makeLuaSprite('waffle1', 'Props/waffle1', 750, 790);
-	setLuaSpriteScrollFactor('waffle1', 1, 1);
+	setScrollFactor('waffle1', 1, 1);
 	scaleObject('waffle1', 0.11, 0.11);
 	addLuaSprite('waffle1', true);
 	setProperty('wafflestage1.alpha', 0);
 	setProperty('waffle1.alpha', 0);
 
 	makeLuaSprite('wafflestage2', 'BGs/wafflestage2', -300, 0);
-	setLuaSpriteScrollFactor('wafflestage2', 1, 1);
+	setScrollFactor('wafflestage2', 1, 1);
 	scaleObject('wafflestage2', 0.6, 0.6);
 	addLuaSprite('wafflestage2', false);
 	makeLuaSprite('waffle2', 'Props/waffle2', 500, 600);
-	setLuaSpriteScrollFactor('waffle2', 1, 1);
+	setScrollFactor('waffle2', 1, 1);
 	scaleObject('waffle2', 0.5, 0.5);
 	addLuaSprite('waffle2', true);
 
@@ -121,17 +121,17 @@ function onStepHit()
 	removeLuaSprite('waffle2', true);
       
 	makeLuaSprite('wafflestage3', 'BGs/wafflestage3', -200, 200);
-	setLuaSpriteScrollFactor('wafflestage3', 1, 1);
+	setScrollFactor('wafflestage3', 1, 1);
 	scaleObject('wafflestage3', 0.5, 0.5);
 	addLuaSprite('wafflestage3', false);
 
 	makeLuaSprite('waffle3', 'Props/waffle3', 850, 720);
-	setLuaSpriteScrollFactor('waffle3', 1, 1);
+	setScrollFactor('waffle3', 1, 1);
 	scaleObject('waffle3', 0.08, 0.08);
 	addLuaSprite('waffle3', true);
 
 	makeLuaSprite('waffle4', 'Props/waffle4', 440, 685);
-	setLuaSpriteScrollFactor('waffle4', 1, 1);
+	setScrollFactor('waffle4', 1, 1);
 	scaleObject('waffle4', 0.35, 0.35);
 	addLuaSprite('waffle4', false);
 	setObjectOrder('waffle4', getObjectOrder('dadGroup')+ -1)
@@ -149,12 +149,12 @@ function onStepHit()
 		removeLuaSprite('waffle3', true);
 
 		makeLuaSprite('wafflestage4', 'BGs/wafflestage4', -200, 400);
-		setLuaSpriteScrollFactor('wafflestage4', 1, 1);
+		setScrollFactor('wafflestage4', 1, 1);
 		scaleObject('wafflestage4', 0.4, 0.4);
 		addLuaSprite('wafflestage4', false);
 
 		makeLuaSprite('waffle5', 'Props/waffle5', 0, 820);
-		setLuaSpriteScrollFactor('waffle5', 1, 1);
+		setScrollFactor('waffle5', 1, 1);
 		scaleObject('waffle5', 0.35, 0.35);
 		addLuaSprite('waffle5', true);
 
@@ -167,17 +167,17 @@ function onStepHit()
 	removeLuaSprite('waffle5', true);
       
 	makeLuaSprite('wafflestage3', 'BGs/wafflestage3', -200, 200);
-	setLuaSpriteScrollFactor('wafflestage3', 1, 1);
+	setScrollFactor('wafflestage3', 1, 1);
 	scaleObject('wafflestage3', 0.5, 0.5);
 	addLuaSprite('wafflestage3', false);
 
 	makeLuaSprite('waffle3', 'Props/waffle3', 850, 720);
-	setLuaSpriteScrollFactor('waffle3', 1, 1);
+	setScrollFactor('waffle3', 1, 1);
 	scaleObject('waffle3', 0.08, 0.08);
 	addLuaSprite('waffle3', true);
 
 	makeLuaSprite('waffle4', 'Props/waffle4', 440, 685);
-	setLuaSpriteScrollFactor('waffle4', 1, 1);
+	setScrollFactor('waffle4', 1, 1);
 	scaleObject('waffle4', 0.35, 0.35);
 	addLuaSprite('waffle4', false);
 	setObjectOrder('waffle4', getObjectOrder('dadGroup')+ -1)

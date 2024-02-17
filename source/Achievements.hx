@@ -100,10 +100,16 @@ class AttachedAchievement extends FlxSprite {
 class AchievementObject extends FlxSpriteGroup {
 	public var onFinish:Void->Void = null;
 	var alphaTween:FlxTween;
+	var camAchievement:FlxCamera;
 	public function new(name:String, ?camera:FlxCamera = null)
 	{
 		super(x, y);
 		ClientPrefs.saveSettings();
+
+		FlxG.cameras.reset(camAchievement);
+		FlxG.cameras.add(camAchievement, false);
+		FlxG.cameras.setDefaultDrawTarget(camAchievement, true);
+		camAchievement.antialiasing = ClientPrefs.hudAntialiasing;
 
 		var id:Int = Achievements.getAchievementIndex(name);
 		var achievementBG:FlxSprite = new FlxSprite(60, 50).makeGraphic(420, 120, FlxColor.BLACK);
@@ -129,15 +135,7 @@ class AchievementObject extends FlxSpriteGroup {
 		add(achievementText);
 		add(achievementIcon);
 
-		var cam:Array<FlxCamera> = FlxCamera.defaultCameras;
-		if(camera != null) {
-			cam = [camera];
-		}
 		alpha = 0;
-		achievementBG.cameras = cam;
-		achievementName.cameras = cam;
-		achievementText.cameras = cam;
-		achievementIcon.cameras = cam;
 		alphaTween = FlxTween.tween(this, {alpha: 1}, 0.5, {onComplete: function (twn:FlxTween) {
 			alphaTween = FlxTween.tween(this, {alpha: 0}, 0.5, {
 				startDelay: 2.5,

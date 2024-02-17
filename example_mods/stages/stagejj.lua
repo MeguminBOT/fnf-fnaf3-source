@@ -8,11 +8,11 @@ function onCreate()
     addLuaSprite('black', true);
 	doTweenAlpha('black','black', 0, 0.01, true);
 	makeLuaSprite('jjstage1', 'BGs/jjstage1', -2050, -170);
-	setLuaSpriteScrollFactor('jjstage1', 1, 1);
+	setScrollFactor('jjstage1', 1, 1);
 	scaleObject('jjstage1', 0.75, 0.75);
 
 	makeLuaSprite('jjtable', 'BGs/jjtable', -2050, -170);
-	setLuaSpriteScrollFactor('jjtable', 1, 1);
+	setScrollFactor('jjtable', 1, 1);
 	scaleObject('jjtable', 0.75, 0.75);
 
 	addLuaSprite('jjstage1', false);
@@ -26,7 +26,7 @@ function onStepHit()
 	removeLuaSprite('jjtable', true);
       
     makeLuaSprite('jjstage2', 'BGs/jjstage2', -1700, -400);
-	setLuaSpriteScrollFactor('jjstage2', 1, 1);
+	setScrollFactor('jjstage2', 1, 1);
 	scaleObject('jjstage2', 1, 1);
 	setObjectOrder('jjstage2', 0)
     addLuaSprite('jjstage2', false);

@@ -97,10 +97,16 @@ class AttachedSongSprite extends FlxSprite {
 class SongObject extends FlxSpriteGroup {
 	public var onFinish:Void->Void = null;
 	var alphaTween:FlxTween;
+	var camUnlock:FlxCamera;
 	public function new(name:String, ?camera:FlxCamera = null)
 	{
 		super(x, y);
 		ClientPrefs.saveSettings();
+
+		FlxG.cameras.reset(camUnlock);
+		FlxG.cameras.add(camUnlock, false);
+		FlxG.cameras.setDefaultDrawTarget(camUnlock, true);
+		camUnlock.antialiasing = ClientPrefs.hudAntialiasing;
 
 		var id:Int = SongUnlock.getSongIndex(name);
 		var songUnlockBG:FlxSprite = new FlxSprite(60, 50).makeGraphic(420, 120, FlxColor.BLACK);
@@ -125,15 +131,7 @@ class SongObject extends FlxSpriteGroup {
 		add(songUnlockText);
 		add(songUnlockIcon);
 
-		var cam:Array<FlxCamera> = FlxCamera.defaultCameras;
-		if(camera != null) {
-			cam = [camera];
-		}
 		alpha = 0;
-		songUnlockBG.cameras = cam;
-		songUnlockName.cameras = cam;
-		songUnlockText.cameras = cam;
-		songUnlockIcon.cameras = cam;
 		alphaTween = FlxTween.tween(this, {alpha: 1}, 0.5, {onComplete: function (twn:FlxTween) {
 			alphaTween = FlxTween.tween(this, {alpha: 0}, 0.5, {
 				startDelay: 2.5,

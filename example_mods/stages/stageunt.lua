@@ -6,13 +6,13 @@ function onCreate()
 	precacheImage('characters/pshadowfreddy2');
 
 	makeLuaSprite('eyes', 'BGs/eyes', -2000, -550);
-	setLuaSpriteScrollFactor('eyes', 1, 1);
+	setScrollFactor('eyes', 1, 1);
 	scaleObject('eyes', 0.9, 0.9);
 	addLuaSprite('eyes', false);
-	setLuaSpriteScrollFactor('eyes', 0.4, 0.4);
+	setScrollFactor('eyes', 0.4, 0.4);
 
 	makeLuaSprite('helloagain', 'helloagain', -400, 540);
-		setLuaSpriteScrollFactor('helloagain', 1, 1);
+		setScrollFactor('helloagain', 1, 1);
 		scaleObject('helloagain', 1, 1);
 
 		addLuaSprite('helloagain', true);
@@ -26,13 +26,13 @@ function onCreate()
 	doTweenAlpha('static','static', 0, 0.01, true);
 	
 	makeLuaSprite('sfedstage', 'BGs/sfedstage', -2000, -550);
-	setLuaSpriteScrollFactor('sfedstage', 1, 1);
+	setScrollFactor('sfedstage', 1, 1);
 	scaleObject('sfedstage', 0.9, 0.9);
 
 	addLuaSprite('sfedstage', false);
 
 	makeLuaSprite('untsfed', 'Chars/untsfed', -1500, 500);
-	setLuaSpriteScrollFactor('untsfed', 1, 1);
+	setScrollFactor('untsfed', 1, 1);
 	scaleObject('untsfed', 1.1, 1.1);
 
 	addLuaSprite('untsfed', false);
@@ -61,7 +61,7 @@ function onStepHit()
 			removeLuaSprite('sfedstage', true);
 		
 			makeLuaSprite('sfedstage2', 'BGs/sfedstage2', -2000, -550);
-			setLuaSpriteScrollFactor('sfedstage2', 1, 1);
+			setScrollFactor('sfedstage2', 1, 1);
 			scaleObject('sfedstage2', 0.9, 0.9);
 			addLuaSprite('sfedstage2', false);
 		
@@ -72,7 +72,7 @@ function onStepHit()
     removeLuaSprite('sfedstage2', true);
 
 	makeAnimatedLuaSprite('cameras', 'BGs/cameras', -500, -250);
-	setLuaSpriteScrollFactor('cameras', 0, 0);
+	setScrollFactor('cameras', 0, 0);
 	scaleObject('cameras', 1.9, 1.9);
 
 	addAnimationByPrefix('cameras','cameras','idle',12,true);

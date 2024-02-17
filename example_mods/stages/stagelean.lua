@@ -3,7 +3,7 @@ function onCreate()
 	precacheImage('characters/leantrap2');
 	precacheImage('BGs/drugs');
 	makeLuaSprite('leanstage', 'BGs/leantrap', -2000, -550);
-	setLuaSpriteScrollFactor('leanstage', 1, 1);
+	setScrollFactor('leanstage', 1, 1);
 	scaleObject('leanstage', 1.4, 1.4);
 	addLuaSprite('leanstage', false);
 	makeLuaSprite('black','black', 0, 0);
@@ -21,7 +21,7 @@ function onStepHit()
 		makeAnimatedLuaSprite('drugs','BGs/drugs', -300, -150);
 		scaleObject('drugs', 1.5, 1.5);
 		addLuaSprite('drugs', false);
-		setLuaSpriteScrollFactor('drugs', 0, 0);
+		setScrollFactor('drugs', 0, 0);
 		addAnimationByPrefix('drugs','drugs','idle',24,true);
 	end
 	end

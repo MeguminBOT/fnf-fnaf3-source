@@ -4,11 +4,11 @@ function onCreate()
     addAnimationByPrefix('background','idle','idle',24,true);
 	scaleObject('background', 1.2, 1.2);
 	setObjectOrder('background', 0)
-	setLuaSpriteScrollFactor('background', 1.2, 1.2);
+	setScrollFactor('background', 1.2, 1.2);
 	addLuaSprite('background', false);
 
 	makeLuaSprite('table', 'BGs/hoaxtable', 0, 600);
-	setLuaSpriteScrollFactor('table', 1, 1);
+	setScrollFactor('table', 1, 1);
 	scaleObject('table', 0.7, 0.7);
 	setObjectOrder('table', 2)
 	addLuaSprite('table', false);

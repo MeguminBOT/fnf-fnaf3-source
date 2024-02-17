@@ -85,20 +85,20 @@ function onCreate()
     setObjectOrder(name_of_character, getObjectOrder('dadGroup') + 1)
 
 	if playablecharacter == true then
-		setPropertyLuaSprite(name_of_character, 'flipX', true);
+		setProperty(name_of_character, 'flipX', true);
 	else
-		setPropertyLuaSprite(name_of_character, 'flipX', false);
+		setProperty(name_of_character, 'flipX', false);
 	end
 
 	scaleObject(name_of_character, xScale, yScale);
 
 
-	objectPlayAnimation(name_of_character, 'idle');
+	playAnim(name_of_character, 'idle');
 	addLuaSprite(name_of_character, false);
-    doTweenAlpha(name_of_character,name_of_character, 0, 0.01, true);
+    doTweenAlpha(name_of_character, name_of_character, 0, 0.01, true);
 
 	if invisible == true then
-		setPropertyLuaSprite(name_of_character, 'alpha', 0)
+		setProperty(name_of_character .. '.alpha', 0)
 	end
 end
 
@@ -107,55 +107,55 @@ local altAnims ={"singLEFT-alt", "singDOWN-alt", "singUP-alt", "singRIGHT-alt"}
 function opponentNoteHit(id, direction, noteType, isSustainNote)
 	if noteType == name_of_notetype or noteType == name_of_notetype2 then
 		doIdle = false
-		objectPlayAnimation(name_of_character, singAnims[direction + 1], false);
+		playAnim(name_of_character, singAnims[direction + 1], false);
 
 		if direction == 0 then
 			setProperty(name_of_character .. '.offset.x', leftoffsets[1]);
 			setProperty(name_of_character .. '.offset.y', leftoffsets[2]);
 
 			if isSustainNote then
-				objectPlayAnimation(name_of_character, singAnims[direction + 1], true);
+				playAnim(name_of_character, singAnims[direction + 1], true);
 			end
 		elseif direction == 1 then
 			setProperty(name_of_character .. '.offset.x', downoffsets[1]);
 			setProperty(name_of_character .. '.offset.y', downoffsets[2]);
 
 			if isSustainNote then
-				objectPlayAnimation(name_of_character, singAnims[direction + 1], true);
+				playAnim(name_of_character, singAnims[direction + 1], true);
 			end
 		elseif direction == 2 then
 			setProperty(name_of_character .. '.offset.x', upoffsets[1]);
 			setProperty(name_of_character .. '.offset.y', upoffsets[2]);
 
 			if isSustainNote then
-				objectPlayAnimation(name_of_character, singAnims[direction + 1], true);
+				playAnim(name_of_character, singAnims[direction + 1], true);
 			end
 		elseif direction == 3 then
 			setProperty(name_of_character .. '.offset.x', rightoffsets[1]);
 			setProperty(name_of_character .. '.offset.y', rightoffsets[2]);
 
 			if isSustainNote then
-				objectPlayAnimation(name_of_character, singAnims[direction + 1], true);
+				playAnim(name_of_character, singAnims[direction + 1], true);
 			end
 		end
 	end
 	if noteType == altnotetype or noteType == altnotetype2 then
         doIdle = false
-        objectPlayAnimation(name_of_character, altAnims[direction + 1], true);
+        playAnim(name_of_character, altAnims[direction + 1], true);
 
         if direction == 0 then
             setProperty(name_of_character .. '.offset.x', leftAltoffsets[1]);
             setProperty(name_of_character .. '.offset.y', leftAltoffsets[2]);
 
             if isSustainNote then
-                objectPlayAnimation(name_of_character, altAnims[direction + 1], true);
+                playAnim(name_of_character, altAnims[direction + 1], true);
             end
         elseif direction == 1 then
-            setProperty(name_of_character .. '.offset.x', dowAltnoffsets[1]);
+            setProperty(name_of_character .. '.offset.x', downAltnoffsets[1]);
             setProperty(name_of_character .. '.offset.y', downAltoffsets[2]);
 
             if isSustainNote then
-                objectPlayAnimation(name_of_character, altAnims[direction + 1], true);
+                playAnim(name_of_character, altAnims[direction + 1], true);
 
             end
         elseif direction == 2 then
@@ -163,14 +163,14 @@ function opponentNoteHit(id, direction, noteType, isSustainNote)
             setProperty(name_of_character .. '.offset.y', upAltoffsets[2]);
 
             if isSustainNote then
-                objectPlayAnimation(name_of_character, altAnims[direction + 1], true);
+                playAnim(name_of_character, altAnims[direction + 1], true);
             end
         elseif direction == 3 then
             setProperty(name_of_character .. '.offset.x', rightAltoffsets[1]);
             setProperty(name_of_character .. '.offset.y', rightAltoffsets[2]);
 
             if isSustainNote then
-                objectPlayAnimation(name_of_character, altAnims[direction + 1], true);
+                playAnim(name_of_character, altAnims[direction + 1], true);
             end
         end
     end
@@ -182,7 +182,7 @@ local altAnims ={"singLEFT-alt", "singDOWN-alt", "singUP-alt", "singRIGHT-alt"}
 function goodNoteHit(id, direction, noteType, isSustainNote)
 	if noteType == name_of_notetype or noteType == name_of_notetype2 then
 		doIdle = false
-		objectPlayAnimation(name_of_character, singAnims[direction + 1], false);
+		playAnim(name_of_character, singAnims[direction + 1], false);
 
 		if direction == 0 then
 			setProperty(name_of_character .. '.offset.x', leftoffsets[1]);
@@ -200,21 +200,21 @@ function goodNoteHit(id, direction, noteType, isSustainNote)
 	end
 	if noteType == altnotetype or noteType == altnotetype2 then
         doIdle = false
-        objectPlayAnimation(name_of_character, altAnims[direction + 1], true);
+        playAnim(name_of_character, altAnims[direction + 1], true);
 
         if direction == 0 then
             setProperty(name_of_character .. '.offset.x', leftAltoffsets[1]);
             setProperty(name_of_character .. '.offset.y', leftAltoffsets[2]);
 
             if isSustainNote then
-                objectPlayAnimation(name_of_character, altAnims[direction + 1], true);
+                playAnim(name_of_character, altAnims[direction + 1], true);
             end
         elseif direction == 1 then
-            setProperty(name_of_character .. '.offset.x', dowAltnoffsets[1]);
+            setProperty(name_of_character .. '.offset.x', downAltnoffsets[1]);
             setProperty(name_of_character .. '.offset.y', downAltoffsets[2]);
 
             if isSustainNote then
-                objectPlayAnimation(name_of_character, altAnims[direction + 1], true);
+                playAnim(name_of_character, altAnims[direction + 1], true);
 
             end
         elseif direction == 2 then
@@ -222,14 +222,14 @@ function goodNoteHit(id, direction, noteType, isSustainNote)
             setProperty(name_of_character .. '.offset.y', upAltoffsets[2]);
 
             if isSustainNote then
-                objectPlayAnimation(name_of_character, altAnims[direction + 1], true);
+                playAnim(name_of_character, altAnims[direction + 1], true);
             end
         elseif direction == 3 then
             setProperty(name_of_character .. '.offset.x', rightAltoffsets[1]);
             setProperty(name_of_character .. '.offset.y', rightAltoffsets[2]);
 
             if isSustainNote then
-                objectPlayAnimation(name_of_character, altAnims[direction + 1], true);
+                playAnim(name_of_character, altAnims[direction + 1], true);
             end
         end
     end
@@ -239,30 +239,30 @@ local missAnims = {"singLEFTmiss", "singDOWNmiss", "singUPmiss", "singRIGHTmiss"
 function noteMiss(id, direction, noteType, isSustainNote)
     if noteType == name_of_notetype or noteType == name_of_notetype2 then
         doIdle = false
-        objectPlayAnimation(name_of_character, missAnims[direction + 1], true);
+        playAnim(name_of_character, missAnims[direction + 1], true);
         if direction == 0 then
             setProperty(name_of_character .. '.offset.x', leftMissoffsets[1]);
             setProperty(name_of_character .. '.offset.y', leftMissoffsets[2]);
             if isSustainNote then
-                objectPlayAnimation(name_of_character, missAnims[direction + 1], true);
+                playAnim(name_of_character, missAnims[direction + 1], true);
             end
         elseif direction == 1 then
             setProperty(name_of_character .. '.offset.x', downMissoffsets[1]);
             setProperty(name_of_character .. '.offset.y', downMissoffsets[2]);
             if isSustainNote then
-                objectPlayAnimation(name_of_character, missAnims[direction + 1], true);
+                playAnim(name_of_character, missAnims[direction + 1], true);
             end
         elseif direction == 2 then
             setProperty(name_of_character .. '.offset.x', upMissoffsets[1]);
             setProperty(name_of_character .. '.offset.y', upMissoffsets[2]);
             if isSustainNote then
-                objectPlayAnimation(name_of_character, missAnims[direction + 1], true);
+                playAnim(name_of_character, missAnims[direction + 1], true);
             end
         elseif direction == 3 then
             setProperty(name_of_character .. '.offset.x', rightMissoffsets[1]);
             setProperty(name_of_character .. '.offset.y', rightMissoffsets[2]);
             if isSustainNote then
-                objectPlayAnimation(name_of_character, missAnims[direction + 1], true);
+                playAnim(name_of_character, missAnims[direction + 1], true);
             end
         end
     end
@@ -271,7 +271,7 @@ end
 function onBeatHit()
 	-- triggered 4 times per section
 	if curBeat % 2 == 0  and doIdle then
-		objectPlayAnimation(name_of_character, 'idle');
+		playAnim(name_of_character, 'idle');
 		setProperty(name_of_character .. '.offset.x', idleoffsets[1]);
 		setProperty(name_of_character .. '.offset.y', idleoffsets[2]);
 	end
@@ -286,7 +286,7 @@ function onCountdownTick(counter)
 	-- counter = 4 -> Nothing happens lol, tho it is triggered at the same time as onSongStart i think
 	if counter % 2 == 0 then
 		if doIdle == true then
-			objectPlayAnimation(name_of_character, 'idle');
+			playAnim(name_of_character, 'idle');
 			setProperty(name_of_character .. '.offset.x', idleoffsets[1]);
 			setProperty(name_of_character .. '.offset.y', idleoffsets[2]);
 		end

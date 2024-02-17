@@ -3,7 +3,7 @@ function onCreate()
 	setObjectCamera('black', 'hud')
 	addLuaSprite('black', true);
 	makeLuaSprite('white','white', -500, -500);
-	setLuaSpriteScrollFactor('white', 0, 0);
+	setScrollFactor('white', 0, 0);
 	scaleObject('white', 10, 10);
 	addLuaSprite('white', true);
 	setProperty('white.alpha', 0)

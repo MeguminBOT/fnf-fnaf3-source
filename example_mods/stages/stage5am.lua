@@ -11,11 +11,11 @@ function onCreate()
 	setScrollFactor('wall', 0.7, 0.7)
 	addLuaSprite('wall', true)
 	makeLuaSprite('white','white', -5000, -5000);
-	setLuaSpriteScrollFactor('white', 0, 0);
+	setScrollFactor('white', 0, 0);
 	scaleObject('white', 20, 20);
 	addLuaSprite('white', true);
 	makeLuaSprite('black','black', -5000, -5000);
-	setLuaSpriteScrollFactor('black', 0, 0);
+	setScrollFactor('black', 0, 0);
 	scaleObject('black', 20, 20);
 	addLuaSprite('black', true);
 	makeLuaSprite('whiteui','whiteui', 0, 0);
