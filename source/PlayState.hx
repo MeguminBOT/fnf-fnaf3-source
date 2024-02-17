@@ -307,14 +307,14 @@ class PlayState extends MusicBeatState
 	var tabletMech:FlxSprite;
 	var tabletButton:FlxSprite;
 	var tabletReboot:FlxTimer;
-	var tabletSoundOpen:FlxSound;
-	var tabletSoundClose:FlxSound;
+	public var tabletSoundOpen:FlxSound;
+	public var tabletSoundClose:FlxSound;
 	var tabletCounter:Int = 0;
 	static var tabletAchieveFailed:Bool = false;
 
 	static var isMangleActive:Bool = false;
 	var mangleMech:FlxSprite;
-	var mangleSound:FlxSound;
+	public var mangleSound:FlxSound;
 	var mangleCounter:Int = 0;
 	static var mangleAchieveFailed:Bool = false;
 
@@ -337,7 +337,6 @@ class PlayState extends MusicBeatState
 
 	#if VIDEOS_ALLOWED
 	public var video:FlxVideo;
-	public static var videoIsActive:Bool = false;
 	#end
 	/*---------------------------------*/
 
@@ -1391,35 +1390,34 @@ class PlayState extends MusicBeatState
 	public function startVideo(name:String)
 	{
 		#if VIDEOS_ALLOWED
-		var filepath:String = Paths.video(name);
-		video = new FlxVideo();
-		inCutscene = true;
+		final filepath:String = Paths.video(name);
 
-		if(#if sys !FileSystem.exists(filepath) #else !OpenFlAssets.exists(filepath) #end) {
-			FlxG.log.warn('Couldnt find video file: ' + name);
+		if (#if sys !FileSystem.exists(filepath) #else !OpenFlAssets.exists(filepath) #end) {
+			FlxG.log.warn('Couldnt find video file: $name');
 			startAndEnd();
 			return null;
 		}
 
-		video.onEndReached.add(function() {
+		inCutscene = true;
+		video = new FlxVideo();
+
+		video.onEndReached.add(function():Void
+		{
 			video.dispose();
-			videoIsActive = false;
 			startAndEnd();
 			return;
-		});
+		}, true);
 
-		video.load(filepath);
-		video.autoResize = true;
-		video.autoVolumeHandle = true;
-
-		if (!isStoryMode) {
+		if (video.load(filepath)) {
 			video.set_rate(1 * playbackRate);
+			video.play();
+
+		} else {
+			video.dispose();
+			startAndEnd();
+			return;
 		}
 
-		videoIsActive = true;
-		video.play();
-
-		return video;
 		#else
 		FlxG.log.warn('Platform does not support video playback!');
 		startAndEnd();
@@ -1793,8 +1791,6 @@ class PlayState extends MusicBeatState
 			vocals.pause();
 		}
 
-
-
 		// Song duration in a float, useful for the time left feature
 		songLength = FlxG.sound.music.length;
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
@@ -2163,8 +2159,7 @@ class PlayState extends MusicBeatState
 			}
 			paused = false;
 
-			if (video != null && !videoIsActive) {
-				videoIsActive = true;
+			if (video != null && !video.isPlaying) {
 				video.resume();
 			}
 
@@ -2593,8 +2588,7 @@ class PlayState extends MusicBeatState
 		persistentDraw = true;
 		paused = true;
 
-		if (video != null && videoIsActive) {
-			videoIsActive = false;
+		if (video != null && video.isPlaying) {
 			video.pause();
 		}
 
@@ -3105,8 +3099,7 @@ class PlayState extends MusicBeatState
 
 	public function endSong():Void
 	{
-		if (video != null && videoIsActive) {
-			videoIsActive = false;
+		if (video != null && video.isPlaying) {
 			video.stop();
 		}
 
