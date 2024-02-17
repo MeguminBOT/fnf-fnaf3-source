@@ -1,10 +1,7 @@
 function onCreate()
-    if middlescroll then
-        makeAnimatedLuaSprite('phpuppet', 'mechanics/phpuppet', 85, 1000)
-    else
-        makeAnimatedLuaSprite('phpuppet', 'mechanics/phpuppet', 430, 1000)
-    end
-    setObjectCamera('phpuppet', 'camHUD');
+    local spriteX = middlescroll and 85 or 430
+    makeAnimatedLuaSprite('phpuppet', 'mechanics/phpuppet', spriteX, 1000)
+    setObjectCamera('phpuppet', 'camHUD')
     scaleObject('phpuppet', 0.8, 0.8)
     addLuaSprite('phpuppet', true)
     addAnimationByPrefix('phpuppet', 'phpuppet', 'idle', 24, true)

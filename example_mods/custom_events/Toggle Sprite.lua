@@ -5,6 +5,7 @@ local epilepsySafetyOne = {
 }
 
 local epilepsySafetyTwo = {
+	'whiteui',
 	'white',
 	'red',
 	'purple',
@@ -14,6 +15,7 @@ local epilepsySafetyTwo = {
 }
 
 local epilepsySafetyThree = {
+	'whiteui',
 	'white',
 	'red',
 	'purple',
