@@ -89,15 +89,9 @@ function createStageAnimated()
 	}
 
 	for _, stage in ipairs(stagesAnimated) do
-		if (lowQuality or epilepsy and stage.name == 'phantoms') then
-			precacheImage(stage.image)
-			makeLuaSprite(stage.name, 'BGs/phantomsLQ', stage.posX, stage.posY)
-		else
-			precacheImage(stage.image)
-			makeAnimatedLuaSprite(stage.name, stage.image, stage.posX, stage.posY)
-			addAnimationByPrefix(stage.name, stage.animation, stage.xmlPrefix, stage.fps, stage.loop)
-		end
-
+		precacheImage(stage.image)
+		makeAnimatedLuaSprite(stage.name, stage.image, stage.posX, stage.posY)
+		addAnimationByPrefix(stage.name, stage.animation, stage.xmlPrefix, stage.fps, stage.loop)
 		setScrollFactor(stage.name, stage.scrollX, stage.scrollY)
 		scaleObject(stage.name, stage.scaleX, stage.scaleY)
 		addLuaSprite(stage.name, stage.add)
