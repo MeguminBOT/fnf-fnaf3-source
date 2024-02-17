@@ -1953,7 +1953,7 @@ class FunkinLua {
 
 			if(destroy) {
 				pee.destroy();
-				PlayState.instance.modchartVideoSprites.remove(tag);
+				PlayState.instance.modchartSprites.remove(tag);
 			}
 		});
 
@@ -1975,7 +1975,7 @@ class FunkinLua {
 
 			if(destroy) {
 				pee.destroy();
-				PlayState.instance.modchartSprites.remove(tag);
+				PlayState.instance.modchartVideoSprites.remove(tag);
 			}
 		});
 
