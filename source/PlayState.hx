@@ -3166,6 +3166,7 @@ class PlayState extends MusicBeatState
 		deathCounter = 0;
 		seenCutscene = false;
 
+		// Achievement Unlock
 		#if ACHIEVEMENTS_ALLOWED
 		if(achievementObj != null) {
 			return;
@@ -3179,6 +3180,7 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
+		// Song Unlock
 		if(songUnlockObj != null) {
 			return;
 		} else {
@@ -4290,6 +4292,7 @@ class PlayState extends MusicBeatState
 		setOnLuas('ratingFC', ratingFC);
 	}
 
+	// Achievement Unlock
 	#if ACHIEVEMENTS_ALLOWED
 	private function checkForAchievement(achievesToCheck:Array<String> = null):String
 	{
@@ -4367,6 +4370,7 @@ class PlayState extends MusicBeatState
 	}
 	#end
 
+	// Song Unlock
 	private function checkForSongUnlock(songsToCheck:Array<String> = null):String
 	{
 		if(chartingMode) return null;
@@ -4377,42 +4381,58 @@ class PlayState extends MusicBeatState
 			var songUnlockName:String = songsToCheck[i];
 			var daSong:String = Song.getChartFileName(SONG.song);
 
-			if(SongUnlock.isSongUnlocked(songUnlockName) && !cpuControlled) {
-				var unlock:Bool = false;
-
-			} else if(!SongUnlock.isSongUnlocked(songUnlockName) && !cpuControlled) {
+			if(!SongUnlock.isSongUnlocked(songUnlockName) && songUnlockName.endsWith('unlockSong') && !cpuControlled) {
 				var unlock:Bool = false;
 				
-				if (songUnlockName.contains(Song.getChartFileName(SONG.song)) && songUnlockName.endsWith('unlockSong')) {
-					switch(daSong) {
-						case 'everlasting':
-							if (isStoryMode) {
-								SongUnlock.unlockSong('takenapart');
-								SongUnlock.unlockSong('retribution');
-								SongUnlock.unlockSong('fearforever');
-								SongUnlock.unlockSong('everlasting');
-							}
-
-						case 'braindamage':
-							SongUnlock.unlockSong('braindamage');
-						case 'partyroom':
-							SongUnlock.unlockSong('partyroom');
-						case 'totallyreal':
-							SongUnlock.unlockSong('totallyreal');
-						case 'lasthour':
-							SongUnlock.unlockSong('lasthour');
-						case 'waffles':
-							SongUnlock.unlockSong('waffles');
-						case 'leantrap':
-							SongUnlock.unlockSong('leantrap');
-						case 'endorevengo':
-							SongUnlock.unlockSong('endorevengo');
-						case 'misconception':
-							SongUnlock.unlockSong('misconception');	
-						case 'untilnexttime':
-							SongUnlock.unlockSong('outofbounds');
-							SongUnlock.unlockSong('untilnexttime');
-					}
+				switch(songUnlockName) 
+				{
+					case 'takenapart':
+						if (isStoryMode && !usedPractice && daSong == 'takenapart')
+							unlock = true;
+					case 'retribution':
+						if (isStoryMode && !usedPractice && daSong == 'retribution')
+							unlock = true;
+					case 'fearforever':
+						if (isStoryMode && !usedPractice && daSong == 'fearforever')
+							unlock = true;
+					case 'everlasting':
+						if (isStoryMode && !usedPractice && daSong == 'everlasting')
+							unlock = true;
+					case 'braindamage':
+						if (!isStoryMode && !usedPractice && daSong == 'braindamage')
+							unlock = true;
+					case 'partyroom':
+						if (!isStoryMode && !usedPractice && daSong == 'partyroom')
+							unlock = true;
+					case 'totallyreal':
+						if (!isStoryMode && !usedPractice && daSong == 'totallyreal')
+							unlock = true;
+					case 'lasthour':
+						if (!isStoryMode && !usedPractice && daSong == 'lasthour')
+							unlock = true;
+					case 'waffles':
+						if (!isStoryMode && !usedPractice && daSong == 'waffles')
+							unlock = true;
+					case 'leantrap':
+						if (!isStoryMode && !usedPractice && daSong == 'leantrap')
+							unlock = true;
+					case 'endorevengo':
+						if (!isStoryMode && !usedPractice && daSong == 'endorevengo')
+							unlock = true;
+					case 'misconception':
+						if (!isStoryMode && !usedPractice && daSong == 'misconception')
+							unlock = true;
+					case 'outofbounds':
+						if (isCodeInput && isStoryMode && !usedPractice && daSong == 'outofbounds')
+							unlock = true;
+					case 'untilnexttime':
+						if (isCodeInput && isStoryMode && !usedPractice && daSong == 'untilnexttime')
+							unlock = true;
+				}
+				
+				if(unlock) {
+					SongUnlock.unlockSong(songUnlockName);
+					return songUnlockName;
 				}
 			}
 		}
