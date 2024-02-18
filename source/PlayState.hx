@@ -1400,7 +1400,7 @@ class PlayState extends MusicBeatState
 		}
 
 		inCutscene = true;
-		video = new FlxVideo();
+		var video:FlxVideo = new FlxVideo();
 
 		video.onEndReached.add(function():Void
 		{
@@ -2254,6 +2254,8 @@ class PlayState extends MusicBeatState
 	override public function update(elapsed:Float)
 	{
 		callOnLuas('onUpdate', [elapsed]);
+		// Will solve this later, currently causing crashes.
+		// if(inCutscene && video.isPlaying && controls.ACCEPT) video.onEndReached.dispatch();
 
 		if(!inCutscene) {
 			var lerpVal:Float = CoolUtil.boundTo(elapsed * 2.4 * cameraSpeed * playbackRate, 0, 1);
@@ -3100,14 +3102,10 @@ class PlayState extends MusicBeatState
 
 	public function endSong():Void
 	{
-		if (video != null && video.isPlaying) {
-			video.stop();
-		}
 
 		// Vs FNaF 3 checks
 		if (mangleSound != null) {
 			mangleSound.stop();
-			mangleSound.cleanup(true, true);
 		}
 
 		if (isMangleActive) {
@@ -4072,6 +4070,10 @@ class PlayState extends MusicBeatState
 			lua.stop();
 		}
 		luaArray = [];
+
+		if (video != null) {
+			video.dispose();
+		}
 
 		#if hscript
 		if(FunkinLua.hscript != null) FunkinLua.hscript = null;

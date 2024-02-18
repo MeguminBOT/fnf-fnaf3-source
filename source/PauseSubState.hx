@@ -350,19 +350,6 @@ class PauseSubState extends MusicBeatSubstate
 					}
 				case "End Song":
 					close();
-					if (PlayState.instance.video != null)
-						PlayState.instance.video.dispose();
-
-					if (PlayState.instance.mangleSound != null)
-						PlayState.instance.mangleSound.destroy();
-
-					if (PlayState.instance.tabletSoundOpen != null)
-						PlayState.instance.tabletSoundOpen.destroy();
-
-					if (PlayState.instance.tabletSoundClose != null)
-						PlayState.instance.tabletSoundClose.destroy();
-
-
 					PlayState.instance.finishSong(true);
 				case 'Toggle Botplay':
 					PlayState.instance.cpuControlled = !PlayState.instance.cpuControlled;
