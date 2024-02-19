@@ -1400,10 +1400,13 @@ class PlayState extends MusicBeatState
 		}
 
 		inCutscene = true;
+		canPause = false;
+
 		var video:FlxVideo = new FlxVideo();
 
 		video.onEndReached.add(function():Void
 		{
+			canPause = true;
 			video.dispose();
 			startAndEnd();
 			return;
@@ -1414,6 +1417,7 @@ class PlayState extends MusicBeatState
 			video.play();
 
 		} else {
+			canPause = true;
 			video.dispose();
 			startAndEnd();
 			return;
