@@ -8,5 +8,14 @@ Regarding HTML ports, message @AutisticLulu on Discord if you want to help with 
 
 Android Build and Linux build is currently in the works by me.
 
+Official Mac/OSX builds will be supplied by: [JonnycatMeow](https://github.com/JonnycatMeow)
+
 ## Pull requests
 Feel free to improve upon the code, do a pull request and it might just get merged if it works better than the current source.
+
+## Special Thanks
+[MAJigsaw77](https://github.com/MAJigsaw77) for advice regarding their HxVLC haxelibs.
+
+[Scraphagnax](https://www.youtube.com/@Scraphagnax) for testing builds on older low end hardware and bug finding.
+
+Maks3243 for finding a lot of small detail bugs and unintentional visual mishaps.
