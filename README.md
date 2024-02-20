@@ -1,6 +1,8 @@
 # Official source code of VS FNaF 3.
 Mod is running on a modified Psych Engine 0.6.2 version.
-Source released to comply with the open source requirement.
+Source released to comply with the open source requirement 
+
+(PORTS OF VS FNAF 3 ARE ALSO REQUIRED TO BE OPENSOURCED, SINCE PEOPLE APPARENTLY DONT UNDERSTAND THIS, I WILL SADLY HAVE TO TAKE MEASURES AGAINST THOSE WHO DON'T RELEASE THEIR PORTS SOURCE)
 
 ## About ports
 Please refrain from doing unofficial mod folder ports for at least 2 months. Doing it for private use is totally fine, but wait a bit with the public.
