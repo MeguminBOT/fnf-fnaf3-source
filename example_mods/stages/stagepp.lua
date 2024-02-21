@@ -1,4 +1,9 @@
+-- Using Lulu's optimizations to avoid game lagging.
+
+-- TODO: Add in sprites that events add to the stage. (If there are any)
+
 function onCreate()
+	-- Custom functions for stage.
 	createStage() -- Create stages.
 	createStageAnimated() -- Create animated stages.
 end
@@ -58,11 +63,17 @@ end
 
 function onStepHit()
 	if curStep == 699 then
+		-- Toggle visibility of the Bonnie paperpal entrance.
 		setProperty('bonnieanim.visible', true)
+
+		-- Force play animations so they start from the beginning.
 		playAnim('bonnieanim', 'anim', true)
 
 	elseif curStep == 720 then
+		-- Remove Bonnie paperpal entrance animation sprite.
 		removeLuaSprite('bonnieanim', true)
+
+		-- Toggle visibility of the actual Bonnie paperpal.
 		setProperty('paperbonnie.visible', true)
 
 		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
@@ -71,6 +82,7 @@ function onStepHit()
         ]])
 	
 	elseif curStep == 1392 then
+		-- Remove previous stage sprites.
 		removeLuaSprite('ppstage2', true)
 
 		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
@@ -78,12 +90,20 @@ function onStepHit()
             Paths.clearUnusedMemory();
         ]])
 
+		-- Toggle visibility of the stage sprite.
 		setProperty('ppstage3.visible', true)
+
+		-- Toggle visibility of the BB paperpal entrance.
 		setProperty('bbanim.visible', true)
+
+		-- Force play animations so they start from the beginning.
 		playAnim('bbanim', 'anim', true)
 
 	elseif curStep == 1424 then
+		-- Remove BB Paperpal entrance animation sprite.
 		removeLuaSprite('bbanim', true)
+
+		-- Toggle visibility of the actual BB paperpal.
 		setProperty('paperbb.visible', true)
 
 		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
@@ -92,10 +112,12 @@ function onStepHit()
         ]])
 
 	elseif curStep == 1936 then
+		-- Toggle visibility of the annoying paper people distractions.
 		setProperty('paperpeople.visible', true)
-		playAnim('paperpeople', 'anim', true)
-		
 		setProperty('paperpeople2.visible', true)
+
+		-- Force play animations so they start from the beginning.
+		playAnim('paperpeople', 'anim', true)
 		playAnim('paperpeople2', 'anim', true)
 	end
 end
