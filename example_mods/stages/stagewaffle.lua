@@ -1,185 +1,256 @@
+-- Using Lulu's optimizations to avoid game lagging.
+
+-- TODO: Add in sprites that events add to the stage. (If there are any)
+
 function onCreate()
-	precacheImage('characters/wafflebear2');
-	precacheImage('characters/wafflebonnie2');
-	precacheImage('characters/waffletrap2');
-	precacheImage('characters/waffletrap3');
-	precacheImage('BGs/wafflestage1');
-	precacheImage('BGs/wafflestage2');
-	precacheImage('BGs/wafflestage3');
-	precacheImage('BGs/wafflestage4');
-	precacheImage('Props/waffle1');
-	precacheImage('Props/waffle2');
-	precacheImage('Props/waffle3');
-	precacheImage('Props/waffle4');
-	precacheImage('Props/waffle5');
-	makeLuaSprite('wafflestage1', 'BGs/wafflestage1', 0, 300);
-	setScrollFactor('wafflestage1', 1, 1);
-	scaleObject('wafflestage1', 0.4, 0.4);
-	addLuaSprite('wafflestage1', false);
-	makeLuaSprite('waffle1', 'Props/waffle1', 750, 790);
-	setScrollFactor('waffle1', 1, 1);
-	scaleObject('waffle1', 0.11, 0.11);
-	addLuaSprite('waffle1', true);
-	setProperty('wafflestage1.alpha', 0);
-	setProperty('waffle1.alpha', 0);
-
-	makeLuaSprite('wafflestage2', 'BGs/wafflestage2', -300, 0);
-	setScrollFactor('wafflestage2', 1, 1);
-	scaleObject('wafflestage2', 0.6, 0.6);
-	addLuaSprite('wafflestage2', false);
-	makeLuaSprite('waffle2', 'Props/waffle2', 500, 600);
-	setScrollFactor('waffle2', 1, 1);
-	scaleObject('waffle2', 0.5, 0.5);
-	addLuaSprite('waffle2', true);
-
-	makeLuaSprite('black','black', 0, 0);
-    setObjectCamera('black', 'other')
-    addLuaSprite('black', true);
-	makeLuaSprite('white','white', 0, 0);
-    setObjectCamera('white', 'other')
-    addLuaSprite('white', true);
-	doTweenAlpha('white','white', 0, 0.01, true);
-
+	-- Custom functions for stage.
+	createStage() -- Create stages.
+	createWaffles() -- Create waffles.
+	createMiscSprites() -- Create misc sprites.
 end
 
 function onCreatePost()
-	setProperty('boyfriend.visible', false);
+	createSubtitles() -- Create subtitles. (Had to put them on createPost for some reason)
+	setProperty('boyfriend.visible', false)
 end
 
+function createStage()
+	local stages = {
+		{ name = 'wafflestage1', image = 'BGs/wafflestage1', posX = 0, posY = 300, scrollX = 1, scrollY = 1, scaleX = 0.4, scaleY = 0.4, add = false },
+		{ name = 'wafflestage2', image = 'BGs/wafflestage2', posX = -300, posY = 0, scrollX = 1, scrollY = 1, scaleX = 0.6, scaleY = 0.6, add = false },
+		{ name = 'wafflestage3', image = 'BGs/wafflestage3', posX = -200, posY = 200, scrollX = 1, scrollY = 1, scaleX = 0.5, scaleY = 0.5, add = false },
+		{ name = 'wafflestage4', image = 'BGs/wafflestage4', posX = -200, posY = 400, scrollX = 1, scrollY = 1, scaleX = 0.4, scaleY = 0.4, add = false },
+	}
+
+	for _, stage in ipairs(stages) do
+		precacheImage(stage.image)
+		makeLuaSprite(stage.name, stage.image, stage.posX, stage.posY)
+		setScrollFactor(stage.name, stage.scrollX, stage.scrollY)
+		scaleObject(stage.name, stage.scaleX, stage.scaleY)
+		addLuaSprite(stage.name, stage.add)
+		setProperty(stage.name .. '.visible', false)
+	end
+
+	setProperty('wafflestage2.visible', true)
+	setProperty('waffle2.visible', true)
+end
+
+function createWaffles()
+	local waffles = {
+		{ name = 'waffle1', image = 'Props/waffle1', posX = 750, posY = 790, scrollX = 1, scrollY = 1, scaleX = 0.11, scaleY = 0.11, add = true},
+		{ name = 'waffle2', image = 'Props/waffle2', posX = 500, posY = 600, scrollX = 1, scrollY = 1, scaleX = 0.5, scaleY = 0.5, add = true},
+		{ name = 'waffle3', image = 'Props/waffle3', posX = 850, posY = 720, scrollX = 1, scrollY = 1, scaleX = 0.08, scaleY = 0.08, add = true},
+		{ name = 'waffle4', image = 'Props/waffle4', posX = 440, posY = 685, scrollX = 1, scrollY = 1, scaleX = 0.35, scaleY = 0.35, add = false},
+		{ name = 'waffle5', image = 'Props/waffle5', posX = 0, posY = 820, scrollX = 1, scrollY = 1, scaleX = 0.35, scaleY = 0.35, add = true}
+	}
+
+	for _, waffle in ipairs(waffles) do
+		precacheImage(waffle.image)
+		makeLuaSprite(waffle.name, waffle.image, waffle.posX, waffle.posY)
+		setScrollFactor(waffle.name, waffle.scrollX, waffle.scrollY)
+		scaleObject(waffle.name, waffle.scaleX, waffle.scaleY)
+		addLuaSprite(waffle.name, waffle.add)
+		setProperty(waffle.name .. '.visible', false)
+	end
+end
+
+function createMiscSprites()
+	local miscSprites = {
+		{ name = 'white', image = 'white', camera = 'camGame', posX = -3200, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 0 },
+		{ name = 'black', image = 'black', camera = 'camGame', posX = -3000, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 1 },
+		{ name = 'waffleglow', image = 'waffleglow', camera = 'camHUD', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
+	}
+
+	for _, miscSprite in ipairs(miscSprites) do
+		precacheImage(miscSprite.image)
+		makeLuaSprite(miscSprite.name, miscSprite.image, miscSprite.posX, miscSprite.posY)
+		setScrollFactor(miscSprite.name, miscSprite.scrollX, miscSprite.scrollY)
+		scaleObject(miscSprite.name, miscSprite.scaleX, miscSprite.scaleX)
+
+		if (miscSprite.camera ~= 'camGame' and immersionLevel == 'Partial') then
+			setObjectCamera(miscSprite.name, 'camEasy')
+		else
+			setObjectCamera(miscSprite.name, miscSprite.camera)
+		end
+
+		addLuaSprite(miscSprite.name, true)
+		setProperty(miscSprite.name .. '.alpha', miscSprite.alpha)
+	end
+end
+
+function createSubtitles()
+	makeLuaSprite('TextBG', 'black', 0, 535)
+	setObjectCamera('TextBG', 'camOther')
+	scaleObject('TextBG', 1, 0.1)
+	addLuaSprite('TextBG', true)
+	setProperty('TextBG.alpha', 0)
+
+	makeLuaText('Text', '', 1000, 135, 545)
+	addLuaText('Text')
+	setTextSize('Text', 45)
+	setTextFont('Text', 'stalker2.ttf')
+	setObjectCamera('Text', 'camOther')
+end
 
 function onStepHit()
-		if curStep == 72 then
-			setProperty('wafflestage1.alpha', 1);
-			setProperty('wafflestage2.alpha', 0);
-			setProperty('waffle1.alpha', 1);
-			setProperty('waffle2.alpha', 0);
-			setProperty('dad.visible', false);
-			setProperty('gf.visible', false);
-			setProperty('boyfriend.visible', true);
-		end
-		if curStep == 84 then
-			setProperty('wafflestage1.alpha', 0);
-			setProperty('wafflestage2.alpha', 1);
-			setProperty('waffle1.alpha', 0);
-			setProperty('waffle2.alpha', 1);
-			setProperty('dad.visible', true);
-			setProperty('gf.visible', true);
-			setProperty('boyfriend.visible', false);
-		end
-		if curStep == 94 then
-			setProperty('wafflestage1.alpha', 1);
-			setProperty('wafflestage2.alpha', 0);
-			setProperty('waffle1.alpha', 1);
-			setProperty('waffle2.alpha', 0);
-			setProperty('dad.visible', false);
-			setProperty('gf.visible', false);
-			setProperty('boyfriend.visible', true);
-		end
-		if curStep == 126 then
-			setProperty('wafflestage1.alpha', 0);
-			setProperty('wafflestage2.alpha', 1);
-			setProperty('waffle1.alpha', 0);
-			setProperty('waffle2.alpha', 1);
-			setProperty('dad.visible', true);
-			setProperty('gf.visible', true);
-			setProperty('boyfriend.visible', false);
-		end
-		if curStep == 160 then
-			setProperty('wafflestage1.alpha', 1);
-			setProperty('wafflestage2.alpha', 0);
-			setProperty('waffle1.alpha', 1);
-			setProperty('waffle2.alpha', 0);
-			setProperty('dad.visible', false);
-			setProperty('gf.visible', false);
-			setProperty('boyfriend.visible', true);
-		end
-		if curStep == 178 then
-			setProperty('wafflestage1.alpha', 0);
-			setProperty('wafflestage2.alpha', 1);
-			setProperty('waffle1.alpha', 0);
-			setProperty('waffle2.alpha', 1);
-			setProperty('dad.visible', true);
-			setProperty('gf.visible', true);
-			setProperty('boyfriend.visible', false);
-		end
-		if curStep == 254 then
-			setProperty('wafflestage1.alpha', 1);
-			setProperty('wafflestage2.alpha', 0);
-			setProperty('waffle1.alpha', 1);
-			setProperty('waffle2.alpha', 0);
-			setProperty('dad.visible', false);
-			setProperty('gf.visible', false);
-			setProperty('boyfriend.visible', true);
-		end
-	if curStep == 321 then
-		setProperty('dad.visible', true);
-		setProperty('gf.visible', true);
-		setProperty('boyfriend.visible', true);
-    removeLuaSprite('wafflestage1', true);
-	removeLuaSprite('waffle1', true);
-    removeLuaSprite('wafflestage2', true);
-	removeLuaSprite('waffle2', true);
-      
-	makeLuaSprite('wafflestage3', 'BGs/wafflestage3', -200, 200);
-	setScrollFactor('wafflestage3', 1, 1);
-	scaleObject('wafflestage3', 0.5, 0.5);
-	addLuaSprite('wafflestage3', false);
+	if curStep == 72 then
+		-- Hide stage sprites that will be re-used.
+		setProperty('wafflestage2.visible', false)
+		setProperty('waffle2.visible', false)
 
-	makeLuaSprite('waffle3', 'Props/waffle3', 850, 720);
-	setScrollFactor('waffle3', 1, 1);
-	scaleObject('waffle3', 0.08, 0.08);
-	addLuaSprite('waffle3', true);
+		-- Toggle visibility of the next stage sprites.
+		setProperty('wafflestage1.visible', true)
+		setProperty('waffle1.visible', true)
 
-	makeLuaSprite('waffle4', 'Props/waffle4', 440, 685);
-	setScrollFactor('waffle4', 1, 1);
-	scaleObject('waffle4', 0.35, 0.35);
-	addLuaSprite('waffle4', false);
-	setObjectOrder('waffle4', getObjectOrder('dadGroup')+ -1)
-   end
-	if curStep == 705 then
+		-- Toggle character visibility.
+		setProperty('dad.visible', false)
+		setProperty('gf.visible', false)
+		setProperty('boyfriend.visible', true)
 
-		removeLuaSprite('wafflestage1', true);
-		removeLuaSprite('waffle1', true);
-		removeLuaSprite('wafflestage2', true);
-		removeLuaSprite('waffle2', true);
+	elseif curStep == 84 then
+		-- Hide stage sprites that will be re-used.
+		setProperty('wafflestage1.visible', false)
+		setProperty('waffle1.visible', false)
 
+		-- Toggle visibility of the next stage sprites.
+		setProperty('wafflestage2.visible', true)
+		setProperty('waffle2.visible', true)
 
-		removeLuaSprite('wafflestage3', true);
-		removeLuaSprite('waffle4', true);
-		removeLuaSprite('waffle3', true);
+		-- Toggle character visibility.
+		setProperty('dad.visible', true)
+		setProperty('gf.visible', true)
+		setProperty('boyfriend.visible', false)
 
-		makeLuaSprite('wafflestage4', 'BGs/wafflestage4', -200, 400);
-		setScrollFactor('wafflestage4', 1, 1);
-		scaleObject('wafflestage4', 0.4, 0.4);
-		addLuaSprite('wafflestage4', false);
+	elseif curStep == 94 then
+		-- Hide stage sprites that will be re-used.
+		setProperty('wafflestage2.visible', false)
+		setProperty('waffle2.visible', false)
 
-		makeLuaSprite('waffle5', 'Props/waffle5', 0, 820);
-		setScrollFactor('waffle5', 1, 1);
-		scaleObject('waffle5', 0.35, 0.35);
-		addLuaSprite('waffle5', true);
+		-- Toggle visibility of the next stage sprites.
+		setProperty('wafflestage1.visible', true)
+		setProperty('waffle1.visible', true)
 
+		-- Toggle character visibility.
+		setProperty('dad.visible', false)
+		setProperty('gf.visible', false)
+		setProperty('boyfriend.visible', true)
 
-   end
+	elseif curStep == 126 then
+		-- Hide stage sprites that will be re-used.
+		setProperty('wafflestage1.visible', false)
+		setProperty('waffle1.visible', false)
 
-   if curStep == 833 then
-		
-    removeLuaSprite('wafflestage4', true);
-	removeLuaSprite('waffle5', true);
-      
-	makeLuaSprite('wafflestage3', 'BGs/wafflestage3', -200, 200);
-	setScrollFactor('wafflestage3', 1, 1);
-	scaleObject('wafflestage3', 0.5, 0.5);
-	addLuaSprite('wafflestage3', false);
+		-- Toggle visibility of the next stage sprites.
+		setProperty('wafflestage2.visible', true)
+		setProperty('waffle2.visible', true)
 
-	makeLuaSprite('waffle3', 'Props/waffle3', 850, 720);
-	setScrollFactor('waffle3', 1, 1);
-	scaleObject('waffle3', 0.08, 0.08);
-	addLuaSprite('waffle3', true);
+		-- Toggle character visibility.
+		setProperty('dad.visible', true)
+		setProperty('gf.visible', true)
+		setProperty('boyfriend.visible', false)
 
-	makeLuaSprite('waffle4', 'Props/waffle4', 440, 685);
-	setScrollFactor('waffle4', 1, 1);
-	scaleObject('waffle4', 0.35, 0.35);
-	addLuaSprite('waffle4', false);
-	setObjectOrder('waffle4', getObjectOrder('dadGroup')+ -1)
-   end
+	elseif curStep == 160 then
+		-- Hide stage sprites that will be re-used.
+		setProperty('wafflestage2.visible', false)
+		setProperty('waffle2.visible', false)
+
+		-- Toggle visibility of the next stage sprites.
+		setProperty('wafflestage1.visible', true)
+		setProperty('waffle1.visible', true)
+
+		-- Toggle character visibility.
+		setProperty('dad.visible', false)
+		setProperty('gf.visible', false)
+		setProperty('boyfriend.visible', true)
+
+	elseif curStep == 178 then
+		-- Hide stage sprites that will be re-used.
+		setProperty('wafflestage1.visible', false)
+		setProperty('waffle1.visible', false)
+
+		-- Toggle visibility of the next stage sprites.
+		setProperty('wafflestage2.visible', true)
+		setProperty('waffle2.visible', true)
+
+		-- Toggle character visibility.
+		setProperty('dad.visible', true)
+		setProperty('gf.visible', true)
+		setProperty('boyfriend.visible', false)
+
+	elseif curStep == 254 then
+		-- Hide stage sprites that will be re-used.
+		setProperty('wafflestage2.visible', false)
+		setProperty('waffle2.visible', false)
+
+		-- Toggle visibility of the next stage sprites.
+		setProperty('wafflestage1.visible', true)
+		setProperty('waffle1.visible', true)
+
+		-- Toggle character visibility.
+		setProperty('dad.visible', false)
+		setProperty('gf.visible', false)
+		setProperty('boyfriend.visible', true)
+
+	elseif curStep == 321 then
+		-- Remove previous stage sprites.
+		removeLuaSprite('wafflestage1', true)
+		removeLuaSprite('wafflestage2', true)
+		removeLuaSprite('waffle1', true)
+		removeLuaSprite('waffle2', true)
+
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+			Paths.clearUnusedMemory();
+		]])
+
+		-- Toggle visibility of the next stage sprites.
+		setProperty('wafflestage3.visible', true)
+		setProperty('waffle3.visible', true)
+		setProperty('waffle4.visible', true)
+
+		-- Toggle character visibility.
+		setProperty('dad.visible', true)
+		setProperty('gf.visible', true)
+		setProperty('boyfriend.visible', true)
+
+		-- Modify object order.
+		setObjectOrder('waffle4', getObjectOrder('dadGroup') + -1)
+
+	elseif curStep == 705 then
+		-- Hide stage sprites that will be re-used.
+		setProperty('wafflestage3.visible', false)
+		setProperty('waffle3.visible', false)
+		setProperty('waffle4.visible', false)
+
+		-- Toggle visibility of the next stage sprites.
+		setProperty('wafflestage4.visible', true)
+
+		-- Toggle character visibility.
+		setProperty('dad.visible', false)
+		setProperty('gf.visible', false)
+		setProperty('boyfriend.visible', true)
+
+	elseif curStep == 833 then
+		-- Remove previous stage sprites.
+		removeLuaSprite('wafflestage4', true)
+		removeLuaSprite('waffle5', true)
+
+		-- Clear unused memory (idk if it actually does anything meaningful, traces and profiling tools showed no real difference. I'll just leave it here, just in case)
+		runHaxeCode([[
+			Paths.clearUnusedMemory();
+		]])
+
+		-- Toggle visibility of the next stage sprites.
+		setProperty('wafflestage3.visible', true)
+		setProperty('waffle3.visible', true)
+		setProperty('waffle4.visible', true)
+
+		-- Toggle character visibility.
+		setProperty('dad.visible', true)
+		setProperty('gf.visible', true)
+		setProperty('boyfriend.visible', true)
+
+		-- Modify object order.
+		setObjectOrder('waffle4', getObjectOrder('dadGroup') + -1)
+	end
 end

@@ -5,7 +5,7 @@
 				4781.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Security guard!",
 						"9f9e4b"
 					]
@@ -15,7 +15,7 @@
 				6187.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Where are you ?!",
 						"9f9e4b"
 					]
@@ -25,7 +25,7 @@
 				7687.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"You ain't touchin' my buns",
 						"4c506d"
 					]
@@ -50,7 +50,7 @@
 				9656.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"hun",
 						"4c506d"
 					],
@@ -65,7 +65,7 @@
 				10500,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Oh god dammit",
 						"4c506d"
 					]
@@ -90,7 +90,7 @@
 				12000,
 				[
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -100,9 +100,24 @@
 				17250,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Well shit",
 						"4c506d"
+					],
+					[
+						"Play Animation",
+						"singUP",
+						"BF"
+					]
+				]
+			],
+			[
+				17625,
+				[
+					[
+						"Play Animation",
+						"singDOWN",
+						"BF"
 					]
 				]
 			],
@@ -110,7 +125,7 @@
 				18000,
 				[
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					],
@@ -295,7 +310,7 @@
 				48187.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"W-",
 						"9f9e4b"
 					]
@@ -305,7 +320,7 @@
 				48281.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Wh-",
 						"9f9e4b"
 					]
@@ -315,7 +330,7 @@
 				48375,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"When I'm",
 						"9f9e4b"
 					]
@@ -325,7 +340,7 @@
 				48750,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"When I'm done",
 						"9f9e4b"
 					]
@@ -345,7 +360,7 @@
 				49031.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"When I'm done with",
 						"9f9e4b"
 					]
@@ -355,7 +370,7 @@
 				49312.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"When I'm done with you",
 						"9f9e4b"
 					]
@@ -365,7 +380,7 @@
 				49500,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"When I'm done with you.",
 						"9f9e4b"
 					]
@@ -375,7 +390,7 @@
 				49687.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"When I'm done with you..",
 						"9f9e4b"
 					]
@@ -385,7 +400,7 @@
 				49875,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"When I'm done with you...",
 						"9f9e4b"
 					]
@@ -395,7 +410,7 @@
 				50062.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Y-",
 						"9f9e4b"
 					]
@@ -405,7 +420,7 @@
 				50156.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Yo",
 						"9f9e4b"
 					]
@@ -415,7 +430,7 @@
 				50250,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Your face",
 						"9f9e4b"
 					]
@@ -435,7 +450,7 @@
 				50437.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Your face will",
 						"9f9e4b"
 					]
@@ -445,7 +460,7 @@
 				50625,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Your face will look",
 						"9f9e4b"
 					]
@@ -455,7 +470,7 @@
 				50812.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Your face will look like",
 						"9f9e4b"
 					]
@@ -465,7 +480,7 @@
 				51187.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"W-",
 						"9f9e4b"
 					]
@@ -475,7 +490,7 @@
 				51281.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Will",
 						"9f9e4b"
 					]
@@ -485,7 +500,7 @@
 				51375,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Will look",
 						"9f9e4b"
 					]
@@ -495,7 +510,7 @@
 				51562.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Will look like",
 						"9f9e4b"
 					]
@@ -505,7 +520,7 @@
 				51750,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"MASHED",
 						"9f9e4b"
 					]
@@ -525,7 +540,7 @@
 				52125,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"MASHED P-",
 						"9f9e4b"
 					]
@@ -535,7 +550,7 @@
 				52218.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"MASHED PO-",
 						"9f9e4b"
 					]
@@ -545,7 +560,7 @@
 				52312.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"MASHED POTA-",
 						"9f9e4b"
 					]
@@ -555,7 +570,7 @@
 				52687.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"MASHED POTATOES",
 						"9f9e4b"
 					]
@@ -565,7 +580,7 @@
 				53062.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Y-",
 						"4c506d"
 					]
@@ -575,7 +590,7 @@
 				53156.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Ye-",
 						"4c506d"
 					]
@@ -585,7 +600,7 @@
 				53250,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Yeah",
 						"4c506d"
 					]
@@ -605,7 +620,7 @@
 				53437.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Yeah whatever",
 						"4c506d"
 					]
@@ -615,7 +630,7 @@
 				54000,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Yeah whatever man",
 						"4c506d"
 					]
@@ -625,7 +640,7 @@
 				54750,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"O-",
 						"9f9e4b"
 					]
@@ -645,7 +660,7 @@
 				54843.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Oh-",
 						"9f9e4b"
 					]
@@ -655,7 +670,7 @@
 				54937.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Okay",
 						"9f9e4b"
 					]
@@ -665,7 +680,7 @@
 				55125,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Kay",
 						"9f9e4b"
 					]
@@ -675,7 +690,7 @@
 				55312.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"A-",
 						"9f9e4b"
 					]
@@ -685,7 +700,7 @@
 				55406.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"AA-",
 						"9f9e4b"
 					]
@@ -695,7 +710,7 @@
 				55500,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I'm",
 						"9f9e4b"
 					]
@@ -705,7 +720,7 @@
 				55687.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I'm gonna",
 						"9f9e4b"
 					]
@@ -715,7 +730,7 @@
 				55875,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I'm gonna go",
 						"9f9e4b"
 					]
@@ -725,7 +740,7 @@
 				56062.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Fa-",
 						"9f9e4b"
 					]
@@ -735,7 +750,7 @@
 				56156.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Fafa-",
 						"9f9e4b"
 					]
@@ -745,7 +760,7 @@
 				56250,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Find",
 						"9f9e4b"
 					]
@@ -755,7 +770,7 @@
 				56437.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Find that",
 						"9f9e4b"
 					]
@@ -765,7 +780,7 @@
 				56625,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Find that child!",
 						"9f9e4b"
 					]
@@ -775,7 +790,7 @@
 				57000,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Fa-",
 						"9f9e4b"
 					]
@@ -785,7 +800,7 @@
 				57093.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Fafa-",
 						"9f9e4b"
 					]
@@ -795,7 +810,7 @@
 				57187.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Find",
 						"9f9e4b"
 					]
@@ -805,7 +820,7 @@
 				57562.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Fa-",
 						"9f9e4b"
 					]
@@ -815,7 +830,7 @@
 				57656.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Fafa-",
 						"9f9e4b"
 					]
@@ -825,7 +840,7 @@
 				57750,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Find",
 						"9f9e4b"
 					]
@@ -835,7 +850,7 @@
 				58125,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Fa-",
 						"9f9e4b"
 					]
@@ -845,7 +860,7 @@
 				58218.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Fafa-",
 						"9f9e4b"
 					]
@@ -855,7 +870,7 @@
 				58312.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Find",
 						"9f9e4b"
 					]
@@ -865,7 +880,7 @@
 				58500,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Find that",
 						"9f9e4b"
 					]
@@ -875,7 +890,7 @@
 				58687.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Find that child!",
 						"9f9e4b"
 					]
@@ -885,7 +900,7 @@
 				59156.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"BUT",
 						"9f9e4b"
 					]
@@ -895,7 +910,7 @@
 				59250,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"BUT THEN",
 						"9f9e4b"
 					]
@@ -915,7 +930,7 @@
 				59343.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"BUT THEN I'M",
 						"9f9e4b"
 					]
@@ -925,7 +940,7 @@
 				59437.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"BUT THEN I'M GO",
 						"9f9e4b"
 					]
@@ -935,7 +950,7 @@
 				59531.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"BUT THEN I'M GONNA",
 						"9f9e4b"
 					]
@@ -945,7 +960,7 @@
 				59625,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"BUT THEN I'M GONNA KILL",
 						"9f9e4b"
 					]
@@ -955,7 +970,7 @@
 				59718.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"BUT THEN I'M GONNA KILL YOU",
 						"9f9e4b"
 					]
@@ -965,7 +980,7 @@
 				60000,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"O-",
 						"4c506d"
 					]
@@ -975,7 +990,7 @@
 				60093.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Oo-",
 						"4c506d"
 					]
@@ -985,7 +1000,7 @@
 				60187.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Ooo-",
 						"4c506d"
 					]
@@ -995,7 +1010,7 @@
 				60281.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Oh",
 						"4c506d"
 					]
@@ -1005,7 +1020,7 @@
 				60562.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Okay",
 						"4c506d"
 					]
@@ -1015,7 +1030,7 @@
 				60750,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"BYE!",
 						"4c506d"
 					]
@@ -1035,7 +1050,7 @@
 				60937.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"O-",
 						"4c506d"
 					]
@@ -1045,7 +1060,7 @@
 				61031.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Ooh",
 						"4c506d"
 					]
@@ -1055,7 +1070,7 @@
 				61312.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Okay",
 						"4c506d"
 					]
@@ -1065,7 +1080,7 @@
 				61500,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"BYE!",
 						"4c506d"
 					]
@@ -1075,7 +1090,7 @@
 				62062.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Ha-",
 						"4c506d"
 					]
@@ -1085,7 +1100,7 @@
 				62156.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Haha",
 						"4c506d"
 					]
@@ -1095,7 +1110,7 @@
 				62250,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Hahaha",
 						"4c506d"
 					]
@@ -1115,7 +1130,7 @@
 				62437.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Happy",
 						"4c506d"
 					]
@@ -1125,7 +1140,7 @@
 				62625,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Happy travels!",
 						"4c506d"
 					]
@@ -1135,7 +1150,7 @@
 				63187.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"O-",
 						"4c506d"
 					]
@@ -1145,7 +1160,7 @@
 				63281.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Oo-",
 						"4c506d"
 					]
@@ -1155,7 +1170,7 @@
 				63375,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Okay",
 						"4c506d"
 					]
@@ -1165,7 +1180,7 @@
 				63562.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Okay let's",
 						"4c506d"
 					]
@@ -1175,7 +1190,7 @@
 				63750,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Okay let's see",
 						"4c506d"
 					]
@@ -1195,7 +1210,7 @@
 				63937.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Okay let's see here",
 						"4c506d"
 					]
@@ -1205,7 +1220,7 @@
 				64500,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"NYEAH",
 						"4c506d"
 					],
@@ -1235,7 +1250,7 @@
 				64875,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"THERE",
 						"9f9e4b"
 					]
@@ -1245,7 +1260,7 @@
 				64968.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"THERE WAS",
 						"9f9e4b"
 					]
@@ -1255,7 +1270,7 @@
 				65156.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"THERE WAS NO",
 						"9f9e4b"
 					]
@@ -1265,7 +1280,7 @@
 				65250,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"THERE WAS NO CHILD",
 						"9f9e4b"
 					]
@@ -1275,7 +1290,7 @@
 				65437.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"THERE WAS NO CHILD IN",
 						"9f9e4b"
 					]
@@ -1285,7 +1300,7 @@
 				65625,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"THERE WAS NO CHILD IN THERE!",
 						"9f9e4b"
 					]
@@ -1295,7 +1310,7 @@
 				66375,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I",
 						"9f9e4b"
 					]
@@ -1305,7 +1320,7 @@
 				66468.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I know",
 						"9f9e4b"
 					]
@@ -1315,7 +1330,7 @@
 				66562.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I know you're",
 						"9f9e4b"
 					]
@@ -1325,7 +1340,7 @@
 				66750,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I know you're messing",
 						"9f9e4b"
 					]
@@ -1345,7 +1360,7 @@
 				66937.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I know you're messing with",
 						"9f9e4b"
 					]
@@ -1355,7 +1370,7 @@
 				67125,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I know you're messing with me",
 						"9f9e4b"
 					]
@@ -1365,7 +1380,7 @@
 				67218.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I know you're messing with me.",
 						"9f9e4b"
 					]
@@ -1375,7 +1390,7 @@
 				67312.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I know you're messing with me..",
 						"9f9e4b"
 					]
@@ -1385,7 +1400,7 @@
 				67406.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I know you're messing with me...",
 						"9f9e4b"
 					]
@@ -1395,7 +1410,7 @@
 				67500,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"WHERE ARE YOU HIDING IT?!",
 						"9f9e4b"
 					]
@@ -1405,7 +1420,7 @@
 				68250,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"DUDE!",
 						"4c506d"
 					]
@@ -1425,7 +1440,7 @@
 				68625,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I",
 						"4c506d"
 					]
@@ -1435,7 +1450,7 @@
 				68718.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I don't",
 						"4c506d"
 					]
@@ -1445,7 +1460,7 @@
 				69000,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I don't know!",
 						"4c506d"
 					]
@@ -1455,7 +1470,7 @@
 				69750,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"uh...",
 						"4c506d"
 					]
@@ -1475,7 +1490,7 @@
 				70500,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Freddy's behind you",
 						"4c506d"
 					]
@@ -1485,7 +1500,7 @@
 				71250,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Freddy ?",
 						"9f9e4b"
 					]
@@ -1495,7 +1510,7 @@
 				71625,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Hello!",
 						"808041"
 					],
@@ -1520,7 +1535,7 @@
 				72000,
 				[
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					],
@@ -1945,7 +1960,7 @@
 				132000,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Freddy",
 						"9f9e4b"
 					]
@@ -1955,7 +1970,7 @@
 				132375,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Don't",
 						"9f9e4b"
 					]
@@ -1965,7 +1980,7 @@
 				132750,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Don't talk",
 						"9f9e4b"
 					]
@@ -1975,7 +1990,7 @@
 				132937.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Don't talk to",
 						"9f9e4b"
 					]
@@ -1985,7 +2000,7 @@
 				133125,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Don't talk to this",
 						"9f9e4b"
 					]
@@ -1995,7 +2010,7 @@
 				133312.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Don't talk to this guy!",
 						"9f9e4b"
 					]
@@ -2005,7 +2020,7 @@
 				133687.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"He's",
 						"9f9e4b"
 					]
@@ -2015,7 +2030,7 @@
 				133781.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"He's an",
 						"9f9e4b"
 					]
@@ -2025,7 +2040,7 @@
 				134062.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"He's an ASSHOLE!",
 						"9f9e4b"
 					]
@@ -2035,7 +2050,7 @@
 				134437.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"H-",
 						"808041"
 					]
@@ -2045,7 +2060,7 @@
 				134531.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"HA-",
 						"808041"
 					]
@@ -2055,7 +2070,7 @@
 				134625,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"AHH!",
 						"808041"
 					]
@@ -2065,7 +2080,7 @@
 				134814.84375,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"AHH! PROFANITY!",
 						"808041"
 					]
@@ -2075,7 +2090,7 @@
 				135562.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"He's",
 						"9f9e4b"
 					]
@@ -2085,7 +2100,7 @@
 				135750,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"He's hiding",
 						"9f9e4b"
 					]
@@ -2095,7 +2110,7 @@
 				135937.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"He's hiding a",
 						"9f9e4b"
 					]
@@ -2105,7 +2120,7 @@
 				136125,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"He's hiding a child",
 						"9f9e4b"
 					]
@@ -2115,7 +2130,7 @@
 				136500,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"He's hiding a child somewhere",
 						"9f9e4b"
 					]
@@ -2125,7 +2140,7 @@
 				136875,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"And he won't",
 						"9f9e4b"
 					]
@@ -2135,7 +2150,7 @@
 				137250,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"And he won't show me",
 						"9f9e4b"
 					]
@@ -2145,7 +2160,7 @@
 				137625,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"And he won't show me where!",
 						"9f9e4b"
 					]
@@ -2155,7 +2170,7 @@
 				138000,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"NO!",
 						"808041"
 					]
@@ -2165,7 +2180,7 @@
 				138375,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"YES!",
 						"9f9e4b"
 					]
@@ -2175,7 +2190,7 @@
 				139125,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I'll do my best ma'am!",
 						"808041"
 					]
@@ -2185,7 +2200,7 @@
 				140625,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"THAT'S",
 						"9f9e4b"
 					]
@@ -2195,7 +2210,7 @@
 				140812.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"THAT'S IT",
 						"9f9e4b"
 					]
@@ -2205,7 +2220,7 @@
 				141000,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"THAT'S IT FU",
 						"9f9e4b"
 					]
@@ -2215,7 +2230,7 @@
 				141187.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"THAT'S IT FUCKER",
 						"9f9e4b"
 					]
@@ -2225,7 +2240,7 @@
 				141375,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I'M",
 						"9f9e4b"
 					]
@@ -2235,7 +2250,7 @@
 				141562.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I'M COMING",
 						"9f9e4b"
 					]
@@ -2245,7 +2260,7 @@
 				141750,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I'M COMING IN THERE!",
 						"9f9e4b"
 					]
@@ -2270,7 +2285,7 @@
 				142125,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"o",
 						"4c506d"
 					]
@@ -2280,7 +2295,7 @@
 				142218.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"oo",
 						"4c506d"
 					]
@@ -2290,7 +2305,7 @@
 				142312.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"ooO",
 						"4c506d"
 					]
@@ -2300,7 +2315,7 @@
 				142406.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"ooOO",
 						"4c506d"
 					]
@@ -2310,7 +2325,7 @@
 				142500,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"ooOOA",
 						"4c506d"
 					]
@@ -2320,7 +2335,7 @@
 				142593.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"ooOOAA",
 						"4c506d"
 					]
@@ -2330,7 +2345,7 @@
 				142687.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"ooOOAAA",
 						"4c506d"
 					]
@@ -2340,7 +2355,7 @@
 				142781.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"ooOOAAAA",
 						"4c506d"
 					]
@@ -2350,7 +2365,7 @@
 				142875,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"ooOOAAAAA",
 						"4c506d"
 					]
@@ -2360,7 +2375,7 @@
 				142968.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"ooOOAAAAAA",
 						"4c506d"
 					]
@@ -2370,7 +2385,7 @@
 				143062.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"ooOOAAAAAAH",
 						"4c506d"
 					]
@@ -2380,7 +2395,7 @@
 				143156.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"ooOOAAAAAAHH",
 						"4c506d"
 					]
@@ -2390,7 +2405,7 @@
 				143250,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"HAVE AT THEE!",
 						"9f9e4b"
 					]
@@ -2400,7 +2415,7 @@
 				144187.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"AH",
 						"9f9e4b"
 					]
@@ -2410,7 +2425,7 @@
 				144281.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"AHH",
 						"9f9e4b"
 					]
@@ -2420,7 +2435,7 @@
 				144375,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"AHHH",
 						"9f9e4b"
 					]
@@ -2430,7 +2445,7 @@
 				144468.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"AHHHH",
 						"9f9e4b"
 					]
@@ -2440,7 +2455,7 @@
 				144562.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"AHHHHH",
 						"9f9e4b"
 					]
@@ -2450,7 +2465,7 @@
 				144656.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"AHHHHHh",
 						"9f9e4b"
 					]
@@ -2460,7 +2475,7 @@
 				144750,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"AHHHHHhh",
 						"9f9e4b"
 					]
@@ -2470,7 +2485,7 @@
 				144843.75,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"AHHHHHhh-",
 						"9f9e4b"
 					]
@@ -2480,7 +2495,7 @@
 				144937.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"FUCKING-",
 						"9f9e4b"
 					],
@@ -2510,7 +2525,7 @@
 				145312.5,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"FUCKING KNEES!!!",
 						"9f9e4b"
 					],
@@ -2525,7 +2540,7 @@
 				145875,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"GET",
 						"4c506d"
 					]
@@ -2535,7 +2550,7 @@
 				146250,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"GET CROWBARRED",
 						"4c506d"
 					]
@@ -2545,7 +2560,7 @@
 				147000,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"BITCH!",
 						"4c506d"
 					],
@@ -2560,7 +2575,7 @@
 				148500,
 				[
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -2680,7 +2695,7 @@
 				198250,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Hey springtrap...",
 						"4c506d"
 					]
@@ -2690,7 +2705,7 @@
 				199406.25,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"WHAT?!",
 						"9f9e4b"
 					]
@@ -2700,7 +2715,7 @@
 				200250,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Do you hear that ?",
 						"4c506d"
 					]
@@ -2710,7 +2725,7 @@
 				201875,
 				[
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
