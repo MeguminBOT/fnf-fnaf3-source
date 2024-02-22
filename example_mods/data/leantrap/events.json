@@ -15,8 +15,8 @@
 				2771.73913043478,
 				[
 					[
-						"sub",
-						"C'mon",
+						"Toggle Subtitles",
+						"C'mon!",
 						"d200ff"
 					]
 				]
@@ -25,8 +25,28 @@
 				3342.39130434783,
 				[
 					[
-						"sub",
-						"C'mon drink some more",
+						"Toggle Subtitles",
+						"C'mon! Drink",
+						"d200ff"
+					]
+				]
+			],
+			[
+				3586.95652173913,
+				[
+					[
+						"Toggle Subtitles",
+						"C'mon! Drink some",
+						"d200ff"
+					]
+				]
+			],
+			[
+				3831.52173913043,
+				[
+					[
+						"Toggle Subtitles",
+						"C'mon! Drink some more!",
 						"d200ff"
 					]
 				]
@@ -35,7 +55,27 @@
 				4891.30434782609,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
+						"What",
+						"d200ff"
+					]
+				]
+			],
+			[
+				4972.82608695652,
+				[
+					[
+						"Toggle Subtitles",
+						"What are",
+						"d200ff"
+					]
+				]
+			],
+			[
+				5054.34782608696,
+				[
+					[
+						"Toggle Subtitles",
 						"What are you",
 						"d200ff"
 					]
@@ -45,7 +85,7 @@
 				5217.39130434783,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"What are you a",
 						"d200ff"
 					]
@@ -55,7 +95,7 @@
 				5543.47826086957,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"P",
 						"d200ff"
 					]
@@ -65,7 +105,7 @@
 				5625,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"PU",
 						"d200ff"
 					]
@@ -75,7 +115,7 @@
 				5706.52173913043,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"PUS",
 						"d200ff"
 					]
@@ -85,7 +125,7 @@
 				5788.04347826087,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"PUSS",
 						"d200ff"
 					]
@@ -95,7 +135,7 @@
 				5869.5652173913,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"pussy?",
 						"d200ff"
 					]
@@ -105,7 +145,87 @@
 				6521.73913043478,
 				[
 					[
-						"removesub",
+						"Toggle Subtitles",
+						"",
+						""
+					]
+				]
+			],
+			[
+				8885.86956521739,
+				[
+					[
+						"Toggle Subtitles",
+						"What",
+						"d200ff"
+					]
+				]
+			],
+			[
+				9048.91304347826,
+				[
+					[
+						"Toggle Subtitles",
+						"What the",
+						"d200ff"
+					]
+				]
+			],
+			[
+				9211.95652173913,
+				[
+					[
+						"Toggle Subtitles",
+						"f",
+						"d200ff"
+					]
+				]
+			],
+			[
+				9293.47826086956,
+				[
+					[
+						"Toggle Subtitles",
+						"ff",
+						"d200ff"
+					]
+				]
+			],
+			[
+				9375,
+				[
+					[
+						"Toggle Subtitles",
+						"fff",
+						"d200ff"
+					]
+				]
+			],
+			[
+				9456.52173913043,
+				[
+					[
+						"Toggle Subtitles",
+						"ffff",
+						"d200ff"
+					]
+				]
+			],
+			[
+				9538.04347826087,
+				[
+					[
+						"Toggle Subtitles",
+						"fuck",
+						"d200ff"
+					]
+				]
+			],
+			[
+				10271.7391304348,
+				[
+					[
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -330,19 +450,14 @@
 						""
 					],
 					[
-						"addimage",
-						"purple",
-						""
+						"Camera Flash",
+						"camOther, true",
+						"FF00FF, 1"
 					],
 					[
 						"Change Character",
 						"bf",
 						"bflean2"
-					],
-					[
-						"fadeout",
-						"purple",
-						"1"
 					],
 					[
 						"Cinematics (With HUD)",
@@ -380,7 +495,7 @@
 				65390.6250000001,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"I",
 						"d200ff"
 					]
@@ -390,7 +505,7 @@
 				66521.7391304349,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"LOVE",
 						"d200ff"
 					]
@@ -410,7 +525,7 @@
 				67663.0434782609,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"LEAN !",
 						"d200ff"
 					]
@@ -460,9 +575,9 @@
 				68315.2173913044,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -490,9 +605,9 @@
 				68804.347826087,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -510,7 +625,7 @@
 				69130.4347826088,
 				[
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -520,9 +635,9 @@
 				69293.4782608696,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -540,9 +655,9 @@
 				69782.6086956522,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -560,9 +675,9 @@
 				70108.695652174,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -580,9 +695,9 @@
 				70434.7826086957,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -600,9 +715,9 @@
 				70923.9130434783,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -620,9 +735,9 @@
 				71413.043478261,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -640,9 +755,9 @@
 				71902.1739130436,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -660,9 +775,9 @@
 				72391.3043478262,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -680,9 +795,9 @@
 				72717.3913043479,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -700,9 +815,9 @@
 				73043.4782608697,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -720,9 +835,9 @@
 				73532.6086956523,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -740,9 +855,9 @@
 				74021.7391304349,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -760,9 +875,9 @@
 				74510.8695652175,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -780,9 +895,9 @@
 				75000.0000000001,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -800,9 +915,9 @@
 				75326.0869565218,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -820,9 +935,9 @@
 				75652.1739130436,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -840,9 +955,9 @@
 				76141.3043478262,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -860,9 +975,9 @@
 				76630.4347826088,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -880,9 +995,9 @@
 				77119.5652173914,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -900,9 +1015,9 @@
 				77608.695652174,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -920,9 +1035,9 @@
 				77934.7826086958,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"purpleglow",
-						""
+						"on"
 					]
 				]
 			],
@@ -940,9 +1055,9 @@
 				88695.6521739132,
 				[
 					[
-						"addimage",
-						"Jumpscares/leanjump",
-						""
+						"Toggle Sprite",
+						"leanjump",
+						"on"
 					],
 					[
 						"Screen Shake",
@@ -955,9 +1070,9 @@
 				89347.8260869566,
 				[
 					[
-						"remove image",
-						"Jumpscares/leanjump",
-						""
+						"Toggle Sprite",
+						"leanjump",
+						"off"
 					]
 				]
 			],
@@ -965,9 +1080,9 @@
 				89673.9130434784,
 				[
 					[
-						"addimage",
-						"Jumpscares/leanjump2",
-						""
+						"Toggle Sprite",
+						"leanjump2",
+						"on"
 					]
 				]
 			],
@@ -985,9 +1100,9 @@
 				89836.9565217393,
 				[
 					[
-						"remove image",
-						"Jumpscares/leanjump2",
-						""
+						"Toggle Sprite",
+						"leanjump2",
+						"off"
 					]
 				]
 			],
@@ -997,7 +1112,7 @@
 					[
 						"fadein",
 						"black",
-						"9"
+						"7"
 					]
 				]
 			],
@@ -1005,9 +1120,9 @@
 				115027.173913044,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"dontdodrugs",
-						""
+						"on"
 					]
 				]
 			]

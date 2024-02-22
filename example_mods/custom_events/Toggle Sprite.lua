@@ -3,22 +3,23 @@
 local epilepsySafetyOne = {
 	'whiteui',
 	'waffleglow',
+	'purpleglow',
 }
 
 local epilepsySafetyTwo = {
 	'whiteui',
-	'waffleglow',
 	'white',
 	'red',
 	'purple',
 	'bb',
 	'mangleinvert',
 	'phfreddyjumpinverted',
+	'waffleglow',
+	'purpleglow',
 }
 
 local epilepsySafetyThree = {
 	'whiteui',
-	'waffleglow',
 	'white',
 	'red',
 	'purple',
@@ -28,6 +29,8 @@ local epilepsySafetyThree = {
 	'leanjump2',
 	'mangleinvert',
 	'phfreddyjumpinverted',
+	'waffleglow',
+	'purpleglow',
 }
 
 function onEvent(name, value1, value2)

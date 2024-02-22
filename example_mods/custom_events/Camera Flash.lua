@@ -1,7 +1,9 @@
 --[[
 
 >>> Camera Flash Event for Psych Engine with configurable camera and flash properties written by AutisticLulu.
->>> With additional stuff specifically for Vs FNAF 3. (If you gonna use this on regular Psych Engine, remove the following lines: 35, 36, 37 and 44.
+>>> With additional stuff specifically for Vs FNAF 3. 
+	(If you gonna use this on regular Psych Engine, remove the following lines: 
+		32, 33, 34, 40, 41, 42, 44, 49, 60, 61, 62, 64, 67, 68, 69 and 71.)
 
 * Supports all parameters for the cameraFlash function.
 * Supports RGB input
@@ -26,7 +28,10 @@ Value 2:
 local validCameras = {
 	camGame = true,
 	camHUD = true,
-	camOther = true
+	camOther = true,
+	camJump = true,
+	camEasy = true,
+	camVideo = true
 }
 
 -- This function is called when an event occurs.
@@ -52,10 +57,18 @@ function parseCameraValue(value)
 
 	-- If the camera value is valid, return the camera and forced values.
 	if validCameras[camera] and isForced == 'true' then
-		return camera, true
+		if immersionLevel == 'Partial' and camera ~= 'camGame' then
+			return 'camEasy', true
+		else
+			return camera, true
+		end
 
 	elseif validCameras[camera] then
-		return camera, false
+		if immersionLevel == 'Partial' and camera ~= 'camGame' then
+			return 'camEasy', false
+		else
+			return camera, false
+		end
 	end
 end
 
