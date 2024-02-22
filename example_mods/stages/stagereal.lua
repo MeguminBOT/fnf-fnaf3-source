@@ -59,16 +59,26 @@ function createHoaxes()
 	end
 end
 
+local tweenData = {
+    [250] = {'hoax1', 'phtfreddy', -400, 15, 'linear'},
+    [294] = {'hoax2', 'phtchica', -400, 12, 'linear'},
+    [330] = {'hoax3', 'phtbonnie', -400, 14, 'linear'},
+    [848] = {'hoax4', 'chromefreddy', 3500, 20, 'linear'},
+}
+
 function onStepHit()
+	-- Tween Stuff
+	local tweenData = tweenData[curStep]
+	if tweenData then
+		doTweenX(tweenData[1], tweenData[2], tweenData[3], tweenData[4], tweenData[5])
+	end
+
 	if curStep == 250 then
 		-- Toggle visibility of the next hoax.
 		setProperty('phtfreddy.visible', true)
 
 		-- Modify object order.
 		setObjectOrder('phtfreddy', 1)
-
-		-- Tween the hoax to make it look like it moves.
-		doTweenX('hoax1', 'phtfreddy', -400, 15, 'linear')
 
 	elseif curStep == 294 then
 		-- Toggle visibility of the next hoax.
@@ -77,18 +87,12 @@ function onStepHit()
 		-- Modify object order.
 		setObjectOrder('phtchica', 1)
 
-		-- Tween the hoax to make it look like it moves.
-		doTweenX('hoax2', 'phtchica', -400, 12, 'linear')
-
 	elseif curStep == 330 then
 		-- Toggle visibility of the next hoax.
 		setProperty('phtbonnie.visible', true)
 
 		-- Modify object order.
 		setObjectOrder('phtbonnie', 1)
-
-		-- Tween the hoax to make it look like it moves.
-		doTweenX('hoax3', 'phtbonnie', -400, 14, 'linear')
 
 	elseif curStep == 512 then
 		-- Toggle visibility of the next hoax.
@@ -112,9 +116,6 @@ function onStepHit()
 		
 		-- Modify object order.
 		setObjectOrder('chromefreddy', 1)
-
-		-- Tween the hoax to make it look like it moves.
-		doTweenX('hoax4', 'chromefreddy', 3500, 20, 'linear')
 	end
 end
 
