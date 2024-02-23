@@ -33,7 +33,7 @@ end
 
 function createMiscSprites()
 	local miscSprites = {
-		{ name = 'black', image = 'black', camera = 'camHUD', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 1 },
+		{ name = 'black', image = 'black', camera = 'camOther', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 1 },
 		{ name = 'white', image = 'white', camera = 'camGame', posX = -500, posY = -500, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 0 },
 	}
 
