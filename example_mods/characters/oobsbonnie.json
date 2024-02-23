@@ -1,62 +1,62 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				190,
 				-10
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Dad Sing Note LEFT",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Dad Sing Note LEFT"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				70,
 				-20
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "Dad Sing Note DOWN",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Dad Sing Note DOWN"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				70,
 				100
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Dad Sing Note UP",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "Dad Sing Note UP"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-60,
 				10
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Dad Sing Note RIGHT",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Dad Sing Note RIGHT"
 		},
 		{
-			"loop": true,
 			"offsets": [
 				-10,
 				-9
 			],
-			"anim": "idle",
+			"loop": true,
 			"fps": 24,
-			"name": "Dad idle dance",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "Dad idle dance"
 		}
 	],
-	"no_antialiasing": false,
+	"no_antialiasing": true,
 	"image": "characters/oobsbonnie",
 	"position": [
 		40,

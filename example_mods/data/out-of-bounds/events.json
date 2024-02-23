@@ -130,9 +130,9 @@
 						"oobsbonnie2"
 					],
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					],
 					[
 						"Play Animation",
@@ -255,9 +255,9 @@
 				108800,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					],
 					[
 						"fadeout",
@@ -300,9 +300,9 @@
 				121600,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					],
 					[
 						"Change Character",
@@ -390,9 +390,9 @@
 				140800,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					],
 					[
 						"Change Character",
@@ -425,9 +425,9 @@
 				147200,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					]
 				]
 			],
@@ -455,9 +455,9 @@
 				153600,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					]
 				]
 			],
@@ -485,9 +485,9 @@
 				160000,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					]
 				]
 			],
@@ -560,9 +560,9 @@
 				168176.470588235,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					]
 				]
 			],
@@ -600,9 +600,9 @@
 				168529.411764706,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					]
 				]
 			],
@@ -640,9 +640,9 @@
 				168882.352941176,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					]
 				]
 			],
@@ -680,9 +680,9 @@
 				169235.294117647,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					]
 				]
 			],
@@ -875,9 +875,9 @@
 				213411.764705883,
 				[
 					[
-						"addimage",
-						"white",
-						""
+						"Toggle Sprite",
+						"whiteHUD",
+						"on"
 					],
 					[
 						"fadeout",
@@ -896,7 +896,7 @@
 					],
 					[
 						"fadeout",
-						"white",
+						"whiteHUD",
 						"5"
 					],
 					[
@@ -1025,9 +1025,9 @@
 				257411.764705883,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					],
 					[
 						"fadeout",
@@ -1080,9 +1080,9 @@
 				280078.431372549,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					],
 					[
 						"fadeout",
@@ -1095,13 +1095,13 @@
 				290745.098039216,
 				[
 					[
-						"addanimimage",
-						"white",
-						""
+						"Toggle Sprite",
+						"whiteHUD",
+						"on"
 					],
 					[
 						"fadeout",
-						"white",
+						"whiteHUD",
 						"2"
 					]
 				]
@@ -1230,7 +1230,27 @@
 				308995.098039216,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
+						"Oh",
+						"ffd904"
+					]
+				]
+			],
+			[
+				309328.431372549,
+				[
+					[
+						"Toggle Subtitles",
+						"Oh hi",
+						"ffd904"
+					]
+				]
+			],
+			[
+				309661.764705882,
+				[
+					[
+						"Toggle Subtitles",
 						"Oh hi kids!",
 						"ffd904"
 					]
@@ -1240,7 +1260,97 @@
 				310495.098039216,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
+						"It",
+						"ffd904"
+					]
+				]
+			],
+			[
+				310661.764705882,
+				[
+					[
+						"Toggle Subtitles",
+						"It's",
+						"ffd904"
+					]
+				]
+			],
+			[
+				310745.098039216,
+				[
+					[
+						"Toggle Subtitles",
+						"It's the",
+						"ffd904"
+					]
+				]
+			],
+			[
+				310995.098039216,
+				[
+					[
+						"Toggle Subtitles",
+						"It's the la",
+						"ffd904"
+					]
+				]
+			],
+			[
+				311328.431372549,
+				[
+					[
+						"Toggle Subtitles",
+						"It's the last",
+						"ffd904"
+					]
+				]
+			],
+			[
+				311495.098039216,
+				[
+					[
+						"Toggle Subtitles",
+						"It's the last so",
+						"ffd904"
+					]
+				]
+			],
+			[
+				311661.764705882,
+				[
+					[
+						"Toggle Subtitles",
+						"It's the last song",
+						"ffd904"
+					]
+				]
+			],
+			[
+				311828.431372549,
+				[
+					[
+						"Toggle Subtitles",
+						"It's the last song of",
+						"ffd904"
+					]
+				]
+			],
+			[
+				311911.764705882,
+				[
+					[
+						"Toggle Subtitles",
+						"It's the last song of the",
+						"ffd904"
+					]
+				]
+			],
+			[
+				311995.098039216,
+				[
+					[
+						"Toggle Subtitles",
 						"It's the last song of the night!",
 						"ffd904"
 					]
@@ -1250,7 +1360,7 @@
 				313328.431372549,
 				[
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -1269,11 +1379,6 @@
 			[
 				313411.764705882,
 				[
-					[
-						"fadeout",
-						"black2",
-						"0.1"
-					],
 					[
 						"fadeout",
 						"black",
@@ -4220,7 +4325,77 @@
 				382995.098039215,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
+						"Al",
+						"ffd904"
+					]
+				]
+			],
+			[
+				383161.764705881,
+				[
+					[
+						"Toggle Subtitles",
+						"Alright!",
+						"ffd904"
+					]
+				]
+			],
+			[
+				383578.431372548,
+				[
+					[
+						"Toggle Subtitles",
+						"Alright! The",
+						"ffd904"
+					]
+				]
+			],
+			[
+				383828.431372548,
+				[
+					[
+						"Toggle Subtitles",
+						"Alright! The sh",
+						"ffd904"
+					]
+				]
+			],
+			[
+				384078.431372548,
+				[
+					[
+						"Toggle Subtitles",
+						"Alright! The show",
+						"ffd904"
+					]
+				]
+			],
+			[
+				384328.431372548,
+				[
+					[
+						"Toggle Subtitles",
+						"Alright! The show's",
+						"ffd904"
+					]
+				]
+			],
+			[
+				384495.098039215,
+				[
+					[
+						"Toggle Subtitles",
+						"Alright! The show's ov",
+						"ffd904"
+					]
+				]
+			],
+			[
+				384745.098039215,
+				[
+					[
+						"Toggle Subtitles",
 						"Alright! The show's over",
 						"ffd904"
 					]
@@ -4230,7 +4405,137 @@
 				385745.098039215,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
+						"[U",
+						"ff0000"
+					]
+				]
+			],
+			[
+				385828.431372548,
+				[
+					[
+						"Toggle Subtitles",
+						"[UN",
+						"ff0000"
+					]
+				]
+			],
+			[
+				385911.764705881,
+				[
+					[
+						"Toggle Subtitles",
+						"[UNI",
+						"ff0000"
+					]
+				]
+			],
+			[
+				385995.098039215,
+				[
+					[
+						"Toggle Subtitles",
+						"[UNID",
+						"ff0000"
+					]
+				]
+			],
+			[
+				386078.431372548,
+				[
+					[
+						"Toggle Subtitles",
+						"[UNIDE",
+						"ff0000"
+					]
+				]
+			],
+			[
+				386161.764705881,
+				[
+					[
+						"Toggle Subtitles",
+						"[UNIDEN",
+						"ff0000"
+					]
+				]
+			],
+			[
+				386245.098039215,
+				[
+					[
+						"Toggle Subtitles",
+						"[UNIDENT",
+						"ff0000"
+					]
+				]
+			],
+			[
+				386328.431372548,
+				[
+					[
+						"Toggle Subtitles",
+						"[UNIDENTI",
+						"ff0000"
+					]
+				]
+			],
+			[
+				386411.764705881,
+				[
+					[
+						"Toggle Subtitles",
+						"[UNIDENTIF",
+						"ff0000"
+					]
+				]
+			],
+			[
+				386495.098039215,
+				[
+					[
+						"Toggle Subtitles",
+						"[UNIDENTIFI",
+						"ff0000"
+					]
+				]
+			],
+			[
+				386578.431372548,
+				[
+					[
+						"Toggle Subtitles",
+						"[UNIDENTIFIE",
+						"ff0000"
+					]
+				]
+			],
+			[
+				386661.764705881,
+				[
+					[
+						"Toggle Subtitles",
+						"[UNIDENTIFIED",
+						"ff0000"
+					]
+				]
+			],
+			[
+				386995.098039215,
+				[
+					[
+						"Toggle Subtitles",
+						"[UNIDENTIFIED PRO",
+						"ff0000"
+					]
+				]
+			],
+			[
+				387411.764705881,
+				[
+					[
+						"Toggle Subtitles",
 						"[UNIDENTIFIED PROGRAM]",
 						"ff0000"
 					]
@@ -4240,9 +4545,9 @@
 				388078.431372548,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					],
 					[
 						"Change Character",
@@ -4260,7 +4565,7 @@
 						"5"
 					],
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					],
@@ -4280,9 +4585,9 @@
 				396078.431372548,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					]
 				]
 			],
@@ -4750,9 +5055,9 @@
 						"0.001"
 					],
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					],
 					[
 						"Change Character",
@@ -4955,9 +5260,9 @@
 						"0.03"
 					],
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					],
 					[
 						"fadeout",
@@ -5220,9 +5525,9 @@
 				504724.264705881,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					]
 				]
 			],
@@ -5720,9 +6025,9 @@
 				515401.348039214,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					]
 				]
 			],
@@ -6220,9 +6525,9 @@
 				526068.014705881,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					]
 				]
 			],
@@ -6710,9 +7015,9 @@
 				536731.209150325,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					]
 				]
 			],
