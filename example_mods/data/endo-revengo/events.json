@@ -2,22 +2,37 @@
 	"song": {
 		"events": [
 			[
-				0,
+				100,
 				[
+					[
+						"Opponent Fade",
+						"0",
+						"0"
+					],
 					[
 						"zoom",
 						"2",
 						"0.1"
 					],
 					[
-						"Opponent Fade",
+						"Hud Fade",
 						"0",
-						"0"
+						""
 					]
 				]
 			],
 			[
-				100,
+				300,
+				[
+					[
+						"zoom",
+						"0.5",
+						"10"
+					]
+				]
+			],
+			[
+				400,
 				[
 					[
 						"fadeout",
@@ -27,22 +42,12 @@
 				]
 			],
 			[
-				200,
-				[
-					[
-						"zoom",
-						"0.5",
-						"9.5"
-					]
-				]
-			],
-			[
 				9600,
 				[
 					[
 						"zoom",
 						"0.7",
-						"3"
+						"4"
 					],
 					[
 						"Cinematics (With HUD)",
@@ -52,7 +57,7 @@
 				]
 			],
 			[
-				13600,
+				13500,
 				[
 					[
 						"Opponent Fade",
@@ -95,8 +100,8 @@
 				14533.3333333333,
 				[
 					[
-						"sub",
-						"Hello, hello!",
+						"Toggle Subtitles",
+						"Hello",
 						"f0f0f0"
 					]
 				]
@@ -108,6 +113,16 @@
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				15150,
+				[
+					[
+						"Toggle Subtitles",
+						"Hello, hello!",
+						"f0f0f0"
 					]
 				]
 			],
@@ -135,8 +150,8 @@
 				15950,
 				[
 					[
-						"sub",
-						"I am most stylish animatronics in FNAF history!",
+						"Toggle Subtitles",
+						"I",
 						"f0f0f0"
 					]
 				]
@@ -152,12 +167,42 @@
 				]
 			],
 			[
+				16200,
+				[
+					[
+						"Toggle Subtitles",
+						"I am",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				16300,
+				[
+					[
+						"Toggle Subtitles",
+						"I am most",
+						"f0f0f0"
+					]
+				]
+			],
+			[
 				16400,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				16700,
+				[
+					[
+						"Toggle Subtitles",
+						"I am most sty",
+						"f0f0f0"
 					]
 				]
 			],
@@ -172,6 +217,26 @@
 				]
 			],
 			[
+				16900,
+				[
+					[
+						"Toggle Subtitles",
+						"I am most stylish",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				17100,
+				[
+					[
+						"Toggle Subtitles",
+						"I am most stylish a",
+						"f0f0f0"
+					]
+				]
+			],
+			[
 				17200,
 				[
 					[
@@ -182,12 +247,57 @@
 				]
 			],
 			[
+				17300,
+				[
+					[
+						"Toggle Subtitles",
+						"I am most stylish ani",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				17400,
+				[
+					[
+						"Toggle Subtitles",
+						"I am most stylish anima",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				17500,
+				[
+					[
+						"Toggle Subtitles",
+						"I am most stylish animatro",
+						"f0f0f0"
+					]
+				]
+			],
+			[
 				17600,
 				[
+					[
+						"Toggle Subtitles",
+						"I am most stylish animatron",
+						"f0f0f0"
+					],
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				17800,
+				[
+					[
+						"Toggle Subtitles",
+						"I am most stylish animatronics",
+						"f0f0f0"
 					]
 				]
 			],
@@ -195,6 +305,11 @@
 				18000,
 				[
 					[
+						"Toggle Subtitles",
+						"I am most stylish animatronics in",
+						"f0f0f0"
+					],
+					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
@@ -202,12 +317,22 @@
 				]
 			],
 			[
-				18400,
+				18200,
 				[
 					[
-						"Add Camera Zoom",
-						"0.005",
-						"0.02"
+						"Toggle Subtitles",
+						"I am most stylish animatronics in FNAF",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				18500,
+				[
+					[
+						"Toggle Subtitles",
+						"I am most stylish animatronics in FNAF his",
+						"f0f0f0"
 					]
 				]
 			],
@@ -222,12 +347,32 @@
 				]
 			],
 			[
+				18700,
+				[
+					[
+						"Toggle Subtitles",
+						"I am most stylish animatronics in FNAF histo",
+						"f0f0f0"
+					]
+				]
+			],
+			[
 				18800,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				18900,
+				[
+					[
+						"Toggle Subtitles",
+						"I am most stylish animatronics in FNAF history",
+						"f0f0f0"
 					]
 				]
 			],
@@ -252,10 +397,10 @@
 				]
 			],
 			[
-				19216.6666666667,
+				19400,
 				[
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -302,6 +447,16 @@
 				]
 			],
 			[
+				20350,
+				[
+					[
+						"Toggle Subtitles",
+						"Hee",
+						"f0f0f0"
+					]
+				]
+			],
+			[
 				20400,
 				[
 					[
@@ -312,10 +467,10 @@
 				]
 			],
 			[
-				20416.6666666667,
+				20500,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Heehee",
 						"f0f0f0"
 					]
@@ -338,6 +493,11 @@
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					],
+					[
+						"Hud Fade",
+						"1",
+						"16"
 					]
 				]
 			],
@@ -345,8 +505,18 @@
 				20900,
 				[
 					[
-						"sub",
-						"Wanna be fren?",
+						"Toggle Subtitles",
+						"Wan",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				21000,
+				[
+					[
+						"Toggle Subtitles",
+						"Wanna",
 						"f0f0f0"
 					]
 				]
@@ -358,6 +528,21 @@
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					],
+					[
+						"Toggle Subtitles",
+						"Wanna be",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				21400,
+				[
+					[
+						"Toggle Subtitles",
+						"Wanna be fren?",
+						"f0f0f0"
 					]
 				]
 			],
@@ -435,7 +620,7 @@
 						"0.01"
 					],
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -767,6 +952,16 @@
 				]
 			],
 			[
+				31400,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				31600,
 				[
 					[
@@ -818,6 +1013,16 @@
 			],
 			[
 				32800,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				33000,
 				[
 					[
 						"Add Camera Zoom",
@@ -927,6 +1132,16 @@
 				]
 			],
 			[
+				35300,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				35600,
 				[
 					[
@@ -938,6 +1153,16 @@
 			],
 			[
 				36000,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				36100,
 				[
 					[
 						"Add Camera Zoom",
@@ -967,6 +1192,16 @@
 				]
 			],
 			[
+				36900,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				37200,
 				[
 					[
@@ -978,6 +1213,16 @@
 			],
 			[
 				37600,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				37700,
 				[
 					[
 						"Add Camera Zoom",
@@ -1007,6 +1252,16 @@
 				]
 			],
 			[
+				38500,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				38800,
 				[
 					[
@@ -1027,6 +1282,16 @@
 				]
 			],
 			[
+				39300,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				39600,
 				[
 					[
@@ -1038,6 +1303,16 @@
 			],
 			[
 				40000,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				40100,
 				[
 					[
 						"Add Camera Zoom",
@@ -1097,6 +1372,16 @@
 				]
 			],
 			[
+				41700,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				42000,
 				[
 					[
@@ -1123,6 +1408,11 @@
 						"Change Character",
 						"dad",
 						"endo01anims"
+					],
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
 					]
 				]
 			],
@@ -1130,7 +1420,7 @@
 				42516.6666666667,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"walterwhitemenacingface.jpg",
 						"f0f0f0"
 					]
@@ -1157,6 +1447,16 @@
 				]
 			],
 			[
+				43300,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				43600,
 				[
 					[
@@ -1168,6 +1468,16 @@
 			],
 			[
 				44000,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				44100,
 				[
 					[
 						"Add Camera Zoom",
@@ -1200,7 +1510,7 @@
 				44808.3333333333,
 				[
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -1218,6 +1528,16 @@
 						"Screen Shake",
 						"2.2, 0.02",
 						"2.2, 0.01"
+					]
+				]
+			],
+			[
+				44900,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
 					]
 				]
 			],
@@ -1242,6 +1562,16 @@
 				]
 			],
 			[
+				45700,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				46000,
 				[
 					[
@@ -1253,6 +1583,16 @@
 			],
 			[
 				46400,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				46500,
 				[
 					[
 						"Add Camera Zoom",
@@ -1592,7 +1932,37 @@
 				]
 			],
 			[
+				59400,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				59600,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				59800,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				59900,
 				[
 					[
 						"Add Camera Zoom",
@@ -1612,7 +1982,47 @@
 				]
 			],
 			[
+				60100,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				60200,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				60300,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				60400,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				60600,
 				[
 					[
 						"Add Camera Zoom",
@@ -2000,9 +2410,9 @@
 				70633.3333333333,
 				[
 					[
-						"sub",
-						"Ay, 'Pouria_SMS'...",
-						"d6d6d6"
+						"Toggle Subtitles",
+						"Ay,",
+						"fff7e1"
 					]
 				]
 			],
@@ -2017,12 +2427,32 @@
 				]
 			],
 			[
+				70900,
+				[
+					[
+						"Toggle Subtitles",
+						"Ay, 'P",
+						"fff7e1"
+					]
+				]
+			],
+			[
 				71000,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				71100,
+				[
+					[
+						"Toggle Subtitles",
+						"Ay, 'Pour",
+						"fff7e1"
 					]
 				]
 			],
@@ -2037,12 +2467,52 @@
 				]
 			],
 			[
+				71300,
+				[
+					[
+						"Toggle Subtitles",
+						"Ay, 'Pouria_",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				71500,
+				[
+					[
+						"Toggle Subtitles",
+						"Ay, 'Pouria_S",
+						"fff7e1"
+					]
+				]
+			],
+			[
 				71600,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				71700,
+				[
+					[
+						"Toggle Subtitles",
+						"Ay, 'Pouria_SM",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				71900,
+				[
+					[
+						"Toggle Subtitles",
+						"Ay, 'Pouria_SMS'...",
+						"fff7e1"
 					]
 				]
 			],
@@ -2107,6 +2577,16 @@
 				]
 			],
 			[
+				72700,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				72800,
 				[
 					[
@@ -2117,6 +2597,16 @@
 				]
 			],
 			[
+				72900,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				73000,
 				[
 					[
@@ -2128,6 +2618,16 @@
 			],
 			[
 				73000,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				73100,
 				[
 					[
 						"Add Camera Zoom",
@@ -2150,9 +2650,9 @@
 				73250,
 				[
 					[
-						"sub",
-						"You forgot to put me in Vs. FNAF 2!",
-						"d6d6d6"
+						"Toggle Subtitles",
+						"You",
+						"fff7e1"
 					]
 				]
 			],
@@ -2190,9 +2690,54 @@
 				73600,
 				[
 					[
+						"Toggle Subtitles",
+						"You for",
+						"fff7e1"
+					],
+					[
 						"Add Camera Zoom",
 						"0.005",
-						"0.02"
+						"0.01"
+					]
+				]
+			],
+			[
+				73693.75,
+				[
+					[
+						"Toggle Subtitles",
+						"You forgot",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				73881.25,
+				[
+					[
+						"Toggle Subtitles",
+						"You forgot to",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				74068.75,
+				[
+					[
+						"Toggle Subtitles",
+						"You forgot to put",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				74256.25,
+				[
+					[
+						"Toggle Subtitles",
+						"You forgot to put me",
+						"fff7e1"
 					]
 				]
 			],
@@ -2217,12 +2762,47 @@
 				]
 			],
 			[
+				74537.5,
+				[
+					[
+						"Toggle Subtitles",
+						"You forgot to put me in",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				74725,
+				[
+					[
+						"Toggle Subtitles",
+						"You forgot to put me in Vs.",
+						"fff7e1"
+					]
+				]
+			],
+			[
 				75100,
 				[
+					[
+						"Toggle Subtitles",
+						"You forgot to put me in Vs. FNAF",
+						"fff7e1"
+					],
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				75475,
+				[
+					[
+						"Toggle Subtitles",
+						"You forgot to put me in Vs. FNAF 2!",
+						"fff7e1"
 					]
 				]
 			],
@@ -2243,15 +2823,20 @@
 						"Play Animation",
 						"mad",
 						"gf"
+					],
+					[
+						"Toggle Subtitles",
+						"You",
+						"f0f0f0"
 					]
 				]
 			],
 			[
-				76154.6875,
+				76412.5,
 				[
 					[
-						"sub",
-						"You sound mad, man...",
+						"Toggle Subtitles",
+						"You sound",
 						"f0f0f0"
 					]
 				]
@@ -2263,6 +2848,26 @@
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				76787.5,
+				[
+					[
+						"Toggle Subtitles",
+						"You sound mad,",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				77256.25,
+				[
+					[
+						"Toggle Subtitles",
+						"You sound mad, man...",
+						"f0f0f0"
 					]
 				]
 			],
@@ -2290,9 +2895,19 @@
 				78111.71875,
 				[
 					[
-						"sub",
-						"BITCH! I'M BUSY! SHUT UP!",
-						"d6d6d6"
+						"Toggle Subtitles",
+						"BITCH!",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				78381.25,
+				[
+					[
+						"Toggle Subtitles",
+						"BITCH! I",
+						"fff7e1"
 					]
 				]
 			],
@@ -2307,12 +2922,42 @@
 				]
 			],
 			[
+				78568.75,
+				[
+					[
+						"Toggle Subtitles",
+						"BITCH! I'M",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				78756.25,
+				[
+					[
+						"Toggle Subtitles",
+						"BITCH! I'M BU",
+						"fff7e1"
+					]
+				]
+			],
+			[
 				78850,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				78943.75,
+				[
+					[
+						"Toggle Subtitles",
+						"BITCH! I'M BUSY!",
+						"fff7e1"
 					]
 				]
 			],
@@ -2327,12 +2972,32 @@
 				]
 			],
 			[
+				79506.25,
+				[
+					[
+						"Toggle Subtitles",
+						"BITCH! I'M BUSY! SHUT",
+						"fff7e1"
+					]
+				]
+			],
+			[
 				79600,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				79787.5,
+				[
+					[
+						"Toggle Subtitles",
+						"BITCH! I'M BUSY! SHUT UP!",
+						"fff7e1"
 					]
 				]
 			],
@@ -2370,8 +3035,8 @@
 				80428.125,
 				[
 					[
-						"sub",
-						"Okay, whatever! lol",
+						"Toggle Subtitles",
+						"Okay",
 						"f0f0f0"
 					]
 				]
@@ -2390,9 +3055,24 @@
 				81100,
 				[
 					[
+						"Toggle Subtitles",
+						"Okay, what",
+						"f0f0f0"
+					],
+					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				81381.25,
+				[
+					[
+						"Toggle Subtitles",
+						"Okay, whatever!",
+						"f0f0f0"
 					]
 				]
 			],
@@ -2403,6 +3083,16 @@
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				81756.25,
+				[
+					[
+						"Toggle Subtitles",
+						"Okay, whatever! lol",
+						"f0f0f0"
 					]
 				]
 			],
@@ -2437,12 +3127,12 @@
 				]
 			],
 			[
-				82342.1875,
+				82365.625,
 				[
 					[
-						"sub",
-						"Look... I'm killing your midget boy protag and",
-						"d6d6d6"
+						"Toggle Subtitles",
+						"Look...",
+						"fff7e1"
 					]
 				]
 			],
@@ -2457,12 +3147,42 @@
 				]
 			],
 			[
+				82881.25,
+				[
+					[
+						"Toggle Subtitles",
+						"Look... I'm",
+						"fff7e1"
+					]
+				]
+			],
+			[
 				82975,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				83068.75,
+				[
+					[
+						"Toggle Subtitles",
+						"Look... I'm kill",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				83256.25,
+				[
+					[
+						"Toggle Subtitles",
+						"Look... I'm killing",
+						"fff7e1"
 					]
 				]
 			],
@@ -2477,12 +3197,62 @@
 				]
 			],
 			[
+				83443.75,
+				[
+					[
+						"Toggle Subtitles",
+						"Look... I'm killing your",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				83631.25,
+				[
+					[
+						"Toggle Subtitles",
+						"Look... I'm killing your mid",
+						"fff7e1"
+					]
+				]
+			],
+			[
 				83725,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				83818.75,
+				[
+					[
+						"Toggle Subtitles",
+						"Look... I'm killing your midget",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				83912.5,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				84006.25,
+				[
+					[
+						"Toggle Subtitles",
+						"Look... I'm killing your midget boy",
+						"fff7e1"
 					]
 				]
 			],
@@ -2497,8 +3267,48 @@
 				]
 			],
 			[
+				84193.75,
+				[
+					[
+						"Toggle Subtitles",
+						"Look... I'm killing your midget boy pro",
+						"fff7e1"
+					]
+				]
+			],
+			[
 				84475,
 				[
+					[
+						"Toggle Subtitles",
+						"Look... I'm killing your midget boy protag",
+						"fff7e1"
+					],
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				84662.5,
+				[
+					[
+						"Toggle Subtitles",
+						"Look... I'm killing your midget boy protag and",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				84756.25,
+				[
+					[
+						"Toggle Subtitles",
+						"Look... I'm killing your midget boy protag and then",
+						"fff7e1"
+					],
 					[
 						"Add Camera Zoom",
 						"0.005",
@@ -2527,12 +3337,27 @@
 				]
 			],
 			[
-				84990.625,
+				85037.5,
 				[
 					[
-						"sub",
-						"I AM TAKING HIS PLACE!",
-						"d6d6d6"
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					],
+					[
+						"Screen Shake",
+						"0.2, 0.03",
+						"0.2, 0.03"
+					]
+				]
+			],
+			[
+				85084.375,
+				[
+					[
+						"Toggle Subtitles",
+						"I",
+						"fff7e1"
 					]
 				]
 			],
@@ -2547,8 +3372,23 @@
 				]
 			],
 			[
+				85412.5,
+				[
+					[
+						"Toggle Subtitles",
+						"I AM",
+						"fff7e1"
+					]
+				]
+			],
+			[
 				85600,
 				[
+					[
+						"Toggle Subtitles",
+						"I AM TAK",
+						"fff7e1"
+					],
 					[
 						"Add Camera Zoom",
 						"0.005",
@@ -2560,6 +3400,21 @@
 				85787.5,
 				[
 					[
+						"Toggle Subtitles",
+						"I AM TAKING",
+						"fff7e1"
+					],
+					[
+						"Add Camera Zoom",
+						"",
+						""
+					]
+				]
+			],
+			[
+				85881.25,
+				[
+					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
@@ -2568,6 +3423,21 @@
 			],
 			[
 				85975,
+				[
+					[
+						"Toggle Subtitles",
+						"I AM TAKING HIS",
+						"fff7e1"
+					],
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				86068.75,
 				[
 					[
 						"Add Camera Zoom",
@@ -2590,6 +3460,21 @@
 				86350,
 				[
 					[
+						"Toggle Subtitles",
+						"I AM TAKING HIS PLACE!",
+						"fff7e1"
+					],
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				86443.75,
+				[
+					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
@@ -2598,6 +3483,16 @@
 			],
 			[
 				86537.5,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				86631.25,
 				[
 					[
 						"Add Camera Zoom",
@@ -2617,7 +3512,27 @@
 				]
 			],
 			[
+				86818.75,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				86912.5,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				87006.25,
 				[
 					[
 						"Add Camera Zoom",
@@ -2655,7 +3570,7 @@
 						"0.2"
 					],
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -2692,6 +3607,16 @@
 				]
 			],
 			[
+				87554.5454545455,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				87645.4545454545,
 				[
 					[
@@ -2703,6 +3628,16 @@
 			],
 			[
 				87827.2727272727,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				87918.1818181818,
 				[
 					[
 						"Add Camera Zoom",
@@ -2752,6 +3687,16 @@
 				]
 			],
 			[
+				88645.4545454545,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				88736.3636363636,
 				[
 					[
@@ -2792,7 +3737,27 @@
 				]
 			],
 			[
+				89372.7272727273,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				89463.6363636364,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				89554.5454545455,
 				[
 					[
 						"Add Camera Zoom",
@@ -2823,6 +3788,16 @@
 			],
 			[
 				90009.0909090909,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				90100,
 				[
 					[
 						"Add Camera Zoom",
@@ -2872,6 +3847,16 @@
 				]
 			],
 			[
+				90827.2727272727,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				90918.1818181818,
 				[
 					[
@@ -2912,7 +3897,17 @@
 				]
 			],
 			[
-				91645.4545454545,
+				91554.5454545455,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				91736.3636363636,
 				[
 					[
 						"Add Camera Zoom",
@@ -2962,6 +3957,16 @@
 				]
 			],
 			[
+				92463.6363636364,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				92554.5454545455,
 				[
 					[
@@ -2983,6 +3988,16 @@
 			],
 			[
 				92918.1818181818,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				93009.0909090909,
 				[
 					[
 						"Add Camera Zoom",
@@ -3032,6 +4047,16 @@
 				]
 			],
 			[
+				93736.3636363636,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				93827.2727272727,
 				[
 					[
@@ -3063,6 +4088,16 @@
 			],
 			[
 				94372.7272727273,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				94463.6363636364,
 				[
 					[
 						"Add Camera Zoom",
@@ -3112,6 +4147,16 @@
 				]
 			],
 			[
+				95190.9090909091,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				95281.8181818182,
 				[
 					[
@@ -3152,6 +4197,16 @@
 				]
 			],
 			[
+				95918.1818181818,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				96009.0909090909,
 				[
 					[
@@ -3183,6 +4238,16 @@
 			],
 			[
 				96554.5454545455,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				96645.4545454546,
 				[
 					[
 						"Add Camera Zoom",
@@ -3287,7 +4352,27 @@
 				]
 			],
 			[
+				98100,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				98190.9090909091,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				98281.8181818182,
 				[
 					[
 						"Add Camera Zoom",
@@ -3317,6 +4402,16 @@
 				]
 			],
 			[
+				98463.6363636364,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				98554.5454545455,
 				[
 					[
@@ -3338,6 +4433,16 @@
 						"zoom",
 						"0.6",
 						"0.2"
+					]
+				]
+			],
+			[
+				98827.2727272727,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
 					]
 				]
 			],
@@ -3373,6 +4478,16 @@
 			],
 			[
 				99463.6363636364,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				99554.5454545455,
 				[
 					[
 						"Add Camera Zoom",
@@ -3422,6 +4537,16 @@
 				]
 			],
 			[
+				100281.818181818,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				100372.727272727,
 				[
 					[
@@ -3453,6 +4578,16 @@
 			],
 			[
 				100918.181818182,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				101009.090909091,
 				[
 					[
 						"Add Camera Zoom",
@@ -3502,6 +4637,16 @@
 				]
 			],
 			[
+				101736.363636364,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				101827.272727273,
 				[
 					[
@@ -3533,6 +4678,16 @@
 			],
 			[
 				102372.727272727,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				102463.636363636,
 				[
 					[
 						"Add Camera Zoom",
@@ -3582,7 +4737,17 @@
 				]
 			],
 			[
-				103281.818181818,
+				103190.909090909,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				103372.727272727,
 				[
 					[
 						"Add Camera Zoom",
@@ -3622,7 +4787,27 @@
 				]
 			],
 			[
+				103918.181818182,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				104009.090909091,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				104100,
 				[
 					[
 						"Add Camera Zoom",
@@ -3653,6 +4838,16 @@
 			],
 			[
 				104554.545454545,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				104645.454545455,
 				[
 					[
 						"Add Camera Zoom",
@@ -3702,6 +4897,16 @@
 				]
 			],
 			[
+				105372.727272727,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				105463.636363636,
 				[
 					[
@@ -3733,6 +4938,16 @@
 			],
 			[
 				106009.090909091,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				106100,
 				[
 					[
 						"Add Camera Zoom",
@@ -3782,6 +4997,16 @@
 				]
 			],
 			[
+				106827.272727273,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				106918.181818182,
 				[
 					[
@@ -3813,6 +5038,16 @@
 			],
 			[
 				107463.636363636,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				107554.545454545,
 				[
 					[
 						"Add Camera Zoom",
@@ -3862,6 +5097,16 @@
 				]
 			],
 			[
+				108281.818181818,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				108372.727272727,
 				[
 					[
@@ -3902,7 +5147,17 @@
 				]
 			],
 			[
-				109100,
+				109009.090909091,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				109190.909090909,
 				[
 					[
 						"Add Camera Zoom",
@@ -3942,6 +5197,16 @@
 				]
 			],
 			[
+				109736.363636364,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				109827.272727273,
 				[
 					[
@@ -3952,7 +5217,27 @@
 				]
 			],
 			[
+				109918.181818182,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				110009.090909091,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				110100,
 				[
 					[
 						"Add Camera Zoom",
@@ -3973,6 +5258,16 @@
 			],
 			[
 				110372.727272727,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				110463.636363636,
 				[
 					[
 						"Add Camera Zoom",
@@ -4142,6 +5437,16 @@
 				]
 			],
 			[
+				113372.727272727,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				113463.636363636,
 				[
 					[
@@ -4272,6 +5577,16 @@
 				]
 			],
 			[
+				115736.363636364,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				115827.272727273,
 				[
 					[
@@ -4293,6 +5608,16 @@
 			],
 			[
 				116190.909090909,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				116281.818181818,
 				[
 					[
 						"Add Camera Zoom",
@@ -4432,6 +5757,16 @@
 				]
 			],
 			[
+				118645.454545455,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				118736.363636364,
 				[
 					[
@@ -4460,9 +5795,9 @@
 				118940.909090909,
 				[
 					[
-						"sub",
-						"Never should've been here in the first place!",
-						"d6d6d6"
+						"Toggle Subtitles",
+						"Never",
+						"fff7e1"
 					]
 				]
 			],
@@ -4477,12 +5812,42 @@
 				]
 			],
 			[
+				119100,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				119190.909090909,
+				[
+					[
+						"Toggle Subtitles",
+						"Never should",
+						"fff7e1"
+					]
+				]
+			],
+			[
 				119281.818181818,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				119327.272727273,
+				[
+					[
+						"Toggle Subtitles",
+						"Never should",
+						"fff7e1"
 					]
 				]
 			],
@@ -4497,12 +5862,42 @@
 				]
 			],
 			[
+				119509.090909091,
+				[
+					[
+						"Toggle Subtitles",
+						"Never should've been",
+						"fff7e1"
+					]
+				]
+			],
+			[
 				119645.454545455,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				119690.909090909,
+				[
+					[
+						"Toggle Subtitles",
+						"Never should've been here",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				119781.818181818,
+				[
+					[
+						"Toggle Subtitles",
+						"Never should've been here in",
+						"fff7e1"
 					]
 				]
 			],
@@ -4517,12 +5912,32 @@
 				]
 			],
 			[
+				119872.727272727,
+				[
+					[
+						"Toggle Subtitles",
+						"Never should've been here in the",
+						"fff7e1"
+					]
+				]
+			],
+			[
 				120009.090909091,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				120145.454545455,
+				[
+					[
+						"Toggle Subtitles",
+						"Never should've been here in the first",
+						"fff7e1"
 					]
 				]
 			],
@@ -4543,6 +5958,16 @@
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				120554.545454545,
+				[
+					[
+						"Toggle Subtitles",
+						"Never should've been here in the first place!",
+						"fff7e1"
 					]
 				]
 			],
@@ -4617,6 +6042,16 @@
 				]
 			],
 			[
+				121918.181818182,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				122009.090909091,
 				[
 					[
@@ -4625,7 +6060,7 @@
 						"0.02"
 					],
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -4642,7 +6077,17 @@
 				]
 			],
 			[
-				122372.727272727,
+				122281.818181818,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				122463.636363636,
 				[
 					[
 						"Add Camera Zoom",
@@ -4682,6 +6127,16 @@
 				]
 			],
 			[
+				123009.090909091,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
 				123100,
 				[
 					[
@@ -4693,6 +6148,16 @@
 			],
 			[
 				123281.818181818,
+				[
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.02"
+					]
+				]
+			],
+			[
+				123372.727272727,
 				[
 					[
 						"Add Camera Zoom",
@@ -5722,12 +7187,32 @@
 				]
 			],
 			[
+				142645.454545454,
+				[
+					[
+						"Toggle Subtitles",
+						"F",
+						"fff7e1"
+					]
+				]
+			],
+			[
 				142736.363636364,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				142827.272727273,
+				[
+					[
+						"Toggle Subtitles",
+						"FF",
+						"fff7e1"
 					]
 				]
 			],
@@ -5742,12 +7227,32 @@
 				]
 			],
 			[
+				143009.090909091,
+				[
+					[
+						"Toggle Subtitles",
+						"FFF",
+						"fff7e1"
+					]
+				]
+			],
+			[
 				143100,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				143190.909090909,
+				[
+					[
+						"Toggle Subtitles",
+						"Fuck",
+						"fff7e1"
 					]
 				]
 			],
@@ -5768,6 +7273,16 @@
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				143554.545454545,
+				[
+					[
+						"Toggle Subtitles",
+						"Fuck you!",
+						"fff7e1"
 					]
 				]
 			],
@@ -5818,6 +7333,16 @@
 						"zoom",
 						"1",
 						"0.5"
+					]
+				]
+			],
+			[
+				144281.818181818,
+				[
+					[
+						"Toggle Subtitles",
+						"",
+						""
 					]
 				]
 			],
@@ -5955,18 +7480,28 @@
 				145372.727272727,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
+						"Oh",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				145645.454545454,
+				[
+					[
+						"Toggle Subtitles",
 						"Oh hey!",
 						"f0f0f0"
 					]
 				]
 			],
 			[
-				146130.303030303,
+				146100,
 				[
 					[
-						"sub",
-						"it's the highly acclaimed actor and philanthropist",
+						"Toggle Subtitles",
+						"it's",
 						"f0f0f0"
 					]
 				]
@@ -5982,10 +7517,130 @@
 				]
 			],
 			[
+				146372.727272727,
+				[
+					[
+						"Toggle Subtitles",
+						"it's the",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				146554.545454545,
+				[
+					[
+						"Toggle Subtitles",
+						"it's the high",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				146736.363636364,
+				[
+					[
+						"Toggle Subtitles",
+						"it's the highly",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				146918.181818182,
+				[
+					[
+						"Toggle Subtitles",
+						"it's the highly ac",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				147100,
+				[
+					[
+						"Toggle Subtitles",
+						"it's the highly acclaimed",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				147463.636363636,
+				[
+					[
+						"Toggle Subtitles",
+						"it's the highly acclaimed ac",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				147736.363636364,
+				[
+					[
+						"Toggle Subtitles",
+						"it's the highly acclaimed actor",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				148009.090909091,
+				[
+					[
+						"Toggle Subtitles",
+						"it's the highly acclaimed actor and",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				148281.818181818,
+				[
+					[
+						"Toggle Subtitles",
+						"it's the highly acclaimed actor and phi",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				148463.636363636,
+				[
+					[
+						"Toggle Subtitles",
+						"it's the highly acclaimed actor and philan",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				148736.363636364,
+				[
+					[
+						"Toggle Subtitles",
+						"it's the highly acclaimed actor and philanthro",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				148918.181818182,
+				[
+					[
+						"Toggle Subtitles",
+						"it's the highly acclaimed actor and philanthropist",
+						"f0f0f0"
+					]
+				]
+			],
+			[
 				149463.636363636,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"Mr. sec-",
 						"f0f0f0"
 					]
@@ -6015,8 +7670,28 @@
 				149940.909090909,
 				[
 					[
-						"sub",
-						"FOR FUCK'S SAKE, IDIOT!",
+						"Toggle Subtitles",
+						"FOR",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				150281.818181818,
+				[
+					[
+						"Toggle Subtitles",
+						"FOR FUCK'S",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				150645.454545454,
+				[
+					[
+						"Toggle Subtitles",
+						"FOR FUCK'S SAKE,",
 						"bbbbbb"
 					]
 				]
@@ -6033,6 +7708,11 @@
 						"Change Character",
 						"gf",
 						"endo01"
+					],
+					[
+						"Toggle Subtitles",
+						"FOR FUCK'S SAKE, IDIOT",
+						"bbbbbb"
 					]
 				]
 			],
@@ -6050,8 +7730,18 @@
 				151541.176470588,
 				[
 					[
-						"sub",
-						"Security Breach is NOT a bad game!",
+						"Toggle Subtitles",
+						"Se",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				151717.647058823,
+				[
+					[
+						"Toggle Subtitles",
+						"Secur",
 						"bbbbbb"
 					]
 				]
@@ -6067,6 +7757,26 @@
 				]
 			],
 			[
+				151894.117647059,
+				[
+					[
+						"Toggle Subtitles",
+						"Security",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				152070.588235294,
+				[
+					[
+						"Toggle Subtitles",
+						"Security Breach",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				152158.823529412,
 				[
 					[
@@ -6077,12 +7787,27 @@
 				]
 			],
 			[
+				152247.058823529,
+				[
+					[
+						"Toggle Subtitles",
+						"Security Breach was",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				152511.764705882,
 				[
 					[
+						"Toggle Subtitles",
+						"Security Breach was NOT",
+						"bbbbbb"
+					],
+					[
 						"Add Camera Zoom",
 						"0.005",
-						"0.02"
+						"0.2"
 					]
 				]
 			],
@@ -6097,12 +7822,42 @@
 				]
 			],
 			[
+				152952.94117647,
+				[
+					[
+						"Toggle Subtitles",
+						"Security Breach was NOT a",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				153129.411764706,
+				[
+					[
+						"Toggle Subtitles",
+						"Security Breach was NOT a bad",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				153217.647058823,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				153482.352941176,
+				[
+					[
+						"Toggle Subtitles",
+						"Security Breach was NOT a bad game!",
+						"bbbbbb"
 					]
 				]
 			],
@@ -6127,11 +7882,11 @@
 				]
 			],
 			[
-				154055.882352941,
+				154100,
 				[
 					[
-						"sub",
-						"Everyone was like :",
+						"Toggle Subtitles",
+						"Every",
 						"bbbbbb"
 					]
 				]
@@ -6143,6 +7898,31 @@
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					],
+					[
+						"Toggle Subtitles",
+						"Everyone",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				154452.94117647,
+				[
+					[
+						"Toggle Subtitles",
+						"Everyone was",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				154541.176470588,
+				[
+					[
+						"Toggle Subtitles",
+						"Everyone was like",
+						"bbbbbb"
 					]
 				]
 			],
@@ -6170,8 +7950,8 @@
 				155004.411764706,
 				[
 					[
-						"sub",
-						"\"Oh no! The lore is so crap!\"",
+						"Toggle Subtitles",
+						"\"Oh",
 						"bbbbbb"
 					]
 				]
@@ -6180,9 +7960,9 @@
 				155335.294117647,
 				[
 					[
-						"Add Camera Zoom",
-						"0.005",
-						"0.02"
+						"Toggle Subtitles",
+						"\"Oh no!",
+						"bbbbbb"
 					]
 				]
 			],
@@ -6197,6 +7977,26 @@
 				]
 			],
 			[
+				155864.705882353,
+				[
+					[
+						"Toggle Subtitles",
+						"\"Oh no! The",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				155952.94117647,
+				[
+					[
+						"Toggle Subtitles",
+						"\"Oh no! The lo",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				156041.176470588,
 				[
 					[
@@ -6207,12 +8007,52 @@
 				]
 			],
 			[
+				156129.411764706,
+				[
+					[
+						"Toggle Subtitles",
+						"\"Oh no! The lore",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				156217.647058823,
+				[
+					[
+						"Toggle Subtitles",
+						"\"Oh no! The lore is",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				156305.882352941,
+				[
+					[
+						"Toggle Subtitles",
+						"\"Oh no! The lore is so",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				156394.117647059,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				156570.588235294,
+				[
+					[
+						"Toggle Subtitles",
+						"\"Oh no! The lore is so crap!\"",
+						"bbbbbb"
 					]
 				]
 			],
@@ -6237,11 +8077,21 @@
 				]
 			],
 			[
-				157132.773109244,
+				157175.630252101,
 				[
 					[
-						"sub",
-						"\"Gregory is a robot!\"",
+						"Toggle Subtitles",
+						"\"Greg",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				157347.058823529,
+				[
+					[
+						"Toggle Subtitles",
+						"\"Grego",
 						"bbbbbb"
 					]
 				]
@@ -6250,9 +8100,29 @@
 				157432.773109244,
 				[
 					[
-						"Add Camera Zoom",
-						"0.005",
-						"0.02"
+						"Toggle Subtitles",
+						"\"Gregory",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				157604.201680672,
+				[
+					[
+						"Toggle Subtitles",
+						"\"Gregory is",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				157689.915966386,
+				[
+					[
+						"Toggle Subtitles",
+						"\"Gregory is a",
+						"bbbbbb"
 					]
 				]
 			],
@@ -6260,9 +8130,19 @@
 				157775.630252101,
 				[
 					[
-						"Add Camera Zoom",
-						"0.005",
-						"0.02"
+						"Toggle Subtitles",
+						"\"Gregory is a ro",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				157947.058823529,
+				[
+					[
+						"Toggle Subtitles",
+						"\"Gregory is a robot!\"",
+						"bbbbbb"
 					]
 				]
 			],
@@ -6290,8 +8170,18 @@
 				158547.058823529,
 				[
 					[
-						"sub",
-						"Well I think that's all because you're RACIST to robots!",
+						"Toggle Subtitles",
+						"Well",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				158718.487394958,
+				[
+					[
+						"Toggle Subtitles",
+						"Well I",
 						"bbbbbb"
 					]
 				]
@@ -6307,12 +8197,62 @@
 				]
 			],
 			[
+				158889.915966386,
+				[
+					[
+						"Toggle Subtitles",
+						"Well I think",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				158975.630252101,
+				[
+					[
+						"Toggle Subtitles",
+						"Well I think that's",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				159061.344537815,
+				[
+					[
+						"Toggle Subtitles",
+						"Well I think that's all",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				159147.058823529,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				159232.773109244,
+				[
+					[
+						"Toggle Subtitles",
+						"Well I think that's all be",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				159318.487394958,
+				[
+					[
+						"Toggle Subtitles",
+						"Well I think that's all because",
+						"bbbbbb"
 					]
 				]
 			],
@@ -6327,6 +8267,26 @@
 				]
 			],
 			[
+				159489.915966386,
+				[
+					[
+						"Toggle Subtitles",
+						"Well I think that's all because you're",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				159661.344537815,
+				[
+					[
+						"Toggle Subtitles",
+						"Well I think that's all because you're RA",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				159832.773109244,
 				[
 					[
@@ -6337,12 +8297,52 @@
 				]
 			],
 			[
+				159918.487394958,
+				[
+					[
+						"Toggle Subtitles",
+						"Well I think that's all because you're RACIST",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				160089.915966386,
+				[
+					[
+						"Toggle Subtitles",
+						"Well I think that's all because you're RACIST to",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				160175.630252101,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				160261.344537815,
+				[
+					[
+						"Toggle Subtitles",
+						"Well I think that's all because you're RACIST to ro",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				160432.773109244,
+				[
+					[
+						"Toggle Subtitles",
+						"Well I think that's all because you're RACIST to robots!",
+						"bbbbbb"
 					]
 				]
 			],
@@ -6367,11 +8367,11 @@
 				]
 			],
 			[
-				161075.630252101,
+				161118.487394958,
 				[
 					[
-						"sub",
-						"Let's rock...",
+						"Toggle Subtitles",
+						"Let's",
 						"bbbbbb"
 					]
 				]
@@ -6393,6 +8393,16 @@
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				161632.773109244,
+				[
+					[
+						"Toggle Subtitles",
+						"Let's rock...",
+						"bbbbbb"
 					]
 				]
 			],
@@ -6460,7 +8470,17 @@
 				162332.773109244,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
+						"little",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				162661.344537815,
+				[
+					[
+						"Toggle Subtitles",
 						"little blue",
 						"bbbbbb"
 					]
@@ -6480,7 +8500,7 @@
 				163204.201680672,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"BITCH!",
 						"bbbbbb"
 					]
@@ -6515,7 +8535,7 @@
 						"0.01"
 					],
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -6800,7 +8820,57 @@
 				167604.201680672,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
+						"Can",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				167770.868347339,
+				[
+					[
+						"Toggle Subtitles",
+						"Can I",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				168020.868347339,
+				[
+					[
+						"Toggle Subtitles",
+						"Can I get",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				168187.535014006,
+				[
+					[
+						"Toggle Subtitles",
+						"Can I get your",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				168354.201680672,
+				[
+					[
+						"Toggle Subtitles",
+						"Can I get your auto",
+						"f0f0f0"
+					]
+				]
+			],
+			[
+				168520.868347339,
+				[
+					[
+						"Toggle Subtitles",
 						"Can I get your autograph",
 						"f0f0f0"
 					]
@@ -6810,7 +8880,7 @@
 				168937.535014006,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"MISTE-",
 						"f0f0f0"
 					]
@@ -6835,7 +8905,37 @@
 				169208.368347339,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
+						"NO!",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				170020.868347339,
+				[
+					[
+						"Toggle Subtitles",
+						"NO! I'm",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				170770.868347339,
+				[
+					[
+						"Toggle Subtitles",
+						"NO! I'm BU",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				171020.868347339,
+				[
+					[
+						"Toggle Subtitles",
 						"NO! I'm BUSY!!!",
 						"bbbbbb"
 					]
@@ -6855,7 +8955,7 @@
 				171229.201680672,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
 						"ok-",
 						"f0f0f0"
 					]
@@ -6890,7 +8990,7 @@
 						"endo01"
 					],
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -7977,11 +10077,11 @@
 				]
 			],
 			[
-				189479.201680672,
+				189520.868347339,
 				[
 					[
-						"sub",
-						"Why the fuck are you still playing this dumb shit!?",
+						"Toggle Subtitles",
+						"Why",
 						"bbbbbb"
 					]
 				]
@@ -7997,12 +10097,32 @@
 				]
 			],
 			[
+				189687.535014006,
+				[
+					[
+						"Toggle Subtitles",
+						"Why the",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				189770.868347339,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				189854.201680672,
+				[
+					[
+						"Toggle Subtitles",
+						"Why the fuck",
+						"bbbbbb"
 					]
 				]
 			],
@@ -8037,12 +10157,32 @@
 				]
 			],
 			[
+				190354.201680672,
+				[
+					[
+						"Toggle Subtitles",
+						"Why the fuck are",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				190437.535014006,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				190520.868347339,
+				[
+					[
+						"Toggle Subtitles",
+						"Why the fuck are you",
+						"bbbbbb"
 					]
 				]
 			],
@@ -8057,12 +10197,32 @@
 				]
 			],
 			[
+				190687.535014006,
+				[
+					[
+						"Toggle Subtitles",
+						"Why the fuck are you still",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				190770.868347339,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				190854.201680672,
+				[
+					[
+						"Toggle Subtitles",
+						"Why the fuck are you still play",
+						"bbbbbb"
 					]
 				]
 			],
@@ -8077,6 +10237,16 @@
 				]
 			],
 			[
+				191020.868347339,
+				[
+					[
+						"Toggle Subtitles",
+						"Why the fuck are you still playing",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				191104.201680672,
 				[
 					[
@@ -8087,12 +10257,32 @@
 				]
 			],
 			[
+				191187.535014006,
+				[
+					[
+						"Toggle Subtitles",
+						"Why the fuck are you still playing this",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				191270.868347339,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				191354.201680672,
+				[
+					[
+						"Toggle Subtitles",
+						"Why the fuck are you still playing this dumb",
+						"bbbbbb"
 					]
 				]
 			],
@@ -8117,6 +10307,16 @@
 				]
 			],
 			[
+				191604.201680672,
+				[
+					[
+						"Toggle Subtitles",
+						"Why the fuck are you still playing this dumb shit!?",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				191770.868347339,
 				[
 					[
@@ -8130,19 +10330,14 @@
 				191937.535014006,
 				[
 					[
+						"Toggle Subtitles",
+						"Go",
+						"bbbbbb"
+					],
+					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
-					]
-				]
-			],
-			[
-				191965.312791783,
-				[
-					[
-						"sub",
-						"Go play Daycare Deathtrap... right now!",
-						"bbbbbb"
 					]
 				]
 			],
@@ -8157,12 +10352,32 @@
 				]
 			],
 			[
+				192187.535014006,
+				[
+					[
+						"Toggle Subtitles",
+						"Go play",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				192270.868347339,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				192354.201680672,
+				[
+					[
+						"Toggle Subtitles",
+						"Go play Day",
+						"bbbbbb"
 					]
 				]
 			],
@@ -8177,6 +10392,16 @@
 				]
 			],
 			[
+				192520.868347339,
+				[
+					[
+						"Toggle Subtitles",
+						"Go play Daycare",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				192604.201680672,
 				[
 					[
@@ -8187,12 +10412,52 @@
 				]
 			],
 			[
+				192687.535014006,
+				[
+					[
+						"Toggle Subtitles",
+						"Go play Daycare Death",
+						"bbbbbb"
+					]
+				]
+			],
+			[
 				192770.868347339,
 				[
 					[
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
+					]
+				]
+			],
+			[
+				192937.535014006,
+				[
+					[
+						"Toggle Subtitles",
+						"Go play Daycare Deathtrap...",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				193270.868347339,
+				[
+					[
+						"Toggle Subtitles",
+						"Go play Daycare Deathtrap... right",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				193604.201680672,
+				[
+					[
+						"Toggle Subtitles",
+						"Go play Daycare Deathtrap... right now!",
+						"bbbbbb"
 					]
 				]
 			],
@@ -8215,7 +10480,7 @@
 						"10"
 					],
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -8893,6 +11158,21 @@
 						"Play Animation",
 						"interrupt",
 						"dad"
+					],
+					[
+						"Toggle Subtitles",
+						"NO!",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				216854.201680673,
+				[
+					[
+						"Toggle Subtitles",
+						"",
+						""
 					]
 				]
 			],
@@ -8915,11 +11195,6 @@
 						"0.02"
 					],
 					[
-						"remove image",
-						"mimic",
-						""
-					],
-					[
 						"zoom",
 						"0.6",
 						"0.2"
@@ -8927,7 +11202,7 @@
 				]
 			],
 			[
-				216951.423902895,
+				217020.868347339,
 				[
 					[
 						"zoom",
@@ -9010,19 +11285,14 @@
 				218270.868347339,
 				[
 					[
-						"Add Camera Zoom",
-						"0.005",
-						"0.02"
-					]
-				]
-			],
-			[
-				218270.868347339,
-				[
-					[
 						"zoom",
 						"0.7",
 						"0.1"
+					],
+					[
+						"Add Camera Zoom",
+						"0.005",
+						"0.01"
 					]
 				]
 			],
@@ -9103,12 +11373,7 @@
 						"Add Camera Zoom",
 						"0.005",
 						"0.02"
-					]
-				]
-			],
-			[
-				219618.090569561,
-				[
+					],
 					[
 						"zoom",
 						"0.75",
@@ -9197,7 +11462,7 @@
 				]
 			],
 			[
-				220951.423902895,
+				221020.868347339,
 				[
 					[
 						"zoom",
@@ -9287,11 +11552,11 @@
 				]
 			],
 			[
-				222270.868347339,
+				222354.201680673,
 				[
 					[
 						"zoom",
-						"0.85",
+						"0.65",
 						"0.1"
 					]
 				]
@@ -9377,7 +11642,7 @@
 				]
 			],
 			[
-				223618.090569561,
+				223687.535014006,
 				[
 					[
 						"zoom",
@@ -9467,7 +11732,7 @@
 				]
 			],
 			[
-				224951.423902895,
+				225020.868347339,
 				[
 					[
 						"zoom",
@@ -9557,7 +11822,7 @@
 				]
 			],
 			[
-				226270.868347339,
+				226354.201680673,
 				[
 					[
 						"zoom",
@@ -9647,7 +11912,7 @@
 				]
 			],
 			[
-				227618.090569561,
+				227687.535014006,
 				[
 					[
 						"zoom",
@@ -9737,7 +12002,7 @@
 				]
 			],
 			[
-				228951.423902895,
+				229020.868347339,
 				[
 					[
 						"zoom",
@@ -9827,7 +12092,7 @@
 				]
 			],
 			[
-				230270.868347339,
+				230354.201680673,
 				[
 					[
 						"zoom",
@@ -9917,7 +12182,7 @@
 				]
 			],
 			[
-				231618.090569562,
+				231687.535014006,
 				[
 					[
 						"zoom",
@@ -10007,7 +12272,7 @@
 				]
 			],
 			[
-				232951.423902895,
+				233020.868347339,
 				[
 					[
 						"zoom",
@@ -10097,7 +12362,7 @@
 				]
 			],
 			[
-				234270.868347339,
+				234354.201680673,
 				[
 					[
 						"zoom",
@@ -10187,7 +12452,7 @@
 				]
 			],
 			[
-				235618.090569562,
+				235687.535014006,
 				[
 					[
 						"zoom",
@@ -10277,7 +12542,7 @@
 				]
 			],
 			[
-				236937.535014006,
+				237020.868347339,
 				[
 					[
 						"zoom",
@@ -10367,16 +12632,6 @@
 				]
 			],
 			[
-				238270.868347339,
-				[
-					[
-						"zoom",
-						"0.6",
-						"0.2"
-					]
-				]
-			],
-			[
 				239854.201680673,
 				[
 					[
@@ -10397,11 +12652,81 @@
 				]
 			],
 			[
-				239875.035014006,
+				239909.757236228,
 				[
 					[
-						"sub",
-						"Screw this, you're on your own, guys.",
+						"Toggle Subtitles",
+						"Screw",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				240187.535014006,
+				[
+					[
+						"Toggle Subtitles",
+						"Screw this,",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				240687.535014006,
+				[
+					[
+						"Toggle Subtitles",
+						"Screw this, you",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				240770.868347339,
+				[
+					[
+						"Toggle Subtitles",
+						"Screw this, you're",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				240854.201680673,
+				[
+					[
+						"Toggle Subtitles",
+						"Screw this, you're on",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				240937.535014006,
+				[
+					[
+						"Toggle Subtitles",
+						"Screw this, you're on your",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				241062.535014006,
+				[
+					[
+						"Toggle Subtitles",
+						"Screw this, you're on your own,",
+						"bbbbbb"
+					]
+				]
+			],
+			[
+				241187.535014006,
+				[
+					[
+						"Toggle Subtitles",
+						"Screw this, you're on your own guys.",
 						"bbbbbb"
 					]
 				]
@@ -10420,7 +12745,7 @@
 				242270.868347339,
 				[
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -10482,7 +12807,7 @@
 				]
 			],
 			[
-				244937.535014006,
+				245008.625061399,
 				[
 					[
 						"fadein",
@@ -10495,17 +12820,107 @@
 				245648.43548794,
 				[
 					[
-						"sub",
-						"I think I actually lost my voice guys...",
-						"d6d6d6"
+						"Toggle Subtitles",
+						"I",
+						"fff7e1"
 					]
 				]
 			],
 			[
-				248349.857288888,
+				245861.70563012,
 				[
 					[
-						"removesub",
+						"Toggle Subtitles",
+						"I think",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				246074.9757723,
+				[
+					[
+						"Toggle Subtitles",
+						"I think I",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				246217.155867087,
+				[
+					[
+						"Toggle Subtitles",
+						"I think I ac",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				246359.335961873,
+				[
+					[
+						"Toggle Subtitles",
+						"I think I actually",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				246572.606104053,
+				[
+					[
+						"Toggle Subtitles",
+						"I think I actually lost",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				246856.966293627,
+				[
+					[
+						"Toggle Subtitles",
+						"I think I actually lost my",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				247034.69141211,
+				[
+					[
+						"Toggle Subtitles",
+						"I think I actually lost my voi",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				247212.416530594,
+				[
+					[
+						"Toggle Subtitles",
+						"I think I actually lost my voice",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				247425.686672774,
+				[
+					[
+						"Toggle Subtitles",
+						"I think I actually lost my voice guys...",
+						"fff7e1"
+					]
+				]
+			],
+			[
+				248776.397573248,
+				[
+					[
+						"Toggle Subtitles",
 						"",
 						""
 					]
