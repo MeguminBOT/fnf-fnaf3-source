@@ -1880,9 +1880,9 @@
 						""
 					],
 					[
-						"addimage",
+						"Toggle Image",
 						"white",
-						""
+						"on"
 					],
 					[
 						"fadeout",
@@ -1918,11 +1918,6 @@
 						"zoom",
 						"0.8",
 						"0.2"
-					],
-					[
-						"addanimimage",
-						"purpleguy",
-						""
 					]
 				]
 			],
@@ -1949,11 +1944,6 @@
 			[
 				184941.176470588,
 				[
-					[
-						"remove image",
-						"purpleguy",
-						""
-					],
 					[
 						"fadeout",
 						"black",
@@ -2155,9 +2145,9 @@
 				234352.94117647,
 				[
 					[
-						"addimage",
+						"Toggle Image",
 						"black",
-						""
+						"on"
 					]
 				]
 			]
