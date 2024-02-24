@@ -1,16 +1,18 @@
 -- Using Lulu's optimizations to avoid game lagging.
 
--- TODO: Add in sprites that events add to the stage. (If there are any)
-
 function onCreate()
 	-- Custom functions for stage.
 	createStage() -- Create stages.
 	createStageAnimated() -- Create animated stages.
+	createMiscSprites() -- Create misc sprites.
 end
 
 function onCreatePost()
+	createSubtitles() -- Create subtitles. (Had to put them on createPost for some reason)
+
 	setProperty('paperbonnie.visible', false)
 	setProperty('paperbb.visible', false)
+	setProperty('camHUD.alpha', 0)
 end
 
 function createStage()
@@ -38,9 +40,9 @@ function createStageAnimated()
 	local stagesAnimated = {
 		{ name = 'bonnieanim', image = 'characters/paperbonnie', animation = 'anim', xmlPrefix = 'enter', fps = 24, loop = true, camera = 'camGame', posX = -515, posY = 240, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, add = false },
 		{ name = 'bbanim', image = 'characters/paperbb', animation = 'anim', xmlPrefix = 'enter', fps = 24, loop = true, camera = 'camGame', posX = -700, posY = 200, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, add = false },
-		{ name = 'paper', image = 'paper', animation = 'anim', xmlPrefix = 'idle', fps = 24, loop = true, camera = 'camHUD', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, add = true },
-		{ name = 'paperpeople', image = 'paperpeople', animation = 'anim', xmlPrefix = 'idle', fps = 24, loop = true, camera = 'camHUD', posX = -200, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, add = true },
-		{ name = 'paperpeople2', image = 'paperpeople2', animation = 'anim', xmlPrefix = 'idle', fps = 24, loop = true, camera = 'camHUD', posX = -200, posY = 600, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, add = true },
+		{ name = 'paper', image = 'paper', animation = 'anim', xmlPrefix = 'idle', fps = 24, loop = true, camera = 'camOther', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, add = true },
+		{ name = 'paperpeople', image = 'paperpeople', animation = 'anim', xmlPrefix = 'idle', fps = 30, loop = true, camera = 'camOther', posX = -200, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, add = true },
+		{ name = 'paperpeople2', image = 'paperpeople2', animation = 'anim', xmlPrefix = 'idle', fps = 30, loop = true, camera = 'camOther', posX = -200, posY = 600, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, add = true },
 	}
 
 	for _, stage in ipairs(stagesAnimated) do
@@ -59,6 +61,43 @@ function createStageAnimated()
 		addLuaSprite(stage.name, stage.add)
 		setProperty(stage.name .. '.visible', false)
 	end
+end
+
+function createMiscSprites()
+	local miscSprites = {
+		{ name = 'black', image = 'black', camera = 'camOther', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
+		{ name = 'white', image = 'white', camera = 'camOther', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
+	}
+
+	for _, miscSprite in ipairs(miscSprites) do
+		precacheImage(miscSprite.image)
+		makeLuaSprite(miscSprite.name, miscSprite.image, miscSprite.posX, miscSprite.posY)
+		setScrollFactor(miscSprite.name, miscSprite.scrollX, miscSprite.scrollY)
+		scaleObject(miscSprite.name, miscSprite.scaleX, miscSprite.scaleX)
+
+		if (miscSprite.camera ~= 'camGame' and immersionLevel == 'Partial') then
+			setObjectCamera(miscSprite.name, 'camEasy')
+		else
+			setObjectCamera(miscSprite.name, miscSprite.camera)
+		end
+
+		addLuaSprite(miscSprite.name, true)
+		setProperty(miscSprite.name .. '.alpha', miscSprite.alpha)
+	end
+end
+
+function createSubtitles()
+	makeLuaSprite('TextBG', 'black', 0, 535)
+	setObjectCamera('TextBG', 'camOther')
+	scaleObject('TextBG', 1, 0.1)
+	addLuaSprite('TextBG', true)
+	setProperty('TextBG.alpha', 0)
+
+	makeLuaText('Text', '', 1200, 50, 545)
+	addLuaText('Text')
+	setTextSize('Text', 45)
+	setTextFont('Text', 'stalker2.ttf')
+	setObjectCamera('Text', 'camOther')
 end
 
 function onStepHit()

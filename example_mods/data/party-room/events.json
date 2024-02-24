@@ -38,6 +38,11 @@
 						"Add Camera Zoom",
 						"",
 						""
+					],
+					[
+						"Hud Fade",
+						"1",
+						"16"
 					]
 				]
 			],
@@ -50,9 +55,9 @@
 						"0.8"
 					],
 					[
-						"addimage",
+						"Toggle Sprite",
 						"black",
-						""
+						"on"
 					],
 					[
 						"Play Animation",
@@ -60,8 +65,8 @@
 						"dad"
 					],
 					[
-						"sub",
-						"Hello there buddy!",
+						"Toggle Subtitles",
+						"Hello",
 						"412619"
 					]
 				]
@@ -117,6 +122,16 @@
 				]
 			],
 			[
+				8825.75757575757,
+				[
+					[
+						"Toggle Subtitles",
+						"Hello there",
+						"412619"
+					]
+				]
+			],
+			[
 				9090.90909090909,
 				[
 					[
@@ -133,6 +148,26 @@
 						"zoom",
 						"0.8",
 						"0.1"
+					]
+				]
+			],
+			[
+				9128.78787878788,
+				[
+					[
+						"Toggle Subtitles",
+						"Hello there bud",
+						"412619"
+					]
+				]
+			],
+			[
+				9318.18181818182,
+				[
+					[
+						"Toggle Subtitles",
+						"Hello there buddy!",
+						"412619"
 					]
 				]
 			],
@@ -160,12 +195,12 @@
 				9696.9696969697,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					],
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -1215,9 +1250,9 @@
 				52954.5454545455,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"black",
-						"0.01"
+						"on"
 					],
 					[
 						"Change Character",
@@ -1225,8 +1260,8 @@
 						"paperfreddy2"
 					],
 					[
-						"sub",
-						"Hello there pal!",
+						"Toggle Subtitles",
+						"Hello",
 						"44265e"
 					]
 				]
@@ -1242,6 +1277,26 @@
 				]
 			],
 			[
+				53333.3333333334,
+				[
+					[
+						"Toggle Subtitles",
+						"Hello there",
+						"44265e"
+					]
+				]
+			],
+			[
+				53712.1212121213,
+				[
+					[
+						"Toggle Subtitles",
+						"Hello there pal!",
+						"44265e"
+					]
+				]
+			],
+			[
 				54520.2020202021,
 				[
 					[
@@ -1250,7 +1305,7 @@
 						"0.01"
 					],
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]
@@ -2170,7 +2225,27 @@
 						""
 					],
 					[
-						"sub",
+						"Toggle Subtitles",
+						"Look",
+						"412619"
+					]
+				]
+			],
+			[
+				82575.7575757577,
+				[
+					[
+						"Toggle Subtitles",
+						"Look at",
+						"412619"
+					]
+				]
+			],
+			[
+				82727.2727272729,
+				[
+					[
+						"Toggle Subtitles",
 						"Look at me!",
 						"412619"
 					]
@@ -2180,7 +2255,27 @@
 				83030.3030303032,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
+						"Look",
+						"44265e"
+					]
+				]
+			],
+			[
+				83181.8181818183,
+				[
+					[
+						"Toggle Subtitles",
+						"Look at",
+						"44265e"
+					]
+				]
+			],
+			[
+				83333.3333333335,
+				[
+					[
+						"Toggle Subtitles",
 						"Look at me!",
 						"44265e"
 					]
@@ -2205,7 +2300,7 @@
 						""
 					],
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					],
@@ -2767,18 +2862,23 @@
 				]
 			],
 			[
-				105303.030303031,
+				105378.787878788,
 				[
 					[
-						"fadein",
+						"Toggle Sprite",
 						"black",
-						"0.001"
+						"on"
 					]
 				]
 			],
 			[
 				105454.545454546,
 				[
+					[
+						"Toggle Subtitles",
+						"Nice",
+						"0d4490"
+					],
 					[
 						"fadeout",
 						"black",
@@ -2787,10 +2887,30 @@
 				]
 			],
 			[
-				105464.015151515,
+				105833.333333334,
 				[
 					[
-						"sub",
+						"Toggle Subtitles",
+						"Nice to",
+						"0d4490"
+					]
+				]
+			],
+			[
+				106060.606060606,
+				[
+					[
+						"Toggle Subtitles",
+						"Nice to meet",
+						"0d4490"
+					]
+				]
+			],
+			[
+				106515.151515152,
+				[
+					[
+						"Toggle Subtitles",
 						"Nice to meet you!",
 						"0d4490"
 					]
@@ -2910,7 +3030,7 @@
 				107878.787878788,
 				[
 					[
-						"removesub",
+						"Toggle Subtitles",
 						"",
 						""
 					]

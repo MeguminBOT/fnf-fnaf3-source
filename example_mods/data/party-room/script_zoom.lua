@@ -1,5 +1,5 @@
 local customCamZoom = true
-local zoomValue = 0.8 -- Default zoom value
+local zoomValue = 0.6 -- Default zoom value
 
 function onCreate()
 	if not customCamZoom then
@@ -12,7 +12,7 @@ function onUpdate()
 end
 
 function onStepHit()
-	if curStep >= 0 then
+	if curStep >= 112 then
         zoomValue = mustHitSection and 0.6 or 0.8
     end
 end
