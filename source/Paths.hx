@@ -243,8 +243,9 @@ class Paths
 	// 	return returnAsset;
 	// }
 
-	//Precache with GPU Support
-	public static function image(key:String, ?library:String)
+	// Replaced our old GPU caching method with Raltyro's improved method.
+	public static var currentTrackedAssets:Map<String, FlxGraphic> = [];
+	static public function image(key:String, ?library:String = null, ?allowGPU:Bool = true):FlxGraphic
 	{
 		var bitmap:BitmapData = null;
 		var file:String = null;
@@ -271,26 +272,49 @@ class Paths
 				bitmap = OpenFlAssets.getBitmapData(file);
 		}
 
-		if (bitmap != null)
-		{
-			localTrackedAssets.push(file);
-			if (ClientPrefs.cacheOnGPU)
-			{
-				var texture:RectangleTexture = FlxG.stage.context3D.createRectangleTexture(bitmap.width, bitmap.height, BGRA, true);
-				texture.uploadFromBitmapData(bitmap);
-				bitmap.image.data = null;
-				bitmap.dispose();
-				bitmap.disposeImage();
-				bitmap = BitmapData.fromTexture(texture);
-			}
-			var newGraphic:FlxGraphic = FlxGraphic.fromBitmapData(bitmap, false, file);
-			newGraphic.persist = true;
-			currentTrackedAssets.set(file, newGraphic);
-			return newGraphic;
-		}
+		if (bitmap != null) return cacheBitmap(file, bitmap, allowGPU);
 
 		trace('oh no its returning null NOOOO ($file)');
 		return null;
+	}
+
+	// Caching stuff
+	public static function cacheBitmap(file:String, ?bitmap:BitmapData, ?allowGPU:Bool = true):FlxGraphic
+	{
+		if (bitmap == null)
+		{
+			#if MODS_ALLOWED
+			if (FileSystem.exists(file))
+				bitmap = BitmapData.fromFile(file);
+			else
+			#end
+			if (OpenFlAssets.exists(file, IMAGE))
+				bitmap = OpenFlAssets.getBitmapData(file);
+
+			if (bitmap == null) return null;
+		}
+
+		if (allowGPU && ClientPrefs.cacheOnGPU && bitmap.image != null)
+		@:privateAccess {
+			bitmap.lock();
+			if (bitmap.__texture == null) {
+				bitmap.image.premultiplied = true;
+				bitmap.getTexture(FlxG.stage.context3D);
+			}
+			bitmap.getSurface();
+			bitmap.disposeImage();
+			bitmap.image.data = null;
+			bitmap.image = null;
+			bitmap.readable = true;
+		}
+
+		var graph:FlxGraphic = FlxGraphic.fromBitmapData(bitmap, false, file);
+		graph.persist = true;
+		graph.destroyOnNoUse = false;
+
+		currentTrackedAssets.set(file, graph);
+		localTrackedAssets.push(file);
+		return graph;
 	}
 
 	static public function getTextFromFile(key:String, ?ignoreMods:Bool = false):String
@@ -387,9 +411,6 @@ class Paths
 		return hideChars.split(path).join("").toLowerCase();
 	}
 
-	// completely rewritten asset loading? fuck!
-	public static var currentTrackedAssets:Map<String, FlxGraphic> = [];
-	
 	/* Default Precache (This function is no longer needed)
 	public static function returnGraphic(key:String, ?library:String) {
 		#if MODS_ALLOWED

@@ -252,6 +252,10 @@ class PauseSubState extends MusicBeatSubstate
 		super.update(elapsed);
 		updateSkipTextStuff();
 
+		if (PlayState.instance.video != null) {
+			PlayState.instance.video.pause();
+		}
+
 		var upP = controls.UI_UP_P;
 		var downP = controls.UI_DOWN_P;
 		var accepted = controls.ACCEPT;
