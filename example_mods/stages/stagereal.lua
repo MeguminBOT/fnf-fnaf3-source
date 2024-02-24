@@ -1,11 +1,10 @@
 -- Using Lulu's optimizations to avoid game lagging.
 
--- TODO: Add in sprites that events add to the stage. (If there are any)
-
 function onCreate()
 	-- Custom functions for stage.
 	createStage() -- Create stages.
 	createHoaxes() -- Create hoaxes.
+	createMiscSprites() -- Create misc sprites.
 end
 
 function createStage()
@@ -36,6 +35,10 @@ function createStage()
 end
 
 function createHoaxes()
+	if lowQuality then 
+		return
+	end
+
 	local hoaxes = {
 		{ name = 'phtfreddy', image = 'Chars/phtfreddy', animation = 'anim', xmlPrefix = 'idle', fps = 24, loop = true, posX = 2500, posY = 20, scrollX = 1, scrollY = 1, scaleX = 1.1, scaleY = 1.1, add = false },
 		{ name = 'phtchica', image = 'Chars/phtchica', animation = 'anim', xmlPrefix = 'idle', fps = 24, loop = true, posX = 2500, posY = 20, scrollX = 1, scrollY = 1, scaleX = 1.1, scaleY = 1.1, add = false },
@@ -59,6 +62,30 @@ function createHoaxes()
 	end
 end
 
+function createMiscSprites()
+	local miscSprites = {
+		{ name = 'white', image = 'white', camera = 'camGame', posX = -3200, posY = -1800, scrollX = 0, scrollY = 0, scaleX = 5, scaleY = 5, alpha = 0 },
+		{ name = 'whiteHUD', image = 'white', camera = 'camHUD', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
+		{ name = 'black', image = 'black', camera = 'camHUD', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
+	}
+
+	for _, miscSprite in ipairs(miscSprites) do
+		precacheImage(miscSprite.image)
+		makeLuaSprite(miscSprite.name, miscSprite.image, miscSprite.posX, miscSprite.posY)
+		setScrollFactor(miscSprite.name, miscSprite.scrollX, miscSprite.scrollY)
+		scaleObject(miscSprite.name, miscSprite.scaleX, miscSprite.scaleX)
+
+		if (miscSprite.camera ~= 'camGame' and immersionLevel == 'Partial') then
+			setObjectCamera(miscSprite.name, 'camEasy')
+		else
+			setObjectCamera(miscSprite.name, miscSprite.camera)
+		end
+
+		addLuaSprite(miscSprite.name, true)
+		setProperty(miscSprite.name .. '.alpha', miscSprite.alpha)
+	end
+end
+
 local tweenData = {
     [250] = {'hoax1', 'phtfreddy', -400, 15, 'linear'},
     [294] = {'hoax2', 'phtchica', -400, 12, 'linear'},
@@ -67,6 +94,10 @@ local tweenData = {
 }
 
 function onStepHit()
+	if lowQuality then 
+		return
+	end
+
 	-- Tween Stuff
 	local tweenData = tweenData[curStep]
 	if tweenData then

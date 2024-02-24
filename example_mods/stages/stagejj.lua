@@ -1,7 +1,5 @@
 -- Using Lulu's optimizations to avoid game lagging.
 
--- TODO: Add in sprites that events add to the stage. (If there are any)
-
 function onCreate()
 	-- Custom functions for stage.
 	createStage() -- Create stages.
@@ -29,10 +27,26 @@ function createStage()
 end
 
 function createMiscSprites()
-	makeLuaSprite('black', 'black', 0, 0)
-	setObjectCamera('black', 'camHUD')
-	addLuaSprite('black', true)
-	doTweenAlpha('black', 'black', 0, 0.01, true)
+	local miscSprites = {
+		{ name = 'black', image = 'black', camera = 'camOther', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
+		{ name = 'white', image = 'white', camera = 'camOther', posX = 0, posY = 0, scrollX = 1, scrollY = 1, scaleX = 1, scaleY = 1, alpha = 0 },
+	}
+
+	for _, miscSprite in ipairs(miscSprites) do
+		precacheImage(miscSprite.image)
+		makeLuaSprite(miscSprite.name, miscSprite.image, miscSprite.posX, miscSprite.posY)
+		setScrollFactor(miscSprite.name, miscSprite.scrollX, miscSprite.scrollY)
+		scaleObject(miscSprite.name, miscSprite.scaleX, miscSprite.scaleX)
+
+		if (miscSprite.camera ~= 'camGame' and immersionLevel == 'Partial') then
+			setObjectCamera(miscSprite.name, 'camEasy')
+		else
+			setObjectCamera(miscSprite.name, miscSprite.camera)
+		end
+
+		addLuaSprite(miscSprite.name, true)
+		setProperty(miscSprite.name .. '.alpha', miscSprite.alpha)
+	end
 end
 
 function onStepHit()

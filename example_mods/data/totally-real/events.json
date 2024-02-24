@@ -25,9 +25,9 @@
 				32000,
 				[
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					],
 					[
 						"fadeout",
@@ -80,9 +80,9 @@
 						"0.2"
 					],
 					[
-						"addimagebehindui",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					],
 					[
 						"fadeout",
@@ -110,18 +110,18 @@
 				139000,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"black",
-						""
+						"on"
 					],
 					[
-						"addimage",
-						"white",
-						""
+						"Toggle Sprite",
+						"whiteHUD",
+						"on"
 					],
 					[
 						"fadeout",
-						"white",
+						"whiteHUD",
 						"5"
 					]
 				]

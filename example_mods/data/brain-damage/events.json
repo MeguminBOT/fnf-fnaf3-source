@@ -45,9 +45,9 @@
 						"bf3"
 					],
 					[
-						"addimage",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					],
 					[
 						"zoom",
@@ -80,9 +80,9 @@
 				50865.7969710601,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					],
 					[
 						"fadeout",
@@ -155,9 +155,9 @@
 				78451.3232868495,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					]
 				]
 			],
@@ -490,9 +490,9 @@
 				162401.32328685,
 				[
 					[
-						"addimage",
+						"Toggle Sprite",
 						"white",
-						""
+						"on"
 					]
 				]
 			],
