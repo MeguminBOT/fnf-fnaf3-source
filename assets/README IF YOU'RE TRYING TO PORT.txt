@@ -1,3 +1,13 @@
+Please refrain from doing unofficial MOD FOLDER PORTS for atleast 2 months.
+Doing it for private use is totally fine, but wait a bit with the public. 
+
+You can fork as you please and help contributing to fix bugs or port to other OSes and devices.
+
+Official VS FNAF 3 Source:
+https://github.com/MeguminBOT/fnf-fnaf3-source
+
+---------------------------------------------------------------------------
+
 If you're trying to port, please don't hog the credits for yourself.
 You can contact @AutisticLulu on Discord and we'll work your port out as a official version.
 
@@ -27,4 +37,4 @@ Mod uses a lot of custom lua conditions and several hardcoded + half-hardcoded t
 
 * Game will likely be laggy.
 	
------- -------------------------------------------------- ------
+--------------------------------------------------------------
