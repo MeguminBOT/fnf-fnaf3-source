@@ -95,10 +95,10 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 
 		#if !html5 //Apparently other framerates isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		var option:Option = new Option('Framerate',
-			"Highest framerate the game should run at. \nRecommended is 120 FPS is recommended if your computer is strong enough",
+			"Highest framerate the game should run at. \n120 FPS or higher is recommended if your computer is strong enough",
 			'framerate',
 			'int',
-			60);
+			120);
 		addOption(option);
 
 		option.minValue = 60;
