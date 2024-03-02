@@ -56,6 +56,13 @@ class VisualsUISubState extends BaseOptionsMenu
 			false);
 		addOption(option);
 
+		var option:Option = new Option('Combo Stacking',
+			"If unchecked, Ratings and Combo won't stack, saving on System Memory and making them easier to read",
+			'comboStacking',
+			'bool',
+			true);
+		addOption(option);
+
 		var option:Option = new Option('Time Bar',
 			"Toggles Time Bar",
 			'timeBarEnabled',
@@ -103,16 +110,14 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.changeValue = 0.1;
 		option.decimals = 1;
 		addOption(option);
-		
-		#if !mobile
+
 		var option:Option = new Option('FPS Counter',
 			'If unchecked, hides FPS Counter.',
 			'showFPS',
 			'bool',
-			true);
+			#if android false #else true #end);
 		addOption(option);
 		option.onChange = onChangeFPSCounter;
-		#end
 		
 		var option:Option = new Option('Pause Screen Song:',
 			"What song do you prefer for the Pause Screen?",
@@ -131,13 +136,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 		#end
-
-		var option:Option = new Option('Combo Stacking',
-			"If unchecked, Ratings and Combo won't stack, saving on System Memory and making them easier to read",
-			'comboStacking',
-			'bool',
-			true);
-		addOption(option);
 
 		super();
 	}
@@ -159,7 +157,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		super.destroy();
 	}
 
-	#if !mobile
+	#if !android
 	function onChangeFPSCounter()
 	{
 		if(Main.fpsVar != null)

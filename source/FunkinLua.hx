@@ -65,6 +65,10 @@ import hxvlc.openfl.Video;
 import hxvlc.util.OneOfThree;
 #end
 
+#if android
+import android.Hardware;
+#end
+
 using StringTools;
 
 class FunkinLua {
@@ -99,7 +103,7 @@ class FunkinLua {
 			var resultStr:String = Lua.tostring(lua, result);
 			if(resultStr != null && result != 0) {
 				trace('Error on lua script! ' + resultStr);
-				#if windows
+				#if (windows || android)
 				lime.app.Application.current.window.alert(resultStr, 'Error on lua script!');
 				#else
 				luaTrace('Error loading lua script: "$script"\n' + resultStr, true, false, FlxColor.RED);
@@ -546,12 +550,12 @@ class FunkinLua {
 				cervix = Paths.modFolders(cervix);
 				doPush = true;
 			}
-			else if(FileSystem.exists(cervix))
+			else if(FileSystem.exists(SUtil.getPath() + cervix))
 			{
 				doPush = true;
 			}
 			else {
-				cervix = Paths.getPreloadPath(cervix);
+				cervix = SUtil.getPath() + Paths.getPreloadPath(cervix);
 				if(FileSystem.exists(cervix)) {
 					doPush = true;
 				}
@@ -601,12 +605,12 @@ class FunkinLua {
 				cervix = Paths.modFolders(cervix);
 				doPush = true;
 			}
-			else if(FileSystem.exists(cervix))
+			else if(FileSystem.exists(SUtil.getPath() + cervix))
 			{
 				doPush = true;
 			}
 			else {
-				cervix = Paths.getPreloadPath(cervix);
+				cervix = SUtil.getPath() + Paths.getPreloadPath(cervix);
 				if(FileSystem.exists(cervix)) {
 					doPush = true;
 				}
@@ -654,12 +658,12 @@ class FunkinLua {
 				cervix = Paths.modFolders(cervix);
 				doPush = true;
 			}
-			else if(FileSystem.exists(cervix))
+			else if(FileSystem.exists(SUtil.getPath() + cervix))
 			{
 				doPush = true;
 			}
 			else {
-				cervix = Paths.getPreloadPath(cervix);
+				cervix = SUtil.getPath() + Paths.getPreloadPath(cervix);
 				if(FileSystem.exists(cervix)) {
 					doPush = true;
 				}
@@ -683,7 +687,6 @@ class FunkinLua {
 			}
 			Lua.pushnil(lua);
 		});
-
 		Lua_helper.add_callback(lua, "isRunning", function(luaFile:String){
 			var cervix = luaFile + ".lua";
 			if(luaFile.endsWith(".lua"))cervix=luaFile;
@@ -694,12 +697,12 @@ class FunkinLua {
 				cervix = Paths.modFolders(cervix);
 				doPush = true;
 			}
-			else if(FileSystem.exists(cervix))
+			else if(FileSystem.exists(SUtil.getPath() + cervix))
 			{
 				doPush = true;
 			}
 			else {
-				cervix = Paths.getPreloadPath(cervix);
+				cervix = SUtil.getPath() + Paths.getPreloadPath(cervix);
 				if(FileSystem.exists(cervix)) {
 					doPush = true;
 				}
@@ -734,12 +737,12 @@ class FunkinLua {
 				cervix = Paths.modFolders(cervix);
 				doPush = true;
 			}
-			else if(FileSystem.exists(cervix))
+			else if(FileSystem.exists(SUtil.getPath() + cervix))
 			{
 				doPush = true;
 			}
 			else {
-				cervix = Paths.getPreloadPath(cervix);
+				cervix = SUtil.getPath() + Paths.getPreloadPath(cervix);
 				if(FileSystem.exists(cervix)) {
 					doPush = true;
 				}
@@ -779,12 +782,12 @@ class FunkinLua {
 				cervix = Paths.modFolders(cervix);
 				doPush = true;
 			}
-			else if(FileSystem.exists(cervix))
+			else if(FileSystem.exists(SUtil.getPath() + cervix))
 			{
 				doPush = true;
 			}
 			else {
-				cervix = Paths.getPreloadPath(cervix);
+				cervix = SUtil.getPath() + Paths.getPreloadPath(cervix);
 				if(FileSystem.exists(cervix)) {
 					doPush = true;
 				}
@@ -1215,6 +1218,40 @@ class FunkinLua {
 			}
 			return boobs;
 		});
+		Lua_helper.add_callback(lua, "touchJustPressed", function(button:String) {
+			var boobs = false;
+			#if android
+			for (touch in FlxG.touches.list) {
+				if (touch.justPressed) {
+					boobs = true;
+				}
+			}
+			#end
+			return boobs;
+		});
+		Lua_helper.add_callback(lua, "touchPressed", function(button:String) {
+			var boobs = false;
+			#if android
+			for (touch in FlxG.touches.list) {
+				if (touch.pressed) {
+					boobs = true;
+				}
+			}
+			#end
+			return boobs;
+		});
+		Lua_helper.add_callback(lua, "touchReleased", function(button:String) {
+			var boobs = false;
+			#if android
+			for (touch in FlxG.touches.list) {
+				if (touch.justReleased) {
+					boobs = true;
+				}
+			}
+			#end
+			return boobs;
+		});
+
 		Lua_helper.add_callback(lua, "noteTweenAngle", function(tag:String, note:Int, value:Dynamic, duration:Float, ease:String) {
 			cancelTween(tag);
 			if(note < 0) note = 0;
@@ -1581,6 +1618,24 @@ class FunkinLua {
 			var cam:FlxCamera = cameraFromString(camera);
 			return FlxG.mouse.getScreenPosition(cam).y;
 		});
+		Lua_helper.add_callback(lua, "getTouchX", function(camera:String) {
+			#if android
+			var cam:FlxCamera = cameraFromString(camera);
+			for (touch in FlxG.touches.list) {
+				return touch.getScreenPosition(cam).x;
+			}
+			#end
+			return 0;
+		});
+		Lua_helper.add_callback(lua, "getTouchY", function(camera:String) {
+			#if android
+			var cam:FlxCamera = cameraFromString(camera);
+			for (touch in FlxG.touches.list) {
+				return touch.getScreenPosition(cam).y;
+			}
+			#end
+			return 0;
+		});
 
 		Lua_helper.add_callback(lua, "getMidpointX", function(variable:String) {
 			var killMe:Array<String> = variable.split('.');
@@ -1811,7 +1866,6 @@ class FunkinLua {
 				object.scrollFactor.set(scrollX, scrollY);
 			}
 		});
-
 		Lua_helper.add_callback(lua, "addLuaSprite", function(tag:String, front:Bool = false) {
 			if(PlayState.instance.modchartSprites.exists(tag)) {
 				var shit:ModchartSprite = PlayState.instance.modchartSprites.get(tag);
@@ -2138,7 +2192,7 @@ class FunkinLua {
 			path = Paths.modsJson(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
 			if(!FileSystem.exists(path))
 			#end
-				path = Paths.json(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
+				path = SUtil.getPath() + Paths.json(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
 
 			luaTrace('startDialogue: Trying to load dialogue: ' + path);
 
@@ -2337,6 +2391,11 @@ class FunkinLua {
 			#end
 		});
 
+		Lua_helper.add_callback(lua, "vibration", function(milliseconds:Int) {
+			#if android
+			Hardware.vibrate(milliseconds);
+			#end
+		});
 
 		// LUA TEXTS
 		Lua_helper.add_callback(lua, "makeLuaText", function(tag:String, text:String, width:Int, x:Float, y:Float) {
@@ -2551,7 +2610,7 @@ class FunkinLua {
 			#if MODS_ALLOWED
 			if(absolute)
 			{
-				return FileSystem.exists(filename);
+				return FileSystem.exists(SUtil.getPath() + filename);
 			}
 
 			var path:String = Paths.modFolders(filename);
@@ -2559,7 +2618,7 @@ class FunkinLua {
 			{
 				return true;
 			}
-			return FileSystem.exists(Paths.getPath('assets/$filename', TEXT));
+			return FileSystem.exists(SUtil.getPath() + Paths.getPath('assets/$filename', TEXT));
 			#else
 			if(absolute)
 			{
@@ -2574,11 +2633,11 @@ class FunkinLua {
 				if(!absolute)
 					File.saveContent(Paths.mods(path), content);
 				else
-					File.saveContent(path, content);
+					File.saveContent(SUtil.getPath() + path, content);
 
 				return true;
 			} catch (e:Dynamic) {
-				luaTrace("saveFile: Error trying to save " + path + ": " + e, false, false, FlxColor.RED);
+				luaTrace("Error trying to save " + path.replace(SUtil.getPath(), "") + ": " + e, false, false, FlxColor.RED);
 			}
 			return false;
 		});
@@ -2597,14 +2656,14 @@ class FunkinLua {
 				}
 				#end
 
-				var lePath:String = Paths.getPath(path, TEXT);
+				var lePath:String = SUtil.getPath() + Paths.getPath(path, TEXT);
 				if(Assets.exists(lePath))
 				{
 					FileSystem.deleteFile(lePath);
 					return true;
 				}
 			} catch (e:Dynamic) {
-				luaTrace("deleteFile: Error trying to delete " + path + ": " + e, false, false, FlxColor.RED);
+				luaTrace("Error trying to delete " + path.replace(SUtil.getPath(), "") + ": " + e, false, false, FlxColor.RED);
 			}
 			return false;
 		});
@@ -2629,8 +2688,8 @@ class FunkinLua {
 		Lua_helper.add_callback(lua, "directoryFileList", function(folder:String) {
 			var list:Array<String> = [];
 			#if sys
-			if(FileSystem.exists(folder)) {
-				for (folder in FileSystem.readDirectory(folder)) {
+			if(FileSystem.exists(SUtil.getPath() + folder)) {
+				for (folder in FileSystem.readDirectory(SUtil.getPath() + folder)) {
 					if (!list.contains(folder)) {
 						list.push(folder);
 					}

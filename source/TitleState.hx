@@ -138,8 +138,6 @@ class TitleState extends MusicBeatState {
 
 		Highscore.load();
 
-	
-
 		if (!initialized) {
 			if (FlxG.save.data != null && FlxG.save.data.fullscreen) {
 				FlxG.fullscreen = FlxG.save.data.fullscreen;
@@ -232,7 +230,7 @@ class TitleState extends MusicBeatState {
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
 
-		#if mobile
+		#if android
 		for (touch in FlxG.touches.list) {
 			if (touch.justPressed) {
 				pressedEnter = true;
@@ -251,7 +249,6 @@ class TitleState extends MusicBeatState {
 				pressedEnter = true;
 			#end
 		}
-
 		if (newTitle) {
 			titleTimer += CoolUtil.boundTo(elapsed, 0, 1);
 			if (titleTimer > 2) titleTimer -= 2;

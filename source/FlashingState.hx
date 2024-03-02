@@ -46,16 +46,23 @@ class FlashingState extends MusicBeatState
                 warnSprite.alpha = 1;
             }
         });
+
+		#if android
+		addVirtualPad(NONE, A_B);
+		#end
 	}
 
 	override function update(elapsed:Float)
 	{
 		if(!leftState) {
-			if (controls.ACCEPT || controls.BACK) {
+			if (#if !android controls.ACCEPT #else virtualPad.buttonA.pressed #end) {
 				leftState = true;
 				FlxTransitionableState.skipNextTransIn = true;
 				FlxTransitionableState.skipNextTransOut = true;
 				FlxG.sound.play(Paths.sound('success'));
+				#if android
+					FlxTween.tween(virtualPad, {alpha: 0}, 1);
+				#end
 				FlxTween.tween(warnSprite, { alpha: 0 }, 1, {
 					onComplete: function(twn: FlxTween) {
 						MusicBeatState.switchState(new TitleState());

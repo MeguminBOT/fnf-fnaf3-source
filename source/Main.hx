@@ -23,7 +23,9 @@ import haxe.CallStack;
 #end
 
 // VS FNaF 3 specific imports
+#if !android
 import SystemData;
+#end
 import haxe.io.Path;
 import sys.FileSystem;
 import sys.io.File;
@@ -87,11 +89,13 @@ class Main extends Sprite
 			gameWidth = Math.ceil(stageWidth / zoom);
 			gameHeight = Math.ceil(stageHeight / zoom);
 		}
-	
+
+		SUtil.check();
+
 		ClientPrefs.loadDefaultKeys();
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
-		#if !mobile
+		#if !android
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 		Lib.current.stage.align = "tl";
@@ -106,7 +110,9 @@ class Main extends Sprite
 		FlxG.mouse.visible = false;
 		#end
 		
+		#if !android
 		collectSystemData();
+		#end
 
 		#if CRASH_HANDLER
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
@@ -126,7 +132,7 @@ class Main extends Sprite
 		dateNow = dateNow.replace(" ", "_");
 		dateNow = dateNow.replace(":", "'");
 
-		path = "./crashlogs/" + "VsFNaF3_" + dateNow + ".txt";
+		path = SUtil.getPath() + "/crashlogs/" + "VsFNaF3_" + dateNow + ".txt";
 
 		for (stackItem in callStack)
 		{
@@ -141,8 +147,8 @@ class Main extends Sprite
 
 		errMsg += "\nUncaught Error: " + e.error + "\nPlease report this error either in '#mod-issues in PouriaSFMs discord server'\n or @AutisticLulu on Discord\n or to the GitHub page: https://github.com/MeguminBOT/fnf-fnaf3-source/issues\n\nDon't forget to send the Crashlog!!\n\n> Crash Handler written by: sqirra-rng";
 
-		if (!FileSystem.exists("./crash/"))
-			FileSystem.createDirectory("./crash/");
+		if (!FileSystem.exists(SUtil.getPath() + "crashlogs/"))
+			FileSystem.createDirectory(SUtil.getPath() + "crashlogs/");
 
 		File.saveContent(path, errMsg + "\n");
 
@@ -160,6 +166,7 @@ class Main extends Sprite
 
 // For collecting users system information to give them support easier.
 // Worried? See the SystemData.hx to see what it's collecting.
+#if !android
 function collectSystemData():Void
 {
 	var systemInfo = new SystemData();
@@ -170,3 +177,4 @@ function collectSystemData():Void
 	if (!FileSystem.exists("./" + "SystemData.txt"))
 		File.saveContent(path, systemInfo.toString() + "\n");
 }
+#end

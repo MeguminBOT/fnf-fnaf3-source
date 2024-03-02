@@ -169,6 +169,11 @@ class FreeplayState extends MusicBeatState
 		/* Call our separated function for creating the difficulty selection menu */
 		createDifficultyMenu();
 
+		#if android
+		addVirtualPad(LEFT_FULL, A_B_C_X_Y_Z);
+		virtualPad.y = -26;
+		#end
+
 		super.create();
 	}
 
@@ -376,7 +381,7 @@ class FreeplayState extends MusicBeatState
 		PlayState.isStoryMode = false;
 		PlayState.storyDifficulty = curDifficulty;
 
-		LoadingState.loadAndSwitchState(FlxG.keys.pressed.SHIFT ? new ChartingState() : new PlayState());
+		LoadingState.loadAndSwitchState(FlxG.keys.pressed.SHIFT #if android || virtualPad.buttonZ.pressed #end ? new ChartingState() : new PlayState());
 
 		FlxG.mouse.visible = false;
 		FlxG.sound.music.volume = 0;
@@ -661,12 +666,12 @@ class FreeplayState extends MusicBeatState
 			}
 		}
 
-		if(FlxG.keys.justPressed.CONTROL && !isDiffTablet) {
+		if(FlxG.keys.justPressed.CONTROL #if android || virtualPad.buttonC.justPressed #end && !isDiffTablet) {
 			persistentUpdate = false;
 			openSubState(new GameplayChangersSubstate());
 		}
 
-		if (FlxG.keys.justPressed.ALT && !isDiffTablet) {
+		if (FlxG.keys.justPressed.ALT #if android || virtualPad.buttonX.justPressed #end && !isDiffTablet) {
 			persistentUpdate = false;
 			FlxG.sound.play(Paths.sound('done'), 0.7);
 			MusicBeatState.switchState(new AchievementsMenuState());

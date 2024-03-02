@@ -11,6 +11,10 @@ import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 
+#if android
+import android.Hardware;
+#end
+
 class GameOverSubstate extends MusicBeatSubstate
 {
 	var camFollow:FlxPoint;
@@ -55,6 +59,12 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		camFollow = new FlxPoint(deathBG.getGraphicMidpoint().x, deathBG.getGraphicMidpoint().y);
 
+		#if android
+		if(ClientPrefs.vibration) {
+			Hardware.vibrate(vibrationTime);
+		}
+		#end
+
 		FlxG.camera.scroll.set();
 		FlxG.camera.target = null;
 
@@ -63,6 +73,11 @@ class GameOverSubstate extends MusicBeatSubstate
 		add(camFollowPos);
 
 		FlxTween.tween(deathBG, {alpha: 1}, 6);
+
+		#if android
+		addVirtualPad(NONE, A_B);
+		addPadCamera();
+		#end
 	}
 
 	var isFollowingAlready:Bool = false;
@@ -129,6 +144,9 @@ class GameOverSubstate extends MusicBeatSubstate
 			FlxG.sound.play(Paths.music(endSoundName));
 			new FlxTimer().start(0.7, function(tmr:FlxTimer)
 			{
+				#if android
+				FlxTween.tween(virtualPad, {alpha: 0}, 2);
+				#end
 				FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
 				{
 					MusicBeatState.resetState();

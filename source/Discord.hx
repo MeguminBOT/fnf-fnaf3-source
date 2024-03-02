@@ -1,6 +1,8 @@
 package;
 
+#if sys
 import Sys.sleep;
+#end
 import discord_rpc.DiscordRpc;
 
 #if LUA_ALLOWED
@@ -17,6 +19,7 @@ class DiscordClient
 	{
 		trace("Discord Client starting...");
 		DiscordRpc.start({
+			clientID: "863222024192262205",
 			onReady: onReady,
 			onError: onError,
 			onDisconnected: onDisconnected
@@ -26,7 +29,9 @@ class DiscordClient
 		while (true)
 		{
 			DiscordRpc.process();
+			#if sys
 			sleep(2);
+			#end
 			//trace("Discord Client Update");
 		}
 

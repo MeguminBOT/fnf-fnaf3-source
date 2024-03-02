@@ -72,6 +72,19 @@ class OptionsState extends MusicBeatState
 
 		ClientPrefs.saveSettings();
 
+		#if android
+		var tipText:FlxText = new FlxText(10, FlxG.height - 24, 0, 'Press C to customize your android controls', 16);
+		tipText.setFormat(Paths.font('stalker2.ttf'), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		tipText.borderSize = 2.4;
+		tipText.scrollFactor.set();
+		add(tipText);
+		#end
+
+		#if android
+		addVirtualPad(UP_DOWN, A_B_C);
+		virtualPad.y = -24;
+		#end
+
 		super.create();
 	}
 
@@ -140,18 +153,36 @@ class OptionsState extends MusicBeatState
 		// Handle button actions based on index.
 		switch (index) {
 			case 0: // 'Notecolors'
+				#if android
+				removeVirtualPad();
+				#end
 				openSubState(new options.NotesSubState());
 			case 1: // 'Controls'
+				#if android
+				removeVirtualPad();
+				#end
 				openSubState(new options.ControlsSubState());
 			case 2: // 'Notedelay'
 				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
 			case 3: // 'Graphics'
+				#if android
+				removeVirtualPad();
+				#end
 				openSubState(new options.GraphicsSettingsSubState());
 			case 4: // 'Visuals'
+				#if android
+				removeVirtualPad();
+				#end
 				openSubState(new options.VisualsUISubState());
 			case 5: // 'Gameplay'
+				#if android
+				removeVirtualPad();
+				#end
 				openSubState(new options.GameplaySettingsSubState());
 			case 6: // 'Accessibility'
+				#if android
+				removeVirtualPad();
+				#end
 				openSubState(new options.AccessibilitySubState());
 		}
 		button.x = 69;
@@ -195,5 +226,12 @@ class OptionsState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			MusicBeatState.switchState(new MainMenuState());
 		}
+
+		#if android
+		if (virtualPad.buttonC.justPressed) {
+			removeVirtualPad();
+			openSubState(new android.AndroidControlsSubState());
+		}
+		#end
 	}
 }

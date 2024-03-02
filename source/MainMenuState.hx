@@ -104,6 +104,11 @@ class MainMenuState extends MusicBeatState
 		}
 		#end
 
+		#if android
+		addVirtualPad(UP_DOWN, A_B_C_E);
+		virtualPad.y = -44;
+		#end
+
 		super.create();
 	
 		var newgame = new FlxButton(0, 0, " ", newgamestart);
@@ -177,11 +182,12 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
-		if (FlxG.keys.justPressed.SEVEN) {
+		if (FlxG.keys.justPressed.SEVEN #if android || virtualPad.buttonE.justPressed #end) {
 			selectedSomethin = true;
 			MusicBeatState.switchState(new editors.MasterEditorMenu());
 		}
-
+		#if (desktop || android)
+		else if (FlxG.keys.anyJustPressed(debugKeys) #if android || virtualPad.buttonE.justPressed #end)
 		super.update(elapsed);
 
 		// This was here for debugging purposes, but now it is for file saves getting corrupted, will do proper rewrite for the next bigger update.
@@ -219,7 +225,7 @@ class MainMenuState extends MusicBeatState
 			ClientPrefs.saveSettings();
 		}
 
-		if (FlxG.keys.justPressed.P) {
+		if (FlxG.keys.justPressed.P #if android || virtualPad.buttonC.justPressed #end) {
 			var achieveID2:Int = Achievements.getAchievementIndex('week1');
 			if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID2][2])) { //It's a friday night. WEEEEEEEEEEEEEEEEEE
 				Achievements.achievementsMap.set(Achievements.achievementsStuff[achieveID2][2], true);
