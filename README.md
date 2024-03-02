@@ -1,5 +1,4 @@
 # Official source code of VS FNaF 3.
-** This is the Android source variant ** 
 
 Mod is running on a modified Psych Engine 0.6.2 version.
 Source released to comply with the open source requirement 
