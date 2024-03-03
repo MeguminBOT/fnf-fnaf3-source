@@ -41,7 +41,9 @@ class CreditsState extends FlxState
 
     override function create()
     {
+        #if desktop
 		DiscordClient.changePresence("Credits Menu", null);
+        #end
 
         background = new FlxSprite(-400, -300);
         background.frames = Paths.getSparrowAtlas(spritePath + 'bg');

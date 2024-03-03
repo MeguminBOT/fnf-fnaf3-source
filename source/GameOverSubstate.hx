@@ -28,12 +28,14 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	public static var loopSoundName:String = 'gameOver';
 	public static var endSoundName:String = 'gameOverRetry';
+	public static var vibrationTime:Int = 500; //milliseconds
 
 	public static var instance:GameOverSubstate;
 
 	public static function resetVariables() {
 		loopSoundName = 'gameOver';
 		endSoundName = 'gameOverRetry';
+		vibrationTime = 500;
 	}
 
 	override function create()

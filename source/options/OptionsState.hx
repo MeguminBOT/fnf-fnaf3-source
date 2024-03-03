@@ -12,6 +12,7 @@ import flixel.animation.FlxAnimationController;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
+import flixel.text.FlxText;
 import Controls;
 
 using StringTools;

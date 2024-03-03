@@ -17,12 +17,9 @@ import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
 import Achievements;
-
-#if debug
 import SongUnlock;
 import flixel.input.keyboard.FlxKey;
 import editors.MasterEditorMenu;
-#end
 
 using StringTools;
 
@@ -39,6 +36,8 @@ class MainMenuState extends MusicBeatState
 
 	var spritePath:String = 'menus/mainMenu/';
 
+	var debugKeys:Array<FlxKey>;
+
 	override function create()
 	{
 		mouseSprite = new FlxSprite(Paths.image('cursor'));
@@ -54,6 +53,8 @@ class MainMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("Main Menu", null);
 		#end
+
+		debugKeys = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 
 		camGame = new FlxCamera();
 		camAchievement = new FlxCamera();
@@ -105,7 +106,7 @@ class MainMenuState extends MusicBeatState
 		#end
 
 		#if android
-		addVirtualPad(UP_DOWN, A_B_C_E);
+		addVirtualPad(UP_DOWN, A_B_X_Y);
 		virtualPad.y = -44;
 		#end
 
@@ -182,12 +183,12 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
-		if (FlxG.keys.justPressed.SEVEN #if android || virtualPad.buttonE.justPressed #end) {
+		if (FlxG.keys.justPressed.SEVEN #if android || virtualPad.buttonX.justPressed #end) {
 			selectedSomethin = true;
 			MusicBeatState.switchState(new editors.MasterEditorMenu());
 		}
 		#if (desktop || android)
-		else if (FlxG.keys.anyJustPressed(debugKeys) #if android || virtualPad.buttonE.justPressed #end)
+		else if (FlxG.keys.anyJustPressed(debugKeys) #if android || virtualPad.buttonX.justPressed #end)
 		super.update(elapsed);
 
 		// This was here for debugging purposes, but now it is for file saves getting corrupted, will do proper rewrite for the next bigger update.
@@ -225,7 +226,7 @@ class MainMenuState extends MusicBeatState
 			ClientPrefs.saveSettings();
 		}
 
-		if (FlxG.keys.justPressed.P #if android || virtualPad.buttonC.justPressed #end) {
+		if (FlxG.keys.justPressed.P #if android || virtualPad.buttonY.justPressed #end) {
 			var achieveID2:Int = Achievements.getAchievementIndex('week1');
 			if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID2][2])) { //It's a friday night. WEEEEEEEEEEEEEEEEEE
 				Achievements.achievementsMap.set(Achievements.achievementsStuff[achieveID2][2], true);
@@ -262,6 +263,7 @@ class MainMenuState extends MusicBeatState
 			SongUnlock.unlockSong('untilnexttime');
 			ClientPrefs.saveSettings();
 		}
+		#end
 	}
 }
 
