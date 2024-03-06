@@ -38,6 +38,9 @@ import sys.io.File;
 import hxvlc.flixel.FlxVideo;
 #end
 
+// Mobile specific:
+import flixel.input.touch.FlxTouch;
+
 using StringTools;
 
 class TitleState extends MusicBeatState {
@@ -62,7 +65,7 @@ class TitleState extends MusicBeatState {
 		#if VIDEOS_ALLOWED
 		var filepath:String = Paths.video('fnaf3start');
 		#if sys
-		if (!FileSystem.exists(filepath))
+		if (!FileSystem.exists(SUtil.getPath(filepath)))
 		#else
 		if (!OpenFlAssets.exists(filepath))
 		#end
@@ -108,10 +111,6 @@ class TitleState extends MusicBeatState {
 		camMenu.bgColor.alpha = 0;
 		FlxG.cameras.reset(camMenu);
 		FlxG.cameras.setDefaultDrawTarget(camMenu, true);
-
-		var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
-		FlxG.mouse.load(mouseSprite.pixels);
-		FlxG.mouse.visible = true; // Make the mouse visible since the UI is made for mouse and touch input.
 
 		#if CHECK_FOR_UPDATES
 		if (ClientPrefs.checkForUpdates && !closedState) {
@@ -230,13 +229,11 @@ class TitleState extends MusicBeatState {
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
 
-		#if android
 		for (touch in FlxG.touches.list) {
 			if (touch.justPressed) {
 				pressedEnter = true;
 			}
 		}
-		#end
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 

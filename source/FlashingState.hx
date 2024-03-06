@@ -12,6 +12,9 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 
+// Mobile specific:
+import flixel.input.touch.FlxTouch;
+
 class FlashingState extends MusicBeatState
 {
 	public static var leftState:Bool = false;
@@ -30,10 +33,6 @@ class FlashingState extends MusicBeatState
 		FlxG.cameras.reset(camMenu);
 		FlxG.cameras.setDefaultDrawTarget(camMenu, true);
 
-		var mouseSprite:FlxSprite = new FlxSprite(Paths.image('cursor'));
-		FlxG.mouse.load(mouseSprite.pixels);
-		FlxG.mouse.visible = true; // Make the mouse visible since the UI is made for mouse and touch input.
-
         warnSprite = new FlxSprite();
         warnSprite.loadGraphic(Paths.image(spritePath + 'seizureWarn'));
         warnSprite.screenCenter();
@@ -46,28 +45,24 @@ class FlashingState extends MusicBeatState
                 warnSprite.alpha = 1;
             }
         });
-
-		#if android
-		addVirtualPad(NONE, A_B);
-		#end
 	}
 
 	override function update(elapsed:Float)
 	{
 		if(!leftState) {
-			if (#if !android controls.ACCEPT #else virtualPad.buttonA.pressed #end) {
-				leftState = true;
-				FlxTransitionableState.skipNextTransIn = true;
-				FlxTransitionableState.skipNextTransOut = true;
-				FlxG.sound.play(Paths.sound('success'));
-				#if android
-					FlxTween.tween(virtualPad, {alpha: 0}, 1);
-				#end
-				FlxTween.tween(warnSprite, { alpha: 0 }, 1, {
-					onComplete: function(twn: FlxTween) {
-						MusicBeatState.switchState(new TitleState());
-					}
-				});
+			for (touch in FlxG.touches.list) {
+				if (touch.pressed) {
+					leftState = true;
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
+					FlxG.sound.play(Paths.sound('success'));
+	
+					FlxTween.tween(warnSprite, { alpha: 0 }, 1, {
+						onComplete: function(twn: FlxTween) {
+							MusicBeatState.switchState(new TitleState());
+						}
+					});
+				}
 			}
 		}
 		super.update(elapsed);
