@@ -5,14 +5,6 @@ Source released to comply with the open source requirement
 
 (PORTS OF VS FNAF 3 ARE ALSO REQUIRED TO BE OPENSOURCED, SINCE PEOPLE APPARENTLY DONT UNDERSTAND THIS, I WILL SADLY HAVE TO TAKE MEASURES AGAINST THOSE WHO DON'T RELEASE THEIR PORTS SOURCE)
 
-## About ports
-Please refrain from doing unofficial mod folder ports for at least 2 months. Doing it for private use is totally fine, but wait a bit with the public.
-Regarding HTML ports, message @AutisticLulu on Discord if you want to help with making an official HTML build, I have the resources to host the game as a website on my server as well.
-
-Android Build and Linux build is currently in the works by me.
-
-Official Mac/OSX builds will be supplied by: [JonnycatMeow](https://github.com/JonnycatMeow)
-
 ## Pull requests
 Feel free to improve upon the code, do a pull request and it might just get merged if it works better than the current source.
 
